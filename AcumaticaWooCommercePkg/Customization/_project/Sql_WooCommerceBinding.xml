@@ -1,0 +1,26 @@
+﻿<Sql TableName="WooCommerceBinding" CustomScript="#CDATA">
+    <CDATA name="CustomScript"><![CDATA[
+GO
+IF NOT EXISTS (SELECT * FROM SYSOBJECTS WHERE NAME='BCBINDINGWOOCOMMERCE' AND XTYPE='U')
+BEGIN
+  CREATE TABLE [dbo].[BCBindingWooCommerce](
+	[CompanyID] [int] NOT NULL,
+	[BindingID] [int] NOT NULL,
+	[StoreBaseUrl] [nvarchar](50) NULL,
+	[StoreXAuthToken] [nvarchar](max) NULL,
+	[StoreXAuthClient] [nvarchar](max) NULL,
+	[StoreAdminUrl] [nvarchar](200) NULL,
+	[WooCommerceStoreTimeZone] [nvarchar](100) NULL,
+	[WooCommerceDefaultCurrency] [nvarchar](12) NULL,
+	[tstamp] [timestamp] NOT NULL,
+ CONSTRAINT [PK_BCBindingWooCommerce] PRIMARY KEY CLUSTERED 
+(
+	[CompanyID] ASC,
+	[BindingID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+ALTER TABLE [dbo].[BCBindingWooCommerce] ADD  DEFAULT ((0)) FOR [CompanyID]
+END
+GO]]></CDATA>
+</Sql>

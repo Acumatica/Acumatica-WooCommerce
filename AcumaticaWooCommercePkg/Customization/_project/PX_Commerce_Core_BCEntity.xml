@@ -1,0 +1,3 @@
+﻿<DAC type="PX.Commerce.Core.BCEntity">
+    <Field FieldName="MaxAttemptCount" TypeName="int" OverrideClassName="PX.Commerce.Core.BCEntity" StorageName="ExistingColumn" />
+</DAC>
