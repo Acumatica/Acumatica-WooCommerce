@@ -1,0 +1,22 @@
+
+<p><u><strong>Description</strong></u></p>
+<p>primary contact name and the email address of the Acumatica Customer General section is referenced from the Contact Information of the WooCommerce</p>
+<p><u><strong>Prerequisites</strong></u></p>
+<ol>
+<li>User has access to the ERP application</li>
+<li>WooCommerce Connector is configured</li>
+<li>Customer has access to the WooCommerce Web Application</li></ol>
+<p><u><strong>Detailed Steps to Test</strong></u></p>
+<ol>
+<li>Login to the WooCommerce admin panel as the admin</li>
+<li>Go to the User module and Click on Add New&nbsp;</li>
+<li>Create a customer with primary email address and the First name/Last Name</li>
+<li>Leave the to customer primary First Name and the Last name fields are empty</li>
+<li>Save the record</li>
+<li>Login to the Acumatica application and navigate to the Commerce module</li>
+<li>Prepare and Process the customer record<br />Commerce &gt; Processes</li>
+<li>Open the Customer record from Sync History<br />Commerce &gt; Inquiries</li>
+<li>Validate the customer record created</li>
+<li>Verify the Contact Name and the Email address</li></ol>
+<p><u><strong>Expected Results</strong></u></p>
+<p>The email address of the Acumatica Customer General section should be referenced from the Contact Information of the WooCommerce</p>
