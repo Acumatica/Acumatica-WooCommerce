@@ -21,7 +21,7 @@
 <tbody>
 <tr>
 <td>1.0</td>
-<td>Draft</td>
+<td>Development completed for M1</td>
 <td colspan="1">Development completed</td></tr></tbody></table>
 <p>&nbsp;</p>
 <h2>WooCommerce Store Screen Settings</h2>
