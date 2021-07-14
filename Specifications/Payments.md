@@ -84,4 +84,4 @@
 <td><strong>Proc. Center ID</strong></td>
 <td>The processing center configured in Acumatica ERP for the card-based payment method selected in the&nbsp;<strong>Payment Method ID</strong>&nbsp;column of the&nbsp;<strong>Base Currency Payment Methods</strong>&nbsp;table and the cash account in the non-base currency selected in the&nbsp;<strong>Cash Account</strong>&nbsp;column of this table.</td></tr></tbody></table>
 
-<a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Payment%20Plugins.md">Payment Plugins</a>
+
