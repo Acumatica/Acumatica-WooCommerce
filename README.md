@@ -68,13 +68,15 @@ Go to main menu, open Commerce menu item, and click on WooCommerce Stores and Wo
 3.	Copy and paste the WooCommerce admin URL.
 
 4.	Copy and paste the Request URL until the version string from the admin portal. 
-(E.g: http://dlk1pde165:8080/woo/wp-json/wc/v3)
+(E.g: http(s)://your-wordpress-host/wp-json/v3^)
 
 5.	Copy and paste the Consumer Key from the admin portal.
 
 6.	Copy and paste the Consumer secret from the admin portal.
 
 7.	Test the connection.
+
+^ Wordpress hosted URL
 
 #### Entity Settings
 
