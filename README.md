@@ -43,7 +43,7 @@ WooCommerce [AvaTaxV 1.11.2](https://woocommerce.com/products/woocommerce-avatax
 
 ### Installation
 
-[Install](https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R104) customization deployment package.
+Install customization deployment package [here](https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R104).
 
 
 ### Usage
