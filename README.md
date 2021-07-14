@@ -190,7 +190,7 @@ Select the required Entity and then select the required transaction(s) that need
 
 •  	[Functional Test Cases](/Test%20Cases/Functional%20Test%20Cases)
 
-• 	Automation Test Project for SDK
+• 	[WooCommerce Automation Test Project for SDK](https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R104/Tests/ACWC)
 
 ## Notes
 
