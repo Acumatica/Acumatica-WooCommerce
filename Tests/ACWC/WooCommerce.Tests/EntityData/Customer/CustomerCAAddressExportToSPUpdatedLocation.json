@@ -1,0 +1,42 @@
+[
+  {
+    "locationCD": null,
+    "descr": "Primary Location",
+    "locationContact": {
+      "sameAsMain": true,
+      "fullName": "Holiday Inn Plaza",
+      "attention": "Holiday Inn"
+    },
+    "locationAddress": {
+      "sameAsMain": true,
+      "addressLine1": "2450 Paradise Crescent",
+      "city": "Hauterive",
+      "countryID": "CA",
+      "country": "Canada",
+      "stateID": "QC",
+      "state": "Quebec",
+      "postalCode": "G5C 1M1"
+    }
+  },
+  {
+    "locationCD": "QCLOC",
+    "descr": "Pro Star",
+    "locationContact": {
+      "sameAsMain": true,
+      "fullName": "Installation, Maintenance, and Repair Occupations",
+      "attention": "Pro Star",
+      "eMail": "fc51acd7636546bbbbef0dd2984762eb@acumatica.com"
+    },
+    "locationAddress": {
+      "sameAsMain": true,
+      "addressLine1": "3950 Papineau Avenue",
+      "city": "Montreal",
+      "countryID": "CA",
+      "country": "Canada",
+      "stateID": "QC",
+      "state": "Quebec",
+      "postalCode": "H2K 4J5"
+    }
+  }
+]
+

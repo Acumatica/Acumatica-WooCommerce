@@ -1,0 +1,103 @@
+{
+  "Summary": {
+    "PriceType": "Customer Price Class"
+  },
+  "Details": [
+    {
+      "PriceCode": "WHOLESALE",
+      "InventoryID": "TEST-ITEM1",
+      "Description": "Test Item 1",
+      "UOM": "EA",
+      "Warehouse": "",
+      "BreakQty": 0.00,
+      "Price": 500,
+      "Currency": "USD"
+    },
+    {
+      "PriceCode": "WHOLESALE",
+      "InventoryID": "TEST-ITEM1",
+      "Description": "Test Item 2",
+      "UOM": "EA",
+      "Warehouse": "",
+      "BreakQty": 2.00,
+      "Price": 490,
+      "Currency": "USD"
+    },
+    {
+      "PriceCode": "WHOLESALE",
+      "InventoryID": "TEST-ITEM1",
+      "Description": "Test Item 3",
+      "UOM": "EA",
+      "Warehouse": "",
+      "BreakQty": 1.00,
+      "Price": 500,
+      "Currency": "CAD"
+    },
+    {
+      "PriceCode": "WHOLESALE",
+      "InventoryID": "TEST-ITEM1",
+      "Description": "Test Item 4",
+      "UOM": "EA",
+      "Warehouse": "",
+      "BreakQty": 3.00,
+      "Price": 470,
+      "Currency": "CAD"
+    },
+    {
+      "PriceCode": "RETAIL",
+      "InventoryID": "TEST-ITEM2",
+      "UOM": "EA",
+      "Warehouse": "",
+      "BreakQty": 1.00,
+      "Price": 400,
+      "Currency": "USD"
+    },
+    {
+      "PriceCode": "RETAIL",
+      "InventoryID": "TEST-ITEM2",
+      "UOM": "EA",
+      "Warehouse": "",
+      "BreakQty": 2.00,
+      "Price": 390,
+      "Currency": "USD"
+    },
+    {
+      "PriceCode": "RETAIL",
+      "InventoryID": "TEST-ITEM3",
+      "UOM": "EA",
+      "Warehouse": "",
+      "BreakQty": 1.00,
+      "Price": 300,
+      "Currency": "CAD"
+    },
+    {
+      "PriceCode": "RETAIL",
+      "InventoryID": "TEST-ITEM3",
+      "UOM": "EA",
+      "Warehouse": "",
+      "BreakQty": 3.00,
+      "Price": 200,
+      "Currency": "CAD",
+      "EffectiveDate": "06/30/2020",
+      "ExpirationDate": "07/01/2020"
+    },
+    {
+      "PriceCode": "OTHERS",
+      "InventoryID": "SHIRT",
+      "UOM": "EA",
+      "Warehouse": "",
+      "BreakQty": 1.00,
+      "Price": 200,
+      "Currency": "USD"
+    },
+    {
+      "PriceCode": "OTHERS",
+      "InventoryID": "SHIRT",
+      "UOM": "EA",
+      "Warehouse": "",
+      "BreakQty": 2.00,
+      "Price": 190,
+      "Currency": "USD"
+    }
+  ]
+}

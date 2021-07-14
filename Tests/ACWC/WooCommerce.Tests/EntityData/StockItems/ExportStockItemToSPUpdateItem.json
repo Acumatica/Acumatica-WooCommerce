@@ -1,0 +1,13 @@
+[
+  {
+    "inventoryCD": "SH-MUG",
+    "Description": "Shopify Coffee Mug",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "BasePrice": 16
+    }
+  }
+]

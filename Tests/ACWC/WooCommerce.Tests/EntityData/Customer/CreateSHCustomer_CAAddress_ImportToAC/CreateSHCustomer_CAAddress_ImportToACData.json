@@ -1,0 +1,33 @@
+{
+  "email": "",
+  "first_name": "Tharindu",
+  "last_name": "McDonald",
+  "username": true,
+  "billing": {
+      "address_1": "We Work Building",
+      "address_2": "Fourth Floor",
+      "city": "Montreal",
+      "company": "We Work",
+      "country": "Canada",
+      "default": true,
+      "first_name": "Simon",
+      "last_name": "Peters",
+      "name": "Simon Peters",
+      "phone": "",
+      "zip": "H3B 5E6"
+    },
+  "shipping": {
+    "first_name": "Simon",
+    "last_name": "Peters",
+    "company": "We Work",
+    "address1": "We Work Building",
+    "address2": "5th Floor",
+    "city": "Montreal",
+    "state": "state",
+    "country": "Canada",
+    "zip": "H3B 5E6",
+    "phone": "",
+    
+    "default": false
+  }
+}

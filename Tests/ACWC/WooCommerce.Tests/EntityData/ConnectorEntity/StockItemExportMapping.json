@@ -1,0 +1,30 @@
+{
+  "Store": "Shopify",
+  "EntityType": "Stock Item",
+  "ExportMapping": [
+    {
+      "TargetObj": "Product -> Product Variants",
+      "TargetField": "Retail Price",
+      "SourceObj": "Stock Item",
+      "SourceField": "Default Price"
+    },
+    {
+      "TargetObj": "Product -> Product Variants",
+      "TargetField": "Barcode",
+      "SourceObj": "Stock Item -> Advanced",
+      "SourceField": "=IIf( [StockItem -> Custom.Item.UsrCustom_1]='Canada', '1122', '3344' )"
+    },
+    {
+      "TargetObj": "Product",
+      "TargetField": "Body HTML Description",
+      "SourceObj": "Stock Item -> Attributes",
+      "SourceField": " Color"
+    },
+    {
+      "TargetObj": "Product -> Product Variants",
+      "TargetField": "Sale Price",
+      "SourceObj": "Stock Item",
+      "SourceField": "='123.3'"
+    }
+  ]
+}

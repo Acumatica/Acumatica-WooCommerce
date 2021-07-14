@@ -1,0 +1,20 @@
+{
+  "TemplateID": "ACU-SHIRT",
+  "Description": "Acumatica Polo T-Shirt with Buttons",
+  "GeneralSettings": {
+    "Body": "Stay cool when things heat up",
+    "ItemStatus": "Active",
+    "ItemClass": "Shirts",
+    "ItemType": "Finished Good",
+    "ValMethod": "Average",
+    "TaxCategory": "TAXABLE",
+    "PostClass": "SNO",
+    "LotSerClass": "NOTTRACKED",
+    "Weight": 0.5,
+    "WeightUOM": "KG" 
+  },
+  "PriceInfo": {
+    "RecPrice": 100.00,
+    "BasePrice": 100.00
+  }
+}

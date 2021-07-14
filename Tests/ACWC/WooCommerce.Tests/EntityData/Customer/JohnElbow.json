@@ -1,0 +1,24 @@
+{
+  "acctName": "John Elbow",
+  "status": "Active",
+  "consentAgreement": true,
+  "mainLocationCD": "MAIN",
+  "mainLocationDescr": "Primary Location",
+  "mainContact": {
+    "fullName": "John Elbow",
+    "attention": "John Elbow",
+    "eMail": "291792f5d3984b8285f41f2f4df8065b@acumatica.com"
+  },
+  "mainAddress": {
+    "addressLine1": "1 Kalisa Way",
+    "city": "Paramus",
+    "countryID": "US",
+    "country": "United States",
+    "stateID": "NJ",
+    "state": "New Jersey",
+    "postalCode": "07652"
+  },
+  "defaultLocationSettings": {
+    "cTaxZoneID": "NJ"
+  }
+}

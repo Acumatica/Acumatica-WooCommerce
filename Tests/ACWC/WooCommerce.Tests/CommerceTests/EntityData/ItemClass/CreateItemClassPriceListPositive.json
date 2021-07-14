@@ -1,0 +1,32 @@
+{
+  "ClassID": "SHIRTSBC",
+  "Description": "Shirts",
+  "GeneralSettings": {
+    "StkItem": "true",
+    "ItemType": "Finished Good",
+    "ValMethod": "Average",
+    "TaxCategory": "TAXABLE",
+    "DefWarehouse": "RETAIL",
+    "AvailabilityCalcRule": "STOCKITEM",
+    "PostingClass": "SNO",
+    "LotSerClass": "NOTTRACKED",
+    "BaseUnit": "EA",
+    "SalesUnit": "EA",
+    "PurchaseUnit": "EA",
+    "DecimalBaseUnit": "true",
+    "DecimalSalesUnit": "true",
+    "DecimalPurchaseUnit": "true",
+    "MinMarkup": "50",
+    "Markup": "100"
+  },
+  "Attributes": [
+    {
+      "AttributeID": "MCOLORBC",
+      "Category": "Variant"
+    },
+    {
+      "AttributeID": "SIZEBC",
+      "Category": "Variant"
+    }
+  ]
+}

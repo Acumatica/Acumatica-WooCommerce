@@ -1,0 +1,13 @@
+[
+  {
+    "InventoryCD": "ACU-SHIRT",
+    "Description": "Acumatica Polo T-Shirt with Buttons",
+    "ItemType": "Finished Good",
+    "PostingClass": "SNO",
+    "ItemClass": "SHIRTS",
+    "TaxCategory": "TAXABLE",
+    "DefWarehouse": "MAIN",
+    "DefaultPrice": 100.00,
+    "ItemStatus": "Active"
+  }
+]

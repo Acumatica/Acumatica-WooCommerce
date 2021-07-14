@@ -1,0 +1,13 @@
+[
+  {
+    "InventoryCD": "WEMUG",
+    "Description": "We Work Coffee Mug",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "PROMO",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "BasePrice": 20
+    }
+  }
+]

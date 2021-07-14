@@ -1,0 +1,77 @@
+{
+  "email": "",
+  "first_name": "Tharindu",
+  "last_name": "Smarawickrama111",
+  "username": true,
+  "billing": {
+    "address_1": "We Work Building",
+    "address_2": "Fourth Floor",
+    "city": "Montreal",
+    "company": "We Work",
+    "country": "US",
+    "default": true,
+    "first_name": "Simon",
+    "last_name": "Peters",
+    "name": "Simon Peters",
+    "phone": "",
+    "zip": "H3B 5E6"
+  },
+  "shipping": {
+    "first_name": "Simon",
+    "last_name": "Peters",
+    "company": "We Work",
+    "address1": "We Work Building",
+    "address2": "5th Floor",
+    "city": "Montreal",
+    "state": "state",
+    "country": "US",
+    "zip": "H3B 5E6",
+    "phone": "",
+
+    "default": false
+  }
+}
+
+//{
+//  "email": "sp1234@acumatica.com",
+//  "first_name": "John",
+//  "last_name": "Elbow",
+//  "tax_exempt": false,
+//  "addresses": [
+//    {
+//      "first_name": "John",
+//      "last_name": "Elbow",
+//      "company": "John Elbow",
+//      "address1": "1 Kalisa Way",
+//      "address2": "",
+//      "city": "Paramus",
+//      "province": "New Jersey",
+//      "country": "United States",
+//      "zip": "07652",
+//      "phone": "",
+//      "name": "John Elbow",
+//      "province_code": "NJ",
+//      "country_code": "US",
+//      "country_name": "United States",
+//      "default": true
+//    }
+//  ],
+//  "default_address": {
+//    "first_name": "John",
+//    "last_name": "Elbow",
+//    "company": "John Elbow",
+//    "address1": "1 Kalisa Way",
+//    "address2": "",
+//    "city": "Paramus",
+//    "province": "New Jersey",
+//    "country": "United States",
+//    "zip": "07652",
+//    "phone": "",
+//    "name": "John Elbow",
+//    "province_code": "NJ",
+//    "country_code": "US",
+//    "country_name": "United States",
+//    "default": true
+//  }
+//}
+

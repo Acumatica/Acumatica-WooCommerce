@@ -1,0 +1,30 @@
+{
+  "ClassID": "CSHIRTS",
+  "Description": "Cool Shirts",
+  "GeneralSettings": {
+    "StkItem": "true",
+    "ItemType": "Finished Good",
+    "ValMethod": "Average",
+    "TaxCategory": "EXEMPT",
+    "DefWarehouse": "RETAIL",
+    "AvailabilityCalcRule": "ALLOTHER",
+    "PostingClass": "AOL",
+    "LotSerClass": "NOTTRACKED",
+    "BaseUnit": "EA",
+    "SalesUnit": "EA",
+    "PurchaseUnit": "EA",
+    "DecimalBaseUnit": "true",
+    "DecimalSalesUnit": "true",
+    "DecimalPurchaseUnit": "true"
+  },
+  "Attributes": [
+    {
+      "AttributeID": "TCOLOR",
+      "Category": "Variant"
+    },
+    {
+      "AttributeID": "SIZE",
+      "Category": "Variant"
+    }
+  ] 
+}

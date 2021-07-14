@@ -1,0 +1,21 @@
+﻿{
+  "acctName": "Luxe Shoes",
+  "status": "Active",
+  "consentAgreement": true,
+  "mainContact": {
+    "consentDate": null,
+    "fullName": "Best Shoes Inc.",
+    "attention": "Pete Townsend",
+    "eMail": "bbe42a2a2aed4fb880c9e6de85af585b@acumatica.com",
+    "phone1": null,
+    "phone2": null
+  },
+  "mainAddress": {
+    "addressLine1": "1000 Broadway",
+    "addressLine2": null,
+    "city": "New York",
+    "countryID": "US",
+    "stateID": "NY",
+    "postalCode": "12345"
+  }
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "inventoryCD": "MONITOR26",
+    "description": "Monitor 26\"",
+    "itemStatus": "Active",
+    "itemDetails": {
+      "BasePrice": 200.00,
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 10.00,
+      "WeightUOM": "KG"
+    }
+  },
+  {
+    "inventoryCD": "SIMCARD",
+    "description": "SIM card & contract",
+    "itemStatus": "Active",
+    "itemDetails": {
+      "BasePrice": 50.00,
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "WeightUOM": "KG"
+    }
+  }
+]

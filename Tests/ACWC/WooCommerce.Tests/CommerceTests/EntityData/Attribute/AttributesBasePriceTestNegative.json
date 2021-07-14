@@ -1,0 +1,36 @@
+[
+   {
+     "AttributeID": "TCOLOR",
+     "Description": "Shirt Color",
+     "ControlType": "Combo",
+     "Details": [
+       {
+         "ValueID": "Blue",
+         "Description": "Blue Shirt"
+       },
+       {
+         "ValueID": "Red",
+         "Description": "Red Shirt"
+       }
+     ]
+   },
+   {
+     "AttributeID": "SIZE",
+     "Description": "Size of T-Shirt",
+     "ControlType": "Combo",
+     "Details": [
+       {
+         "ValueID": "S",
+         "Description": "Small"
+       },
+       {
+         "ValueID": "M",
+         "Description": "Medium"
+       },
+       {
+         "ValueID": "L",
+         "Description": "Large"
+       }
+     ]
+   }
+]

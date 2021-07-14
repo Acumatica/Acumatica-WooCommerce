@@ -1,0 +1,58 @@
+[
+  //{
+  //  "inventoryCD": "HEADSET",
+  //  "description": "Headset",
+  //  "itemType": "Finished Good",
+  //  "itemClass": "STOCKITEM",
+  //  "itemStatus": "Active"
+  //},
+  {
+    "inventoryCD": "KEYBOARD",
+    "description": "Computer keyboard",
+    "itemType": "Finished Good",
+    "itemClass": "STOCKITEM",
+    "itemStatus": "Active"
+  },
+  {
+    "inventoryCD": "LAPTOP12",
+    "description": "Laptop 12\"",
+    "itemType": "Finished Good",
+    "itemClass": "STOCKITEM",
+    "itemStatus": "Active"
+  },
+  {
+    "inventoryCD": "LAPTOP14",
+    "description": "Laptop 14\"",
+    "itemType": "Finished Good",
+    "itemClass": "STOCKITEM",
+    "itemStatus": "Active"
+  },
+  {
+    "inventoryCD": "LEATHCASE",
+    "description": "Leather case for laptops 12\"-15\"",
+    "itemType": "Finished Good",
+    "itemClass": "STOCKITEM",
+    "itemStatus": "Active"
+  },
+  {
+    "inventoryCD": "MONITOR26",
+    "description": "Monitor 26\"",
+    "itemType": "Finished Good",
+    "itemClass": "STOCKITEM",
+    "itemStatus": "Active"
+  },
+  {
+    "inventoryCD": "MOUSE",
+    "description": "Computer mouse",
+    "itemType": "Finished Good",
+    "itemClass": "STOCKITEM",
+    "itemStatus": "Active"
+  },
+  {
+    "inventoryCD": "SIMCARD",
+    "description": "SIM card & contract",
+    "itemType": "Finished Good",
+    "itemClass": "STOCKITEM",
+    "itemStatus": "Active"
+  }
+]

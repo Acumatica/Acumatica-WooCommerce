@@ -1,0 +1,20 @@
+{
+  "ClassID": "FOOD-100-CANDY",
+  "Description": "Food Candy",
+  "GeneralSettings": {
+    "StkItem": "true",
+    "ItemType": "Finished Good",
+    "ValMethod": "Average",
+    "TaxCategory": "EXEMPT",
+    "DefWarehouse": "RETAIL",
+    "AvailabilityCalcRule": "FOOD",
+    "PostingClass": "FDI",
+    "LotSerClass": "NOTTRACKED",
+    "BaseUnit": "EA",
+    "SalesUnit": "EA",
+    "PurchaseUnit": "EA",
+    "DecimalBaseUnit": "true",
+    "DecimalSalesUnit": "true",
+    "DecimalPurchaseUnit": "true"
+  }
+}

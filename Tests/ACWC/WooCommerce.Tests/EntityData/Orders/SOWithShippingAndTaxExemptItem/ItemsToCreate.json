@@ -1,0 +1,16 @@
+[
+  {
+    "InventoryCD": "CONGRILL",
+    "Description": "Char-Broil Classic 4800",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "CONSUMER",
+      "PostingClass": "CON",
+      "ItemType": "Finished Good",
+      "TaxCategory": "EXEMPT",
+      "Weight": 20,
+      "WeightUOM": "KG",
+      "BasePrice": 350
+    }
+  }
+]

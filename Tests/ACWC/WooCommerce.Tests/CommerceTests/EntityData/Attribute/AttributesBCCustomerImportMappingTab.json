@@ -1,0 +1,12 @@
+[
+  {
+    "AttributeID": "NEWATTR",
+    "Description": "New Attribute",
+    "ControlType": "Text"
+  },
+  {
+    "AttributeID": "EXTATTR",
+    "Description": "Extra Attribute",
+    "ControlType": "Text"
+  }
+]

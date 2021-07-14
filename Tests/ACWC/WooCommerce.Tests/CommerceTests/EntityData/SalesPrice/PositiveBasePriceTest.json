@@ -1,0 +1,46 @@
+{
+  "Summary": {
+    "PriceType": "Base"
+  },
+  "Details": [
+    {
+      "InventoryID": "TEST-ITEM1",
+      "Description": "Test Item 1",
+      "BreakQty": 0,
+      "Price": 500
+    },
+    {
+      "InventoryID": "TEST-ITEM2",
+      "Description": "Test Item 2",
+      "BreakQty": 1,
+      "Price": 400
+    },
+    {
+      "InventoryID": "TEST-ITEM3",
+      "Description": "Test Item 3",
+      "BreakQty": 1,
+      "Price": 400
+    },
+    {
+      "InventoryID": "TEST-ITEM3",
+      "Description": "Test Item 3",
+      "BreakQty": 2,
+      "Price": 300
+    },
+    {
+      "InventoryID": "TEST-ITEM3",
+      "Description": "Test Item 3",
+      "BreakQty": 3,
+      "Price": 200,
+      "Promotion": true,
+      "EffectiveDate": "2020-08-18",
+      "ExpirationDate": "2020-08-19"
+    },
+    {
+      "InventoryID": "SHIRT    -RED  -S",
+      "Description": "SHIRT    -Red  -S",
+      "BreakQty": 3,
+      "Price": 200
+    }
+  ] 
+}

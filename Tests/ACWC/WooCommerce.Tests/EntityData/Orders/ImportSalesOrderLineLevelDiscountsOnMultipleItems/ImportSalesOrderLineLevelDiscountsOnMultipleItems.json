@@ -1,0 +1,40 @@
+{
+  "line_items": [
+    {
+      "quantity": 1,
+      "title": "Acer Laptop Computer",
+      "sku": "AACOMPUT01",
+      "applied_discount": {
+        "value_type": "percentage",
+        "amount": 25,
+        "value": 5,
+        "title": "Computer %",
+        "Description": "Computer discount"
+      }
+    },
+    {
+      "quantity": 1,
+      "title": "Computer keyboard",
+      "sku": "KEYBOARD",
+      "applied_discount": {
+        "value_type": "percentage",
+        "amount": 3.75,
+        "value": 5,
+        "title": "Keyboard %",
+        "Description": "Keyboard discount"
+      }
+    },
+    {
+      "quantity": 1,
+      "title": "Computer mouse",
+      "sku": "MOUSE",
+      "applied_discount": {
+        "value_type": "percentage",
+        "amount": 1.49,
+        "value": 5,
+        "title": "Mouse %",
+        "Description": "Mouse discount"
+      }
+    }
+  ]
+}

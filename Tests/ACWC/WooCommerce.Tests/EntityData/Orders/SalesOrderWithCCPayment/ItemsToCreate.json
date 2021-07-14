@@ -1,0 +1,16 @@
+[
+  {
+    "InventoryCD": "LAPTOP14",
+    "Description": "Laptop 14\"",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 2.5,
+      "WeightUOM": "KG",
+      "BasePrice": 650
+    }
+  }
+]

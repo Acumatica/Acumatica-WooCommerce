@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <general>
+    <browserbin>C:\Acumatica\AcumaticaTraining\AcumaticaShopifyConnector\AcumaticaShopifyConnectorQA\TestSDK\Chrome\chrome.exe</browserbin>
+    <browser_downloads_folder>C:\Acumatica\AcumaticaTraining\AcumaticaShopifyConnector\download\</browser_downloads_folder>
+    <site_dst>
+      <url>http://localhost/AcumaticaShopify</url>
+      <login>admin</login>
+      <pswd>123</pswd>
+	  <physicalpath>C:\Acumatica\AcumaticaSites\AcumaticaShopify\Site</physicalpath>
+    </site_dst>
+	<long_timeout_ms>1000000</long_timeout_ms>
+    <logging>
+      <logStorage type="htmlfile" level="DEBUG" outputFolder="C:\Acumatica\AcumaticaTraining\AcumaticaShopifyConnector\AcumaticaShopifyConnectorQA\TestsResults" screenshotActive="false" screenshotOutputFolder="C:\pic" />
+    </logging>
+  </general>
+  <testing>
+    <Check Name="ExportStockItemsToSP"/>
+    <!--<Check Name="UpdateStockItems_ExportToSP"/>-->
+    <!--<Check Name="ExportNonStockItemsToSP"/>-->
+    <Check Name="ExportProductAvailabilityToSP"/>
+    <!--<Check Name="ExportTheProductImagesToSP"/>
+    <Check Name="CreateTemplateItemInAcumaticaExportToSP"/>
+    <Check Name="ExportTemplateItemsToSP"/>
+    <Check Name="ImportSalesOrderForAnUn_SyncedItem"/>-->
+    <Check Name="ExportStockItemsToSPFiltering"/>
+    <!--<Check Name="StockItemExportMappingTab"/>-->
+  </testing>
+</config>

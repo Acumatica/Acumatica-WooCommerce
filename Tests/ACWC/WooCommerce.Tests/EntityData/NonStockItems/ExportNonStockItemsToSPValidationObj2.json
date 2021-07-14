@@ -1,0 +1,98 @@
+[
+  {
+    "Title": "Advertising changed.",
+    "ProductType": "NSTOCK1",
+    "Tags": "Item, Non, Stock",
+    "Variants": [
+      {
+        "Sku": "ADVERT",
+        "Price": 400.00,
+        "OriginalPrice": 300.00
+      }
+    ]
+  },
+  {
+    "Title": "Incoming call changed.",
+    "ProductType": "NSTOCK1",
+    "Tags": "Item, Non, Stock",
+    "Variants": [
+      {
+        "Sku": "CALLIN",
+        "Price": 400.00,
+        "OriginalPrice": 300.00
+      }
+    ]
+  },
+  {
+    "Title": "Outgoing call changed.",
+    "ProductType": "NSTOCK1",
+    "Tags": "Item, Non, Stock",
+    "Variants": [
+      {
+        "Sku": "CALLOUT",
+        "Price": 400.00,
+        "OriginalPrice": 300.00
+      }
+    ]
+  },
+  {
+    "Title": "Consulting service changed.",
+    "ProductType": "NSTOCK1",
+    "Tags": "Item, Non, Stock",
+    "Variants": [
+      {
+        "Sku": "CONSULT",
+        "Price": 400.00,
+        "OriginalPrice": 300.00
+      }
+    ]
+  },
+  {
+    "Title": "Junior Consultant changed.",
+    "ProductType": "NSTOCK1",
+    "Tags": "Item, Non, Stock",
+    "Variants": [
+      {
+        "Sku": "CONSULTJR",
+        "Price": 400.00,
+        "OriginalPrice": 300.00
+      }
+    ]
+  },
+  {
+    "Title": "Customization service changed.",
+    "ProductType": "NSTOCK1",
+    "Tags": "Item, Non, Stock",
+    "Variants": [
+      {
+        "Sku": "CSTMZATION",
+        "Price": 400.00,
+        "OriginalPrice": 300.00
+      }
+    ]
+  },
+  {
+    "Title": "Print and Copy Services changed.",
+    "ProductType": "NSTOCK1",
+    "Tags": "Item, Non, Stock",
+    "Variants": [
+      {
+        "Sku": "PRINTCOPY",
+        "Price": 400.00,
+        "OriginalPrice": 300.00
+      }
+    ]
+  },
+  {
+    "Title": "Support service changed.",
+    "ProductType": "NSTOCK1",
+    "Tags": "Item, Non, Stock",
+    "Variants": [
+      {
+        "Sku": "SUPPHOURS",
+        "Price": 400.00,
+        "OriginalPrice": 300.00
+      }
+    ]
+  }
+]
