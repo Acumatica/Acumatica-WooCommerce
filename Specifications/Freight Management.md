@@ -14,7 +14,7 @@
 <th colspan="1">
 <div class="tablesorter-header-inner">
 <div class="tablesorter-header-inner">
-<div class="tablesorter-header-inner">&nbsp;</div></div></div></th></tr></thead>
+<div class="tablesorter-header-inner">&nbsp;Status</div></div></div></th></tr></thead>
 <tbody>
 <tr>
 <td>1.0</td>
