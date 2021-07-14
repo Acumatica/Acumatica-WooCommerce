@@ -6,7 +6,7 @@ This customization package enables users to configure and connect WooCommerce st
 
 Package will allow users to connect multiple WooCommerce storefront sites for a single Acumatica company/branch and each store can be uniquely configured in Acumatica. This means users can have multiple websites with different types of customers and still have all information maintained in a single Acumatica company and branch.
 
-## Supported Entities:
+## Supported Entities
 
 <table>
 	<tr>
@@ -43,7 +43,7 @@ WooCommerce [AvaTaxV 1.11.2](https://woocommerce.com/products/woocommerce-avatax
 
 ### Installation
 
-[Install](https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R104/AcumaticaWooCommercePkg.zip) customization deployment package
+[Install](https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R104/AcumaticaWooCommercePkg.zip) customization deployment package.
 
 
 ### Usage
@@ -64,7 +64,8 @@ Go to main menu, open Commerce menu item, and click on WooCommerce Stores and Wo
 3.	Copy and paste the WooCommerce admin URL.
 
 4.	Copy and paste the Request URL until the version string from the admin portal.
-	(E.g: http(s)://your-wordpress-host/wp-json/v3^)
+
+	(E.g: http(s)://your-wordpress-host/wp-json/v3 ^^)
 
 5.	Copy and paste the Consumer Key from the admin portal.
 
@@ -72,7 +73,7 @@ Go to main menu, open Commerce menu item, and click on WooCommerce Stores and Wo
 
 7.	Test the connection.
 
-^ Wordpress hosted URL
+*^^ Wordpress hosted URL.*
 
 #### Entity Settings
 
