@@ -217,4 +217,4 @@ You may refer the README file in case if you require to setup the WooCommerce Te
 
 Copyright © `2021` `Acumatica, INC`
 
-This component is licensed under the MIT License, a copy of which is available online [here](LICENSE)
+This component is licensed under the MIT License, a copy of which is available online [here](LICENSE).
