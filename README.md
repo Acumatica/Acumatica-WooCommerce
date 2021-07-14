@@ -19,9 +19,13 @@ This document is contained with set of instruction requires to open the customiz
  
  ![enter image description here](Images/Screenshot%202021-07-14%20125749.jpg)
  - Add the installed Acumatica Instance as an existing web site to the solution, then add reference of the **PX.Commerce.WooCommerce** to the linked web site.
+ 
  ![enter image description here](Images/Screenshot%202021-07-14%20125818.jpg)
+ 
 ![enter image description here](Images/Screenshot%202021-07-14%20130306.jpg)
+
 ![enter image description here](Images/Screenshot%202021-07-14%20130351.jpg)
+
  - Build **PX.Commerce.WooCommerce**
  - Go back to the Acumatica Customization project and publish it. 
 
