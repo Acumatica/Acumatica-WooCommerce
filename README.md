@@ -43,12 +43,8 @@ WooCommerce [AvaTaxV 1.11.2](https://woocommerce.com/products/woocommerce-avatax
 
 ### Installation
 
-Install customization deployment package
-1.	[Download](https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R104/AcumaticaWooCommercePkg.zip) WooCommerceConnector.zip
+[Install](https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R104/AcumaticaWooCommercePkg.zip) customization deployment package
 
-3.	In your Acumatica ERP instance, navigate to System -> Customization -> Customization Projects (SM204505), import WooCommerceConnector.zip as a customization project.
-
-5.	Publish customization project.
 
 ### Usage
 
@@ -67,8 +63,8 @@ Go to main menu, open Commerce menu item, and click on WooCommerce Stores and Wo
 
 3.	Copy and paste the WooCommerce admin URL.
 
-4.	Copy and paste the Request URL until the version string from the admin portal. 
-(E.g: http(s)://your-wordpress-host/wp-json/v3^)
+4.	Copy and paste the Request URL until the version string from the admin portal.
+	(E.g: http(s)://your-wordpress-host/wp-json/v3^)
 
 5.	Copy and paste the Consumer Key from the admin portal.
 
