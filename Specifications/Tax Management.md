@@ -1,5 +1,5 @@
 
-<p>Status: Work in Process</p>
+<p>Status: Completed</p>
 <table>
 <thead>
 <tr>
@@ -22,7 +22,7 @@
 <tr>
 <td>1.0</td>
 <td>Draft</td>
-<td colspan="1">Work in Process</td></tr></tbody></table>
+<td colspan="1">Development completed for M1</td></tr></tbody></table>
 <h2>Relationship between AC and WC Tax Concepts</h2>
 
 ![Screenshot](/Specifications/Spec%20Images/Tax1.png)
