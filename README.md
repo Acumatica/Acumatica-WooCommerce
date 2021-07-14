@@ -14,7 +14,9 @@ This document is contained with set of instruction requires to open the customiz
  ![enter image description here](Images/Screenshot%202021-07-14%20125100.jpg)
  - Open Visual Studio 2019, and open the solution from the root of the 2021R104 branch mapped location. 
  ![enter image description here](Images/Screenshot%202021-07-14%20141940.jpg)
- - Reference **dll**s shows below from the installed Acumatica ERP's bin folder. 
+ 
+ - Reference **dll**s shows below from the installed Acumatica ERP's bin folder
+ 
  ![enter image description here](Images/Screenshot%202021-07-14%20125749.jpg)
  - Add the installed Acumatica Instance as an existing web site to the solution, then add reference of the **PX.Commerce.WooCommerce** to the linked web site.
  ![enter image description here](Images/Screenshot%202021-07-14%20125818.jpg)
@@ -22,7 +24,11 @@ This document is contained with set of instruction requires to open the customiz
 ![enter image description here](Images/Screenshot%202021-07-14%20130351.jpg)
  - Build **PX.Commerce.WooCommerce**
  - Go back to the Acumatica Customization project and publish it. 
+
 ![enter image description here](Images/Screenshot%202021-07-14%20130552.jpg)
+
 ![enter image description here](Images/Screenshot%202021-07-14%20131458.jpg)
+
 ![enter image description here](Images/Screenshot%202021-07-14%20131544.jpg)
+
 ![enter image description here](Images/Screenshot%202021-07-14%20132505.jpg)
