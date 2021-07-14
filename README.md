@@ -188,6 +188,9 @@ Select the required Entity and then select the required transaction(s) that need
 
 ## Quality Assurance
 
+Please refer the following locations for Test Materials. The functional Test cases and the Automated test cases are included there.
+You may refer the README file in case if you require to setup the WooCommerce Test Project for SDK.
+
 •  	[Functional Test Cases](/Test%20Cases/Functional%20Test%20Cases)
 
 • 	[WooCommerce Automation Test Project for SDK](https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R104/Tests/ACWC)
