@@ -1,5 +1,5 @@
 
-<p>The document is consisted with set of instruction require to configure and setup the WooCommerce Test Project for SDK (Software Development Kit) before you execute the automation test cases.</p>
+<p>The document is consisted with set of instruction requires to configure and setup the WooCommerce Test Project for SDK (Software Development Kit) before you execute the automation test cases.</p>
 <h1>Prerequisites</h1>
 <p>1. Please create some sample data mentioned below.</p>
 <p>2. Visual Studio 16.8.6 or a latest version is installed to your machine</p>
