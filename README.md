@@ -33,6 +33,6 @@ This document is contained with set of instruction requires to open the customiz
 
 ![enter image description here](Images/Screenshot%202021-07-14%20131458.jpg)
 
-![enter image description here](Images/Screenshot%202021-07-14%20131544.jpg)
+![Customization package screen](Images/Screenshot%202021-07-14%20131544.jpg)
 
 ![enter image description here](Images/Screenshot%202021-07-14%20132505.jpg)
