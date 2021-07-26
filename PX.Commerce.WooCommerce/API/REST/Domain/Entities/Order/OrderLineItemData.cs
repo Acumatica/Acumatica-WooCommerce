@@ -7,11 +7,11 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
 {
     public class OrderLineItemData : BCAPIEntity, IWooEntity
     {
-        private decimal subtotalDecimal;
-        private decimal totalDecimal;
-        private decimal totalTaxDecimal;
-        private decimal priceDecimal;
-        private decimal subTotaTaxlDecimal;
+        private decimal? subtotalDecimal;
+        private decimal? totalDecimal;
+        private decimal? totalTaxDecimal;
+        private decimal? priceDecimal;
+        private decimal? subTotaTaxlDecimal;
 
         [JsonProperty("id")]
         public int? Id { get; set; }
@@ -20,13 +20,13 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         public string Name { get; set; }
 
         [JsonProperty("product_id")]
-        public int ProductId { get; set; }
+        public int? ProductId { get; set; }
 
         [JsonProperty("variation_id")]
-        public int VariationId { get; set; }
+        public int? VariationId { get; set; }
 
         [JsonProperty("quantity")]
-        public int Quantity { get; set; }
+        public int? Quantity { get; set; }
 
         [JsonProperty("tax_class")]
         public string TaxClass { get; set; }
@@ -34,7 +34,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         [JsonProperty("subtotal")]
         public string SubTotal { get; set; }
 
-        public decimal SubTotalDecimal
+        public decimal? SubTotalDecimal
         {
             get
             {
@@ -47,7 +47,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         [JsonProperty("subtotal_tax")]
         public string SubtotalTax { get; set; }
 
-        public decimal SubTotalTaxDecimal
+        public decimal? SubTotalTaxDecimal
         {
             get
             {
@@ -60,7 +60,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         [JsonProperty("total")]
         public string Total { get; set; }
 
-        public decimal TotalDecimal
+        public decimal? TotalDecimal
         {
             get
             {
@@ -73,7 +73,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         [JsonProperty("total_tax")]
         public string TotalTax { get; set; }
 
-        public decimal TotalTaxDecimal
+        public decimal? TotalTaxDecimal
         {
             get
             {
@@ -92,7 +92,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         [JsonProperty("price")]
         public string Price { get; set; }
 
-        public decimal PriceDecimal
+        public decimal? PriceDecimal
         {
             get
             {
@@ -102,7 +102,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
             }
         }
 
-        public decimal UnitPrice
+        public decimal? UnitPrice
         {
             get
             {
@@ -113,9 +113,9 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         [JsonProperty("parent_name")]
         public object ParentName { get; set; }
 
-        public DateTime DateCreatedUT { get; set; }
+        public DateTime? DateCreatedUT { get; set; }
 
-        public decimal Discount
+        public decimal? Discount
         {
             get
             {

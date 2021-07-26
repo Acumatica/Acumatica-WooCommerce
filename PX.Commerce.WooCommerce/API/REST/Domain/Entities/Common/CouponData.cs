@@ -9,7 +9,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
     public class CouponData : BCAPIEntity, IWooEntity
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonProperty("code")]
         public string Code { get; set; }
@@ -17,7 +17,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
         [JsonProperty("amount")]
         public string Amount { get; set; }
 
-        public decimal AmountInDecimal
+        public decimal? AmountInDecimal
         {
             get
             {
@@ -27,16 +27,16 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
         }
 
         [JsonProperty("date_created")]
-        public DateTime DateCreatedUT { get; set; }
+        public DateTime? DateCreatedUT { get; set; }
 
         [JsonProperty("date_created_gmt")]
-        public DateTime DateCreatedGmt { get; set; }
+        public DateTime? DateCreatedGmt { get; set; }
 
         [JsonProperty("date_modified")]
         public DateTime? DateModified { get; set; }
 
         [JsonProperty("date_modified_gmt")]
-        public DateTime DateModifiedGmt { get; set; }
+        public DateTime? DateModifiedGmt { get; set; }
 
         [JsonProperty("discount_type")]
         public string DiscountType { get; set; }
@@ -51,10 +51,10 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
         public string DateExpiresGmt { get; set; }
 
         [JsonProperty("usage_count")]
-        public int UsageCount { get; set; }
+        public int? UsageCount { get; set; }
 
         [JsonProperty("individual_use")]
-        public bool IndividualUse { get; set; }
+        public bool? IndividualUse { get; set; }
 
         [JsonProperty("product_ids")]
         public List<int> ProductIds { get; set; }
@@ -63,16 +63,16 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
         public List<int> ExcludedProductIds { get; set; }
 
         [JsonProperty("usage_limit")]
-        public int UsageLimit { get; set; }
+        public int? UsageLimit { get; set; }
 
         [JsonProperty("usage_limit_per_user")]
-        public int UsageLimitPerUser { get; set; }
+        public int? UsageLimitPerUser { get; set; }
 
         [JsonProperty("limit_usage_to_x_items")]
-        public int LimitUsageToXItems { get; set; }
+        public int? LimitUsageToXItems { get; set; }
 
         [JsonProperty("free_shipping")]
-        public bool FreeShipping { get; set; }
+        public bool? FreeShipping { get; set; }
 
         [JsonProperty("product_categories")]
         public List<int> ProductCategories { get; set; }
@@ -81,7 +81,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
         public List<int> ExcludedProductCategories { get; set; }
 
         [JsonProperty("exclude_sale_items")]
-        public bool ExcludeSaleItems { get; set; }
+        public bool? ExcludeSaleItems { get; set; }
 
         [JsonProperty("minimum_amount")]
         public string MinimumAmount { get; set; }

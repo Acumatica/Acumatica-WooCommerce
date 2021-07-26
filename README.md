@@ -1,10 +1,10 @@
 
 # Acumatica-WooCommerce
 
-This document is contained with set of instruction requires to open the customization package with **Acumatica 2021R1 Update 4** and **Visual Studio 2019**.
+This document is contained with set of instruction requires to open the customization package with **Acumatica 2021R1 Update 9** and **Visual Studio 2019**.
 
- - Install Acumatica 2021R1 Update 4 and create an Acumatica ERP instance.
- - Clone or download the 2021R104 branch to your development environment
+ - Install Acumatica 2021R1 Update 9 and create an Acumatica ERP instance.
+ - Clone or download the 2021R109 branch to your development environment
  - Create customization project in Acumatica ERP as shown below image (you can use any name)
 ![Create a project](Images/Screenshot%202021-07-14%20124849.jpg)
  - Open the created project by clicking on the project name

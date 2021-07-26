@@ -360,7 +360,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             if (!string.IsNullOrWhiteSpace(data.CustomerNote))
                 note += string.Concat("Customer Notes:", Environment.NewLine, data.CustomerNote, Environment.NewLine, Environment.NewLine);
 
-            var notesToCustomer = notes.Where(n => n.CustomerNote && !string.IsNullOrWhiteSpace(n.Note));
+            var notesToCustomer = notes.Where(n => n.CustomerNote.HasValue && n.CustomerNote.Value && !string.IsNullOrWhiteSpace(n.Note));
             if (notesToCustomer.Any())
             {
                 note += $"Note to Customer:{Environment.NewLine}";
@@ -372,7 +372,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                 note += $"{ Environment.NewLine}";
             }
 
-            var privateNotes = notes.Where(n => !n.CustomerNote);
+            var privateNotes = notes.Where(n => n.CustomerNote.HasValue && !n.CustomerNote.Value);
             if (privateNotes.Any())
             {
                 note += $"Private Notes:{Environment.NewLine}";
@@ -1060,7 +1060,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                             InventoryID = new StringReturn() } }
                         },
                         minDateTime, maxDateTime, filters);
-                impls = impls.Append(res);
+                impls = impls.Append(res.ToArray());
             }
 
 

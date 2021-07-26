@@ -1,21 +1,27 @@
 ﻿using Newtonsoft.Json;
+using PX.Commerce.Core;
+using PX.Commerce.WooCommerce.WC.Descriptor;
 
 namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
 {
+    [JsonObject(Description = "Sales Order->Refunds")]
     public class OrderRefundData
     {
-        private decimal totalDecimal;
+        private decimal? totalDecimal;
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        [CommerceDescription(WCCaptions.ID, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
+        public int? Id { get; set; }
 
         [JsonProperty("reason")]
+        [CommerceDescription(WCCaptions.Reason, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public string Reason { get; set; }
 
         [JsonProperty("total")]
+        [CommerceDescription(WCCaptions.Total, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public string Total { get; set; }
 
-        public decimal TotalDecimal
+        public decimal? TotalDecimal
         {
             get
             {

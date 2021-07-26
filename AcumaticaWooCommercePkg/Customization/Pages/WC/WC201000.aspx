@@ -98,101 +98,139 @@
                     <px:PXDropDown CommitChanges="True" runat="server" ID="edVisibility" DataField="Visibility"></px:PXDropDown>
                     <px:PXDropDown CommitChanges="True" runat="server" ID="CstPXDropDown57" DataField="Availability"></px:PXDropDown>
                     <px:PXDropDown CommitChanges="True" runat="server" ID="CstPXDropDown58" DataField="NotAvailMode"></px:PXDropDown>
-                    <px:PXDropDown CommitChanges="True" runat="server" DataField="AvailabilityCalcRule" ID="CstPXDropDown45"></px:PXDropDown></Template>
+                    <px:PXDropDown CommitChanges="True" runat="server" DataField="AvailabilityCalcRule" ID="CstPXDropDown45"></px:PXDropDown>
+                    <px:PXDropDown CommitChanges="True" runat="server" ID="CstPXDropDown71" DataField="WarehouseMode"></px:PXDropDown>
+                    <px:PXLayoutRule GroupCaption="Warehouse Settings" runat="server" ID="CstPXLayoutRule761" StartGroup="True"></px:PXLayoutRule>
+                    <px:PXGrid Height="200px" Width="510px" SyncPosition="True" AllowPaging="False" SkinID="Inquire" AutoAdjustColumns="False" MatrixMode="True" runat="server" ID="gridExportLocations">
+                        <Levels>
+                            <px:PXGridLevel DataMember="ExportLocations">
+                                <RowTemplate>
+                                    <px:PXSelector AutoRefresh="True" CommitChanges="True" runat="server" DataField="LocationID" ID="pxsLocationId"></px:PXSelector>
+                                    <px:PXTextEdit runat="server" DataField="Description" AlreadyLocalized="False" ID="pxtLocationDescription"></px:PXTextEdit>
+                                    <px:PXSelector runat="server" ID="pxsSiteId" DataField="SiteID" DisplayMode="Hint" CommitChanges="True"></px:PXSelector>
+                                    <%--<px:PXDropDown runat="server" ID="PXDDExtLocationId" DataField="ExternalLocationID"></px:PXDropDown>--%>
+                                </RowTemplate>
+                                <Columns>
+                                    <px:PXGridColumn CommitChanges="True" DataField="SiteID" Width="140"></px:PXGridColumn>
+                                    <px:PXGridColumn CommitChanges="True" DataField="LocationID" Width="140px"></px:PXGridColumn>
+                                    <%--<px:PXGridColumn DataField="ExternalLocationID" Width="200px"></px:PXGridColumn>--%>
+                                </Columns>
+                            </px:PXGridLevel>
+                        </Levels>
+                        <ActionBar>
+                            <Actions>
+                                <AddNew Enabled="True" />
+                            </Actions>
+                        </ActionBar>
+                        <ActionBar>
+                            <Actions>
+                                <Delete Enabled="True" />
+                            </Actions>
+                        </ActionBar>
+                    </px:PXGrid>
+                </Template>
             </px:PXTabItem>
-			<px:PXTabItem Text="Order Settings">
-				<Template>
-					<px:PXLayoutRule LabelsWidth="SM" ControlSize="M" runat="server" ID="CstPXLayoutRule112" StartColumn="True"></px:PXLayoutRule>
-					<px:PXLayoutRule LabelsWidth="SM" ControlSize="M" runat="server" ID="CstPXLayoutRule115" StartGroup="True" GroupCaption="General"></px:PXLayoutRule>
-					<px:PXFormView RenderStyle="Simple" DataMember="CurrentBinding" runat="server" ID="frmCurrentBinding1">
-						<Template>
-							<px:PXLayoutRule StartColumn="True" LabelsWidth="SM" ControlSize="M" runat="server" ID="PXLayoutRule1" StartRow="True"></px:PXLayoutRule>
-							<px:PXSegmentMask runat="server" ID="edBranchID" DataField="BranchID" AllowEdit="True"></px:PXSegmentMask>
-						</Template>
-					</px:PXFormView>	
-					<px:PXLayoutRule LabelsWidth="SM" ControlSize="M" GroupCaption="Order" runat="server" ID="CstPXLayoutRule75" StartGroup="True"></px:PXLayoutRule>
-					<px:PXSelector CommitChanges="True" AllowEdit="True" runat="server" ID="edOrderTpe" DataField="OrderType"></px:PXSelector>
-					<px:PXDropDown ID="edTimeZone" runat="server" DataField="OrderTimeZone" ></px:PXDropDown>
-					<px:PXDropDown runat="server" ID="CstPXDropDown80" DataField="PostDiscounts" CommitChanges="True"></px:PXDropDown>
-					<px:PXLayoutRule LabelsWidth="SM"  ControlSize="M" runat="server" ID="CstPXLayoutRule117" StartGroup="True" GroupCaption="Taxes"></px:PXLayoutRule>
-					<px:PXCheckBox runat="server" ID="CstPXCheckBox2" DataField="TaxSynchronization" CommitChanges="True"></px:PXCheckBox>
-					<px:PXSelector AutoRefresh="True" runat="server" ID="CstPXSelector118" DataField="DefaultTaxZoneID" CommitChanges="True"></px:PXSelector>
-					<px:PXCheckBox runat="server" ID="CstPXCheckBox1" DataField="UseAsPrimaryTaxZone"></px:PXCheckBox>
-					<px:PXLayoutRule LabelsWidth="SM"  ControlSize="M" runat="server" ID="PXLayoutRule118" StartGroup="True" GroupCaption="Substitution Lists"></px:PXLayoutRule>
-					<px:PXSelector CommitChanges="True" AllowEdit="False" runat="server" ID="PXSelector2" DataField="TaxSubstitutionListID"></px:PXSelector>
-					<px:PXSelector CommitChanges="True" AllowEdit="False" runat="server" ID="PXSelector3" DataField="TaxCategorySubstitutionListID"></px:PXSelector>
-					<px:PXLayoutRule ControlSize="L" LabelsWidth="M" runat="server" ID="CstPXLayoutRule85" StartColumn="True"></px:PXLayoutRule>
-					<px:PXLayoutRule GroupCaption="Shipping Option Mapping" runat="server" ID="CstPXLayoutRule76" StartGroup="True"></px:PXLayoutRule>
-					<px:PXGrid Height="200px" Width="660px" SyncPosition="True" AllowPaging="False" SkinID="Inquire" AutoAdjustColumns="True" MatrixMode="True" runat="server" ID="ShippingMappings">
-						<Levels>
-							<px:PXGridLevel DataMember="ShippingMappings">
-								<Columns>
-									<px:PXGridColumn CommitChanges="True" TextAlign="Center" Type="CheckBox" DataField="Active" Width="80"></px:PXGridColumn>
-									<px:PXGridColumn DataField="ShippingMethod" Width="120"></px:PXGridColumn>
-									<px:PXGridColumn DataField="CarrierID" Width="120"></px:PXGridColumn>
-									<px:PXGridColumn DataField="ZoneID" Width="100"></px:PXGridColumn>
-									<px:PXGridColumn DataField="ShipTermsID" Width="100"></px:PXGridColumn></Columns>
-							</px:PXGridLevel>
-						</Levels>
-						<ActionBar>
-							<Actions>
-								<AddNew Enabled="True" ></AddNew></Actions></ActionBar>
-						<ActionBar>
-							<Actions>
-								<Delete Enabled="True" ></Delete></Actions></ActionBar>
+            <px:PXTabItem Text="Order Settings">
+                <Template>
+                    <px:PXLayoutRule LabelsWidth="SM" ControlSize="M" runat="server" ID="CstPXLayoutRule112" StartColumn="True"></px:PXLayoutRule>
+                    <px:PXLayoutRule LabelsWidth="SM" ControlSize="M" runat="server" ID="CstPXLayoutRule115" StartGroup="True" GroupCaption="General"></px:PXLayoutRule>
+                    <px:PXFormView RenderStyle="Simple" DataMember="CurrentBinding" runat="server" ID="frmCurrentBinding1">
+                        <Template>
+                            <px:PXLayoutRule StartColumn="True" LabelsWidth="SM" ControlSize="M" runat="server" ID="PXLayoutRule1" StartRow="True"></px:PXLayoutRule>
+                            <px:PXSegmentMask runat="server" ID="edBranchID" DataField="BranchID" AllowEdit="True"></px:PXSegmentMask>
+                        </Template>
+                    </px:PXFormView>
+                    <px:PXLayoutRule LabelsWidth="SM" ControlSize="M" GroupCaption="Order" runat="server" ID="CstPXLayoutRule75" StartGroup="True"></px:PXLayoutRule>
+                    <px:PXSelector CommitChanges="True" AllowEdit="True" runat="server" ID="edOrderTpe" DataField="OrderType"></px:PXSelector>
+                    <px:PXDropDown ID="edTimeZone" runat="server" DataField="OrderTimeZone"></px:PXDropDown>
+                    <px:PXDropDown runat="server" ID="CstPXDropDown80" DataField="PostDiscounts" CommitChanges="True"></px:PXDropDown>
+                    <px:PXLayoutRule LabelsWidth="SM" ControlSize="M" runat="server" ID="CstPXLayoutRule117" StartGroup="True" GroupCaption="Taxes"></px:PXLayoutRule>
+                    <px:PXCheckBox runat="server" ID="CstPXCheckBox2" DataField="TaxSynchronization" CommitChanges="True"></px:PXCheckBox>
+                    <px:PXSelector AutoRefresh="True" runat="server" ID="CstPXSelector118" DataField="DefaultTaxZoneID" CommitChanges="True"></px:PXSelector>
+                    <px:PXCheckBox runat="server" ID="CstPXCheckBox1" DataField="UseAsPrimaryTaxZone"></px:PXCheckBox>
+                    <px:PXLayoutRule LabelsWidth="SM" ControlSize="M" runat="server" ID="PXLayoutRule118" StartGroup="True" GroupCaption="Substitution Lists"></px:PXLayoutRule>
+                    <px:PXSelector CommitChanges="True" AllowEdit="False" runat="server" ID="PXSelector2" DataField="TaxSubstitutionListID"></px:PXSelector>
+                    <px:PXSelector CommitChanges="True" AllowEdit="False" runat="server" ID="PXSelector3" DataField="TaxCategorySubstitutionListID"></px:PXSelector>
+                    <px:PXLayoutRule ControlSize="L" LabelsWidth="M" runat="server" ID="CstPXLayoutRule85" StartColumn="True"></px:PXLayoutRule>
+                    <px:PXLayoutRule GroupCaption="Shipping Option Mapping" runat="server" ID="CstPXLayoutRule76" StartGroup="True"></px:PXLayoutRule>
+                    <px:PXGrid Height="200px" Width="660px" SyncPosition="True" AllowPaging="False" SkinID="Inquire" AutoAdjustColumns="True" MatrixMode="True" runat="server" ID="ShippingMappings">
+                        <Levels>
+                            <px:PXGridLevel DataMember="ShippingMappings">
+                                <Columns>
+                                    <px:PXGridColumn CommitChanges="True" TextAlign="Center" Type="CheckBox" DataField="Active" Width="80"></px:PXGridColumn>
+                                    <px:PXGridColumn DataField="ShippingMethod" Width="120"></px:PXGridColumn>
+                                    <px:PXGridColumn DataField="CarrierID" Width="120"></px:PXGridColumn>
+                                    <px:PXGridColumn DataField="ZoneID" Width="100"></px:PXGridColumn>
+                                    <px:PXGridColumn DataField="ShipTermsID" Width="100"></px:PXGridColumn>
+                                </Columns>
+                            </px:PXGridLevel>
+                        </Levels>
+                        <ActionBar>
+                            <Actions>
+                                <AddNew Enabled="True"></AddNew>
+                            </Actions>
+                        </ActionBar>
+                        <ActionBar>
+                            <Actions>
+                                <Delete Enabled="True"></Delete>
+                            </Actions>
+                        </ActionBar>
 
-					</px:PXGrid></Template>
-			</px:PXTabItem>
-	<px:PXTabItem Text="Payment Settings">
-				<Template>
-					<px:PXLayoutRule ControlSize="L" LabelsWidth="M" runat="server" ID="CstPXLayoutRule120" StartColumn="True"></px:PXLayoutRule>
-					<px:PXLayoutRule GroupCaption="Payment Method Mapping" runat="server" ID="CstPXLayoutRule122" StartGroup="True"></px:PXLayoutRule>
-					<px:PXGrid SyncPosition="True" TabIndex="30400" Height="160px" runat="server" ID="PaymentsMethods" AllowPaging="False" AutoAdjustColumns="False" Caption="Base Currency Payment Methods" CaptionVisible="True" MatrixMode="True" SkinID="Inquire" Width="100%">
-						<Levels>
-							<px:PXGridLevel DataMember="PaymentMethods">
-								<Columns>
-									<px:PXGridColumn CommitChanges="True" TextAlign="Center" Type="CheckBox" DataField="Active" Width="80"></px:PXGridColumn>
-									<px:PXGridColumn DataField="StorePaymentMethod" Width="200"></px:PXGridColumn>
-									<px:PXGridColumn CommitChanges="True" DataField="PaymentMethodID" Width="140"></px:PXGridColumn>
-									<px:PXGridColumn CommitChanges="True" DataField="CashAccountID" Width="140"></px:PXGridColumn>
-									<px:PXGridColumn CommitChanges="True" DataField="ProcessingCenterID" Width="120" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="CuryID" Width="80"></px:PXGridColumn>
-									<px:PXGridColumn TextAlign="Center" Type="CheckBox" DataField="ReleasePayments" Width="80"></px:PXGridColumn></Columns>
-								
-								<RowTemplate>
-									<px:PXSelector AutoRefresh="True" runat="server" ID="CstPXSelector112" DataField="CashAccountID"></px:PXSelector>
-								</RowTemplate>
-							</px:PXGridLevel>
-						</Levels>
-						<Mode AllowDelete="True" AllowAddNew="True"></Mode>
-						<ActionBar ActionsVisible="True" DefaultAction="">
-							<Actions>
-								<AddNew Enabled="true" ToolBarVisible="Top" MenuVisible="True"></AddNew>
-								<Delete Enabled="true" ToolBarVisible="Top"></Delete>
-							</Actions>
-						</ActionBar>
-						<AutoCallBack Target="gridMultiCurrency" Command="Refresh">
-							<Behavior CommitChanges="False" RepaintControlsIDs="gridMultiCurrency"></Behavior>
-						</AutoCallBack>
-					</px:PXGrid>
-					<px:PXGrid SkinID="Details" runat="server" ID="gridMultiCurrency" AllowPaging="False" AutoAdjustColumns="False" Caption="Multicurrency Cash Accounts" CaptionVisible="True" Height="100px" Width="450px">
-						<Levels>
-							<px:PXGridLevel DataMember="MultiCurrency">
-								<Columns>
-									<px:PXGridColumn CommitChanges="True" DataField="CashAccountID" Width="140"></px:PXGridColumn>
-									<px:PXGridColumn DataField="CuryID" Width="140"></px:PXGridColumn>
-									<px:PXGridColumn CommitChanges="True" DataField="ProcessingCenterID" Width="150" />
-								</Columns>
-								<RowTemplate>
-									<px:PXTextEdit runat="server" ID="CstPXTextEdit110" DataField="Currency"></px:PXTextEdit>
-									<px:PXSelector CommitChanges="True" runat="server" ID="CstPXSelector111" DataField="CashAccountID" AutoRefresh="True"></px:PXSelector>
-									<px:PXSelector CommitChanges="True" runat="server" ID="CstPXSelector117" DataField="ProcessingCenterID" AutoRefresh="True"></px:PXSelector>
-								</RowTemplate>
-							</px:PXGridLevel>
-						</Levels>
-					</px:PXGrid>
-				</Template>
-			</px:PXTabItem></Items>
+                    </px:PXGrid>
+                </Template>
+            </px:PXTabItem>
+            <px:PXTabItem Text="Payment Settings">
+                <Template>
+                    <px:PXLayoutRule ControlSize="L" LabelsWidth="M" runat="server" ID="CstPXLayoutRule120" StartColumn="True"></px:PXLayoutRule>
+                    <px:PXLayoutRule GroupCaption="Payment Method Mapping" runat="server" ID="CstPXLayoutRule122" StartGroup="True"></px:PXLayoutRule>
+                    <px:PXGrid SyncPosition="True" TabIndex="30400" Height="160px" runat="server" ID="PaymentsMethods" AllowPaging="False" AutoAdjustColumns="False" Caption="Base Currency Payment Methods" CaptionVisible="True" MatrixMode="True" SkinID="Inquire" Width="100%">
+                        <Levels>
+                            <px:PXGridLevel DataMember="PaymentMethods">
+                                <Columns>
+                                    <px:PXGridColumn CommitChanges="True" TextAlign="Center" Type="CheckBox" DataField="Active" Width="80"></px:PXGridColumn>
+                                    <px:PXGridColumn DataField="StorePaymentMethod" Width="200"></px:PXGridColumn>
+                                    <px:PXGridColumn CommitChanges="True" DataField="PaymentMethodID" Width="140"></px:PXGridColumn>
+                                    <px:PXGridColumn CommitChanges="True" DataField="CashAccountID" Width="140"></px:PXGridColumn>
+                                    <px:PXGridColumn CommitChanges="True" DataField="ProcessingCenterID" Width="120"></px:PXGridColumn>
+                                    <px:PXGridColumn DataField="CuryID" Width="80"></px:PXGridColumn>
+                                    <px:PXGridColumn TextAlign="Center" Type="CheckBox" DataField="ReleasePayments" Width="80"></px:PXGridColumn>
+                                </Columns>
+
+                                <RowTemplate>
+                                    <px:PXSelector AutoRefresh="True" runat="server" ID="CstPXSelector112" DataField="CashAccountID"></px:PXSelector>
+                                </RowTemplate>
+                            </px:PXGridLevel>
+                        </Levels>
+                        <Mode AllowDelete="True" AllowAddNew="True"></Mode>
+                        <ActionBar ActionsVisible="True" DefaultAction="">
+                            <Actions>
+                                <AddNew Enabled="true" ToolBarVisible="Top" MenuVisible="True"></AddNew>
+                                <Delete Enabled="true" ToolBarVisible="Top"></Delete>
+                            </Actions>
+                        </ActionBar>
+                        <AutoCallBack Target="gridMultiCurrency" Command="Refresh">
+                            <Behavior CommitChanges="False" RepaintControlsIDs="gridMultiCurrency"></Behavior>
+                        </AutoCallBack>
+                    </px:PXGrid>
+                    <px:PXGrid SkinID="Details" runat="server" ID="gridMultiCurrency" AllowPaging="False" AutoAdjustColumns="False" Caption="Multicurrency Cash Accounts" CaptionVisible="True" Height="100px" Width="450px">
+                        <Levels>
+                            <px:PXGridLevel DataMember="MultiCurrency">
+                                <Columns>
+                                    <px:PXGridColumn CommitChanges="True" DataField="CashAccountID" Width="140"></px:PXGridColumn>
+                                    <px:PXGridColumn DataField="CuryID" Width="140"></px:PXGridColumn>
+                                    <px:PXGridColumn CommitChanges="True" DataField="ProcessingCenterID" Width="150" />
+                                </Columns>
+                                <RowTemplate>
+                                    <px:PXTextEdit runat="server" ID="CstPXTextEdit110" DataField="Currency"></px:PXTextEdit>
+                                    <px:PXSelector CommitChanges="True" runat="server" ID="CstPXSelector111" DataField="CashAccountID" AutoRefresh="True"></px:PXSelector>
+                                    <px:PXSelector CommitChanges="True" runat="server" ID="CstPXSelector117" DataField="ProcessingCenterID" AutoRefresh="True"></px:PXSelector>
+                                </RowTemplate>
+                            </px:PXGridLevel>
+                        </Levels>
+                    </px:PXGrid>
+                </Template>
+            </px:PXTabItem>
+        </Items>
         <AutoSize Container="Window" Enabled="True" MinHeight="150"></AutoSize>
     </px:PXTab>
 </asp:Content>

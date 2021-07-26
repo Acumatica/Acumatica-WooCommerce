@@ -27,43 +27,43 @@
 
   <ItemGroup>
     <Reference Include="CommonServiceLocator">
-      <HintPath>..\lib\CommonServiceLocator.dll</HintPath>
+      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\CommonServiceLocator.dll</HintPath>
     </Reference>
     <Reference Include="PX.Api.ContractBased">
-      <HintPath>..\lib\PX.Api.ContractBased.dll</HintPath>
+      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Api.ContractBased.dll</HintPath>
     </Reference>
     <Reference Include="PX.Commerce.BigCommerce">
-      <HintPath>..\lib\PX.Commerce.BigCommerce.dll</HintPath>
+      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Commerce.BigCommerce.dll</HintPath>
     </Reference>
     <Reference Include="PX.Commerce.Core">
-      <HintPath>..\lib\PX.Commerce.Core.dll</HintPath>
+      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Commerce.Core.dll</HintPath>
     </Reference>
     <Reference Include="PX.Commerce.Objects">
-      <HintPath>..\lib\PX.Commerce.Objects.dll</HintPath>
+      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Commerce.Objects.dll</HintPath>
     </Reference>
     <Reference Include="PX.Common">
-      <HintPath>..\lib\PX.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Common.dll</HintPath>
     </Reference>
     <Reference Include="PX.Common.Std">
-      <HintPath>..\lib\PX.Common.Std.dll</HintPath>
+      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Common.Std.dll</HintPath>
     </Reference>
     <Reference Include="PX.CS.Contracts">
-      <HintPath>..\lib\PX.CS.Contracts.dll</HintPath>
+      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.CS.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="PX.Data">
-      <HintPath>..\lib\PX.Data.dll</HintPath>
+      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Data.dll</HintPath>
     </Reference>
     <Reference Include="PX.Data.BQL.Fluent">
-      <HintPath>..\lib\PX.Data.BQL.Fluent.dll</HintPath>
+      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Data.BQL.Fluent.dll</HintPath>
     </Reference>
     <Reference Include="PX.Objects">
-      <HintPath>..\lib\PX.Objects.dll</HintPath>
+      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Objects.dll</HintPath>
     </Reference>
     <Reference Include="PX.Web.Customization">
-      <HintPath>..\lib\PX.Web.Customization.dll</HintPath>
+      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Web.Customization.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
-      <HintPath>..\lib\RestSharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System.Configuration">
       <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Configuration.dll</HintPath>

@@ -20,7 +20,7 @@ namespace ACSC.Tests.TestsSalesOrder
     {
         public override void Execute()
         {
-            using (TestExecution.CreateTestCaseGroup("Import a Sales Order with a Coupon Discount from Shopify"))
+            using (TestExecution.CreateTestCaseGroup("Import a Sales Order with a Coupon Discount from WC"))
             {
 
                 using (TestExecution.CreateTestStepGroup("Step 1 - Sync Data"))

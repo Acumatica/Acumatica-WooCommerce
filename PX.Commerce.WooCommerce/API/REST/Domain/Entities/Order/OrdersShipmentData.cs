@@ -12,8 +12,8 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
 			return copyObj;
 		}
         public int? Id { get; set; }
-        public int OrderId { get; set; }
-        public DateTime DateCreatedUT { get; set; }
+        public int? OrderId { get; set; }
+        public DateTime? DateCreatedUT { get; set; }
         public DateTime? DateModified { get; set; }
         public List<ShipmentLineItemData> LineItems { get; set; }
         public List<string> TrackingNumbers { get; set; }
@@ -29,7 +29,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         public int? OrderId { get; set; }
 
         public Guid PackageId { get; set; }
-        public decimal Quantity { get; set; }
+        public decimal? Quantity { get; set; }
 
     }
 }

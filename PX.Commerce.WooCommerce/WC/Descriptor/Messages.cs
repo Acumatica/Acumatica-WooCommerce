@@ -62,6 +62,8 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string AvsResult = "AVS Result";
         public const string Availability = "Availability";
         public const string Attribute = "Attribute";
+        public const string DefaultAttributes = "DefaultAttributes";
+        public const string MenuOrder = "Menu Order";
         public const string BaseCost = "Base Cost";
         public const string BaseCostPrice = "Base Cost Price";
         public const string BaseHandlingCost = "Base Handling Cost";
@@ -76,6 +78,8 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string CardLast4 = "Card Last4";
         public const string CardType = "Card Type";
         public const string Categories = "Categories";
+        public const string Tags = "Tags";
+        public const string Images = "Images";
         public const string CategoryAccess = "Category Access";
         public const string CategoryDescription = "Category Description";
         public const string CategoryName = "Category Name";
@@ -120,6 +124,7 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string Depth = "Depth";
         public const string Length = "Length";
         public const string Discount = "Discount";
+        public const string DiscountTax = "Discount Tax";
         public const string DiscountAmount = "Discount Amount";
         public const string DiscountRule = "Discount Rule";
         public const string DisplayName = "Display Name";
@@ -147,6 +152,15 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string HandlingCostTaxClassId = "Handling Cost Tax Class ID";
         public const string Height = "Height";
         public const string ID = "ID";
+        public const string RateCode = "Rate Code";
+        public const string RateId = "Rate Id";
+        public const string Label = "Label";
+        public const string Compound = "Compound";
+        public const string TaxTotal = "Tax Total";
+        public const string ShippingTaxTotal = "Shipping Tax Total";
+        public const string MethodTitle = "Method Title";
+        public const string MethodId = "Method Id";
+        public const string Reason = "Reason";
         public const string ImageUrl = "Image URL";
         public const string InventoryLevel = "Inventory Level";
         public const string InventoryTracking = "Inventory Tracking";
@@ -172,6 +186,8 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string Method = "Method";
         public const string MinimumOrderQuantity = "Minimum Order Quantity";
         public const string Name = "Name";
+        public const string File = "File";
+        public const string SalesCategory = "Sales Category";
         public const string NameLabel = "Name Label";
         public const string OfflinePayment = "Offline Payment";
         public const string OpenGraphDescription = "Open Graph Description";
@@ -202,6 +218,7 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string ParentCategory = "Parent Category";
         public const string Password = "Password";
         public const string PaymentMethod = "Payment Method";
+        public const string TransactionId = "Transaction Id";
         public const string Phone = "Phone";
         public const string PhoneNumber = "Phone Number";
         public const string PostalCode = "Postal Code";
@@ -256,6 +273,19 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string StartingBalance = "Starting Balance";
         public const string State = "State";
         public const string Status = "Status";
+        public const string Virtual = "Virtual";
+        public const string Downloadable = "Downloadable";
+        public const string Downloads = "Downloads";
+        public const string DownloadLimit = "Download Limit";
+        public const string DownloadExpiry = "Download Expiry";
+        public const string ExternalUrl = "External Url";
+        public const string ButtonText = "Button Text";
+        public const string TaxStatus = "Tax Status";
+        public const string TaxClass = "Tax Class";
+        public const string ManageStock = "Manage Stock";
+        public const string StockStatus = "Stock Status";
+        public const string SoldIndividually = "Sold Individually";
+        public const string Backorders = "Backorders";
         public const string StockKeepingUnit = "Stock Keeping Unit";
         public const string Street1 = "Street 1";
         public const string Street2 = "Street 2";
@@ -273,9 +303,14 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string TotalExcludingTax = "Total Excluding Tax";
         public const string TotalIncludingTax = "Total Including Tax";
         public const string TotalTax = "Total Tax";
+        public const string Taxes = "Taxes";
+        public const string Total = "Total";
+
         public const string TrackingCarrier = "Tracking Carrier";
         public const string TrackingID = "Tracking ID";
         public const string Type = "Type";
+        public const string Options = "Options";
+        public const string Variation = "Variation";
         public const string UPCCode = "UPC Code";
         public const string Value = "Value";
         public const string ViewCount = "View Count";
@@ -285,6 +320,12 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string PriceHiddenLabel = "Price Hidden Label";
         public const string Warranty = "Warranty";
         public const string Weight = "Weight";
+        public const string Dimensions = "Dimensions";
+        public const string ShippingClass = "Shipping Class";
+        public const string ReviewsAllowed = "Reviews Allowed";
+        public const string ParentId = "Parent Id";
+        public const string PurchaseNote = "Purchase Note";
+        public const string Image = "Image";
         public const string Width = "Width";
         public const string WrappingCostExcludingTax = "Wrapping Cost Excluding Tax";
         public const string WrappingCostIncludingTax = "Wrapping Cost Including Tax";
@@ -298,7 +339,16 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string ForcePasswordReset = "Force Password Reset On Next Login";
         public const string ReceiveACSOrReviewEmails = "Receive ACS/Review Emails";
         public const string Slug = "Slug";
+        public const string Parent = "Parent";
+        public const string Description = "Description";
+        public const string Display = "Display";
         public const string Permalink = "Product URL";
         public const string SyncDirectionExport = "Export";
+        public const string DateOnSaleFrom = "Date On SaleFrom";
+        public const string DateOnSaleTo = "Date On Sale To";
+        public const string DateOnSaleFromGmt = "Date On Sale From Gmt";
+        public const string DateOnSaleToGmt = "Date On Sale To Gmt";
+        public const string Src = "Source Location";
+        public const string Alt = "Alternative Content";
     }
 }

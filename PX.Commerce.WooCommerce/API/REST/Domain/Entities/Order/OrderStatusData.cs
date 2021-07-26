@@ -12,13 +12,13 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         public int? Id { get; set; }
 
         [JsonProperty("parent_id")]
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
 
         [JsonProperty("status")]
         public string Status { get; set; }
 
         [JsonProperty("date_created")]
-        public DateTime DateCreatedUT { get; set; }
+        public DateTime? DateCreatedUT { get; set; }
 
         [JsonProperty("date_modified")]
         public DateTime? DateModified { get; set; }

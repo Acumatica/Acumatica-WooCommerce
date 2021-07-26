@@ -9,21 +9,21 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
 
     public class RefundData : BCAPIEntity, IWooEntity
     {
-        private decimal amountDecimal;
+        private decimal? amountDecimal;
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonProperty("date_created")]
-        public DateTime DateCreatedUT { get; set; }
+        public DateTime? DateCreatedUT { get; set; }
 
         [JsonProperty("date_created_gmt")]
-        public DateTime DateCreatedGmt { get; set; }
+        public DateTime? DateCreatedGmt { get; set; }
 
         [JsonProperty("amount")]
         public string Amount { get; set; }
 
-        public decimal AmountDecimal
+        public decimal? AmountDecimal
         {
             get
             {
@@ -37,10 +37,10 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         public string Reason { get; set; }
 
         [JsonProperty("refunded_by")]
-        public int RefundedBy { get; set; }
+        public int? RefundedBy { get; set; }
 
         [JsonProperty("refunded_payment")]
-        public bool RefundedPayment { get; set; }
+        public bool? RefundedPayment { get; set; }
 
         [JsonProperty("meta_data")]
         public List<object> MetaData { get; set; }

@@ -13,7 +13,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         public int? Id { get; set; }
 
         [JsonProperty("parent_id")]
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
 
         [JsonProperty("status")]
         public string Status { get; set; }
@@ -25,10 +25,10 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         public string Version { get; set; }
 
         [JsonProperty("prices_include_tax")]
-        public bool PricesIncludeTax { get; set; }
+        public bool? PricesIncludeTax { get; set; }
 
         [JsonProperty("date_created")]
-        public DateTime DateCreatedUT { get; set; }
+        public DateTime? DateCreatedUT { get; set; }
 
         [JsonProperty("date_modified")]
         public DateTime? DateModified { get; set; }
@@ -36,7 +36,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         [JsonProperty("discount_total")]
         public string DiscountTotal { get; set; }
 
-        public decimal DiscountTotalDecimal { get { return decimal.TryParse(DiscountTotal, out decimal val) ? val : 0; } }
+        public decimal? DiscountTotalDecimal { get { return decimal.TryParse(DiscountTotal, out decimal val) ? val : 0; } }
 
         [JsonProperty("discount_tax")]
         public string DiscountTax { get; set; }
@@ -44,7 +44,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         [JsonProperty("shipping_total")]
         public string ShippingTotal { get; set; }
 
-        public decimal ShippingTotalInDecimal
+        public decimal? ShippingTotalInDecimal
         {
             get
             {
@@ -62,7 +62,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         [JsonProperty("total")]
         public string Total { get; set; }
 
-        public decimal TotalInDecimal
+        public decimal? TotalInDecimal
         {
             get
             {
@@ -75,7 +75,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         [JsonProperty("total_tax")]
         public string TotalTax { get; set; }
 
-        public decimal TotalTaxInDecimal
+        public decimal? TotalTaxInDecimal
         {
             get
             {
@@ -148,10 +148,10 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         public List<OrderRefundData> Refunds { get; set; }
 
         [JsonProperty("date_created_gmt")]
-        public DateTime DateCreatedGmt { get; set; }
+        public DateTime? DateCreatedGmt { get; set; }
 
         [JsonProperty("date_modified_gmt")]
-        public DateTime DateModifiedGmt { get; set; }
+        public DateTime? DateModifiedGmt { get; set; }
 
         [JsonProperty("date_completed_gmt")]
         public object DateCompletedGmt { get; set; }

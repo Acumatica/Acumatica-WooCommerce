@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using PX.Commerce.Core;
+using PX.Commerce.WooCommerce.WC.Descriptor;
 using System.Collections.Generic;
 
 namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
@@ -6,12 +8,14 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
     public class ShippingLineData
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonProperty("method_title")]
+        [CommerceDescription(WCCaptions.MethodTitle, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public string MethodTitle { get; set; }
 
         [JsonProperty("method_id")]
+        [CommerceDescription(WCCaptions.MethodId, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public string MethodId { get; set; }
 
         [JsonProperty("instance_id")]
@@ -20,7 +24,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         [JsonProperty("total")]
         public string Total { get; set; }
 
-        public decimal TotalInDecimal
+        public decimal? TotalInDecimal
         {
             get
             {
@@ -32,7 +36,8 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         [JsonProperty("total_tax")]
         public string TotalTax { get; set; }
 
-        public decimal TotalTaxinDecimal {
+        public decimal? TotalTaxinDecimal
+        {
             get
             {
                 decimal val;
@@ -41,6 +46,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         }
 
         [JsonProperty("taxes")]
+        [CommerceDescription(WCCaptions.Taxes, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public List<TaxData> Taxes { get; set; }
     }
 }

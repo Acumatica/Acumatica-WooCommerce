@@ -161,7 +161,7 @@ namespace PX.Commerce.WooCommerce
             MapFilterFields(giResult?.Results, giResult);
             GetOrderShipment(giResult);
             if (giResult.Shipment == null && giResult.POReceipt == null) return null;
-            MappedShipment obj = new MappedShipment(giResult, giResult.ShippingNoteID.Value, giResult.LastModifiedDateTime.Value);
+            MappedShipment obj = new MappedShipment(giResult, giResult.ShippingNoteID.Value, giResult.LastModified.Value);
             return obj;
 
 
@@ -201,7 +201,7 @@ namespace PX.Commerce.WooCommerce
         {
             BCShipments giResult = cbapi.Put(new BCShipments()
             {
-                LastModifiedDateTime = minDateTime.HasValue ? minDateTime.Value.ValueField() : null
+                LastModified = minDateTime.HasValue ? minDateTime.Value.ValueField() : null
             });
 
             if (giResult.Results != null)
@@ -214,7 +214,7 @@ namespace PX.Commerce.WooCommerce
                     BCShipments bCShipments = new BCShipments();
                     MapFilterFields(result.Value, bCShipments);
 
-                    MappedShipment obj = new MappedShipment(bCShipments, bCShipments.ShippingNoteID.Value, bCShipments.LastModifiedDateTime.Value);
+                    MappedShipment obj = new MappedShipment(bCShipments, bCShipments.ShippingNoteID.Value, bCShipments.LastModified.Value);
                     EntityStatus status = EnsureStatus(obj, SyncDirection.Export);
                 }
             }
@@ -229,7 +229,7 @@ namespace PX.Commerce.WooCommerce
                 impl.VendorRef = result.VendorRef;
                 impl.ShipmentNumber = result.ShipmentNumber;
                 impl.ShipmentType = result.ShipmentType;
-                impl.LastModifiedDateTime = result.LastModifiedDateTime;
+                impl.LastModified = result.LastModifiedDateTime;
                 impl.Confirmed = result.Confirmed;
                 impl.OrderNoteIds.Add(result.OrderNoteID.Value);
             }
@@ -241,6 +241,7 @@ namespace PX.Commerce.WooCommerce
             BCShipments giResult = cbapi.Put(new BCShipments()
             {
                 ShippingNoteID = syncstatus.LocalID.ValueField(),
+                BindingID = syncstatus.BindingID.ValueField(),
                 Results = new List<BCShipmentsResult>() { new BCShipmentsResult() { Custom = GetCustomFieldsForExport() } }
             });
             if (giResult?.Results == null) return EntityStatus.None;
@@ -482,7 +483,7 @@ namespace PX.Commerce.WooCommerce
             if (bCShipments.POReceipt == null || bCShipments.POReceipt?.Details?.Count == 0)
                 return EntityStatus.None;
 
-            MappedShipment obj = bucket.Shipment = bucket.Shipment.Set(bCShipments, bCShipments.ShippingNoteID.Value, bCShipments.LastModifiedDateTime.Value);
+            MappedShipment obj = bucket.Shipment = bucket.Shipment.Set(bCShipments, bCShipments.ShippingNoteID.Value, bCShipments.LastModified.Value);
             EntityStatus status = EnsureStatus(obj, SyncDirection.Export);
 
             IEnumerable<PurchaseReceiptDetail> lines = bCShipments.POReceipt.Details
@@ -510,7 +511,7 @@ namespace PX.Commerce.WooCommerce
             if (bCShipment.Shipment == null || bCShipment.Shipment?.Details?.Count == 0)
                 return EntityStatus.None;
 
-            MappedShipment obj = bucket.Shipment = bucket.Shipment.Set(bCShipment, bCShipment.ShippingNoteID.Value, bCShipment.LastModifiedDateTime.Value);
+            MappedShipment obj = bucket.Shipment = bucket.Shipment.Set(bCShipment, bCShipment.ShippingNoteID.Value, bCShipment.LastModified.Value);
             EntityStatus status = EnsureStatus(obj, SyncDirection.Export);
 
             IEnumerable<ShipmentDetail> lines = bCShipment.Shipment.Details
@@ -556,7 +557,7 @@ namespace PX.Commerce.WooCommerce
             }
             if (bCShipment.Shipment?.Details?.Count == 0) return EntityStatus.None;
 
-            MappedShipment obj = bucket.Shipment = bucket.Shipment.Set(bCShipment, bCShipment.ShippingNoteID.Value, bCShipment.LastModifiedDateTime.Value);
+            MappedShipment obj = bucket.Shipment = bucket.Shipment.Set(bCShipment, bCShipment.ShippingNoteID.Value, bCShipment.LastModified.Value);
             EntityStatus status = EnsureStatus(obj, SyncDirection.Export);
 
             IEnumerable<ShipmentDetail> lines = bCShipment.Shipment.Details

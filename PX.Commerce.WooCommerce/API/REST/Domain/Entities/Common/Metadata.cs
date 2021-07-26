@@ -5,7 +5,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
     public class Metadata
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonProperty("key")]
         public string Key { get; set; }

@@ -12,14 +12,14 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Customer
     {
         [JsonProperty("id")]
         [CommerceDescription(WCCaptions.ID, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonProperty("date_created")]
-        public DateTime DateCreatedUT { get; set; }
+        public DateTime? DateCreatedUT { get; set; }
 
         [Description(WCCaptions.DateCreatedUT)]
         [ShouldNotSerialize]
-        public virtual DateTime CreatedDateTime
+        public virtual DateTime? CreatedDateTime
         {
             get
             {
@@ -32,7 +32,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Customer
 
         [Description(WCCaptions.DateModifiedUT)]
         [ShouldNotSerialize]
-        public virtual DateTime ModifiedDateTime
+        public virtual DateTime? ModifiedDateTime
         {
             get
             {
@@ -70,7 +70,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Customer
         public CustomerAddressData Shipping { get; set; }
 
         [JsonProperty("is_paying_customer")]
-        public bool IsPayingCustomer { get; set; }
+        public bool? IsPayingCustomer { get; set; }
 
         [JsonProperty("avatar_url")]
         public string AvatarUrl { get; set; }

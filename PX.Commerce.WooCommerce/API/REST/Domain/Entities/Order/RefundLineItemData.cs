@@ -8,19 +8,19 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
     public class RefundLineItemData: BCAPIEntity, IWooEntity
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
 
         [JsonProperty("product_id")]
-        public int ProductId { get; set; }
+        public int? ProductId { get; set; }
 
         [JsonProperty("variation_id")]
-        public int VariationId { get; set; }
+        public int? VariationId { get; set; }
 
         [JsonProperty("quantity")]
-        public int Quantity { get; set; }
+        public int? Quantity { get; set; }
 
         [JsonProperty("tax_class")]
         public string TaxClass { get; set; }
@@ -47,11 +47,11 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         public string Sku { get; set; }
 
         [JsonProperty("price")]
-        public int Price { get; set; }
+        public int? Price { get; set; }
 
         [JsonProperty("parent_name")]
         public object ParentName { get; set; }
-        public DateTime DateCreatedUT { get; set; }
+        public DateTime? DateCreatedUT { get; set; }
         public DateTime? DateModified { get; set; }
     }
 }

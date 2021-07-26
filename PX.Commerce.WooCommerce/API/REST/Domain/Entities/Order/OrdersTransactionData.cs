@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using PX.Commerce.Core;
 using PX.Commerce.WooCommerce.API.REST.Domain.Enums;
+using PX.Commerce.WooCommerce.WC.Descriptor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,10 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
     public class OrdersTransactionData : BCAPIEntity, IWooEntity
     {
         [JsonProperty("date_created")]
-        public DateTime DateCreatedUT { get; set; }
+        public DateTime? DateCreatedUT { get; set; }
 
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         public string OrderId
         {
@@ -52,6 +53,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         public string Total { get; set; }
 
         [JsonProperty("transaction_id")]
+        [CommerceDescription(WCCaptions.TransactionId, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public string GatewayTransactionId { get; set; }
 
         public DateTime? DateModified { get; set; }

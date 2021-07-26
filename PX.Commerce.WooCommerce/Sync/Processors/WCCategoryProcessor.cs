@@ -72,8 +72,8 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                         And<BCSyncStatus.entityType, Equal<Current<BCEntity.entityType>>,
                         And<BCSyncStatus.externID, Equal<Required<BCSyncStatus.externID>>>>>>>.Select(this, parent);
             int parentId = incategory?.CategoryID ?? 0;
-            BCItemSalesCategory[] impls = cbapi.GetAll(new BCItemSalesCategory() { Description = uniqueField.SearchField(), ParentCategoryID = parentId.SearchField() },
-                filters: GetFilter(Operation.EntityType).LocalFiltersRows.Cast<PXFilterRow>().ToArray());
+            var impls = cbapi.GetAll(new BCItemSalesCategory() { Description = uniqueField.SearchField(), ParentCategoryID = parentId.SearchField() },
+                 filters: GetFilter(Operation.EntityType).LocalFiltersRows.Cast<PXFilterRow>().ToArray());
             if (impls == null) return null;
 
             return impls.Select(impl => new MappedCategory(impl, impl.SyncID, impl.SyncTime));
@@ -199,7 +199,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
         #region Export
         public override void FetchBucketsForExport(DateTime? minDateTime, DateTime? maxDateTime, PXFilterRow[] filters)
         {
-            IEnumerable<BCItemSalesCategory> impls = cbapi.GetAll(new BCItemSalesCategory() { Path = new StringReturn() }, minDateTime, maxDateTime, filters);
+            IEnumerable<BCItemSalesCategory> impls = cbapi.GetAll(new BCItemSalesCategory() { Path = new StringReturn() }, minDateTime, maxDateTime, filters, false);
             var invIDs = new List<int>();
 
             foreach (BCItemSalesCategory impl in impls)
@@ -239,7 +239,8 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
 
             BCItemSalesCategory impl = obj.Local;
             CategoryData data = obj.Extern = new CategoryData();
-
+            if (!string.IsNullOrWhiteSpace(obj.ExternID))
+                data.Id = int.Parse(obj.ExternID);
             data.Name = impl.Description?.Value;
 
             if (impl.ParentCategoryID?.Value != null && impl.ParentCategoryID?.Value > 0 && data.Name != null)

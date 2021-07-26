@@ -20,22 +20,22 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
         public string LogDirectory { get; set; }
 
         [JsonProperty("log_directory_writable")]
-        public bool LogDirectoryWritable { get; set; }
+        public bool? LogDirectoryWritable { get; set; }
 
         [JsonProperty("wp_version")]
         public string WpVersion { get; set; }
 
         [JsonProperty("wp_multisite")]
-        public bool WpMultisite { get; set; }
+        public bool? WpMultisite { get; set; }
 
         [JsonProperty("wp_memory_limit")]
-        public int WpMemoryLimit { get; set; }
+        public int? WpMemoryLimit { get; set; }
 
         [JsonProperty("wp_debug_mode")]
-        public bool WpDebugMode { get; set; }
+        public bool? WpDebugMode { get; set; }
 
         [JsonProperty("wp_cron")]
-        public bool WpCron { get; set; }
+        public bool? WpCron { get; set; }
 
         [JsonProperty("language")]
         public string Language { get; set; }
@@ -50,22 +50,22 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
         public string PhpVersion { get; set; }
 
         [JsonProperty("php_post_max_size")]
-        public int PhpPostMaxSize { get; set; }
+        public int? PhpPostMaxSize { get; set; }
 
         [JsonProperty("php_max_execution_time")]
-        public int PhpMaxExecutionTime { get; set; }
+        public int? PhpMaxExecutionTime { get; set; }
 
         [JsonProperty("php_max_input_vars")]
-        public int PhpMaxInputVars { get; set; }
+        public int? PhpMaxInputVars { get; set; }
 
         [JsonProperty("curl_version")]
         public string CurlVersion { get; set; }
 
         [JsonProperty("suhosin_installed")]
-        public bool SuhosinInstalled { get; set; }
+        public bool? SuhosinInstalled { get; set; }
 
         [JsonProperty("max_upload_size")]
-        public int MaxUploadSize { get; set; }
+        public int? MaxUploadSize { get; set; }
 
         [JsonProperty("mysql_version")]
         public string MysqlVersion { get; set; }
@@ -77,40 +77,40 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
         public string DefaultTimezone { get; set; }
 
         [JsonProperty("fsockopen_or_curl_enabled")]
-        public bool FsockopenOrCurlEnabled { get; set; }
+        public bool? FsockopenOrCurlEnabled { get; set; }
 
         [JsonProperty("soapclient_enabled")]
-        public bool SoapclientEnabled { get; set; }
+        public bool? SoapclientEnabled { get; set; }
 
         [JsonProperty("domdocument_enabled")]
-        public bool DomdocumentEnabled { get; set; }
+        public bool? DomdocumentEnabled { get; set; }
 
         [JsonProperty("gzip_enabled")]
-        public bool GzipEnabled { get; set; }
+        public bool? GzipEnabled { get; set; }
 
         [JsonProperty("mbstring_enabled")]
-        public bool MbstringEnabled { get; set; }
+        public bool? MbstringEnabled { get; set; }
 
         [JsonProperty("remote_post_successful")]
-        public bool RemotePostSuccessful { get; set; }
+        public bool? RemotePostSuccessful { get; set; }
 
         [JsonProperty("remote_post_response")]
         public int RemotePostResponse { get; set; }
 
         [JsonProperty("remote_get_successful")]
-        public bool RemoteGetSuccessful { get; set; }
+        public bool? RemoteGetSuccessful { get; set; }
 
         [JsonProperty("remote_get_response")]
-        public int RemoteGetResponse { get; set; }
+        public int? RemoteGetResponse { get; set; }
     }
 
     public class Settings
     {
         [JsonProperty("api_enabled")]
-        public bool ApiEnabled { get; set; }
+        public bool? ApiEnabled { get; set; }
 
         [JsonProperty("force_ssl")]
-        public bool ForceSsl { get; set; }
+        public bool? ForceSsl { get; set; }
 
         [JsonProperty("currency")]
         public string Currency { get; set; }
@@ -128,10 +128,10 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
         public string DecimalSeparator { get; set; }
 
         [JsonProperty("number_of_decimals")]
-        public int NumberOfDecimals { get; set; }
+        public int? NumberOfDecimals { get; set; }
 
         [JsonProperty("geolocation_enabled")]
-        public bool GeolocationEnabled { get; set; }
+        public bool? GeolocationEnabled { get; set; }
 
         [JsonProperty("woocommerce_com_connected")]
         public string WoocommerceComConnected { get; set; }
@@ -140,7 +140,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
     public class WcAvatax
     {
         [JsonProperty("is_payment_gateway")]
-        public bool IsPaymentGateway { get; set; }
+        public bool? IsPaymentGateway { get; set; }
 
         [JsonProperty("lifecycle_events")]
         public List<LifecycleEvent> LifecycleEvents { get; set; }
@@ -152,7 +152,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
         public string Name { get; set; }
 
         [JsonProperty("time")]
-        public int Time { get; set; }
+        public int? Time { get; set; }
 
         [JsonProperty("version")]
         public string Version { get; set; }

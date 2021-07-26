@@ -27,31 +27,31 @@ namespace ACSC.Tests.TestsSalesOrder
                     ManualSyncByLocalId(Entities.Customer, customer.AcctCD);
                 }
 
-                using (TestExecution.CreateTestStepGroup("Step 1 - Create a Sales Order in WooCommerce"))
+                using (TestExecution.CreateTestStepGroup("Step 2 - Create a Sales Order in WooCommerce"))
                 {
                     var orderData = GetOrderDataObj();
                     newOrder = CreateOrder(orderData);
                 }
 
-                using (TestExecution.CreateTestStepGroup("Step 2 - Import Sales Orders into AC"))
+                using (TestExecution.CreateTestStepGroup("Step 3 - Import Sales Orders into AC"))
                 {
                     FetchDataPage.FetchDataByEntityUsingFetchModeWithSyncMode(store, FetchMode.Incremental, SyncMode.PendingAndFailed, Entities.SalesOrder, newOrder.Id.ToString());
 
 
                 }
 
-                using (TestExecution.CreateTestStepGroup("Step 3 - Verify Import Process Success in Acumatica."))
+                using (TestExecution.CreateTestStepGroup("Step 4 - Verify Import Process Success in Acumatica."))
                 {
                     VerifySyncSuccessInAcumatica(newOrder.Id.ToString(), false, Entities.SalesOrder);
                 }
 
-                using (TestExecution.CreateTestStepGroup("Step 4 - Verify Acumatica"))
+                using (TestExecution.CreateTestStepGroup("Step 5 - Verify Acumatica"))
                 {
                     SalesOrderEntity soOrderEx = GetOrderValidationObj();
                     VerifyACSalesOrder(localOrderNbr, soOrderEx);
                 }
 
-                using (TestExecution.CreateTestStepGroup("Step 5 - Save ID"))
+                using (TestExecution.CreateTestStepGroup("Step 6 - Save ID"))
                 {
                     SaveID(this.GetType());
                 }
