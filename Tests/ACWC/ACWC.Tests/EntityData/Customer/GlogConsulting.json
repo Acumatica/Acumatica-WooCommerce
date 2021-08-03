@@ -1,0 +1,29 @@
+{
+  "acctCD": "Glog Consulting Ltd.",
+  "acctName": "Glog Consulting Ltd.",
+  "status": "Active",
+  "consentAgreement": true,
+  "customerClassID": "ECCUSTOMER",
+  //"curyID": "USD",
+  "IsBillSameAsMain": true,
+  "IsBillContSameAsMain": true,
+  "mainContact": {
+    "consentDate": null,
+    "fullName": "Glog Consulting Ltd.",
+    "attention": "Glog Consulting L",
+    "eMail": "9ede7b2e3c474e6fbf99dea106ef1229@acumatica.com",
+    "phone1": "415-821-0751",
+    "phone2": null
+  },
+  "mainAddress": {
+    "addressLine1": "510 Selby St.",
+    "city": "San Francisco",
+    "countryID": "US",
+    "stateID": "CA",
+    "postalCode": "94138"
+  },
+  "DefaultLocationSettings": {
+    "IsContactSameAsMain": true,
+    "IsAddressSameAsMain": true
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "InventoryCD": "LAPTOP14",
+    "Description": "Laptop 14\"",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 2.50,
+      "WeightUOM": "KG",
+      "BasePrice": 650
+    }
+  },
+  {
+    "InventoryCD": "MOUSE",
+    "Description": "Computer mouse",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 0.250,
+      "WeightUOM": "KG",
+      "BasePrice": 29.95
+    }
+  },
+  {
+    "InventoryCD": "KEYBOARD",
+    "Description": "Computer keyboard",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 0.5,
+      "WeightUOM": "KG",
+      "BasePrice": 75
+    }
+  }
+]

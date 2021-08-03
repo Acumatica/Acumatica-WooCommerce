@@ -1,0 +1,67 @@
+[
+  {
+    "InventoryCD": "TEST-ITEM1",
+    "Description": "Test Item 1",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "ELECCOMP",
+      "ItemType": "Finished Good",
+      "BasePrice": 500
+    },
+    "VendorDetails": {
+      "VendorName": "ELEEASTCOM"
+    }
+  },
+  {
+    "InventoryCD": "TEST-ITEM2",
+    "Description": "Test Item 2",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "ELECCOMP",
+      "ItemType": "Finished Good",
+      "BasePrice": 500
+    },
+    "VendorDetails": {
+      "VendorName": "ELEEASTCOM"
+    }
+  },
+  {
+    "InventoryCD": "TEST-ITEM3",
+    "Description": "Test Item 3",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "ELECCOMP",
+      "ItemType": "Finished Good",
+      "BasePrice": 500
+    },
+    "VendorDetails": {
+      "VendorName": "ELEEASTCOM"
+    }
+  },
+  {
+    "InventoryCD": "TEST-ITEM4",
+    "Description": "Test Item 4",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "ELECCOMP",
+      "ItemType": "Finished Good",
+      "BasePrice": 500
+    },
+    "VendorDetails": {
+      "VendorName": "ELEEASTCOM"
+    }
+  },
+  {
+    "InventoryCD": "TEST-ITEM5",
+    "Description": "Test Item 5",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "ELECCOMP",
+      "ItemType": "Finished Good",
+      "BasePrice": 500
+    },
+    "VendorDetails": {
+      "VendorName": "ELEEASTCOM"
+    }
+  }
+]

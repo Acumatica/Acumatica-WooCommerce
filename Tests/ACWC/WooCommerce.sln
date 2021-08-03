@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WooCommerce.Tests", "ACSC.Tests\WooCommerce.Tests.csproj", "{B3AD8365-CA59-4006-99D2-5DE0620DDB96}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WooCommerce.Tests", "ACWC.Tests\WooCommerce.Tests.csproj", "{B3AD8365-CA59-4006-99D2-5DE0620DDB96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

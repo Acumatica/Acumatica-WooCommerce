@@ -1,0 +1,181 @@
+[
+  {
+    "InventoryCD": "AACOMPUT01",
+    "Description": "Acer Laptop Computer",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 2.72,
+      "WeightUOM": "KG",
+      "BasePrice": 600
+    }
+  },
+  {
+    "InventoryCD": "AALEGO500",
+    "Description": "Lego 500 piece set",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 0.8,
+      "WeightUOM": "KG",
+      "BasePrice": 100
+    }
+  },
+  {
+    "InventoryCD": "AAMACHINE1",
+    "Description": "Injection molding machine",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 100,
+      "WeightUOM": "KG",
+      "BasePrice": 30000
+    }
+  },
+  {
+    "InventoryCD": "CONGRILL",
+    "Description": "Char-Broil Classic 480",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 49,
+      "WeightUOM": "KG",
+      "BasePrice": 199.98
+    }
+  },
+  {
+    "InventoryCD": "CONTABLE1",
+    "Description": "Folding Picnic Table 6 Foot",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 37.19,
+      "WeightUOM": "KG",
+      "BasePrice": 276.47
+    }
+  },
+  //{
+  //  "InventoryCD": "KEYBOARD",
+  //  "Description": "Computer keyboard",
+  //  "ItemStatus": "Active",
+  //  "ItemDetails": {
+  //    "ItemClass": "STOCKITEM",
+  //    "TaxCategory": "TAXABLE",
+  //    "PostingClass": "ELE",
+  //    "ItemType": "Finished Good",
+  //    "Weight": 1,
+  //    "WeightUOM": "KG",
+  //    "BasePrice": 75
+  //  }
+  //},
+  {
+    "InventoryCD": "LAPTOP12",
+    "Description": "Laptop 12\"",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 2,
+      "WeightUOM": "KG",
+      "BasePrice": 500
+    }
+  },
+  {
+    "InventoryCD": "LAPTOP14",
+    "Description": "Laptop 14\"",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 2.5,
+      "WeightUOM": "KG",
+      "BasePrice": 640
+    }
+  },
+  //{
+  //  "InventoryCD": "LEATHCASE",
+  //  "Description": "Leather case for laptops 12\"-15\"",
+  //  "ItemStatus": "Active",
+  //  "ItemDetails": {
+  //    "ItemClass": "STOCKITEM",
+  //    "TaxCategory": "TAXABLE",
+  //    "PostingClass": "ELE",
+  //    "ItemType": "Finished Good",
+  //    "Weight": 0.2,
+  //    "WeightUOM": "KG",
+  //    "BasePrice": 100
+  //  }
+  //},
+  //{
+  //  "InventoryCD": "MONITOR26",
+  //  "Description": "Monitor 26\"",
+  //  "ItemStatus": "Active",
+  //  "ItemDetails": {
+  //    "ItemClass": "STOCKITEM",
+  //    "TaxCategory": "TAXABLE",
+  //    "PostingClass": "ELE",
+  //    "ItemType": "Finished Good",
+  //    "Weight": 10,
+  //    "WeightUOM": "KG",
+  //    "BasePrice": 100
+  //  }
+  //},
+  //{
+  //  "InventoryCD": "MOUSE",
+  //  "Description": "Computer mouse",
+  //  "ItemStatus": "Active",
+  //  "ItemDetails": {
+  //    "ItemClass": "STOCKITEM",
+  //    "TaxCategory": "TAXABLE",
+  //    "PostingClass": "ELE",
+  //    "ItemType": "Finished Good",
+  //    "Weight": 0.250,
+  //    "WeightUOM": "KG",
+  //    "BasePrice": 29.95
+  //  }
+  //},
+  //{
+  //  "InventoryCD": "SIMCARD",
+  //  "Description": "SIM card & contract",
+  //  "ItemStatus": "Active",
+  //  "ItemDetails": {
+  //    "ItemClass": "STOCKITEM",
+  //    "TaxCategory": "TAXABLE",
+  //    "PostingClass": "ELE",
+  //    "ItemType": "Finished Good",
+  //    "WeightUOM": "KG",
+  //    "BasePrice": 12
+  //  }
+  //},
+  {
+    "InventoryCD": "SH-MUG",
+    "Description": "WC Coffee Mug",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "ALLOTHER",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "BasePrice": 16
+    }
+  }
+]

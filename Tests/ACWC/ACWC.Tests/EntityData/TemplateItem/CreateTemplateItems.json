@@ -1,0 +1,67 @@
+{
+  "InventoryCD": "ACU-SHIRT",
+  "Description": "Acumatica Polo Shirt with Buttons",
+  "GeneralSettings": {
+    "Body": "Stay cool when things heat up", 
+    "ItemStatus": "Active",
+    "ItemClass": "SHIRTS",
+    "ItemType": "Finished Good",
+    "ValMethod": "Average",
+    "TaxCategory": "TAXABLE",
+    "PostClass": "SNO",
+    "LotSerClass": "NOTTRACKED"
+  },
+  "PriceInfo": {
+    "RecPrice": 99,
+    "BasePrice": 99
+  },
+  "VendorDetails": [
+    {
+      "VendorID": "AAVENDOR",
+      "AddLeadTimeDays": 10,
+      "MaxOrdQty": 50
+    }
+  ],
+  "AttributeConfig": {
+    "DefaultColumnMatrixAttribute": "MCOLOR",
+    "DefaultRowMatrixAttribute": "SIZE",
+    "InventoryIDSegmentSettings": [
+      {
+        "SegmentType": "Template ID",
+        "NumberOfCharacters": 9
+      },
+      {
+        "SegmentType": "Attribute Value",
+        "AttributeID": "MCOLOR",
+        "NumberOfCharacters": 5
+      },
+      {
+        "SegmentType": "Attribute Value",
+        "AttributeID": "SIZE",
+        "NumberOfCharacters": 3
+      },
+      {
+        "SegmentType": "Attribute Value",
+        "AttributeID": "MATERIAL",
+        "NumberOfCharacters": 10
+      }
+    ]
+  },
+  "CreateMatrixItemsTab": {
+    "ColAttributeID": "MCOLOR",
+    "RowAttributeID": "SIZE",
+    "AdditionalAttributes": [
+      {
+        "ColumnName": "T-Shirt Material",
+        "AttributeValue": "100% Cotton Shirt"
+      },
+      {
+        "ColumnName": "T-Shirt Material",
+        "AttributeValue": "Cotton-Polyester Shirt"
+      }
+    ],
+    "Matrices": {
+      "SelectRow": "True" 
+    }
+  } 
+}

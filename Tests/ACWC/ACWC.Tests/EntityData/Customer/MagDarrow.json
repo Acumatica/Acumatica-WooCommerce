@@ -1,0 +1,22 @@
+{
+  "acctName": "Mag Darrow",
+  "status": "Active",
+  "consentAgreement": true,
+  "customerClassID": "LOCAL",
+  "curyID": "USD",
+  "mainContact": {
+    "consentDate": null,
+    "fullName": "Mag Darrow",
+    "attention": "Mag Darrow",
+    "phone1": null,
+    "phone2": null
+  },
+  "mainAddress": {
+    "addressLine1": "1000 Pennsylvania",
+    "addressLine2": null,
+    "city": "San Francisco",
+    "countryID": "US",
+    "stateID": "CA",
+    "postalCode": "94107"
+  }
+}

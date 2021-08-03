@@ -1,0 +1,48 @@
+{
+  "Store": "BigCommerce",
+  "EntityType": "Customer",
+  "ImportMapping": [
+    {
+      "TargetObj": "Customer -> Main Contact",
+      "TargetField": "Phone 2",
+      "SourceObj": "Customer",
+      "SourceField": "Phone Number"
+    },
+    {
+      "TargetObj": "Customer -> Attributes",
+      "TargetField": "Extra Attribute",
+      "SourceObj": "Customer",
+      "SourceField": "Tax Exempt Code"
+    },
+    {
+      "TargetObj": "Customer -> Advanced",
+      "TargetField": "CurrentCustomer.UsrTitle",
+      "SourceObj": "Customer",
+      "SourceField": "Company Name"
+    },
+    {
+      "TargetObj": "Customer -> Main Contact",
+      "TargetField": "Job Title",
+      "SourceObj": "Customer",
+      "SourceField": "=LCase( 'Manager' )"
+    },
+    {
+      "TargetObj": "Customer ",
+      "TargetField": "Customer Class",
+      "SourceObj": "Customer -> Form Fields",
+      "SourceField": "=IIf( VIP='Yes', 'INTL', 'LOCAL' )"
+    },
+    {
+      "TargetObj": "Customer -> Attributes",
+      "TargetField": "New Attribute",
+      "SourceObj": "Customer -> Form Fields",
+      "SourceField": "Text"
+    },
+    {
+      "TargetObj": "Customer -> Advanced",
+      "TargetField": "CurrentCustomer.UsrCustom",
+      "SourceObj": "Customer -> Form Fields",
+      "SourceField": "Numbers"
+    }
+  ]
+}

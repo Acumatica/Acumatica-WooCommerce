@@ -1,0 +1,16 @@
+[
+  {
+    "InventoryCD": "HEADSET",
+    "Description": "Headset",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "TaxCategory": "EXEMPT",
+      "Weight": 0.20,
+      "WeightUOM": "KG",
+      "BasePrice": 150
+    }
+  }
+]

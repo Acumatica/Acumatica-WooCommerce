@@ -1,0 +1,65 @@
+[
+  //{
+  //  "title": "Headset",
+  //  "variants": [
+  //    {
+  //      "sku": "HEADSET",
+  //      "inventory_quantity": 0
+  //    }
+  //  ]
+  //},
+  {
+    "title": "Computer keyboard",
+    "variants": [
+      {
+        "sku": "KEYBOARD",
+        "inventory_quantity": 0
+      }
+    ]
+  },
+  {
+    "title": "Laptop 12\"",
+    "variants": [
+      {
+        "sku": "LAPTOP12",
+        "inventory_quantity": 0
+      }
+    ]
+  },
+  {
+    "title": "Laptop 14\"",
+    "variants": [
+      {
+        "sku": "LAPTOP14",
+        "inventory_quantity": 0
+      }
+    ]
+  },
+  {
+    "title": "Monitor 26\"",
+    "variants": [
+      {
+        "sku": "MONITOR26",
+        "inventory_quantity": 0
+      }
+    ]
+  },
+  {
+    "title": "Computer mouse",
+    "variants": [
+      {
+        "sku": "MOUSE",
+        "inventory_quantity": 0
+      }
+    ]
+  },
+  {
+    "title": "SIM card & contract",
+    "variants": [
+      {
+        "sku": "SIMCARD",
+        "inventory_quantity": 0
+      }
+    ]
+  }
+]

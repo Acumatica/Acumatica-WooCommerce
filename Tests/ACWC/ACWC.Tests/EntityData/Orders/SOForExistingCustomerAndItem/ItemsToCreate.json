@@ -1,0 +1,16 @@
+[
+  {
+    "InventoryCD": "AACOMPUT01",
+    "Description": "Acer Laptop Computer",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "EXEMPT",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 2.72,
+      "WeightUOM": "KG",
+      "BasePrice": 500
+    }
+  }
+]

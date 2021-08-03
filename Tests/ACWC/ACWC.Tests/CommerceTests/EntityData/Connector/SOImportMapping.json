@@ -1,0 +1,30 @@
+{
+  "Store": "BigCommerce",
+  "EntityType": "Sales Order",
+  "ImportMapping": [
+    {
+      "TargetObj": "Sales Order",
+      "TargetField": "Project",
+      "SourceObj": "Order Data",
+      "SourceField": "='TMR03'"
+    },
+    {
+      "TargetObj": "Sales Order -> Details",
+      "TargetField": "Project Task",
+      "SourceObj": "Order Data",
+      "SourceField": "='101 PM'"
+    },
+    {
+      "TargetObj": "Sales Order -> Details",
+      "TargetField": "Discount Amount",
+      "SourceObj": "Order Data",
+      "SourceField": "Discount Amount"
+    },
+    {
+      "TargetObj": "Sales Order -> Advanced",
+      "TargetField": "Document.UsrCustom_Field",
+      "SourceObj": "Order Data",
+      "SourceField": "Order ID"
+    }
+  ]
+}

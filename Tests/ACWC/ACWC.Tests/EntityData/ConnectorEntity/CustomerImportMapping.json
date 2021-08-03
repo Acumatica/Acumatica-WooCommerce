@@ -1,0 +1,30 @@
+{
+  "Store": "Shopify",
+  "EntityType": "Customer",
+  "ImportMapping": [
+    {
+      "TargetObj": "Customer -> Main Contact",
+      "TargetField": "Website",
+      "SourceObj": "Customer",
+      "SourceField": "Email Address"
+    },
+    {
+      "TargetObj": "Customer -> Attributes",
+      "TargetField": "New Attribute",
+      "SourceObj": "Customer",
+      "SourceField": "Phone"
+    },
+    {
+      "TargetObj": "Customer -> Advanced",
+      "TargetField": "CurrentCustomer.UsrTitle",
+      "SourceObj": "Customer -> Customer Address",
+      "SourceField": "Name"
+    },
+    {
+      "TargetObj": "Customer",
+      "TargetField": "Currency ID",
+      "SourceObj": "Customer -> Customer Address",
+      "SourceField": "=IIf( Country='United States', 'USD', 'CAD' )"
+    }
+  ]
+}

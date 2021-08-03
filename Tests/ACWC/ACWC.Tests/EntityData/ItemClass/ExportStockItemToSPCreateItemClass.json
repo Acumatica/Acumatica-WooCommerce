@@ -1,0 +1,22 @@
+{
+  "ClassID": "STOCKITEM",
+  "Description": "Stock Item",
+  "GeneralSettings": {
+    "StkItem": "true",
+    "ItemType": "Finished Good",
+    "ValMethod": "Average",
+    "TaxCategory": "TAXABLE",
+    "DefWarehouse": "MAIN",
+    "AvailabilityCalcRule": "STOCKITEM",
+    "PostingClass": "AOL",
+    "LotSerClass": "ALTFRT",
+    "BaseUnit": "EA",
+    "SalesUnit": "EA",
+    "PurchaseUnit": "EA",
+    "DecimalBaseUnit": "true",
+    "DecimalSalesUnit": "true",
+    "DecimalPurchaseUnit": "true",
+    "MinMarkup": "50",
+    "Markup": "100"
+  }
+}

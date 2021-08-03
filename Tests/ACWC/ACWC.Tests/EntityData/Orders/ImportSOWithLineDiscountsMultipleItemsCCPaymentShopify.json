@@ -1,0 +1,30 @@
+﻿{
+  "line_items": [
+    {
+      "variant_id": 34310289489964,
+      "quantity": 1,
+      "applied_discount": {
+        "description": "Custom discount",
+        "value_type": "percentage",
+        "value": "5.0",
+        "amount": "2.0",
+        "title": "Custom"
+      }
+    },
+    {
+      "variant_id": 34313139716140,
+      "quantity": 1,
+      "applied_discount": {
+        "description": "Custom discount1",
+        "value_type": "percentage",
+        "value": "10.0",
+        "amount": "10.0",
+        "title": "Custom1"
+      }
+    }
+  ],
+  "customer": {
+    //"id": 3307775066156,
+    "email": "john@acumatica.com"
+  }
+}

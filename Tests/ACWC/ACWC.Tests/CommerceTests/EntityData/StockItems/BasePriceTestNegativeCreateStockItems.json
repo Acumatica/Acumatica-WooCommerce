@@ -1,0 +1,18 @@
+[
+  {
+    "InventoryCD": "TEST-ITEM1",
+    "Description": "Test Item 1",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "ELECCOMP",
+      "ItemType": "Finished Good",
+      "BaseUnit": "INCH",
+      "SalesUnit": "INCH",
+      "PurchaseUnit": "INCH",
+      "BasePrice": 500
+    },
+    "VendorDetails": {
+      "VendorName": "ELEEASTCOM"
+    }
+  }
+]

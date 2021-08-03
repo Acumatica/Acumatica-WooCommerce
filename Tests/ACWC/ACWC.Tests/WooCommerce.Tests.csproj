@@ -1,0 +1,1131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B3AD8365-CA59-4006-99D2-5DE0620DDB96}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WooCommerce.Tests</RootNamespace>
+    <AssemblyName>WooCommerce.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Wrappers\WC201000_WCStoreMaint.cs" />
+    <PackageReference Include="Bogus">
+      <Version>33.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Core">
+      <Version>21.102.69.70</Version>
+    </PackageReference>
+    <PackageReference Include="Crc32.NET">
+      <Version>1.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="EPPlus">
+      <Version>5.6.3</Version>
+    </PackageReference>
+    <PackageReference Include="Execution" Version="21.102.69.70" />
+    <PackageReference Include="GeneratedWrappers.Acumatica" Version="21.108.26-P112554" />
+    <Compile Include="CommerceRest\BigCommerceApiService.cs" />
+    <Compile Include="CommerceRest\Rest\Client\BCRestClient.cs" />
+    <Compile Include="CommerceRest\Rest\Client\Common\Autentificator.cs" />
+    <Compile Include="CommerceRest\Rest\Client\Common\BCRestClientBase.cs" />
+    <Compile Include="CommerceRest\Rest\Client\Common\EntityNotFound.cs" />
+    <Compile Include="CommerceRest\Rest\Client\Common\RestException.cs" />
+    <Compile Include="CommerceRest\Rest\Client\Common\RestJsonSerializer.cs" />
+    <Compile Include="CommerceRest\Rest\Client\Common\RestOptions.cs" />
+    <Compile Include="CommerceRest\Rest\Client\Common\RestParentDataProviderBase.cs" />
+    <Compile Include="CommerceRest\Rest\Client\Common\SingleValueArrayConverter.cs" />
+    <Compile Include="CommerceRest\Rest\Client\Common\UrlSegments.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\Customers\CustomerAddressRestDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\Customers\CustomerFormFieldValuesDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\Customers\CustomerRestDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\Orders\OrderPaymentRestDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\Orders\OrderProductsRestDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\Orders\OrderRestDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\Orders\OrderShipmentsRestDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\Orders\OrderShippingAddressesRestDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\Orders\OrderTransactionsRestDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\PriceList\PriceListDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\Products\ProductBulkPricingRulesDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\Products\ProductCategoryRestDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\Products\ProductImagesDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\Products\ProductRestDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Client\DataRepository\Products\ProductVariantRestDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Common\IBCEntityData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Common\IEntityResponse.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Common\ItemCount.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Common\Links.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Common\Meta.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Common\OrderAddressData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Common\Pagination.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Common\Resource.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Customers\CustomerAddressData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Customers\CustomerData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Customers\CustomerFormFieldValue.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Customers\CustomerFormFieldValuesData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\AvsResult.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\CreditCard.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\CustomPayment.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\CvvResult.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\GiftCertificate.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\OfflinePayment.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\OrderData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\OrderDataResponse.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\OrderPayment.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\OrderPaymentToken.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\OrderProductData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\OrderShipmentData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\OrderShipmentItem.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\OrderShippingAddress.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\OrderTransaction.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\ShippingMethod.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Orders\StoreCredit.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\PriceList\PriceListData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\PriceList\PriceListRule.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\Product.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductCategory.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductCategoryData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductCustomUrl.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductsBulkPricingRulesData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductsBulkPricingRule.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductsCustomField.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductsImage.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductsImageData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductsModifier.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductsModifierData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductsModifierValue.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductsOptionValue.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductsVariant.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductsVariantData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductsVideo.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductVariantModifierValueData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Entities\Products\ProductVariantOptionValueData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Enumerations\GiftCertificateStatus.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Enumerations\OptionType.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Enumerations\OrderPaymentEvent.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Enumerations\OrderPaymentStatus.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Enumerations\OrdersProductsType.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Enumerations\OrderStatus.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Enumerations\PaymentStatus.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Enumerations\ProductsInventoryTracking.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Enumerations\ProductsType.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Error\Error.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Error\ErrorDetails.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Options\Option.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Options\OptionSet.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Options\OptionSetOption.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Options\ProductModifierValueData.cs" />
+    <Compile Include="CommerceRest\Rest\Domain\Options\ProductOptionValueData.cs" />
+    <Compile Include="CommerceRest\Rest\ExtensionMethods\DateTimeExtensions.cs" />
+    <Compile Include="CommerceRest\Rest\Filters\Filter.cs" />
+    <Compile Include="CommerceRest\Rest\Filters\FilterCustomers.cs" />
+    <Compile Include="CommerceRest\Rest\Filters\FilterOrders.cs" />
+    <Compile Include="CommerceRest\Rest\Filters\FilterProductCategories.cs" />
+    <Compile Include="CommerceRest\Rest\Filters\FilterProducts.cs" />
+    <Compile Include="CommerceRest\Rest\Filters\IFilter.cs" />
+    <Compile Include="CommerceRest\Rest\Interfaces\IBigCommerceRestClient.cs" />
+    <Compile Include="CommerceRest\Rest\Interfaces\IChildRestDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Interfaces\IParentRestDataProvider.cs" />
+    <Compile Include="CommerceRest\Rest\Interfaces\IRestDataReader.cs" />
+    <Compile Include="CommerceRest\Rest\Messages.cs" />
+    <Compile Include="CommerceTests\EntityData\BcDataFilePath.cs" />
+    <Compile Include="CommerceTests\TestsCustomer\CustomerExportFilteringTab.cs" />
+    <Compile Include="CommerceTests\TestsCustomer\CustomerBCImportMappingTab.cs" />
+    <Compile Include="CommerceTests\TestsPriceList\PriceListNegative.cs" />
+    <Compile Include="CommerceTests\TestsProduct\NegativeBasePriceTest.cs" />
+    <Compile Include="CommerceTests\TestsProduct\PositiveBasePriceTest.cs" />
+    <Compile Include="CommerceTests\TestsPriceList\PriceListPositive.cs" />
+    <Compile Include="CommerceTests\TestsProduct\BCStockItemExportFilteringTab.cs" />
+    <Compile Include="CommerceTests\TestsProduct\BCStockItemExportMappingTab.cs" />
+    <Compile Include="CommerceTests\TestsProduct\ConcurrentSyncSingleItem.cs" />
+    <Compile Include="CommerceTests\TestsProduct\ExportTheProductImagesToBC.cs" />
+    <Compile Include="CommerceTests\TestsProduct\StockItem_Deleted_BigCommerce_AfterInitialSync.cs" />
+    <Compile Include="CommerceTests\TestsSalesOrder\BCSOImportFilteringTab.cs" />
+    <Compile Include="CommerceTests\TestsSalesOrder\BCSOImportMappingTab.cs" />
+    <Compile Include="CommerceTests\TestsSalesOrder\BCTestSalesOrderBase.cs" />
+    <Compile Include="Cleanup\CleanupHelper.cs" />
+    <Compile Include="Custom\Constants.cs" />
+    <Compile Include="Custom\Messages.cs" />
+    <Compile Include="EntityValidators\CompareResult.cs" />
+    <Compile Include="EntityValidators\EntityComparer.cs" />
+    <Compile Include="Entity\Attribute\AttributeEntity.cs" />
+    <Compile Include="Entity\Attribute\AttributeEntityDetails.cs" />
+    <Compile Include="Entity\ConnectorEntity\ConnectorEntity.cs" />
+    <Compile Include="Entity\CustomerPriceClasses\CustomerPriceClassesEntity.cs" />
+    <Compile Include="Entity\CustomerPriceClasses\CustomerPriceClassesEntityDetails.cs" />
+    <Compile Include="Entity\Customer\CustomerEntityAttributes.cs" />
+    <Compile Include="Entity\Customer\CustomerEntityLocation.cs" />
+    <Compile Include="Entity\Customer\CustomerEntityLocations.cs" />
+    <Compile Include="Entity\Customer\CustomerGI.cs" />
+    <Compile Include="Entity\ItemClass\AvailCalcRuleEntity.cs" />
+    <Compile Include="Entity\ItemClass\ItemClassEntity.cs" />
+    <Compile Include="Entity\ItemClass\ItemClassEntityAttributes.cs" />
+    <Compile Include="Entity\ItemClass\ItemClassEntityGeneralSettings.cs" />
+    <Compile Include="Entity\Items\NonStockItems\NonStockItemEntity.cs" />
+    <Compile Include="Entity\Items\NonStockItems\NonStockItemEntityGeneral.cs" />
+    <Compile Include="Entity\Items\NonStockItems\NonStockItemGI.cs" />
+    <Compile Include="Entity\Items\TemplateItem\TemplateItemEntityGeneralSettings.cs" />
+    <Compile Include="Entity\Items\TemplateItem\TemplateItemEntityPriceInfo.cs" />
+    <Compile Include="Entity\Items\TemplateItem\TemplateItemEntityVendorDetails.cs" />
+    <Compile Include="Entity\ItemWarehouseDetails\ItemWarehouseDetailsEntity.cs" />
+    <Compile Include="Entity\ItemWarehouseDetails\ItemWarehouseDetailsEntityHeader.cs" />
+    <Compile Include="Entity\Payment\PaymentEntity.cs" />
+    <Compile Include="Entity\Payment\PaymentEntityHeader.cs" />
+    <Compile Include="Entity\SalesOrder\SalesOrderEntity.cs" />
+    <Compile Include="Entity\SalesOrder\SalesOrderEntityDetails.cs" />
+    <Compile Include="Entity\SalesOrder\SalesOrderEntityDiscountDetails.cs" />
+    <Compile Include="Entity\SalesOrder\SalesOrderEntityHeader.cs" />
+    <Compile Include="Entity\SalesOrder\SalesOrderEntityPayments.cs" />
+    <Compile Include="Entity\SalesOrder\SalesOrderEntityShipment.cs" />
+    <Compile Include="Entity\SalesOrder\SalesOrderEntityShippingSettings.cs" />
+    <Compile Include="Entity\SalesOrder\SalesOrderEntityTaxDetails.cs" />
+    <Compile Include="Entity\SalesOrder\SalesOrderEntityTotals.cs" />
+    <Compile Include="Entity\SalesPrices\SalesPriceEntity.cs" />
+    <Compile Include="Entity\SalesPrices\SalesPriceEntityDetails.cs" />
+    <Compile Include="Entity\SalesPrices\SalesPriceEntityHeader.cs" />
+    <Compile Include="Entity\Shipment\ShipmentEntity.cs" />
+    <Compile Include="Entity\Shipment\ShipmentEntityDetails.cs" />
+    <Compile Include="Entity\Shipment\ShipmentEntityHeader.cs" />
+    <Compile Include="Entity\Shipment\ShipmentEntityOrders.cs" />
+    <Compile Include="Entity\Items\IItem.cs" />
+    <Compile Include="Entity\Items\StockItems\StockItemEntity.cs" />
+    <Compile Include="Entity\Items\StockItems\StockItemEntityDetails.cs" />
+    <Compile Include="Entity\Items\StockItems\StockItemGI.cs" />
+    <Compile Include="Entity\StockItems\StockItemAttributesCategories.cs" />
+    <Compile Include="Entity\StockItems\StockItemEntityAttributes.cs" />
+    <Compile Include="Entity\StockItems\StockItemEntityDescription.cs" />
+    <Compile Include="Entity\StockItems\StockItemEntityEcommerce.cs" />
+    <Compile Include="Entity\StockItems\StockItemEntityGeneralSettings.cs" />
+    <Compile Include="Entity\StockItems\StockItemEntityPackaging.cs" />
+    <Compile Include="Entity\StockItems\StockItemEntityVendorDetails.cs" />
+    <Compile Include="Entity\StockItems\StockItemEntityWarehouseDetails.cs" />
+    <Compile Include="Entity\StockItems\StockItemPriceCostInfo.cs" />
+    <Compile Include="Entity\SyncStatus\SyncStatus.cs" />
+    <Compile Include="EntityDataService\DataService.cs" />
+    <Compile Include="EntityDataService\JsonFileReader.cs" />
+    <Compile Include="EntityDataService\IFileDataProvider.cs" />
+    <Compile Include="Entity\Customer\CustomerEntityAddress.cs" />
+    <Compile Include="Entity\Customer\CustomerEntityLocationSettings.cs" />
+    <Compile Include="Entity\Customer\CustomerEntityContact.cs" />
+    <Compile Include="Entity\Customer\CustomerEntity.cs" />
+    <Compile Include="Entity\Location\LocationEntity.cs" />
+    <Compile Include="Entity\Location\LocationEntityAddress.cs" />
+    <Compile Include="Entity\Location\LocationEntityContact.cs" />
+    <Compile Include="Entity\Location\LocationEntitySettings.cs" />
+    <Compile Include="Entity\Items\TemplateItem\TemplateItemEntity.cs" />
+    <Compile Include="Entity\Items\TemplateItem\TemplateItemEntityAttributeConfig.cs" />
+    <Compile Include="Entity\Items\TemplateItem\TemplateItemEntityCreateMatrixItemsTab.cs" />
+    <Compile Include="Entity\Items\TemplateItem\TemplateItemEntityDescTab.cs" />
+    <Compile Include="Entity\Items\TemplateItem\TemplateItemEntityEcommerce.cs" />
+    <Compile Include="Entity\Items\TemplateItem\TemplateItemEntityMatrixItemsResult.cs" />
+    <Compile Include="Entity\Items\TemplateItem\TemplateItemGI.cs" />
+    <Compile Include="Entity\Warehouse\WarehouseEntity.cs" />
+    <Compile Include="Extensions\ACBigCommerceStore.cs" />
+    <Compile Include="Extensions\ACConnectorPrepeareData.cs" />
+    <Compile Include="Extensions\ACConnectorEntities.cs" />
+    <Compile Include="Extensions\ACConnectorProcessData.cs" />
+    <Compile Include="Extensions\ACConnectorSyncStatus.cs" />
+    <Compile Include="Extensions\ACWooCommerceStore.cs" />
+    <Compile Include="Extensions\ACuWooCommerceStore.cs" />
+    <Compile Include="Extensions\CustomerClass\CustomerClassAr.cs" />
+    <Compile Include="Extensions\CustomerLocations\CustomerLocation.cs" />
+    <Compile Include="Extensions\CustomerPriceClasses\ACCustomerPriceClassesPage.cs" />
+    <Compile Include="Extensions\Customer\CustomerAr.cs" />
+    <Compile Include="Extensions\Customer\CustomersGI.cs" />
+    <Compile Include="Extensions\Customer\ShipmentTerms.cs" />
+    <Compile Include="Extensions\Customer\ShipVia.cs" />
+    <Compile Include="Extensions\Customer\ShipViaGI.cs" />
+    <Compile Include="Extensions\Customer\TaxZone.cs" />
+    <Compile Include="Extensions\Customer\TaxZonesGI .cs" />
+    <Compile Include="Extensions\FinancialCalendar\FinancialPeriod.cs" />
+    <Compile Include="Extensions\FinancialCalendar\ManageFinancialPeriodGl.cs" />
+    <Compile Include="Extensions\ItemClass\ItemClass.cs" />
+    <Compile Include="Extensions\ItemWarehouseDetails\ItemWarehouseDetails.cs" />
+    <Compile Include="Extensions\NonStockItem\NonStockItem.cs" />
+    <Compile Include="Extensions\NonStockItem\NonStockItemsGI.cs" />
+    <Compile Include="Extensions\Payment\PaymentAr.cs" />
+    <Compile Include="Extensions\PurchaseOrders\CreatePurchaseOrders.cs" />
+    <Compile Include="Extensions\PurchaseOrders\OrderPo.cs" />
+    <Compile Include="Extensions\PurchaseOrders\ReceiptPo.cs" />
+    <Compile Include="Extensions\SalesOrder\OrderSo.cs" />
+    <Compile Include="Extensions\SalesOrder\SalesOrdersGI.cs" />
+    <Compile Include="Extensions\SalesOrder\SubstitutionLists.cs" />
+    <Compile Include="Extensions\SalesPrices\ACSalesPricePage.cs" />
+    <Compile Include="Extensions\Shipment\Shipment.cs" />
+    <Compile Include="Extensions\StockItem\ImageUploaderExt.cs" />
+    <Compile Include="Extensions\StockItem\ReceiptIn.cs" />
+    <Compile Include="Extensions\StockItem\SegmentedKey.cs" />
+    <Compile Include="Extensions\StockItem\StockItem.cs" />
+    <Compile Include="Extensions\StockItem\StockItemsGi.cs" />
+    <Compile Include="Extensions\Taxes\ShippingZones.cs" />
+    <Compile Include="Extensions\Taxes\Tax.cs" />
+    <Compile Include="Extensions\TemplateItems\AttributeCs.cs" />
+    <Compile Include="Extensions\TemplateItems\AvailabilityCalculationRules.cs" />
+    <Compile Include="Extensions\TemplateItems\Features.cs" />
+    <Compile Include="Extensions\TemplateItems\TemplateItem.cs" />
+    <Compile Include="Extensions\TemplateItems\Warehouse.cs" />
+    <Compile Include="Helpers\ValidatorHelper.cs" />
+    <Compile Include="PageVisitors\CustomerPriceClasses\CustomerPriceClassesVisitor.cs" />
+    <Compile Include="PageVisitors\CustomerPriceClasses\ICustomerPriceClassesVisitor.cs" />
+    <Compile Include="PageVisitors\Customer\CustomerGIVisitor.cs" />
+    <Compile Include="PageVisitors\Customer\ICustomerGIVisitor.cs" />
+    <Compile Include="PageVisitors\ItemWarehouseDetails\IItemWarehouseDetailsVisitor.cs" />
+    <Compile Include="PageVisitors\ItemWarehouseDetails\ItemWarehouseDetailsVisitor.cs" />
+    <Compile Include="PageVisitors\Location\ILocationVisitor.cs" />
+    <Compile Include="PageVisitors\NonStockItem\INonStockItemGIVisitor.cs" />
+    <Compile Include="PageVisitors\NonStockItem\INonStockItemVisitor.cs" />
+    <Compile Include="PageVisitors\NonStockItem\NonStockItemGIVisitor.cs" />
+    <Compile Include="PageVisitors\NonStockItem\NonStockItemVisitor.cs" />
+    <Compile Include="PageVisitors\Payment\IPaymentVisitor.cs" />
+    <Compile Include="PageVisitors\Payment\PaymentVisitor.cs" />
+    <Compile Include="PageVisitors\SalesOrder\ISalesOrderVisitor.cs" />
+    <Compile Include="PageVisitors\SalesOrder\SalesOrderVisitor.cs" />
+    <Compile Include="PageVisitors\SalesPrices\ISalesPriceVisitor.cs" />
+    <Compile Include="PageVisitors\SalesPrices\SalesPriceVisitor.cs" />
+    <Compile Include="PageVisitors\Shipment\IShipmentVisitor.cs" />
+    <Compile Include="PageVisitors\Shipment\ShipmentVisitor.cs" />
+    <Compile Include="PageVisitors\StockItem\IStockItemGIVisitor.cs" />
+    <Compile Include="PageVisitors\StockItem\IStockItemVisitor.cs" />
+    <Compile Include="PageVisitors\StockItem\StockItemGIVisitor.cs" />
+    <Compile Include="PageVisitors\StockItem\StockItemVisitor.cs" />
+    <Compile Include="PageVisitors\Sync\SyncStatusVisitor.cs" />
+    <Compile Include="PageVisitors\Sync\ISyncStatusVisitor.cs" />
+    <Compile Include="Extensions\TemplateItems\ACTemplateItemGI.cs" />
+    <Compile Include="PageVisitors\TemplateItem\ITemplateItemGIVisitor.cs" />
+    <Compile Include="PageVisitors\TemplateItem\ITemplateItemVisitor.cs" />
+    <Compile Include="PageVisitors\TemplateItem\TemplateItemGIVisitor.cs" />
+    <Compile Include="PageVisitors\TemplateItem\TemplateItemVisitor.cs" />
+    <Compile Include="PageVisitors\VisitorsManager.cs" />
+    <Compile Include="PageVisitors\Customer\ICustomerVisitor.cs" />
+    <Compile Include="PageVisitors\Location\LocatonVisitor.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PageVisitors\Customer\CustomerVisitor.cs" />
+    <Compile Include="TestData\CustomerTestData.cs" />
+    <Compile Include="TestData\GeneralTestData.cs" />
+    <Compile Include="TestsProduct\ExportStockItemsToWCNew.cs" />
+    <Compile Include="TestsSalesOrder\ImportSalesOrderWithCouponDiscountFromWC.cs" />
+    <Compile Include="WooCommerceRest\Client\Common\GetOnlyContractResolver.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\Discount\DiscountRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\Order\DraftOrderRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\PriceRule\PriceRuleRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Commerce\BCCaptions.cs" />
+    <Compile Include="WooCommerceRest\Commerce\ShopifyApiStatusCodes.cs" />
+    <Compile Include="WooCommerceRest\Commerce\ShopifyCaptions.cs" />
+    <Compile Include="WooCommerceRest\Commerce\ShouldNotDeserializeAttribute.cs" />
+    <Compile Include="WooCommerceRest\Commerce\ShouldNotSerializeAttribute.cs" />
+    <Compile Include="WooCommerceRest\Commerce\ValidateRequiredAttribute.cs" />
+    <Compile Include="WooCommerceRest\Configuration\ShopifyRestOptionsBase.cs" />
+    <Compile Include="WooCommerceRest\Configuration\ShopifyRestOptions.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Customers\CustomerResponse_1.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Customers\CustomerData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Customers\CustomerResponse.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Discount\DiscountData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\PriceRuleValueType.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\AppliedDiscount.cs" />
+    <Compile Include="CommerceTests\TestsCustomer\Customer_Deleted_BigCommerce_AfterInitialSync.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\PriceRule\PrerequisiteSubtotalRange.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\PriceRule\PriceRuleData.cs" />
+    <Compile Include="TestsCustomer\CreateWCCustomer_CAAddress_ImportToAC.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\DraftOrderData.cs" />
+    <Compile Include="TestsSalesOrder\ProcessSalesOrderWithMultipleShipmentsToUSAddressWC.cs" />
+    <Compile Include="TestsSalesOrder\SalesOrderImportMappingTab.cs" />
+    <Compile Include="Utils\Util.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\IPaymentMethod.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Products\ApiHeaderRequestAttribute.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Shipping\IShippingMethod.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\WebHooks\WebHookData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\WebHooks\WebHookMessage.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\WebHooks\WebHookMessageData.cs" />
+    <Compile Include="WooCommerceRest\Logger\IShopifyClientLogger.cs" />
+    <Compile Include="WooCommerceRest\Client\Common\ItemProcessCallback.cs" />
+    <Compile Include="WooCommerceRest\Client\Common\RestDataProviderBase.cs" />
+    <Compile Include="WooCommerceRest\Client\Common\RestException.cs" />
+    <Compile Include="WooCommerceRest\Client\Common\RestJsonSerializer.cs" />
+    <Compile Include="WooCommerceRest\Client\Common\RestOptions.cs" />
+    <Compile Include="WooCommerceRest\Client\Common\SPRestClientBase.cs" />
+    <Compile Include="WooCommerceRest\Client\Common\UrlSegments.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\Customers\CustomerAddressRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\Customers\CustomerRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\Inventory\InventoryItemRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\Inventory\InventoryLevelRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\Inventory\InventoryLocationRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\MetafieldRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\Order\OrderRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\Products\ProductImageRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\Products\WCProductRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\Products\ProductVariantRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\Shipping\FulfillmentRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\StoreRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\WebHookRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Client\SPRestClient.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Common\CountryData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Common\IEntityResponse.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Common\ItemCount.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Common\MetafieldData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Common\StoreData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Customers\CustomerAddressData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Customers\CustomerData_1.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\CustomerState.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\DiscountAllocationMethods.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\DiscountApplicationType.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\DiscountTargetSelection.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\DiscountTargetType.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\DiscountType.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\DiscountValueType.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\FulfillmentStatus.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\InventoryPolicy.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\OrderAdjustmentType .cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\OrderCancelReason.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\OrderFinancialStatus.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\OrderFulfillmentStatus.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\OrderInventoryBehaviour.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\OrderProcessingMethod.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\OrderRiskActionType.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\OrderStatus.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\ProductPublishedScope.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\RestockType.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\ShipmentStatus.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\TaxType.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\TrackingCompany.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\TransactionErrorCode.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\TransactionStatus.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Enumerations\TransactionType.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Inventory\InventoryItemData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Inventory\InventoryLevelData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Inventory\InventoryLocationData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\OrderAddressData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\OrderAdjustment.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\OrderClientDetail.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\OrderData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\OrderDiscountAllocation.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\OrderDiscountApplications.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\OrderDiscountCodes.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\OrderLineItem.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\OrderRefund.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\OrderRisk.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\OrderShippingLine.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\OrderTaxLine.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\OrderTransaction.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\PaymentDetail.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\PaymentMethod.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Order\RefundLineItem.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Products\PresentmentPrice.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Products\PriceSet.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Products\ProductData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Products\ProductImageData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Products\ProductOptionData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Products\ProductVariantData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Products\ProductVariantPresentmentPriceData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Shipping\FulfillmentData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Entities\Shipping\ShippingZoneData.cs" />
+    <Compile Include="WooCommerceRest\Domain\Error\Error.cs" />
+    <Compile Include="WooCommerceRest\Filters\Filter.cs" />
+    <Compile Include="WooCommerceRest\Filters\FilterCustomers.cs" />
+    <Compile Include="WooCommerceRest\Filters\FilterOrders.cs" />
+    <Compile Include="WooCommerceRest\Filters\FilterProducts.cs" />
+    <Compile Include="WooCommerceRest\Interfaces\IChildRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Interfaces\IFilter.cs" />
+    <Compile Include="WooCommerceRest\Interfaces\IParentRestDataProvider.cs" />
+    <Compile Include="WooCommerceRest\Interfaces\IShopifyRestClient.cs" />
+    <Compile Include="WooCommerceRest\Logger\ShopifyClientLogger.cs" />
+    <Compile Include="WooCommerceRest\WooCommerceApiService.cs" />
+    <Compile Include="TestsBase\TestBase.cs" />
+    <Compile Include="TestsCustomer\TestCustomerBase.cs" />
+    <Compile Include="EntityData\DataFilePath.cs" />
+    <Compile Include="TestsProduct\TestProductBase.cs" />
+    <Compile Include="TestsProduct\UpdateStockItems_ExportToWC.cs" />
+    <Compile Include="TestsSalesOrder\ImportSalesOrderForExistingCustomerAndItemWC.cs" />
+    <Compile Include="TestsSalesOrder\ImportSalesOrderMultipleItemsTaxesForCustomerWC.cs" />
+    <Compile Include="TestsSalesOrder\TestSalesOrderBase.cs" />
+    <PackageReference Include="HtmlAgilityPack">
+      <Version>1.11.33</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.Platforms">
+      <Version>6.0.0-preview.3.21201.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Win32.Primitives">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Minio">
+      <Version>3.1.13</Version>
+    </PackageReference>
+    <PackageReference Include="MySqlConnector">
+      <Version>1.3.8</Version>
+    </PackageReference>
+    <PackageReference Include="NETStandard.Library">
+      <Version>2.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="PX.QA.Tools">
+      <Version>21.102.69.70</Version>
+    </PackageReference>
+    <PackageReference Include="RestSharp">
+      <Version>106.11.8-alpha.0.14</Version>
+    </PackageReference>
+    <PackageReference Include="Selenium.Support">
+      <Version>4.0.0-beta2</Version>
+    </PackageReference>
+    <PackageReference Include="Selenium.WebDriver">
+      <Version>4.0.0-beta2</Version>
+    </PackageReference>
+    <PackageReference Include="System.AppContext">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Buffers">
+      <Version>4.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Collections">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Collections.Concurrent">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Console">
+      <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Data.SqlClient">
+      <Version>4.8.2</Version>
+    </PackageReference>
+    <PackageReference Include="System.Diagnostics.Debug">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Diagnostics.DiagnosticSource">
+      <Version>6.0.0-preview.3.21201.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.Diagnostics.Tools">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Diagnostics.Tracing">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Drawing.Common">
+      <Version>6.0.0-preview.3.21201.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.Globalization">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Globalization.Calendars">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.IO">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.IO.Compression">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.IO.Compression.ZipFile">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.IO.FileSystem">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.IO.FileSystem.AccessControl">
+      <Version>6.0.0-preview.3.21201.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.IO.FileSystem.Primitives">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Management">
+      <Version>6.0.0-preview.3.21201.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.Memory">
+      <Version>4.5.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.Net.Http">
+      <Version>4.3.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.Net.Primitives">
+      <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Net.Sockets">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Numerics.Vectors">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.ObjectModel">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Reactive">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Reactive.Linq">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Reflection">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Reflection.Extensions">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Reflection.Primitives">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Resources.ResourceManager">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime">
+      <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe">
+      <Version>6.0.0-preview.3.21201.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.Extensions">
+      <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.Handles">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.InteropServices">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.Numerics">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.AccessControl">
+      <Version>6.0.0-preview.3.21201.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Cryptography.Algorithms">
+      <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Cryptography.Encoding">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Cryptography.Primitives">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Cryptography.X509Certificates">
+      <Version>4.3.2</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Principal.Windows">
+      <Version>6.0.0-preview.3.21201.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.ServiceModel.Primitives">
+      <Version>4.8.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.Encoding">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.Encoding.Extensions">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.RegularExpressions">
+      <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks.Extensions">
+      <Version>4.5.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Timer">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Xml.ReaderWriter">
+      <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Xml.XDocument">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="TidyNetstandard">
+      <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="xunit.assert">
+      <Version>2.4.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CommerceTests\EntityData\Attribute\AttributesBasePriceTestNegative.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\Attribute\AttributesBCStockItemExportMappingTab.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\Attribute\AttributesBCCustomerImportMappingTab.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\Attribute\AttributesBasePriceTest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\Attribute\AttributesCreateTemplateItemsPriceListPositive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\Connector\CustomerExportFiltering.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\Connector\CustomerImportMapping.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\Connector\SOImportFiltering.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\Connector\BasePriceTestExportFilteringTab.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\Connector\StockItemExportFiltering.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\Connector\SOImportMapping.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\CustomerPriceClasses\ExportCustomerFiltering.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\CustomerPriceClasses\PriceListPositivePriceClass.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\Customer\CustomerExportFilteringTab.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\Customer\CustomerImportMappingTab.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\ItemClass\ItemClassBasePriceTest.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\PriceListResults\ResultTestItem1.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\PriceListResults\ResultTestItem2.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\PriceListResults\ResultTestItem3.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\PriceListResults\ResultTestTemplateItem.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\SalesPrice\NegativeBasePriceTest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\SalesPrice\NegativeSalesPricesPriceList.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\SalesPrice\NegativeSalesPricesPriceListTypeBase.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\SalesPrice\PositiveBasePriceTest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\SalesPrice\SalesPricesPriceListTypeBase.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\StockItems\BasePriceTestNegativeCreateStockItems.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\TemplateItems\BasePriceTestCreateTemplateItems.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\ItemClass\ConcurrentSyncCreateTemplateItem.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\ItemClass\CreateItemClassPriceListPositive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\ItemClass\StockItemExportFilteringTab.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\SalesPrice\SalesPricesPriceList.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\StockItems\StockItemConcurrentSyncSingleItem.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\StockItems\StockItemConcurrentSyncSingleItemGI.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\StockItems\StockItemExportFilteringTab.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\Connector\StockItemExportMapping.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\ItemClass\StockItemExportFilteringTab.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\StockItems\BasePriceTestCreateStockItems.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\StockItems\StockItemExportMappingTab.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\StockItems\StockItemsPriceListPositive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\StockItems\StockItem_Deleted_BigCommerce_AfterInitialSync.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\TemplateItem\CreateTemplateItemPriceListPositive.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\TemplateItem\CreateTemplateItemPriceListNegative.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Attribute\AttributesCreateTemplateItems.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Attribute\AttributesCustomerImportMappingTab.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\ConnectorEntity\CustomerExportFiltering.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\ConnectorEntity\CustomerImportMapping.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\ConnectorEntity\SOImportMappingtab%28Additional%29\SOImportMapping.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\CreateSHCustomer_CAAddress_ImportToAC\CreateSHCustomer_CAAddress_ImportToACData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\ConnectorEntity\StockItemExportMapping.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\CreateSHCustomer_USAddress_ImportToACData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\CustomerCAAddressExportToSP.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\CustomerCAAddressExportToSPUpdatedCustomer.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\CustomerCAAddressExportToSPUpdatedLocation.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\ExportACCustomers_Filtering_ToSP.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\GlogConsulting.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\JacquesPlante.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\JohnElbow.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\MagDarrow.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\PortmeirionHotelInt.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\SimonMann.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\ItemClass\AvailCalcRuleCreateTemplateItem.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\ItemClass\ExportProductAvailabilityToSP.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\ItemClass\ExportStockItemToSPFilteringCreateItemClass.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\ItemClass\ExportTheProductImagesToSP.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\ItemClass\ExportNonStockItemsToSP2.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\ItemClass\ExportNonStockItemsToSP1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\ItemClass\CreateTemplateItemInAcumaticaExportToSP.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\ItemClass\ExportStockItemToSPCreateItemClass.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\LocationsMultipleUSAddressesExportToSP.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\CustomerMultipleUSAddressesExportToSP.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Customer\CustomerUSAddressExportToWC.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\ItemClass\ImportSalesOrderForAnUn_SyncedItemItemClass.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="CommerceTests\EntityData\ItemWarehouseDetails\PriceListPositiveWarehouseDetails.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Metafields\ExportNonStockItemsToSP.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\NonStockItems\ExportNonStockItemsToSPValidationObj2.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\NonStockItems\ExportNonStockItemsToSPValidationObj1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\NonStockItems\ExportProductAvailabilityToSPNonStockItems.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\DropShipmentSalesOrderWithFullShipmentShopify.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\DropShipmentSOWithFullShipment\ItemsToCreate.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ImportSalesOrderMultipleItemsTaxesForCanadianCustomerWC.json" />
+    <None Include="EntityData\Orders\SOForExistingCustomerAndItem\ItemsToCreate.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ImportSalesOrderForAnUn_SyncedItemOrder.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ImportSalesOrderLineLevelDiscountsOnMultipleItemsShopify.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ImportSalesOrderLineLevelDiscountsOnMultipleItems\ImportSalesOrderLineLevelDiscountsOnMultipleItems.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ImportSalesOrderLineLevelDiscountsOnMultipleItems\ImportSalesOrderLineLevelDiscountsOnMultipleItemsEntity.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ImportSalesOrderLineLevelDiscountsOnMultipleItems\ImportSalesOrderLineLevelDiscountsOnMultipleItemsGI.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ImportSalesOrderMultipleItemsTaxesForCanadianCustomerShopify.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ImportSalesOrderUSStockItemsToCanadianCustomerPaidCCShopify.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\AutomatedLineLevelDiscountsOnMultipleItems\AutomatedLineLevelDiscountsOnMultipleItems.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\AutomatedLineLevelDiscountsOnMultipleItems\AutomatedLineLevelDiscountsOnMultipleItemsEntity.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\AutomatedLineLevelDiscountsOnMultipleItems\AutomatedLineLevelDiscountsOnMultipleItemsGI.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ImportSalesOrderWithCCPaymentShopify.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ImportSalesOrderWithCouponDiscountFromWC.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ImportSalesOrderWithCouponShopify.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ImportSOWithLineDiscountsMultipleItemsCCPaymentShopify.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ProcessSOWithCombinedStockedAndNon_stockedItems\NonStockItemsToCreate.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ProcessSOWithCombinedStockedAndNon_stockedItems\ItemsToCreate.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ProcessSOWithCombinedStockedAndNon_stockedItems\ProcessSalesOrderWithCombinedStockedAndNon_stockedItemsToUSAddressShopify.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ProcessSalesOrderWithMultipleShipmentsToUSAddressChanged\ProcessSalesOrderWithMultipleShipmentsToUSAddressChanged.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ProcessSalesOrderWithMultipleShipmentsToUSAddressChanged\ProcessSalesOrderWithMultipleShipmentsToUSAddressEntityChanged.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ProcessSalesOrderWithMultipleShipmentsToUSAddressChanged\ProcessSalesOrderWithMultipleShipmentsToUSAddressGIChanged.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ProcessSalesOrderWithMultipleShipmentsToUSAddress\ProcessSalesOrderWithMultipleShipmentsToUSAddress.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ProcessSalesOrderWithMultipleShipmentsToUSAddress\ProcessSalesOrderWithMultipleShipmentsToUSAddressEntity.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\ProcessSalesOrderWithMultipleShipmentsToUSAddress\ProcessSalesOrderWithMultipleShipmentsToUSAddressGI.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\SalesOrderForExistingCustomerAndItem.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\SalesOrderForExistingCustomerAndItemShopify.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\SalesOrderLineLevelDiscountsOnMultipleItems\ItemsToCreate.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\SalesOrderMultipleItemsTaxesForCanadianCustomer\ItemsToCreate.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\SalesOrderTemplateItemsTaxesCanadianCustomer\ItemsToCreate.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\SalesOrderTemplateItemsTaxesCanadianCustomer\OrderValidationObj.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\SalesOrderUSStockItemsToCanadianCustomerPaidCC\ItemsToCreate.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\SalesOrderWithCCPayment\ItemsToCreate.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\SOImportMappingTab\ItemsToCreate.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\SOWithCouponDiscountFromShopify\ItemsToCreate.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\SOWithCoupon\ItemsToCreate.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\SOWithLineDiscountsMultipleItemsCCPayment\ItemsToCreate.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\PriceRules\AutomatedLineLevelDiscountsOnMultipleItemsPriceRule.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Orders\SOWithShippingAndTaxExemptItem\ItemsToCreate.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\ExportProductAvailabilityToSP.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\NonStockItems\ExportNonStockItemsToSPModified.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\NonStockItems\ExportNonStockItemsToSPOriginal.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\ExportProductAvailabilityToSPEntity.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\ExportProductAvailabilityToSPGI.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\ExportProductAvailabilityToSPResult.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\ExportStockItemToSPCreateItems.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\ExportStockItemToSPFilteringGI.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\ExportStockItemToSPFilteringCreateItem.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\ExportStockItemToSPFilteringProductData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\ExportStockItemToSPProductData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\ExportStockItemToSPGI.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\ExportStockItemToSPUpdateItem.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\ImportSalesOrderForAnUn_SyncedItem.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\ImportSalesOrderForAnUn_SyncedItemCreateItem.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\StockItemExportMappingTab.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\StockItems\StockItemExportMappingTabProductData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\TemplateItem\CreateTemplateItemProductData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\TemplateItem\CreateTemplateItemVariantsData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\TemplateItem\CreateTemplateItems.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\TemplateItem\ExportTemplateItemsGI.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\TemplateItem\ExportTemplateItemsUpdatedItem.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\TemplateItem\ExportTemplateItemsUpdatedItemGI.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\TemplateItem\ExportTemplateItemsUpdatedVariants.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\TemplateItem\ExportTemplateItemsVariants.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\TemplateItem\ExportTemplateItemsUpdatedProductData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\Warehouse\WarehouseCreateTemplateItem.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EntityData\Images\WEMUG.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CommerceTests\EntityData\SalesOrders\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

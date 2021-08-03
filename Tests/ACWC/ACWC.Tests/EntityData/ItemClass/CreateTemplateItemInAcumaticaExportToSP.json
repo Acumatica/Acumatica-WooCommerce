@@ -1,0 +1,36 @@
+{
+  "ClassID": "SHIRTS",
+  "Description": "Shirts",
+  "GeneralSettings": {
+    "StkItem": "true",
+    "ItemType": "Finished Good",
+    "ValMethod": "Average",
+    "TaxCategory": "TAXABLE",
+    "DefWarehouse": "MAIN",
+    "AvailabilityCalcRule": "STOCKITEM",
+    "PostingClass": "SNO",
+    "LotSerClass": "NOTTRACKED",
+    "BaseUnit": "PIECE",
+    "SalesUnit": "PIECE",
+    "PurchaseUnit": "PIECE",
+    "DecimalBaseUnit": "true",
+    "DecimalSalesUnit": "true",
+    "DecimalPurchaseUnit": "true",
+    "MinMarkup": "50",
+    "Markup": "100"
+  },
+  "Attributes": [
+    {
+      "AttributeID": "MCOLOR",
+      "Category": "Variant"
+    },
+    {
+      "AttributeID": "MATERIAL",
+      "Category": "Variant"
+    },
+    {
+      "AttributeID": "SIZE",
+      "Category": "Variant"
+    }
+  ] 
+}

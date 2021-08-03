@@ -1,0 +1,15 @@
+{
+  "title": "Dell Laptop 13\"",
+  "variants": [
+    {
+      "title": "Default Title",
+      "price": "600.00",
+      "sku": "LAPTOP13",
+      "taxable": true,
+      "grams": 2000,
+      "weight": 2.0,
+      "weight_unit": "kg",
+      "inventory_quantity": 20
+    }
+  ]
+}

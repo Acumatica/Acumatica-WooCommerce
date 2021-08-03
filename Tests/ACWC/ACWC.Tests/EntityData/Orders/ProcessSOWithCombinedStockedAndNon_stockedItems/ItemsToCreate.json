@@ -1,0 +1,16 @@
+[
+  {
+    "InventoryCD": "LAPTOP12",
+    "Description": "Laptop 12\"",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "TaxCategory": "TAXABLE",
+      "Weight": 2,
+      "WeightUOM": "KG",
+      "BasePrice": 500
+    }
+  }
+]

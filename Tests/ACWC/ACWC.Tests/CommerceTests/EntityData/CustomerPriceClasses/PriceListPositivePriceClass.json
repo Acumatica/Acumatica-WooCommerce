@@ -1,0 +1,19 @@
+{
+  "Details": [
+    {
+      "PriceClassID": "WHOLESALE",
+      "Description": "Wholesale Pricing",
+      "SortOrder": 1
+    },
+    {
+      "PriceClassID": "RETAIL",
+      "Description": "Retail Pricing",
+      "SortOrder": 2
+    },
+    {
+      "PriceClassID": "OTHERS",
+      "Description": "Other Pricing",
+      "SortOrder": 3
+    }
+  ]
+}

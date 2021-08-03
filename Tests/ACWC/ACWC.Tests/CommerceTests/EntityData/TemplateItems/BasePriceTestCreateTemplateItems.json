@@ -1,0 +1,51 @@
+{
+  "InventoryCD": "SHIRT",
+  "Description": "Polo Shirt with Buttons",
+  "GeneralSettings": {
+    "ItemStatus": "Active",
+    "ItemClass": "CSHIRTS",
+    "ItemType": "Finished Good",
+    "ValMethod": "Average",
+    "TaxCategory": "EXEMPT",
+    "PostClass": "AOL",
+    "LotSerClass": "NOTTRACKED"
+  },
+  "PriceInfo": {
+    "RecPrice": 99,
+    "BasePrice": 99
+  },
+  "VendorDetails": [
+    {
+      "VendorID": "AAVENDOR",
+      "AddLeadTimeDays": 10,
+      "MaxOrdQty": 50
+    }
+  ],
+  "AttributeConfig": {
+    "DefaultColumnMatrixAttribute": "TCOLOR",
+    "DefaultRowMatrixAttribute": "SIZE",
+    "InventoryIDSegmentSettings": [
+      {
+        "SegmentType": "Template ID",
+        "NumberOfCharacters": 9
+      },
+      {
+        "SegmentType": "Attribute Value",
+        "AttributeID": "TCOLOR",
+        "NumberOfCharacters": 5
+      },
+      {
+        "SegmentType": "Attribute Value",
+        "AttributeID": "SIZE",
+        "NumberOfCharacters": 3
+      }
+    ]
+  },
+  "CreateMatrixItemsTab": {
+    "ColAttributeID": "TCOLOR",
+    "RowAttributeID": "SIZE",
+    "Matrices": {
+      "SelectRow": "True"
+    }
+  } 
+}

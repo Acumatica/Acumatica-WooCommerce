@@ -1,0 +1,43 @@
+﻿{
+  "payment_method": "bacs",
+  "payment_method_title": "Direct Bank Transfer",
+  "set_paid": true,
+  "billing": {
+    "first_name": "Tharindu",
+    "last_name": "Doe",
+    "address_1": "969 Market",
+    "address_2": "",
+    "city": "New York",
+    "state": "NY",
+    "postcode": "10001",
+    "country": "US",
+    "email": "john.doe@example.com",
+    "phone": "(555) 555-5555"
+  },
+  "shipping": {
+    "first_name": "Tharindu",
+    "last_name": "Doe",
+    "address_1": "969 Market",
+    "address_2": "",
+    "city": "New York",
+    "state": "NY",
+    "postcode": "10001",
+    "country": "US"
+  },
+  "line_items": [
+    {
+      "product_id": 593,
+      "quantity": 1
+    }
+  ],
+  "coupon_lines": [
+    {
+      "code": "disc_coupon"
+    }
+  ],
+  "tax_lines": [
+    {
+      "rate_code": "US-NY-TAX NY-1"
+    }
+  ]
+}

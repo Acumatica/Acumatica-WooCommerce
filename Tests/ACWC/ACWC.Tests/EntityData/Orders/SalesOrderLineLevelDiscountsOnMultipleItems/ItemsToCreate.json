@@ -1,0 +1,44 @@
+[
+  {
+    "InventoryCD": "AACOMPUT01",
+    "Description": "Acer Laptop Computer",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 2.72,
+      "WeightUOM": "KG",
+      "BasePrice": 600
+    }
+  },
+  {
+    "InventoryCD": "MOUSE",
+    "Description": "Computer mouse",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "EXEMPT",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 0.250,
+      "WeightUOM": "KG",
+      "BasePrice": 29.95
+    }
+  },
+  {
+    "InventoryCD": "KEYBOARD",
+    "Description": "Computer keyboard",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "EXEMPT",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 0.5,
+      "WeightUOM": "KG",
+      "BasePrice": 75
+    }
+  }
+]

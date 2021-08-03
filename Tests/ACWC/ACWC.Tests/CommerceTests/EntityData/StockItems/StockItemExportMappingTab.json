@@ -1,0 +1,23 @@
+[
+  {
+    "Custom_1": "123.44",
+    "Custom_2": "1A1",
+    "InventoryCD": "NEWBRICK",
+    "Description": "New Brick",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "ALLOTHER",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good"
+    },
+    "Attributes": [
+      {
+        "AttributeID": "Extra Attribute",
+        "Value": "10"
+      }
+    ],
+    "AttributeCategories": {
+      "CategoryID": "Food Items"
+    }
+  }
+]

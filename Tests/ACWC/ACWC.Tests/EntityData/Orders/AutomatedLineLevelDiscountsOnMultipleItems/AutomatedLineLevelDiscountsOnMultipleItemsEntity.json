@@ -1,0 +1,28 @@
+[
+  {
+    "inventoryCD": "CONGRIL",
+    "description": "Char-Broil Classic",
+    "itemStatus": "Active",
+    "itemDetails": {
+      "BasePrice": 350.00,
+      "ItemClass": "STOCKITEM",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 25.00,
+      "WeightUOM": "KG"
+    }
+  },
+  {
+    "inventoryCD": "CONTABLE1",
+    "description": "Folding Picnic Table 6 Foot",
+    "itemStatus": "Active",
+    "itemDetails": {
+      "BasePrice": 150.00,
+      "ItemClass": "STOCKITEM",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 25.00,
+      "WeightUOM": "KG"
+    }
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "Summary": {
+    "customerID": "Jacques Plante"
+  },
+  "DocumentDetails": [
+    {
+      "InventoryID": "ACU-SHIRT-BLUE -L -COTTON",
+      "OrderQty": 1.00,
+      "UnitPrice": 99.00
+    },
+    {
+      "InventoryID": "ACU-SHIRT-WHITE-L -COTTON",
+      "OrderQty": 1.00,
+      "UnitPrice": 99.00
+    }
+  ],
+  "TaxDetails": [
+    {
+      "TaxID": "CAGST",
+      "TaxAmt": 9.90
+    },
+    {
+      "TaxID": "QCQST",
+      "TaxAmt": 19.75
+    }
+  ],
+
+  "Totals": {
+    "CuryOrderTotal": 227.65,
+    "SubTotal": 198.00,
+    "CuryPaymentTotal": 198.00,
+    "OrderQty": 2.00
+  }
+}

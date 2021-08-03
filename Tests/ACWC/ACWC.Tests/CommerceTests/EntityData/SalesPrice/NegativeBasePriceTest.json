@@ -1,0 +1,57 @@
+{
+  "Summary": {
+    "PriceType": "All Prices"
+  },
+  "Details": [
+    {
+      "PriceType": "Base",
+      "InventoryID": "TEST-ITEM1",
+      "Description": "Test Item 1",
+      "UOM": "INCH",
+      "BreakQty": 0,
+      "Price": 500
+    },
+    {
+      "PriceType": "Base",
+      "InventoryID": "TEST-ITEM2",
+      "Description": "Test Item 2",
+      "Warehouse": "WHOLESALE",
+      "BreakQty": 1,
+      "Price": 400
+    },
+    {
+      "PriceType": "Customer",
+      "PriceCode": "ABARTENDE",
+      "InventoryID": "TEST-ITEM3",
+      "Description": "Test Item 3",
+      "EffectiveDate": "2020-06-25",
+      "BreakQty": 1,
+      "Price": 400
+    },
+    {
+      "PriceType": "Base",
+      "InventoryID": "TEST-ITEM3",
+      "Description": "Test Item 3",
+      "BreakQty": 2,
+      "Price": 300,
+      "Currency": "CAD"
+    },
+    {
+      "PriceType": "Base",
+      "InventoryID": "TEST-ITEM3",
+      "Description": "Test Item 3",
+      "BreakQty": 3,
+      "Price": 200,
+      "Promotion": true,
+      "EffectiveDate": "2020-06-25",
+      "ExpirationDate": "2020-07-26"
+    },
+    {
+      "PriceType": "Base",
+      "InventoryID": "SHIRT    -RED  -L",
+      "Description": "SHIRT    -Red  -L",
+      "BreakQty": 3,
+      "Price": 200
+    }
+  ] 
+}

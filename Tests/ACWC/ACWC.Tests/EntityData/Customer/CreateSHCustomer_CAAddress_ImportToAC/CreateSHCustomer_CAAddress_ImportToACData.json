@@ -1,0 +1,33 @@
+{
+  "email": "",
+  "first_name": "Tharindu",
+  "last_name": "McDonald",
+  "username": "",
+  "billing": {
+    "address_1": "We Work Building",
+    "address_2": "Fourth Floor",
+    "city": "New York",
+    "company": "We Work",
+    "country": "US",
+    "default": true,
+    "first_name": "Simon",
+    "last_name": "Peters",
+    "name": "Simon Peters",
+    "phone": "",
+    "zip": "10001"
+  },
+  "shipping": {
+    "first_name": "Simon",
+    "last_name": "Peters",
+    "company": "We Work",
+    "address1": "We Work Building",
+    "address2": "5th Floor",
+    "city": "Montreal",
+    "state": "NY",
+    "country": "US",
+    "zip": "10001",
+    "phone": "",
+
+    "default": false
+  }
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "InventoryCD": "LAPTOP14",
+    "Description": "Laptop 14\"",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 2.5,
+      "WeightUOM": "KG",
+      "BasePrice": 650
+    }
+  },
+  {
+    "InventoryCD": "LEATHCASE",
+    "Description": "Leather case for laptops 12\"-15\"",
+    "ItemStatus": "Active",
+    "ItemDetails": {
+      "ItemClass": "STOCKITEM",
+      "TaxCategory": "TAXABLE",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 0.2,
+      "WeightUOM": "KG",
+      "BasePrice": 100
+    }
+  }
+]

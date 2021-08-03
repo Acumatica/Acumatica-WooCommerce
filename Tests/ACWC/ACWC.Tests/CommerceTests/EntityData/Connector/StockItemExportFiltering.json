@@ -1,0 +1,27 @@
+{
+  "Store": "BigCommerce",
+  "EntityType": "Stock Item",
+  "ExportFiltering": [
+    {
+      "OpenBrackets": "(",
+      "FieldName": "Item Status",
+      "Condition": "Equals",
+      "Value": "Active",
+      "CloseBrackets": ")",
+      "Operator": "OR"
+    },
+    {
+      "OpenBrackets": "(",
+      "FieldName": "Item Class",
+      "Condition": "Does Not Contain",
+      "Value": "FOOD",
+      "Operator": "AND"
+    },
+    {
+      "FieldName": "Visibility",
+      "Condition": "Does Not Equal",
+      "Value": "Invisible",
+      "CloseBrackets": ")"
+    }
+  ]
+}
