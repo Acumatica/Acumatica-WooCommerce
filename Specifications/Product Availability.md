@@ -17,7 +17,7 @@
 
 ![Screenshot](/Specifications/Spec%20Images/Availability1.png) 
 ![Screenshot](/Specifications/Spec%20Images/Availability2.png)
-<p>&nbsp;</p>
+
 <h2>Availability Mode</h2>
 
 <li>Available - In the Inventory setup when &quot;Available&quot; is selected, system calculates total quantity in &quot;Available&quot; column in&nbsp;<strong>Inventory Summary (IN401000) </strong> Screen
@@ -35,10 +35,21 @@
 <h2>Warehouse Mode</h2>
 <p>&nbsp;</p>
 <ol>
-<li>All Warehouses -&nbsp;In the Inventory setup &quot;All Warehouses&quot; is selected,&nbsp;when picking the value according to the Availability mode, system should show all the warehouse in&nbsp;<strong>Inventory Summary (IN401000)&nbsp;</strong>screen.<br /><br /><br /><ac:image ac:border="true" ac:height="222" ac:width="624"><ri:attachment ri:filename="image2021-6-29 18:8:38.png" /></ac:image><br /><br /></li></ol>
-<p>Specific Warehouses - In the Inventory setup &quot;Specific Warehouses&quot; is selected, when picking the value according to the Availability mode, system should take the values according to the warehouses filled in Inventory settings<br /><br /><ac:image ac:border="true" ac:height="250" ac:width="338"><ri:attachment ri:filename="image2021-6-29 18:10:34.png" /></ac:image><ac:image ac:border="true" ac:height="216" ac:width="457"><ri:attachment ri:filename="image2021-6-29 18:10:40.png" /></ac:image><br /><br /></p>
+<li>All Warehouses -&nbsp;In the Inventory setup &quot;All Warehouses&quot; is selected,&nbsp;when picking the value according to the Availability mode, system should show all the warehouse in&nbsp;<strong>Inventory Summary (IN401000)&nbsp;</strong>screen.
+  
+  ![Screenshot](/Specifications/Spec%20Images/Availability6.png)
+  
+<p>Specific Warehouses - In the Inventory setup &quot;Specific Warehouses&quot; is selected, when picking the value according to the Availability mode, system should take the values according to the warehouses filled in Inventory settings<br /><br />
+  
+  ![Screenshot](/Specifications/Spec%20Images/Availability7.png)
+  ![Screenshot](/Specifications/Spec%20Images/Availability8.png)
+  
 <p><em><strong>Value pick from any of the above-mentioned fields should be updated in WooCommerce Products API &ldquo;stock_quantity&rdquo; field. In Order to do that WooCommerce &ldquo;manage_stock&rdquo; Boolean should be = true. This is applicable for WooCommerce products variations also.</strong></em></p>
-<h1><ac:image ac:border="true" ac:height="250"><ri:attachment ri:filename="image2021-6-29 18:17:15.png" /></ac:image><ac:image ac:border="true" ac:height="250" ac:width="556"><ri:attachment ri:filename="image2021-6-29 18:19:39.png" /></ac:image></h1>
+
+  ![Screenshot](/Specifications/Spec%20Images/Availability9.png)
+  
+  ![Screenshot](/Specifications/Spec%20Images/Availability10.png)
+  
 <h1><br /><br />Available Qty Calculation</h1>
 <p>Available Qty Value Calculation will depend on,</p>
 <ul>
@@ -93,4 +104,4 @@
 <td><span>Yes (as 0 - Out of Stock)</span></td></tr></tbody></table>
 <p>&nbsp;</p>
 <ul>
-<li>Status of Item<br /><br />If Item status = inactive, not for sale or marked for deletion, those items availability should be disabled.&nbsp;<br /><br /><br /><strong>Field level mapping</strong>&nbsp;included <ac:link><ri:page ri:content-title="Product Availability Export" /><ac:plain-text-link-body><![CDATA[here]]></ac:plain-text-link-body></ac:link></li></ul>
+<li>Status of Item<br /><br />If Item status = inactive, not for sale or marked for deletion, those items availability should be disabled.&nbsp;<br /><br /><br />
