@@ -39,7 +39,7 @@
   
   ![Screenshot](/Specifications/Spec%20Images/Availability6.png)
   
-<p>Specific Warehouses - In the Inventory setup &quot;Specific Warehouses&quot; is selected, when picking the value according to the Availability mode, system should take the values according to the warehouses filled in Inventory settings<br /><br />
+<li>Specific Warehouses - In the Inventory setup &quot;Specific Warehouses&quot; is selected, when picking the value according to the Availability mode, system should take the values according to the warehouses filled in Inventory settings<br /><br />
   
   ![Screenshot](/Specifications/Spec%20Images/Availability7.png)
   ![Screenshot](/Specifications/Spec%20Images/Availability8.png)
