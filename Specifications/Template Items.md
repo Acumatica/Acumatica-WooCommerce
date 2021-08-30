@@ -11,7 +11,7 @@
 <td>Milestone 2</td>
 <td>Work in Progress</td></tr></tbody></table>
 <p>&nbsp;</p>
-<p>Template Item sync will be same as <ac:link><ri:page ri:content-title="Stock Item Entity" /><ac:plain-text-link-body><![CDATA[Stock]]></ac:plain-text-link-body></ac:link> and <ac:link><ri:page ri:content-title="Non-Stock Item Entity" /><ac:plain-text-link-body><![CDATA[Non-stock]]></ac:plain-text-link-body></ac:link> item synchronization. System will use the same inventory settings when syncing and additionally will consider below mention conditions,</p>
+<p>Template Item sync will be same as Stock Item Entity and Non-Stock Item Entity item synchronization. System will use the same inventory settings when syncing and additionally will consider below mention conditions,</p>
 <ul>
 <li>WooCommerce &ldquo;Product Data Type&rdquo; always should be equal to &ldquo;variable Product&rdquo;</li>
 <li>WooCommerce &ldquo;SKU&rdquo; should be same value in &ldquo;Template ID&rdquo; in Acumatica</li>
@@ -23,9 +23,9 @@
 <h2>Creating Variations in WooCommerce</h2>
 <p>When creating variants in WooCommerce, values to the dropdowns (Attribute values) should select by mapping the attributes in WooCommerce with the Attributes in Acumatica and pick the value for that mapped attribute.</p>
 <p>This mapping can be access through Matrix Items in Template item.</p>
-<p>&nbsp;</p>
-![Screenshot](/Specifications/Spec%20Images/Template1.png)!
 
-![Screenshot](/Specifications/Spec%20Images/Template2.png)!
+![Screenshot](/Specifications/Spec%20Images/Template1.png)
+
+![Screenshot](/Specifications/Spec%20Images/Template2.png)
 
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
