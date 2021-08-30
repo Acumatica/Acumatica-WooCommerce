@@ -7,7 +7,7 @@
 <th>Status</th></tr>
 <tr>
 <td>1.0</td>
-<td>Draft (Milestone 2)</td>
+<td>Milestone 2</td>
 <td>Completed</td></tr></tbody></table>
 <h2>WooCommerce configuration settings for Non-Stock Items</h2>
 <p>Under Inventory configuration page, following settings should be defined when exporting Non-stock Items and values which are defined in here will be used as default values when syncing<strong><em>.</em></strong></p>
