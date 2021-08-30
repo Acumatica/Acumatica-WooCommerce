@@ -12,14 +12,26 @@
 <td>Work in Progress</td></tr></tbody></table>
 <p><ac:structured-macro ac:macro-id="928e781e-c6f5-45f8-aa9b-a7ad69284d26" ac:name="toc" ac:schema-version="1" /></p>
 <h1>WooCommerce configuration settings for Availability</h1>
+
 <p>Under Inventory configuration page, following settings should be defined when exporting stock Availability and values which are defined in here will be used as default values when syncing.</p>
-<p><ac:image ac:border="true" ac:height="250" ac:width="477"><ri:attachment ri:filename="image2021-6-23 10:5:57.png" /></ac:image><ac:image ac:border="true" ac:height="250" ac:width="491"><ri:attachment ri:filename="image2021-6-23 10:6:15.png" /></ac:image></p>
+
+![Screenshot](/Specifications/Spec%20Images/Availability1.png) 
+![Screenshot](/Specifications/Spec%20Images/Availability2.png)
 <p>&nbsp;</p>
 <h2>Availability Mode</h2>
-<ol>
-<li>Available - In the Inventory setup when &quot;Available&quot; is selected, system calculates total quantity in &quot;Available&quot; column in&nbsp;<strong>Inventory Summary (IN401000) </strong>screen.&nbsp;&nbsp;<br /><br /><br /><ac:image ac:border="true" ac:height="222" ac:width="624"><ri:attachment ri:filename="image2021-6-29 14:44:40.png" /></ac:image><br /><br /><br /></li>
-<li>Available for shipping - In the Inventory setup when &quot;Available for shipping&quot; is selected, system&nbsp;calculates total quantity in &quot;Available for Shipment&quot; column in&nbsp;<strong>Inventory Summary (IN401000)&nbsp;</strong>screen.&nbsp;&nbsp;<br /><br /><ac:image ac:border="true" ac:height="222" ac:width="624"><ri:attachment ri:filename="image2021-6-29 17:46:18.png" /></ac:image><br /><br /><br /></li>
-<li>On Hand -&nbsp;In the Inventory setup when &quot;On Hand&quot; is selected, system&nbsp;calculates total quantity in &quot;On Hand&quot; column in&nbsp;<strong>Inventory Summary (IN401000)&nbsp;</strong>screen.&nbsp;&nbsp;<br /><br /><ac:image ac:border="true" ac:height="207" ac:width="624"><ri:attachment ri:filename="image2021-6-29 17:47:16.png" /></ac:image></li></ol>
+
+<li>Available - In the Inventory setup when &quot;Available&quot; is selected, system calculates total quantity in &quot;Available&quot; column in&nbsp;<strong>Inventory Summary (IN401000) </strong> Screen
+  
+  ![Screenshot](/Specifications/Spec%20Images/Availability3.png)
+  
+<li>Available for shipping - In the Inventory setup when &quot;Available for shipping&quot; is selected, system&nbsp;calculates total quantity in &quot;Available for Shipment&quot; column in&nbsp;<strong>Inventory Summary (IN401000) </strong> Screen 
+  
+![Screenshot](/Specifications/Spec%20Images/Availability4.png)
+  
+<li>On Hand -&nbsp;In the Inventory setup when &quot;On Hand&quot; is selected, system&nbsp;calculates total quantity in &quot;On Hand&quot; column in&nbsp;<strong>Inventory Summary (IN401000) </strong> Screen 
+  
+ ![Screenshot](/Specifications/Spec%20Images/Availability5.png)
+  
 <h2>Warehouse Mode</h2>
 <p>&nbsp;</p>
 <ol>
