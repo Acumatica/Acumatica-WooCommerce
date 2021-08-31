@@ -88,7 +88,7 @@
 <td>eCommerce Tab&nbsp;&nbsp;</td>
 <td>&nbsp;</td>
 <td>
-<p>Value depends on:<br />- Availability setting of Item from ecommerce tab<br />- When Qty Unavailable setting of Item from ecommerce tab<br />- Status of Item (if Item is inactive, not for sale or marked for deletion, availability is disabled)<br />{<ac:link><ri:page ri:content-title="Product Availability Entity" /><ac:plain-text-link-body><![CDATA[Available Qty Value Calculation]]></ac:plain-text-link-body></ac:link>}</p></td></tr>
+<p>Value depends on:<br />- Availability setting of Item from ecommerce tab<br />- When Qty Unavailable setting of Item from ecommerce tab<br />- Status of Item (if Item is inactive, not for sale or marked for deletion, availability is disabled)<br />{Product Availability Entity}</p></td></tr>
 <tr>
 <td colspan="1">Qty on Hand</td>
 <td colspan="1">
