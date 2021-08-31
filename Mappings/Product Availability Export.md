@@ -12,7 +12,7 @@
 <tbody>
 <tr>
 <td>1.0</td>
-<td>Draft (Milestone 2)</td>
+<td>Milestone 2</td>
 <td>Work in Progress</td></tr></tbody></table>
 <p>&nbsp;</p>
 <p>This document maps the Product Availability fields to WooCommerce.</p>
