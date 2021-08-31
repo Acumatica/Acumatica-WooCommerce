@@ -10,7 +10,6 @@
 <td>1.0</td>
 <td>Development completed for M1</td>
 <td>Completed</td></tr></tbody></table>
-<p>Table of Content</p>
 <p><ac:structured-macro ac:macro-id="dd2f8854-9b46-4e89-978c-fb4db514818a" ac:name="toc" ac:schema-version="1" /></p>
 <h2>Acumatica Stock Item Field Mapping with WooCommerce Product fields</h2>
 <table>
