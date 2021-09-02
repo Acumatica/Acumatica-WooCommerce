@@ -2,9 +2,20 @@
 <h2><strong>WooCommerce Refunds Features/ Behaviour</strong></h2>
 <p><br class="atl-forced-newline" /> WooCommerce Refunds handling process has more freedom compared to the BigCommerce and Shopify connectors. For instance, when refunding a sales order by Admin, the refund can be initiated in the following ways.</p>
 <h4><strong>Without Quantity</strong></h4>
-<p><br /> In this, a refund can be done without specifying the refund quantity and even can specify the refund amount for each item manually, even higher than the order line amount (maximum limit is Total Order Amount). <br class="atl-forced-newline" /> E.g.: the Order Line Amount is $70.30 but the refund can be done for $80 (maximum limit is Total Order Amount $2234.44). <br class="atl-forced-newline" /> <ac:image ac:border="true" ac:height="461" ac:width="900"><ri:attachment ri:filename="worddavdc66412ab0c61f901de552cb2d799b2d.png" /></ac:image> <br class="atl-forced-newline" /><br class="atl-forced-newline" /> <br class="atl-forced-newline" /> <strong>With Quantity</strong></p>
-<p><br class="atl-forced-newline" /> Even the refund is initiated from the quantity, the admin can manipulate the refund amounts/quantity by manually adjusting the values. <br class="atl-forced-newline" /> E.g.: One quantity is refunded (the ideal amount should be $45.15 for 1 quantity), but the refund is done for $100 (the maximum limit is Total Order Amount $2256.22). <br class="atl-forced-newline" /> <ac:image ac:border="true" ac:height="432" ac:width="900"><ri:attachment ri:filename="worddav60d7cfce69848ff0818fc4ec90bc593c.png" /></ac:image></p>
-<p><strong>Summary</strong> <br class="atl-forced-newline" /> <strong>Note 1:</strong> Admin can manipulate the <ac:inline-comment-marker ac:ref="bec5fa87-5a4c-437c-bddd-b9f89f2ea69b">refund amoun</ac:inline-comment-marker>t with a maximum limit up to the Total Order Amount <br class="atl-forced-newline" /> <strong>Note 2:</strong> Admin can manipulate the quantity, even can set the higher number compared to original order quantity. <br class="atl-forced-newline" /> <ac:image ac:border="true" ac:height="365" ac:width="900"><ri:attachment ri:filename="worddav69eb163a274915c09d6a40e394ecac0e.png" /></ac:image></p>
+<p><br /> In this, a refund can be done without specifying the refund quantity and even can specify the refund amount for each item manually, even higher than the order line amount (maximum limit is Total Order Amount). <br class="atl-forced-newline" /> E.g.: the Order Line Amount is $70.30 but the refund can be done for $80 (maximum limit is Total Order Amount $2234.44). <br class="atl-forced-newline" /> 
+
+![Screenshot](/Specifications/Spec%20Images/RefundsSol1.png)
+  
+  
+  <br class="atl-forced-newline" /><br class="atl-forced-newline" /> <br class="atl-forced-newline" /> <strong>With Quantity</strong></p>
+<p><br class="atl-forced-newline" /> Even the refund is initiated from the quantity, the admin can manipulate the refund amounts/quantity by manually adjusting the values. <br class="atl-forced-newline" /> E.g.: One quantity is refunded (the ideal amount should be $45.15 for 1 quantity), but the refund is done for $100 (the maximum limit is Total Order Amount $2256.22). <br class="atl-forced-newline" /> 
+  
+  ![Screenshot](/Specifications/Spec%20Images/RefundsSol2.png)
+  
+<p><strong>Summary</strong> <br class="atl-forced-newline" /> <strong>Note 1:</strong> Admin can manipulate the <ac:inline-comment-marker ac:ref="bec5fa87-5a4c-437c-bddd-b9f89f2ea69b">refund amoun</ac:inline-comment-marker>t with a maximum limit up to the Total Order Amount <br class="atl-forced-newline" /> <strong>Note 2:</strong> Admin can manipulate the quantity, even can set the higher number compared to original order quantity. <br class="atl-forced-newline" /> 
+ 
+  ![Screenshot](/Specifications/Spec%20Images/RefundsSol3.png)
+  
 <h2><strong>Solution&nbsp;</strong></h2>
 <ul>
 <li>No quantity mentioned&gt; Consider as a Refund Amount Item (sync through the non-stock item)</li>
