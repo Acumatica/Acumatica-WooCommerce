@@ -39,6 +39,9 @@ WooCommerce API [Extension library](https://github.com/Acumatica/Acumatica-WooCo
 
 WooCommerce [AvaTaxV 1.11.2](https://woocommerce.com/products/woocommerce-avatax/?quid=e9ffd5af069c8fc58e1b263ad6765b69).
 
+Enable Commerce Integration in Enable/Disable Features (CS100000) Screen
+![Screenshot](/Images/Commenuitem.png)
+
 ## Quick Start
 
 ### Installation
