@@ -30,16 +30,54 @@
 <ol>
 <li><strong>Open Sales Orders</strong></li></ol>
 <p><br class="atl-forced-newline" /> If the refund amount exceeds the sales order line amount, this will sync to Acumatica as a Refund Amount Item (with minus Price). <br class="atl-forced-newline" /> And for the shipping charges and shipping taxes (if applicable), it will refund only the shipping charge and shipping taxes subject to the limit of the original order remaining will be added to the Refund Amount Item.</p>
-<p><br class="atl-forced-newline" /> <ac:image ac:border="true" ac:height="432" ac:width="900"><ri:attachment ri:filename="worddav7749f0a035025034f1e973140a8919d0.png" /></ac:image> <br class="atl-forced-newline" /> Create Refund Amount Item (with minus Price) to reflect the refund done.<br /> <ac:image ac:border="true" ac:height="306" ac:width="900"><ri:attachment ri:filename="worddav1931234e407f2150d220fb8f6320670b.png" /></ac:image> <br class="atl-forced-newline" /> <br class="atl-forced-newline" /> <br class="atl-forced-newline" /> <strong>Scenario: With Quantity</strong></p>
+<p><br class="atl-forced-newline" /> 
+  
+![Screenshot](/Specifications/Spec%20Images/RefundsSol4.png)
+  
+  <br class="atl-forced-newline" /> Create Refund Amount Item (with minus Price) to reflect the refund done.<br /> 
+  
+![Screenshot](/Specifications/Spec%20Images/RefundsSol5.png)
+  
+  <br class="atl-forced-newline" /> <br class="atl-forced-newline" /> <br class="atl-forced-newline" /> <strong>Scenario: With Quantity</strong></p>
 <ol>
 <li><strong>Open Sales Orders - Not Exceeding the Order Line total</strong></li></ol>
-<p><br class="atl-forced-newline" /> When an order is refunded with quantity only or refunded with quantity plus entering an amount, Acumatica Sales Order will be adjusted the &quot;Extended Price&quot; remaining the original sales order quantity. <br class="atl-forced-newline" /> <ac:image ac:border="true" ac:height="462" ac:width="900"><ri:attachment ri:filename="worddav4a3210b9d61ac7fd8ad7611c01af3a7f.png" /></ac:image> <br class="atl-forced-newline" /> <span style="color: rgb(255,0,0);"><strong>Note 1:</strong></span> Amount = $70.30 - $60 =$10.30<br /> <span style="color: rgb(0,102,255);"><strong>Note 2:</strong></span> Extended Price and Quantity will be adjusted to reflect the remaining amount after the refund is applied. Unit Price will not be modified since if it is modified it will affect the costing calculations. <br class="atl-forced-newline" /> <ac:image ac:border="true" ac:height="312" ac:width="900"><ri:attachment ri:filename="worddav9e8de67717f24813685cf35a71636153.png" /></ac:image></p>
+<p><br class="atl-forced-newline" /> When an order is refunded with quantity only or refunded with quantity plus entering an amount, Acumatica Sales Order will be adjusted the &quot;Extended Price&quot; remaining the original sales order quantity. <br class="atl-forced-newline" /> 
+  
+ ![Screenshot](/Specifications/Spec%20Images/RefundsSol6.png)
+  
+ <br class="atl-forced-newline" /> <span style="color: rgb(255,0,0);"><strong>Note 1:</strong></span> Amount = $70.30 - $60 =$10.30<br /> <span style="color: rgb(0,102,255);"><strong>Note 2:</strong></span> Extended Price and Quantity will be adjusted to reflect the remaining amount after the refund is applied. Unit Price will not be modified since if it is modified it will affect the costing calculations. <br class="atl-forced-newline" /> 
+  
+ <![Screenshot](/Specifications/Spec%20Images/RefundsSol7.png)
+ 
 <p><strong>2. Open Sales Orders - Exceeding the Order Line total</strong></p>
-<p><br class="atl-forced-newline" /> Whenever refund amount exceeds the particular sales order line amount, Extended Price set to &quot;0&quot; and Refund Amount Item will be created for the exceeding amount. However, WC Sales Order quantity will be reflected in AC as well. <br /> <ac:image ac:border="true" ac:height="454" ac:width="900"><ri:attachment ri:filename="worddavfa267de571beb05e1b1b7094f353ea80.png" /></ac:image> <br class="atl-forced-newline" /> <span style="color: rgb(0,102,255);"><strong>Note:</strong></span> Refund Item Amount $ 70.30-$80=$9.7 <br class="atl-forced-newline" /> <span style="color: rgb(229,53,39);"><strong>Note:</strong></span> Quantity should reflect the WC Sales Order Qty (after refund qty), Extended Price set to &quot;0&quot; <br class="atl-forced-newline" /> <ac:image ac:border="true" ac:height="305" ac:width="900"><ri:attachment ri:filename="worddav657cf7ddd5d9121d78eb2b2536231ff7.png" /></ac:image></p>
+<p><br class="atl-forced-newline" /> Whenever refund amount exceeds the particular sales order line amount, Extended Price set to &quot;0&quot; and Refund Amount Item will be created for the exceeding amount. However, WC Sales Order quantity will be reflected in AC as well. <br /> 
+  
+ ![Screenshot](/Specifications/Spec%20Images/RefundsSol8.png)
+ 
+  <br class="atl-forced-newline" /> <span style="color: rgb(0,102,255);"><strong>Note:</strong></span> Refund Item Amount $ 70.30-$80=$9.7 <br class="atl-forced-newline" /> <span style="color: rgb(229,53,39);"><strong>Note:</strong></span> Quantity should reflect the WC Sales Order Qty (after refund qty), Extended Price set to &quot;0&quot; <br class="atl-forced-newline" /> 
+  
+![Screenshot](/Specifications/Spec%20Images/RefundsSol9.png)
+  
 <p><strong>3. Completed Sales Orders - Not Exceeding the Order Line total</strong></p>
-<p>Similar to the &quot;Open&quot; Sales Orders - Not Exceeding the Order Line total&quot; scenario, a new RC Type Sales Order will be created in AC to show the refund amount. <br /> <ac:image ac:border="true" ac:height="462" ac:width="900"><ri:attachment ri:filename="worddav4a3210b9d61ac7fd8ad7611c01af3a7f.png" /></ac:image> <br class="atl-forced-newline" /> <ac:image ac:border="true" ac:height="312" ac:width="900"><ri:attachment ri:filename="worddav1d7eafcc8514d0ee987fdff8bf3f9eee.png" /></ac:image> <br class="atl-forced-newline" /> <br class="atl-forced-newline" /><br class="atl-forced-newline" /></p>
+<p>Similar to the &quot;Open&quot; Sales Orders - Not Exceeding the Order Line total&quot; scenario, a new RC Type Sales Order will be created in AC to show the refund amount. <br/> 
+  
+![Screenshot](/Specifications/Spec%20Images/RefundsSol10.png)
+  
+  <br class="atl-forced-newline" /> 
+  
+ ![Screenshot](/Specifications/Spec%20Images/RefundsSol11.png)
+  
+  <br class="atl-forced-newline" /> <br class="atl-forced-newline" /><br class="atl-forced-newline" /></p>
 <p><strong>4. Completed Sales Orders - Exceeding the Order Line total</strong></p>
-<h3><br class="atl-forced-newline" /> New RC Type Sales Order will be created in AC to show the refund amount. And refund the order line item up to the original sales order value and Refund Amount Item will be created for the exceeding amount. <br class="atl-forced-newline" /> <ac:image ac:border="true" ac:height="454" ac:width="900"><ri:attachment ri:filename="worddav9aeec6af7edb4ee045418f31913f79eb.png" /></ac:image> <br class="atl-forced-newline" /> <ac:image ac:border="true" ac:height="334" ac:width="900"><ri:attachment ri:filename="worddav1ce19fd5e2983c25dfc55064b1589b53.png" /></ac:image> <br class="atl-forced-newline" /><br /></h3>
+<br class="atl-forced-newline" /> New RC Type Sales Order will be created in AC to show the refund amount. And refund the order line item up to the original sales order value and Refund Amount Item will be created for the exceeding amount. <br class="atl-forced-newline" /> 
+  
+  ![Screenshot](/Specifications/Spec%20Images/RefundsSol12.png)
+  
+ <br class="atl-forced-newline" /> 
+  
+ ![Screenshot](/Specifications/Spec%20Images/RefundsSol13.png)
+  
+ <br class="atl-forced-newline" /><br />
 <p><strong>When multiple refunds are done to the same Sales Order in WC</strong>.&nbsp;<strong>And original Sales Order is synced and at Completed status in AC,</strong></p>
 <ol>
 <li>For the first refund &ndash; Create a new RC Order</li>
