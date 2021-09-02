@@ -36,12 +36,23 @@
 <th style="margin-left: 30.0px;">Quantity</th>
 <th style="margin-left: 30.0px;">Taxes</th></tr>
 <tr style="margin-left: 30.0px;">
-<td colspan="1" style="margin-left: 30.0px;"><ac:image ac:height="250"><ri:attachment ri:filename="image2021-6-22 12:11:18.png" /></ac:image></td>
-<td colspan="1" style="margin-left: 30.0px;"><ac:image><ri:attachment ri:filename="image2021-6-22 13:26:9.png" /></ac:image></td></tr></tbody></table>
+<td colspan="1" style="margin-left: 30.0px;">
+  
+![Screenshot](/Specifications/Spec%20Images/Refund3.png) </td>
+  
+<td colspan="1" style="margin-left: 30.0px;">
+ 
+![Screenshot](/Specifications/Spec%20Images/Refund4.png)
+ 
+  </td></tr></tbody></table>
 <p>&nbsp;</p>
 <ul>
 <li>With Quantity</li></ul>
-<p><ac:image><ri:attachment ri:filename="image2021-6-22 13:31:18.png" /></ac:image></p>
+<p>
+
+![Screenshot](/Specifications/Spec%20Images/Refund5.png)
+
+</p>
 <p style="margin-left: 30.0px;">Data appeared on Refunds API - with quantity</p>
 <table>
 <tbody>
@@ -49,10 +60,20 @@
 <th>Quantity</th>
 <th>Taxes</th></tr>
 <tr>
-<td colspan="1"><ac:image ac:height="250"><ri:attachment ri:filename="image2021-6-22 13:33:52.png" /></ac:image></td>
-<td colspan="1"><ac:image ac:height="250"><ri:attachment ri:filename="image2021-8-28 11:53:31.png" /></ac:image></td></tr></tbody></table>
+<td colspan="1">
+ 
+ ![Screenshot](/Specifications/Spec%20Images/Refund6.png)
+  
+ </td>
+<td colspan="1"><ac:image ac:height="250">
+  
+![Screenshot](/Specifications/Spec%20Images/Refund7.png)
+  
+  </td></tr></tbody></table>
 <p style="margin-left: 30.0px;"><strong>2. Shipping Charge Return</strong></p>
-<p><ac:image><ri:attachment ri:filename="image2021-6-22 13:42:26.png" /></ac:image></p>
+
+ ![Screenshot](/Specifications/Spec%20Images/Refund8.png)
+
 <p style="margin-left: 30.0px;">Data appeared on Refunds API - with shipping charge and shipping tax</p>
 <table>
 <tbody>
@@ -60,11 +81,24 @@
 <th>Shipping Charge</th>
 <th>Shipping Tax</th></tr>
 <tr>
-<td><ac:image><ri:attachment ri:filename="image2021-6-22 13:43:1.png" /></ac:image></td>
-<td><ac:image><ri:attachment ri:filename="image2021-8-28 11:58:0.png" /></ac:image></td></tr></tbody></table>
+<td>
+  
+![Screenshot](/Specifications/Spec%20Images/Refund9.png) 
+  
+ </td>
+<td>
+  
+![Screenshot](/Specifications/Spec%20Images/Refund10.png)
+  
+  </td></tr></tbody></table>
 <p style="margin-left: 30.0px;"><strong>3. Discounts Return</strong></p>
 <p style="margin-left: 30.0px;">In the below example, Unit Price $ 45.15, after the discount unit price is $35.15. But in WC, we can refund an amount that is more than the unit price amount ($ 50 were returned per unit).</p>
-<p><ac:image><ri:attachment ri:filename="image2021-6-22 14:27:26.png" /></ac:image></p>
+
+<p>
+  
+![Screenshot](/Specifications/Spec%20Images/Refund11.png)
+
+</p>
 <p>&nbsp;</p>
 <p>Data appeared on Refunds API - There is not tag for discounts, just only the refunded amounts will appear.</p>
 <table>
@@ -72,9 +106,17 @@
 <tr>
 <th>Discount</th></tr>
 <tr>
-<td colspan="1"><ac:image><ri:attachment ri:filename="image2021-6-22 14:57:39.png" /></ac:image></td></tr></tbody></table>
+<td colspan="1">
+  
+![Screenshot](/Specifications/Spec%20Images/Refund12.png)
+  
+</td></tr></tbody></table>
 <h3><strong>Solution - Import Process in Acumatica</strong></h3>
-<p><ac:image ac:height="400"><ri:attachment ri:filename="image2021-8-28 12:1:22.png" /></ac:image></p>
+<p>
+  
+![Screenshot](/Specifications/Spec%20Images/Refund13.png)
+  
+</p>
 <p>Once a Refund is processed in WooCommerce, the following actions happen to transfer the Refund into Acumatica:</p>
 <ol>
 <li>The Prepare Data screen is invoked to Import Refunds. Record is imported.</li>
