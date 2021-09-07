@@ -8,7 +8,7 @@
 <th>Status</th></tr>
 <tr>
 <td>1.0</td>
-<td>Completed</td>
+<td>Milestone 1</td>
 <td>Completed</td></tr></tbody></table>
 
 <p>During the synchronization of the Sales Category entity, sales category in the Acumatica is merged with an existing Product category in WooCommerce if the Name of the product category in WooCommerce matches the Description of the item sales category in Acumatica.</p>
