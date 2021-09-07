@@ -18,7 +18,7 @@
 <tbody>
 <tr>
 <td>1.0</td>
-<td>Completed</td>
+<td>Milestone 1</td>
 <td colspan="1">Completed </td></tr></tbody></table>
 <p><ac:structured-macro ac:macro-id="97077dbe-a89e-4b44-b2f5-447979bec381" ac:name="toc" ac:schema-version="1" /></p>
 <h2>Freight Management</h2>
