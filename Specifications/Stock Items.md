@@ -8,7 +8,7 @@
 <th>Status</th></tr>
 <tr>
 <td>1.0</td>
-<td>Completed</td>
+<td>Milestone 1</td>
 <td>Completed</td></tr></tbody></table>
 <p><ac:structured-macro ac:macro-id="f81e2ff3-b26c-4c5e-9db8-14176338fa5d" ac:name="toc" ac:schema-version="1" /></p>
 <h2>WooCommerce configuration settings for Stock Items</h2>
