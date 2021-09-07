@@ -21,8 +21,8 @@
 <tbody>
 <tr>
 <td>1.0</td>
-<td>Development completed for M1</td>
-<td colspan="1">Development completed</td></tr></tbody></table>
+<td>Milestone 1</td>
+<td colspan="1">Completed</td></tr></tbody></table>
 <p>&nbsp;</p>
 <h2>WooCommerce Store Screen Settings</h2>
 <p><span style="color: rgb(0,0,0);">Below settings used to define the settings for the import of payments.&nbsp;</span></p>
