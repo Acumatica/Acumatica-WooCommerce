@@ -15,7 +15,7 @@
 <tbody>
 <tr>
 <td>1.0</td>
-<td>Development completed for M1</td>
+<td>Completed</td>
 <td colspan="1">Completed</td></tr></tbody></table>
 
 <p><ac:structured-macro ac:macro-id="3aab4f84-b5d4-485e-918b-496e6a0fc15f" ac:name="toc" ac:schema-version="1" /></p>
