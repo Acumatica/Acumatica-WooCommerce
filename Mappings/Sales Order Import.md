@@ -18,7 +18,7 @@
 <tbody>
 <tr>
 <td>1.0</td>
-<td>Development completed for M1</td>
+<td>Milestone 1</td>
 <td colspan="1">Completed</td></tr></tbody></table>
 <table>
 <tbody>
