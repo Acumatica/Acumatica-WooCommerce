@@ -63,17 +63,23 @@
 <li class="wikibullet"><strong>Automation Behavior</strong>:&nbsp;<em>RMA Order</em></li>
 <li class="wikibullet"><strong>Default Operation</strong>:&nbsp;<em>Receipt</em></li>
 <li class="wikibullet"><strong>AR Document Type</strong>:&nbsp;<em>Credit Memo</em></li></ul>
-<p class="wikibullet"><em>This will be considered in Milestone 2 release.</em></p></td></tr>
+</td></tr>
 <tr>
 <td><strong>Refund Amount Item</strong></td>
 <td>
 <p>The non-stock item is <span style="color: rgb(0,0,0);">used to represent a refund amount in an imported sales order. The non-stock item selected in this box is excluded from synchronization and is not exported when the&nbsp;<em>Non-Stock Item</em>&nbsp;entity is synchronized. The non-stock item representing refund amounts should be exempt from taxes (that is, on the&nbsp;<strong>General</strong>&nbsp;tab of the&nbsp;<a class="wikilink pagelink" href="http://dlk1pde165/AcumaticaDB21R1Beta2/(W(50))/Wiki/ShowWiki.aspx?wikiname=HelpRoot_FormReference&amp;PageID=bf68dd4f-63d4-460d-8dc0-9152f2bd6bf1"><span style="color: rgb(0,0,0);">Non-Stock Items</span></a>&nbsp;(<a class="wikilink pagelink" href="http://dlk1pde165/AcumaticaDB21R1Beta2/?ScreenId=IN202000"><span style="color: rgb(0,0,0);">IN202000</span></a>) form, in the&nbsp;<strong>Tax Category</strong>&nbsp;box, a category corresponding to tax-exempt items should be assigned). Also on this tab, the&nbsp;<strong>Require Receipt</strong>&nbsp;and&nbsp;<strong>Require Shipment</strong>&nbsp;check boxes must be cleared for the item.</span></p>
-<p><span style="color: rgb(0,0,0);"><em>This will be considered in Milestone 2 release.</em></span></p></td></tr>
+<p></td></tr>
 <tr>
 <td><strong>Refund Reason Code</strong></td>
 <td>
 <p>The reason code that the system will insert in each return order line for a refund or return imported from the WooCommerce store. The reason code must have the&nbsp;<span style="color: rgb(0,0,0);"><em>Issue</em>&nbsp;</span>usage type specified on the&nbsp;<a class="wikilink pagelink" href="http://dlk1pde165/AcumaticaDB21R1Beta2/(W(50))/Wiki/ShowWiki.aspx?wikiname=HelpRoot_FormReference&amp;PageID=fe53f1bf-3670-465e-8b7c-922d8246f123">Reason Codes</a>&nbsp;(<a class="wikilink pagelink" href="http://dlk1pde165/AcumaticaDB21R1Beta2/?ScreenId=CS211000">CS211000</a>) form.</p>
-<p><em>This will be considered in Milestone 2 release.</em></p></td></tr>
+</td></tr>
+<tr>
+<td><strong>Max. Refund Days</strong></td>
+<td>The maximum number of days taken into account when searching for refunds in the Sales Orders.
+e.g: If the user has given 60 days as the Max. Refund Days, it will search refunds in the sales orders which has the "last modified date" up to the last 60 days.
+When retrieving the data, it will get 50 chunks of sales orders at a time. In that chuck`s last sales order "last modified date" is within the maximum number of days it will process another 50 chucks until it finds the last date modified equal to the Max. Refund Days.
+</td></tr>
 <tr>
 <td><strong>Order Time Zone</strong></td>
 <td>The time zone the system will use for each sales order imported from the WooCommercestore when it is created in Acumatica ERP. The order time zone is needed to determine the correct date and time of the order if Acumatica ERP and the WooCommerce store are located in different time zones.</td></tr>
