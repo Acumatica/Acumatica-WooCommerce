@@ -8,7 +8,7 @@
 <th>Status</th></tr>
 <tr>
 <td>1.0</td>
-<td>Development completed for M1</td>
+<td>Milestone 1</td>
 <td>Completed</td></tr></tbody></table>
 <p>&nbsp;</p>
 <p><ac:structured-macro ac:macro-id="f79a46fe-5914-4be8-9e39-45f2341aed8f" ac:name="toc" ac:schema-version="1" /></p>
