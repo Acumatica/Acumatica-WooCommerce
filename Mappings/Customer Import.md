@@ -16,7 +16,7 @@
 <tbody>
 <tr>
 <td>1.0</td>
-<td>Development completed for M1</td>
+<td>Milestone 1</td>
 <td colspan="1">Completed</td></tr></tbody></table>
 <p>&nbsp;</p>
 <p><ac:structured-macro ac:macro-id="41ae7f82-7f0b-4c72-90d1-c30c3090dbb6" ac:name="toc" ac:schema-version="1" /></p>
