@@ -8,7 +8,7 @@
 <th>Status</th></tr>
 <tr>
 <td>1.0</td>
-<td>Development completed for M1</td>
+<td>Completed</td>
 <td>Completed</td></tr></tbody></table>
 <p><ac:structured-macro ac:macro-id="f81e2ff3-b26c-4c5e-9db8-14176338fa5d" ac:name="toc" ac:schema-version="1" /></p>
 <h2>WooCommerce configuration settings for Stock Items</h2>
@@ -19,8 +19,9 @@
 <h3>Default Stock Categories</h3>
 <p>When exporting Stock items, can define default sales category in here and that value will be picked as the product category when creating a product in WooCommerce.&nbsp;Same field is available in stock item and if any value mentioned in there, Propriety will be given to that value. (B<span style="color: rgb(0,0,0);">efore stock items can be synchronized, sales categories assigned to the item must be synchronized</span>)</p>
 <p>&nbsp;</p>
-<p><s style="font-size: 16.0px;font-weight: bold;">Default Non-Stock Categories</s></p>
-<p><s>When exporting Non-stock items, this value will be picked as the product category when creating a product in WooCommerce.&nbsp; (not considering in M1)</s></p>
+<h3>Default Non-Stock Categories</h3>
+<p>When exporting Non-stock items, this value will be picked as the product category when creating a product in WooCommerce.&nbsp; 
+ <a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Non-Stock%20Items.md"> Non-Stock Items Setup in WooCommerce</a></p>
 <h3>Default Availability</h3>
 <p>Default availability option can be defined here and when exporting stock items, this value will be used as the default Availability of the product.&nbsp;Same field is available in stock item under &quot;Ecommerce&quot; tab and if any value mentioned in there, Propriety will be given to that value.</p>
 <p>&nbsp;</p>
