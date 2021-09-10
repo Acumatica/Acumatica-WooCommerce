@@ -103,7 +103,7 @@ Before syncing customers from WooCommerce to Acumatica above mentioned Customer 
 
 #### Inventory Settings
 
-![Screenshot](/Images/InventorySettings.png)
+![Screenshot](/Images/InventorySettings1.png)
 
 Before syncing Stock Items to WooCommerce from Acumatica above mentioned Inventory configuration settings need to be completed. 
 
