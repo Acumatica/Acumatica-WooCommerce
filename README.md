@@ -107,13 +107,22 @@ Before syncing customers from WooCommerce to Acumatica above mentioned Customer 
 
 Before syncing Stock Items to WooCommerce from Acumatica above mentioned Inventory configuration settings need to be completed. 
 
-1.	Need to mention the default Stock Categories when exporting Stock items, (list of item sales categories) and that value(s) will be picked as the default value(s) of product category when creating a product in WooCommerce.
+1.	Need to mention the default [Stock Category](https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Stock%20Items.md) when exporting Stock items, (list of item sales categories) and that value(s) will be picked as the default value(s) of product category when creating a product in WooCommerce.
 
-2.	Need to mention the default visibility of the WooCommerce product and that value will be used as the visibility of the product when creating a product in WooCommerce.
+2.	Need to mention the default [Non Stock Category](https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Non-Stock%20Items.md) when exporting Non Stock items, (list of item sales categories) and that value(s) will be picked as the default value(s) of product category when creating a Non Stock product in WooCommerce.
 
-3.	Need to mention the default Availability and that value will be used to decide the Availability of the product when creating a product in WooCommerce.
+3.	Need to mention the default visibility of the WooCommerce product and that value will be used as the visibility of the product when creating a product in WooCommerce.
 
-4.	Need to mention When Qty Unavailable and that value will be used to decide when there is no inventory available when syncing the availability entity.
+4.	Need to mention the default Availability and that value will be used to decide the Availability of the product when creating a product in WooCommerce.
+
+5.	Need to mention When Qty Unavailable and that value will be used to decide when there is no inventory available when syncing the availability entity.
+
+6.	Need to mention default Product [Availability](https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Product%20Availability.md) Mode.
+
+7.	Need to mention default [Warehouse](https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Product%20Availability.md) Mode.
+
+
+
 
 #### Order Settings
 
