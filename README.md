@@ -126,7 +126,7 @@ Before syncing Stock Items to WooCommerce from Acumatica above mentioned Invento
 
 #### Order Settings
 
-![Screenshot](/Images/OrderSettings.png)
+![Screenshot](/Images/OrderSettings1.png)
 
 Before syncing Sales Orders from WooCommerce to Acumatica above mentioned Order configuration settings need to be completed.
 
@@ -149,6 +149,14 @@ Before syncing Sales Orders from WooCommerce to Acumatica above mentioned Order 
 9.	The substitution list to be used for mapping tax categories Acumatica with tax classes in the WooCommerce store. During the import of a sales order, if the system cannot find the tax category specified in the order, it checks if there is a mapped tax category in the substitution list specified in this box. Substitution lists are defined on the Substitution Lists (SM206026).
 
 10.	Shipping options is to define the mapping of each shipping option (which is a combination of a shipping zone and shipping method) defined in WooCommerce to the ship via code, and optionally, shipping zone and shipping terms defined in Acumatica.
+
+11. Return Order Type is the order type that the system will use as a source of default settings for creating a return order when a refund is issued in the WooCommerce store.
+
+12. Refund Amount Item is the non-stock item is used to represent a refund amount in an imported sales order.
+
+13. Refund Reason is the reason code that the system will insert in each return order line for a refund or return imported from the WooCommerce store. 
+
+14. Maximum Refunds Days is the maximum number of days taken into account when searching for refunds in the Sales Orders. 	
 
 #### Payment Settings
 
