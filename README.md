@@ -1,6 +1,6 @@
 # Acumatica WooCommerce Connector
 
-*Customization package that enable users to connect own WooCommerce stores with Acumatica* (**Milestone 1 Release**).
+*Customization package that enable users to connect own WooCommerce stores with Acumatica* (**MVP Release**).
 
 This customization package enables users to configure and connect WooCommerce stores with Acumatica and integrate transactions between those two platforms. Package allows users to manage and synchronize stock items, sales categories, and shipments direct from Acumatica and customers, sales orders, sales tax, and payment details direct from WooCommerce.
 
@@ -15,16 +15,22 @@ Package will allow users to connect multiple WooCommerce storefront sites for a 
     		<td><b>Import Entities</b></td>
 		<td><b>Export Entities</b></td>
 	<tr>
-		<td> <a href="https://github.com/BuddhikaAcu/WooConnector/blob/main/Specifications/Customer.md">Customers</a></td>
-		<td> <a href="https://github.com/BuddhikaAcu/WooConnector/blob/main/Specifications/Stock%20Items.md">Stock items</a></td>
+		<td> <a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Customer.md">Customers</a></td>
+		<td> <a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Stock%20Items.md">Stock items</a></td>
 	<tr>
     	<tr>
-		<td><a href="https://github.com/BuddhikaAcu/WooConnector/blob/main/Specifications/Sales%20Order.md">Sales orders </a></td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Sales%20Order.md">Sales orders </a></td>
 		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Sales%20Category.md">Sales categories</a></td>
 	<tr>
     	<tr>
 		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Payments.md">Payment details</a></td>
 		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Mappings/Shipments%20Export.md">Shipment details</a> </td>
+	<tr>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Non-Stock%20Items.md">Non-Stock Items</a></td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Product%20Availability.md">Product Availability</a> </td>
+	<tr>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Refunds%20Solution.md">Refunds</a></td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Template%20Items.md">Template Items</a> </td>
 </table>
 
 ## Prerequisites | Supported Versions
