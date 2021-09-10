@@ -235,15 +235,9 @@ You may refer the README file in case if you require to setup the WooCommerce Te
 
 ## Known Issues
 
-•	WooCommerce sales orders with Refunds are not handled in this customization package, it will be handled in the M2 release. The synchronization for orders of refunds statuses will be filtered. 
-
-•	Synchronization of Non-Stock Items and Template Items will be handled in the M2 release. The errors might be occurred in case if it tries to synchronize Non-Stock Items and Template items. 
-
-•	Synchronization of product availability will be handled in the M2 release.
 
 •	Synchronization of WooCommerce Grouped Products and External/Affiliate Products are not handled in this customization package.
 
-•	For Import/ Export filtering and mapping is not supported in this customization package. It will be available in an upcoming release.
 
 ## Copyright and License
 
