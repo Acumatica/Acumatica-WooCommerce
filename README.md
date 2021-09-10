@@ -26,11 +26,17 @@ Package will allow users to connect multiple WooCommerce storefront sites for a 
 		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Payments.md">Payment details</a></td>
 		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Mappings/Shipments%20Export.md">Shipment details</a> </td>
 	<tr>
-		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Non-Stock%20Items.md">Non-Stock Items</a></td>
-		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Product%20Availability.md">Product Availability</a> </td>
 	<tr>
 		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Refunds%20Solution.md">Refunds</a></td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Product%20Availability.md">Product Availability</a> </td>
+	<tr>
+	<tr>
+		<td>
 		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Template%20Items.md">Template Items</a> </td>
+	<tr>
+	<tr>	
+		<td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Non-Stock%20Items.md">Non-Stock Items</a></td>
 </table>
 
 ## Prerequisites | Supported Versions
