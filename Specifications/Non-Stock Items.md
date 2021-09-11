@@ -42,5 +42,7 @@
   
 <h2><strong>Notes</strong></h2>
 <p>Acumatica Item Visibility,&nbsp;Item Availability,&nbsp;Item Status and&nbsp;Item Attributes will be worked same as the Stock Item Entity</p>
+  
+<p>Inventory ID(s) which contains more than one spaces consecutively will not be synced due to the limitation in WooCommerce Products API.</P?
 
 
