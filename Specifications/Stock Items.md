@@ -271,4 +271,5 @@
 ![Screenshot](/Specifications/Spec%20Images/Stock3.png)
 
 <p>&nbsp;</p>
+<p>Note : Inventory ID(s) which contains more than one spaces consecutively will not be synced due to the limitation in WooCommerce Products API.</>
 
