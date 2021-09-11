@@ -29,3 +29,4 @@
 ![Screenshot](/Specifications/Spec%20Images/Template2.png)
 
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>Note : Inventory ID(s) which contains more than one spaces consecutively will not be synced due to the limitation in WooCommerce Products API.</p>
