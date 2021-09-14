@@ -65,4 +65,7 @@
 <p><strong><span style="color: rgb(0,0,0);"><span style="color: rgb(0,0,0);"><br /></span></span></strong></p>
 <p><strong><span style="color: rgb(0,0,0);"><span style="color: rgb(0,0,0);">Partial Shipments</span></span></strong></p>
 <p><span style="color: rgb(0,0,0);"><span style="color: rgb(0,0,0);">When synchronising the partial shipments, WC`s sales order status will not be updated to &quot;Completed&quot; status. It will remain the WC sales order status as it is.</span></span></p>
-<p><span style="color: rgb(0,0,0);"><span style="color: rgb(0,0,0);">Multiple Orders in one shipment also supported in the synchronisation.</span></span></p>
+<p><span style="color: rgb(0,0,0);"><span style="color: rgb(0,0,0);">Multiple Orders in one shipment are also supported in the synchronisation.</span></span></p>
+<p><span style="color: rgb(0,0,0);"><span style="color: rgb(0,0,0);"><br /></span></span></p>
+<p><strong><span style="color: rgb(0,0,0);">Back Order (Sales Order) Status</span></strong></p>
+<p><span style="color: rgb(0,0,0);">Sales orders with Back Order status is not supported. Once the sales order is updated to a valid status shipment status will synchronise with the WC.</span></p>
