@@ -1,5 +1,5 @@
 
-<p>Status: Work in Progress</p>
+<p>Status: Completed</p>
 <table>
 <tbody>
 <tr>
@@ -9,7 +9,7 @@
 <tr>
 <td>1.0</td>
 <td>Milestone 2</td>
-<td>Work in Progress</td></tr></tbody></table>
+<td>Completed</td></tr></tbody></table>
 <p><ac:structured-macro ac:macro-id="928e781e-c6f5-45f8-aa9b-a7ad69284d26" ac:name="toc" ac:schema-version="1" /></p>
 <h1>WooCommerce configuration settings for Availability</h1>
 
