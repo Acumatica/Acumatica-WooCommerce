@@ -41,7 +41,7 @@ Package will allow users to connect multiple WooCommerce storefront sites for a 
 
 ## Prerequisites | Supported Versions
 
-Acumatica 2021 R1 update 4.  
+Acumatica 2021 R1 update 4 OR 2021 R1 update 9  
 
 Wordpress Version 5.7.2 with WooCommerce Version 5.3.0 plugin. 
 
