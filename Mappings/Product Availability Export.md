@@ -1,5 +1,5 @@
 
-<p>Status: Work in Progress</p>
+<p>Status: Completed</p>
 <table>
 <thead>
 <tr>
@@ -13,7 +13,7 @@
 <tr>
 <td>1.0</td>
 <td>Milestone 2</td>
-<td>Work in Progress</td></tr></tbody></table>
+<td>Completed</td></tr></tbody></table>
 <p>&nbsp;</p>
 <p>This document maps the Product Availability fields to WooCommerce.</p>
 <p>&nbsp;</p>
