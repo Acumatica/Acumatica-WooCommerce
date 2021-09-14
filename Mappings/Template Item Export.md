@@ -1,5 +1,5 @@
 
-<p>Status: Work in Progress</p>
+<p>Status: Completed</p>
 <table>
 <tbody>
 <tr>
@@ -9,7 +9,7 @@
 <tr>
 <td>1.0</td>
 <td>Milestone 2</td>
-<td>Work in Progress</td></tr></tbody></table>
+<td>Completed</td></tr></tbody></table>
 <div>
 <p>&nbsp;</p><span style="color: rgb(68,68,68);">When syncing Template Item entity, creating a product in WC is same as Stock Item Export or Non-Stock Item Export item sync, but always &quot;</span><strong>type</strong><span style="color: rgb(68,68,68);">&quot; should be = variable, &quot;</span><strong>SKU</strong><span style="color: rgb(68,68,68);">&quot; should be &quot;</span><strong>Template ID</strong><span style="color: rgb(68,68,68);">&quot; AND&nbsp;</span><strong>Attributes</strong><span style="color: rgb(68,68,68);">&nbsp;should create as &quot;</span><strong>Used for variations</strong><span style="color: rgb(68,68,68);">&quot; = True</span>
 <p>&nbsp;</p>
