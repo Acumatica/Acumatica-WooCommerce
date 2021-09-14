@@ -1,5 +1,5 @@
 
-<p>Status: Work in Progress</p>
+<p>Status: Completed</p>
 <table>
 <tbody>
 <tr>
@@ -9,7 +9,7 @@
 <tr>
 <td>1.0</td>
 <td>Milestone 2</td>
-<td>Work in Progress</td></tr></tbody></table>
+<td>Completed</td></tr></tbody></table>
 <p>&nbsp;</p>
 <p>Template Item sync will be same as Stock Item Entity and Non-Stock Item Entity item synchronization. System will use the same inventory settings when syncing and additionally will consider below mention conditions,</p>
 <ul>
