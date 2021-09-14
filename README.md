@@ -2,7 +2,7 @@
 
 *Customization package that enable users to connect own WooCommerce stores with Acumatica* (**MVP Release**).
 
-This customization package enables users to configure and connect WooCommerce stores with Acumatica and integrate transactions between those two platforms. Package allows users to manage and synchronize stock items, sales categories, and shipments direct from Acumatica and customers, sales orders, sales tax, and payment details direct from WooCommerce.
+This customization package enables users to configure and connect WooCommerce stores with Acumatica and integrate transactions between those two platforms. Package allows users to manage and synchronize stock items, sales categories,Product Availability,Non-Stock Items,Template Items and shipments direct from Acumatica and customers, sales orders, Refunds and payment details direct from WooCommerce.
 
 Package will allow users to connect multiple WooCommerce storefront sites for a single Acumatica company/branch and each store can be uniquely configured in Acumatica. This means users can have multiple websites with different types of customers and still have all information maintained in a single Acumatica company and branch.
 
