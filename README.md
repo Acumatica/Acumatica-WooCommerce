@@ -59,7 +59,11 @@ Enable Commerce Integration in Enable/Disable Features (CS100000) Screen.
 
 ### Installation
 
-Install customization deployment package from [here](https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R104).
+Install customization deployment package,
+
+2021R1 Update 4 from [here](https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R104).
+
+2021R1 Update 9 from [here](https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109).
 
 
 ### Usage
