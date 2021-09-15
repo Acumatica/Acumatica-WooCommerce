@@ -1,10 +1,5 @@
 # Acumatica WooCommerce Connector
 
-*Customization package that enable users to connect own WooCommerce stores with Acumatica* (**Milestone 1 Release**).
-
-This customization package enables users to configure and connect WooCommerce stores with Acumatica and integrate transactions between those two platforms. Package allows users to manage and synchronize stock items, sales categories, and shipments direct from Acumatica and customers, sales orders, sales tax, and payment details direct from WooCommerce.
-
-Package will allow users to connect multiple WooCommerce storefront sites for a single Acumatica company/branch and each store can be uniquely configured in Acumatica. This means users can have multiple websites with different types of customers and still have all information maintained in a single Acumatica company and branch.
 
 ## Supported Entities
 
@@ -51,9 +46,9 @@ Install customization deployment package from [here](https://github.com/Acumatic
 #### Connection Settings
 Go to main menu, open Commerce menu item, and click on WooCommerce Stores and WooCommerce Stores workspace will open.
 
-![Screenshot](/Images/Commenuitem.png)
+![Screenshot](/Documentation/Images/Commenuitem.png)
 
-![Screenshot](/Images/Wooworkspace.png)
+![Screenshot](/Documentation/Images/Wooworkspace.png)
 
 1.	Connector should be shown as WooCommerce.
 
@@ -79,13 +74,13 @@ Go to main menu, open Commerce menu item, and click on WooCommerce Stores and Wo
 
 Under Entity Settings page, click on Active check box to activate necessary entities for the synchronization and click on Save.
 
-![Screenshot](/Images/EntitySet.png)
+![Screenshot](/Documentation/Images/EntitySet.png)
 
 ### Entity Synchronization (Import/ Export)
 
 #### Customer Settings
 
-![Screenshot](/Images/CusSet.png)
+![Screenshot](/Documentation/Images/CusSet.png)
 
 Before syncing customers from WooCommerce to Acumatica above mentioned Customer configuration settings need to be completed. 
 
@@ -99,7 +94,7 @@ Before syncing customers from WooCommerce to Acumatica above mentioned Customer 
 
 #### Inventory Settings
 
-![Screenshot](/Images/InventorySettings.png)
+![Screenshot](/Documentation/Images/InventorySettings.png)
 
 Before syncing Stock Items to WooCommerce from Acumatica above mentioned Inventory configuration settings need to be completed. 
 
@@ -113,7 +108,7 @@ Before syncing Stock Items to WooCommerce from Acumatica above mentioned Invento
 
 #### Order Settings
 
-![Screenshot](/Images/OrderSettings.png)
+![Screenshot](/Documentation/Images/OrderSettings.png)
 
 Before syncing Sales Orders from WooCommerce to Acumatica above mentioned Order configuration settings need to be completed.
 
@@ -139,7 +134,7 @@ Before syncing Sales Orders from WooCommerce to Acumatica above mentioned Order 
 
 #### Payment Settings
 
-![Screenshot](/Images/PaymentSettings.png)
+![Screenshot](/Documentation/Images/PaymentSettings.png)
 
 Before syncing Payment details from WooCommerce to Acumatica above mentioned payment configuration settings need to be completed. 
 
@@ -163,27 +158,27 @@ Before syncing Payment details from WooCommerce to Acumatica above mentioned pay
 
 Once the initial entity settings have been completed go to Commerce menu item and click on Prepare Data and Prepare Data workspace will open.
 
-![Screenshot](/Images/PrepareData.png)
+![Screenshot](/Documentation/Images/PrepareData.png)
 
-![Screenshot](/Images/PrepareData2.png)
+![Screenshot](/Documentation/Images/PrepareData2.png)
 
 Select the necessary entity that want to sync in the Entity dropdown and then click on selected check box in the working area. Or keep the Entity dropdown blank and select the required entities by clicking on selected check box.
 
 Then after click on Prepare to prepare the data that can be synchronized. 
 
-![Screenshot](/Images/PrepareData3.png)
+![Screenshot](/Documentation/Images/PrepareData3.png)
 
 ### Process Data  
 
 Once preparing Data have been completed, go to Commerce menu item, and click on Process Data and Process Data workspace will open.
 
-![Screenshot](/Images/ProcessData.png)
+![Screenshot](/Documentation/Images/ProcessData.png)
 
-![Screenshot](/Images/ProcessData2.png)
+![Screenshot](/Documentation/Images/ProcessData2.png)
 
 Select the required Entity and then select the required transaction(s) that need to sync by selecting the check box(s). Then click on Process. Or click on Process All to process all the prepared transaction related to the selected Entity.
 
-![Screenshot](/Images/ProcessData3.png)
+![Screenshot](/Documentation/Images/ProcessData3.png)
 
 ## Quality Assurance
 
