@@ -1,17 +1,20 @@
 ﻿using Newtonsoft.Json;
 using PX.Commerce.Core;
+using PX.Commerce.WooCommerce.WC.Descriptor;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
 {
 
+    [JsonObject(Description = "Refund")]
+    [CommerceDescription(WCCaptions.RefundData)]
     public class RefundData : BCAPIEntity, IWooEntity
     {
-        private decimal? amountDecimal;
+        private decimal amountDecimal;
 
         [JsonProperty("id")]
+        [CommerceDescription(WCCaptions.ID, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public int? Id { get; set; }
 
         [JsonProperty("date_created")]
@@ -21,19 +24,21 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         public DateTime? DateCreatedGmt { get; set; }
 
         [JsonProperty("amount")]
+        [CommerceDescription(WCCaptions.Amount, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public string Amount { get; set; }
 
-        public decimal? AmountDecimal
+        public decimal AmountDecimal
         {
             get
             {
                 decimal val;
                 amountDecimal = decimal.TryParse(Amount, out val) ? val : 0;
-               return amountDecimal;
+                return amountDecimal;
             }
         }
 
         [JsonProperty("reason")]
+        [CommerceDescription(WCCaptions.Reason, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public string Reason { get; set; }
 
         [JsonProperty("refunded_by")]
@@ -49,7 +54,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         public List<RefundLineItemData> LineItems { get; set; }
 
         [JsonProperty("shipping_lines")]
-        public List<object> ShippingLines { get; set; }
+        public List<ShippingLineData> ShippingLines { get; set; }
 
         [JsonProperty("tax_lines")]
         public List<object> TaxLines { get; set; }

@@ -201,6 +201,7 @@ namespace PX.Commerce.WooCommerce
         {
             BCShipments giResult = cbapi.Put(new BCShipments()
             {
+                BindingID = currentBinding.BindingID.ValueField(),
                 LastModified = minDateTime.HasValue ? minDateTime.Value.ValueField() : null
             });
 
@@ -208,9 +209,9 @@ namespace PX.Commerce.WooCommerce
             {
                 foreach (var result in giResult.Results.GroupBy(x => new { x.NoteID?.Value }).ToDictionary(d => d.Key, d => d.ToList()))
                 {
-                    var shipment = cbapi.GetByID<Shipment>(result.Key.Value);
-                    if (shipment == null)
-                        continue;
+                    //var shipment = cbapi.GetByID<Shipment>(result.Key.Value);
+                    //if (shipment == null)
+                    //    continue;
                     BCShipments bCShipments = new BCShipments();
                     MapFilterFields(result.Value, bCShipments);
 
@@ -226,7 +227,7 @@ namespace PX.Commerce.WooCommerce
             foreach (var result in results)
             {
                 impl.ShippingNoteID = result.NoteID;
-                impl.VendorRef = result.VendorRef;
+                impl.VendorRef = result.InvoiceNbr;
                 impl.ShipmentNumber = result.ShipmentNumber;
                 impl.ShipmentType = result.ShipmentType;
                 impl.LastModified = result.LastModifiedDateTime;
@@ -322,7 +323,7 @@ namespace PX.Commerce.WooCommerce
 
             obj.ClearDetails();
 
-            Dictionary<MappedOrder, (string EntitiesAttribute, List<OrdersShipmentData> OrderOrdersShipmentData)> shipmentsToCreate 
+            Dictionary<MappedOrder, (string EntitiesAttribute, List<OrdersShipmentData> OrderOrdersShipmentData)> shipmentsToCreate
                 = new Dictionary<MappedOrder, (string EntitiesAttribute, List<OrdersShipmentData> OrderOrdersShipmentData)>();
             foreach (MappedOrder order in bucket.Orders)
             {
@@ -332,7 +333,7 @@ namespace PX.Commerce.WooCommerce
 
                 if (shipmentData.LineItems.All(x => x.PackageId != null))
                 {
-                    shipmentData.TrackingNumbers.Clear();
+                    shipmentData.TrackingNumbers?.Clear();
                     var packages = shipmentData.LineItems.GroupBy(x => x.PackageId).ToDictionary(x => x.Key, x => x.ToList());
                     List<OrdersShipmentData> packageShipmentOfSameOrder = new List<OrdersShipmentData>();
 
@@ -396,7 +397,7 @@ namespace PX.Commerce.WooCommerce
             (string EntitiesAttribute, List<OrdersShipmentData> OrderOrdersShipmentData)> shipmentsToCreate)
         {
             //To track if order entirely fulfilled (for ts update of order) and 
-            Dictionary<string, (bool Fulfilled, bool Errored, string ErrorMsg)> fulFillmentStatuses = 
+            Dictionary<string, (bool Fulfilled, bool Errored, string ErrorMsg)> fulFillmentStatuses =
                 new Dictionary<string, (bool Fulfilled, bool Errored, string ErrorMsg)>();
             foreach (KeyValuePair<MappedOrder, (string EntitiesAttribute, List<OrdersShipmentData> OrderOrdersShipmentData)> pair in shipmentsToCreate)
             {
@@ -544,7 +545,7 @@ namespace PX.Commerce.WooCommerce
                          InnerJoin<SOOrder, On<ARTran.sOOrderType, Equal<SOOrder.orderType>, And<ARTran.sOOrderNbr, Equal<SOOrder.orderNbr>>>>,
                          Where<ARTran.tranType, Equal<Optional<ARTran.tranType>>,
                              And<ARTran.refNbr, Equal<Required<ARTran.refNbr>>>>>
-                         .Select(this, bCShipment.Results?.FirstOrDefault().InvoiceType?.Value, bCShipment.Results?.FirstOrDefault().InvoiceNbr?.Value))
+                         .Select(this, bCShipment.Results?.FirstOrDefault().InvoiceType?.Value, bCShipment.Results?.FirstOrDefault().ShipmentNumber?.Value))
             {
                 ARTran line = item.GetItem<ARTran>();
                 SOOrder sOOrder = item.GetItem<SOOrder>();

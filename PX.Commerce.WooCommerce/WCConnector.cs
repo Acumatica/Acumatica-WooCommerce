@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using PX.Commerce.BigCommerce.API.REST;
 using PX.Commerce.Core;
-using PX.Commerce.Objects;
 using PX.Commerce.WooCommerce.API.REST.Client;
 using PX.Commerce.WooCommerce.Sync.Processors;
 using PX.Commerce.WooCommerce.WC.DAC;
@@ -41,12 +40,15 @@ namespace PX.Commerce.WooCommerce
         public IEnumerable<KeyValuePair<Type, int>> GetProcessorTypes()
         {
             yield return new KeyValuePair<Type, int>(typeof(WCCustomerProcessor), 20);
-            yield return new KeyValuePair<Type, int>(typeof(WCStockItemProcessor), 50);
             yield return new KeyValuePair<Type, int>(typeof(WCCategoryProcessor), 40);
+            yield return new KeyValuePair<Type, int>(typeof(WCStockItemProcessor), 50);
+            yield return new KeyValuePair<Type, int>(typeof(WCNonStockItemProcessor), 60);
+            yield return new KeyValuePair<Type, int>(typeof(WCTemplateItemProcessor), 70);
+            yield return new KeyValuePair<Type, int>(typeof(WCAvailabilityProcessor), 110);
             yield return new KeyValuePair<Type, int>(typeof(WCSalesOrderProcessor), 120);
             yield return new KeyValuePair<Type, int>(typeof(WCPaymentProcessor), 130);
             yield return new KeyValuePair<Type, int>(typeof(WCShipmentProcessor), 140);
-            //yield return new KeyValuePair<Type, int>(typeof(WCRefundsProcessor), 150);
+            yield return new KeyValuePair<Type, int>(typeof(WCRefundsProcessor), 150);
         }
     }
     #endregion
@@ -75,21 +77,6 @@ namespace PX.Commerce.WooCommerce
             try
             {
                 List<TInfo> result = new List<TInfo>();
-                //if (infoType == BCObjectsConstants.BCPayment)
-                //{
-                //    object paymentItem = new PaymentMethods() { Name = BCObjectsConstants.Custom };
-                //    result.Add((TInfo)paymentItem);
-                //    paymentItem = new PaymentMethods() { Name = BCObjectsConstants.StoreCreditCode };
-                //    result.Add((TInfo)paymentItem);
-                //    paymentItem = new PaymentMethods() { Name = BCObjectsConstants.GiftCertificateCode };
-                //    result.Add((TInfo)paymentItem);
-                //    paymentItem = new PaymentMethods() { Name = BCObjectsConstants.PayPal, CreatePaymentfromOrder = true };
-                //    result.Add((TInfo)paymentItem);
-                //    paymentItem = new PaymentMethods() { Name = BCObjectsConstants.TestPaymentGateway, CreatePaymentfromOrder = true };
-                //    result.Add((TInfo)paymentItem);
-                //    paymentItem = new PaymentMethods() { Name = BCObjectsConstants.Amazon, CreatePaymentfromOrder = true };
-                //    result.Add((TInfo)paymentItem);
-                //}
                 return result;
             }
             catch (Exception ex)
@@ -181,7 +168,7 @@ namespace PX.Commerce.WooCommerce
                 DefaultValueHandling = DefaultValueHandling.Include,
                 DateFormatHandling = DateFormatHandling.IsoDateFormat,
                 DateTimeZoneHandling = DateTimeZoneHandling.Unspecified,
-                ContractResolver = new Core.REST.GetOnlyContractResolver()
+                ContractResolver = new Core.REST.GetOnlyContractResolver(),
             };
             RestJsonSerializer restSerializer = new RestJsonSerializer(serializer);
             WooRestClient client = new WooRestClient(restSerializer, restSerializer, options,

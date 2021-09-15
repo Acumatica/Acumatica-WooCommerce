@@ -36,7 +36,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Client
                 return result;
             }
 
-            throw new Exception(response.Content);
+            throw new Exception(response.ErrorMessage);
         }
 
         public T Post<T>(IRestRequest request, T entity)
@@ -58,16 +58,16 @@ namespace PX.Commerce.WooCommerce.API.REST.Client
             throw new BigCom.RestException(response);
         }
 
-        public TE Post<T, TE>(IRestRequest request, List<T> entities)
+        public BatchData<T> Post<T,TE>(IRestRequest request, TE entities)
             where T : class, IWooEntity, new()
-            where TE : IEnumerable<T>, new()
+            where TE : class, IWooEntity, new()
         {
             request.Method = Method.POST;
             request.AddJsonBody(entities);
-            IRestResponse<TE> response = Execute<TE>(request);
+            IRestResponse<BatchData<T>> response = Execute<BatchData<T>>(request);
             if (response.StatusCode == HttpStatusCode.Created || response.StatusCode == HttpStatusCode.OK)
             {
-                TE result = response.Data;
+                BatchData<T> result = response.Data;
 
                 if (result != null && result is IEnumerable<BCAPIEntity>)
                     (result as List<BCAPIEntity>).ForEach(e => e.JSON = response.Content);
@@ -118,6 +118,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Client
             LogError(BaseUrl, request, response);
             throw new BigCom.RestException(response);
         }
+
         public TE GetList<T, TE>(IRestRequest request)
             where T : class, IWooEntity, new()
             where TE : IEnumerable<T>, new()
@@ -148,5 +149,6 @@ namespace PX.Commerce.WooCommerce.API.REST.Client
             LogError(BaseUrl, request, response);
             throw new BigCom.RestException(response);
         }
+
     }
 }

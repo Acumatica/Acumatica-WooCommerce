@@ -1,9 +1,9 @@
-﻿using PX.Commerce.Core;
-using PX.Commerce.Objects;
+﻿using PX.Commerce.BigCommerce;
+using PX.Commerce.Core;
 using PX.Data;
 using PX.Data.ReferentialIntegrity.Attributes;
 using System;
-using static PX.Commerce.WooCommerce.WCConnector;
+using static PX.Commerce.BigCommerce.BCConnector;
 
 namespace PX.Commerce.WooCommerce.WC.DAC
 {
@@ -33,6 +33,7 @@ namespace PX.Commerce.WooCommerce.WC.DAC
         public virtual string StoreBaseUrl { get; set; }
         public abstract class storeBaseUrl : IBqlField { }
         #endregion
+
         #region StoreXAuthClient
         [PXRSACryptString(IsUnicode = true, InputMask = "")]
         [PXUIField(DisplayName = "Consumer Key")]
@@ -40,6 +41,7 @@ namespace PX.Commerce.WooCommerce.WC.DAC
         public virtual string StoreXAuthClient { get; set; }
         public abstract class storeXAuthClient : IBqlField { }
         #endregion
+
         #region StoreXAuthToken
         [PXRSACryptString(IsUnicode = true, InputMask = "")]
         [PXUIField(DisplayName = "Consumer Secret")]
@@ -70,14 +72,15 @@ namespace PX.Commerce.WooCommerce.WC.DAC
         public abstract class storeAdminUrl : IBqlField { }
         #endregion
 
+
     }
 
-    [PXPrimaryGraph(new Type[] { typeof(WCStoreMaint) },
-            new Type[] { typeof(Where<BCBinding.connectorType, Equal<WCConnectorType>>) })]
-
-    public class BCBindingWooCommerceExtension : PXCacheExtension<BCBindingExt>
+    [PXPrimaryGraph(new Type[] {typeof(WCStoreMaint)}, 
+        new Type[] { typeof(Where<BCBinding.connectorType, Equal<bcConnectorType>>) })]
+    public sealed class BCBindingWooCommerceExtension : PXCacheExtension<BCBinding>
     {
-        //public Int32? RefundAmountItemID { get; set; }
+        public static bool IsActive() { return true; }
     }
+
 
 }

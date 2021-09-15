@@ -1,85 +1,84 @@
 ﻿using Newtonsoft.Json;
 using PX.Commerce.Core;
+using PX.Commerce.WooCommerce.WC.Descriptor;
 using System;
 using System.Collections.Generic;
 
 namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
 {
+    [JsonObject(Description = "Sales Order -> Line Item")]
+    [CommerceDescription(WCCaptions.LineItemData)]
     public class OrderLineItemData : BCAPIEntity, IWooEntity
     {
-        private decimal? subtotalDecimal;
-        private decimal? totalDecimal;
-        private decimal? totalTaxDecimal;
-        private decimal? priceDecimal;
-        private decimal? subTotaTaxlDecimal;
-
         [JsonProperty("id")]
+        [CommerceDescription(WCCaptions.ID, FieldFilterStatus.Skipped, FieldMappingStatus.ImportAndExport)]
         public int? Id { get; set; }
 
         [JsonProperty("name")]
+        [CommerceDescription(WCCaptions.Name, FieldFilterStatus.Skipped, FieldMappingStatus.ImportAndExport)]
         public string Name { get; set; }
 
         [JsonProperty("product_id")]
+        [CommerceDescription(WCCaptions.Productid, FieldFilterStatus.Skipped, FieldMappingStatus.ImportAndExport)]
         public int? ProductId { get; set; }
 
         [JsonProperty("variation_id")]
+        [CommerceDescription(WCCaptions.VariationId, FieldFilterStatus.Skipped, FieldMappingStatus.ImportAndExport)]
         public int? VariationId { get; set; }
 
         [JsonProperty("quantity")]
+        [CommerceDescription(WCCaptions.Quantity, FieldFilterStatus.Skipped, FieldMappingStatus.ImportAndExport)]
         public int? Quantity { get; set; }
 
         [JsonProperty("tax_class")]
+        [CommerceDescription(WCCaptions.TaxClass, FieldFilterStatus.Skipped, FieldMappingStatus.ImportAndExport)]
         public string TaxClass { get; set; }
 
         [JsonProperty("subtotal")]
+        [CommerceDescription(WCCaptions.Subtotal, FieldFilterStatus.Skipped, FieldMappingStatus.ImportAndExport)]
         public string SubTotal { get; set; }
 
-        public decimal? SubTotalDecimal
+        public decimal SubTotalDecimal
         {
             get
             {
-                decimal val;
-                subtotalDecimal = decimal.TryParse(SubTotal, out val) ? val : 0;
-                return subtotalDecimal;
+                return decimal.TryParse(SubTotal, out decimal val) ? val : 0m;
             }
         }
 
         [JsonProperty("subtotal_tax")]
+        [CommerceDescription(WCCaptions.SubtotalTax, FieldFilterStatus.Skipped, FieldMappingStatus.ImportAndExport)]
         public string SubtotalTax { get; set; }
 
-        public decimal? SubTotalTaxDecimal
+        public decimal SubTotalTaxDecimal
         {
             get
             {
-                decimal val;
-                subTotaTaxlDecimal = decimal.TryParse(SubtotalTax, out val) ? val : 0;
-                return subTotaTaxlDecimal;
+                return decimal.TryParse(SubtotalTax, out decimal val) ? val : 0m;
             }
         }
 
         [JsonProperty("total")]
+        [CommerceDescription(WCCaptions.Total, FieldFilterStatus.Skipped, FieldMappingStatus.ImportAndExport)]
         public string Total { get; set; }
 
-        public decimal? TotalDecimal
+        public decimal TotalInDecimal
         {
             get
             {
-                decimal val;
-                totalDecimal = decimal.TryParse(Total, out val) ? val : 0;
-                return totalDecimal;
+                return decimal.TryParse(Total, out decimal val) ? val : 0m;
             }
         }
 
         [JsonProperty("total_tax")]
+        [CommerceDescription(WCCaptions.TotalTax, FieldFilterStatus.Skipped, FieldMappingStatus.ImportAndExport)]
         public string TotalTax { get; set; }
 
-        public decimal? TotalTaxDecimal
+        public decimal TotalTaxDecimal
         {
             get
             {
-                decimal val;
-                totalTaxDecimal = decimal.TryParse(TotalTax, out val) ? val : 0;
-                return totalTaxDecimal;
+                return decimal.TryParse(TotalTax, out decimal val) ? val : 0m;
             }
         }
 
@@ -92,21 +91,27 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         [JsonProperty("price")]
         public string Price { get; set; }
 
-        public decimal? PriceDecimal
+        public decimal PriceDecimal
         {
             get
             {
-                decimal val;
-                priceDecimal = decimal.TryParse(Price, out val) ? val : 0;
-                return priceDecimal;
+                return decimal.TryParse(Price, out decimal val) ? val : 0m;
             }
         }
 
-        public decimal? UnitPrice
+        public decimal UnitPrice
         {
             get
             {
-                return SubTotalDecimal / Quantity;
+                return Quantity.HasValue ? SubTotalDecimal / Quantity.Value : 0m;
+            }
+        }
+
+        public decimal DiscountedUnitPrice
+        {
+            get
+            {
+                return Quantity.HasValue ? TotalInDecimal / Quantity.Value : 0m;
             }
         }
 
@@ -115,11 +120,11 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
 
         public DateTime? DateCreatedUT { get; set; }
 
-        public decimal? Discount
+        public decimal Discount
         {
             get
             {
-                return SubTotalDecimal - TotalDecimal;
+                return SubTotalDecimal - TotalInDecimal;
             }
         }
 

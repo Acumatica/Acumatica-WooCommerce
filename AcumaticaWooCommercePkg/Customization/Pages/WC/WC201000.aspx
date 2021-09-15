@@ -100,34 +100,6 @@
                     <px:PXDropDown CommitChanges="True" runat="server" ID="CstPXDropDown58" DataField="NotAvailMode"></px:PXDropDown>
                     <px:PXDropDown CommitChanges="True" runat="server" DataField="AvailabilityCalcRule" ID="CstPXDropDown45"></px:PXDropDown>
                     <px:PXDropDown CommitChanges="True" runat="server" ID="CstPXDropDown71" DataField="WarehouseMode"></px:PXDropDown>
-                    <px:PXLayoutRule GroupCaption="Warehouse Settings" runat="server" ID="CstPXLayoutRule761" StartGroup="True"></px:PXLayoutRule>
-                    <px:PXGrid Height="200px" Width="510px" SyncPosition="True" AllowPaging="False" SkinID="Inquire" AutoAdjustColumns="False" MatrixMode="True" runat="server" ID="gridExportLocations">
-                        <Levels>
-                            <px:PXGridLevel DataMember="ExportLocations">
-                                <RowTemplate>
-                                    <px:PXSelector AutoRefresh="True" CommitChanges="True" runat="server" DataField="LocationID" ID="pxsLocationId"></px:PXSelector>
-                                    <px:PXTextEdit runat="server" DataField="Description" AlreadyLocalized="False" ID="pxtLocationDescription"></px:PXTextEdit>
-                                    <px:PXSelector runat="server" ID="pxsSiteId" DataField="SiteID" DisplayMode="Hint" CommitChanges="True"></px:PXSelector>
-                                    <%--<px:PXDropDown runat="server" ID="PXDDExtLocationId" DataField="ExternalLocationID"></px:PXDropDown>--%>
-                                </RowTemplate>
-                                <Columns>
-                                    <px:PXGridColumn CommitChanges="True" DataField="SiteID" Width="140"></px:PXGridColumn>
-                                    <px:PXGridColumn CommitChanges="True" DataField="LocationID" Width="140px"></px:PXGridColumn>
-                                    <%--<px:PXGridColumn DataField="ExternalLocationID" Width="200px"></px:PXGridColumn>--%>
-                                </Columns>
-                            </px:PXGridLevel>
-                        </Levels>
-                        <ActionBar>
-                            <Actions>
-                                <AddNew Enabled="True" />
-                            </Actions>
-                        </ActionBar>
-                        <ActionBar>
-                            <Actions>
-                                <Delete Enabled="True" />
-                            </Actions>
-                        </ActionBar>
-                    </px:PXGrid>
                 </Template>
             </px:PXTabItem>
             <px:PXTabItem Text="Order Settings">
@@ -142,6 +114,10 @@
                     </px:PXFormView>
                     <px:PXLayoutRule LabelsWidth="SM" ControlSize="M" GroupCaption="Order" runat="server" ID="CstPXLayoutRule75" StartGroup="True"></px:PXLayoutRule>
                     <px:PXSelector CommitChanges="True" AllowEdit="True" runat="server" ID="edOrderTpe" DataField="OrderType"></px:PXSelector>
+                    <px:PXSelector CommitChanges="True" AllowEdit="True" runat="server" ID="edReturnOrderType" DataField="ReturnOrderType"></px:PXSelector>
+                    <px:PXSelector AllowEdit="True" runat="server" ID="edRefundItem" DataField="RefundAmountItemID"></px:PXSelector>
+                    <px:PXSelector AllowEdit="True" runat="server" ID="edReasonCode" DataField="ReasonCode"></px:PXSelector>
+	<px:PXNumberEdit runat="server" ID="CstPXNumberEdit94" DataField="MaxRefundDays" />
                     <px:PXDropDown ID="edTimeZone" runat="server" DataField="OrderTimeZone"></px:PXDropDown>
                     <px:PXDropDown runat="server" ID="CstPXDropDown80" DataField="PostDiscounts" CommitChanges="True"></px:PXDropDown>
                     <px:PXLayoutRule LabelsWidth="SM" ControlSize="M" runat="server" ID="CstPXLayoutRule117" StartGroup="True" GroupCaption="Taxes"></px:PXLayoutRule>
@@ -176,8 +152,7 @@
                             </Actions>
                         </ActionBar>
 
-                    </px:PXGrid>
-                </Template>
+                    </px:PXGrid></Template>
             </px:PXTabItem>
             <px:PXTabItem Text="Payment Settings">
                 <Template>
@@ -193,6 +168,7 @@
                                     <px:PXGridColumn CommitChanges="True" DataField="CashAccountID" Width="140"></px:PXGridColumn>
                                     <px:PXGridColumn CommitChanges="True" DataField="ProcessingCenterID" Width="120"></px:PXGridColumn>
                                     <px:PXGridColumn DataField="CuryID" Width="80"></px:PXGridColumn>
+                                    <px:PXGridColumn TextAlign="Center" Type="CheckBox" DataField="ProcessRefunds" Width="100"></px:PXGridColumn>
                                     <px:PXGridColumn TextAlign="Center" Type="CheckBox" DataField="ReleasePayments" Width="80"></px:PXGridColumn>
                                 </Columns>
 

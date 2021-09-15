@@ -5,7 +5,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Interfaces
     public interface IChildReadOnlyRestDataProvider<T> where T : class
     {
         List<T> GetByParentId(string parentId);
-        List<T> GetAll();
+        IEnumerable<T> GetAll();
         T GetByID(string id, string parentId);
     }
 

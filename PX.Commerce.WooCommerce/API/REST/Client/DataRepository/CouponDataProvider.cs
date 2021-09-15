@@ -24,7 +24,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.DataRepository
             return base.Get<CouponData, List<CouponData>>(filter);
         }
 
-        public List<CouponData> GetAll()
+        public IEnumerable<CouponData> GetAll()
         {
             var request = _restClient.MakeRequest(GetListUrl);
             var coupons = _restClient.Get<List<CouponData>>(request);

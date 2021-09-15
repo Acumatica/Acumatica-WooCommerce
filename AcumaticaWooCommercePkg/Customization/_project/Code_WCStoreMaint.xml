@@ -1,0 +1,15 @@
+﻿<Graph ClassName="WCStoreMaint" Source="#CDATA" IsNew="True" FileType="ExistingGraph">
+    <CDATA name="Source"><![CDATA[using System;
+using PX.Objects;
+using PX.Data;
+
+namespace PX.Commerce.WooCommerce
+{
+	public class WCStoreMaint_Extension : PXGraphExtension<WCStoreMaint>
+	{
+		#region Event Handlers
+
+		#endregion
+	}
+}]]></CDATA>
+</Graph>

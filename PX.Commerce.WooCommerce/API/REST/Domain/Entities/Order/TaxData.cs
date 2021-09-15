@@ -11,6 +11,8 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         [JsonProperty("total")]
         public string Total { get; set; }
 
+        public decimal TotalInDecimal { get { return decimal.TryParse(Total, out decimal val) ? val : 0; } }
+
         [JsonProperty("subtotal")]
         public string Subtotal { get; set; }
 

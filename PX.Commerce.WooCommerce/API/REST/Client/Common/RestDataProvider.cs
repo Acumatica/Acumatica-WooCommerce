@@ -95,6 +95,69 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.Common
             }
         }
 
+        public virtual IEnumerable<T> GetAllUptoDate<T, TE>(IFilter filter = null, BigCom.UrlSegments urlSegments = null, int maxDates = 0)
+            where T : class, IWooEntity, new()
+            where TE : IEnumerable<T>, new()
+        {
+            var lastDate = DateTime.Now.AddDays(maxDates * -1);
+            var localFilter = filter ?? new Filter();
+            var needGet = true;
+
+            localFilter.Page = localFilter.Page.HasValue ? localFilter.Page : 1;
+            localFilter.Limit = localFilter.Limit.HasValue ? localFilter.Limit : 50;
+            localFilter.Order = "desc";
+
+            TE entity = default;
+            while (needGet)
+            {
+                int retryCount = 0;
+                while (retryCount <= commerceRetryCount)
+                {
+                    try
+                    {
+                        entity = Get<T, TE>(localFilter, urlSegments);
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        _restClient.Logger?.ForContext("Scope", new BCLogTypeScope(GetType()))
+                            .Verbose("{CommerceCaption}: Failed at page {Page}, RetryCount {RetryCount}, Exception {ExceptionMessage}", BCCaptions.CommerceLogCaption, localFilter.Page, retryCount, ex?.Message);
+
+                        if (retryCount == commerceRetryCount)
+                            throw;
+
+                        retryCount++;
+                        Thread.Sleep(1000 * retryCount);
+                    }
+                }
+
+                if (entity == null) yield break;
+                foreach (T data in entity)
+                {
+                    yield return data;
+                }
+
+                if (typeof(T) == typeof(OrderData))
+                {
+                    if (entity.Count() < localFilter.Limit)
+                        needGet = false;
+                    else if (entity.Count() == localFilter.Limit && localFilter.CreatedAfter != null
+                        && lastDate > entity.ToList()[localFilter.Limit.Value - 1].DateModified)
+                        needGet = false;
+                }
+                else
+                {
+                    if (entity.Count() < localFilter.Limit)
+                        needGet = false;
+                    else if (entity.Count() == localFilter.Limit && localFilter.CreatedAfter != null
+                        && localFilter.CreatedAfter > entity.ToList()[localFilter.Limit.Value - 1].DateCreatedUT)
+                        needGet = false;
+                }
+
+                localFilter.Page++;
+            }
+        }
+
         public virtual T GetByID<T>(BigCom.UrlSegments urlSegments, IFilter filter = null)
             where T : class, new()
         {

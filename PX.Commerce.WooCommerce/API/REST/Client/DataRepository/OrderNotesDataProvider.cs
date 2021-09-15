@@ -23,7 +23,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.DataRepository
             return base.Get<NoteData, List<NoteData>>(filter);
         }
 
-        public List<NoteData> GetAll()
+        public IEnumerable<NoteData> GetAll()
         {
             throw new System.NotImplementedException();
         }

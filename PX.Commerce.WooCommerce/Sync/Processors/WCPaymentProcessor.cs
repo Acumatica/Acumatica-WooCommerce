@@ -134,7 +134,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
 
                         WCPaymentEntityBucket bucket = CreateBucket();
 
-                        MappedOrder order = bucket.Order = bucket.Order.Set(data, data.Id?.ToString(), data.DateModified.ToDate());
+                        MappedOrder order = bucket.Order = bucket.Order.Set(data, data.Id?.ToString(), data.DateModifiedGmt.ToDate());
                         EntityStatus orderStatus = EnsureStatus(order);
 
                         OrderPaymentEvent lastEvent = tranData.paymentEvent;
@@ -147,10 +147,10 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                         OrdersTransactionData tranData = helper.CreateOrderTransactionData(data);
                         WCPaymentEntityBucket bucket = CreateBucket();
 
-                        MappedOrder order = bucket.Order = bucket.Order.Set(data, data.Id?.ToString(), data.DateModified.ToDate());
+                        MappedOrder order = bucket.Order = bucket.Order.Set(data, data.Id?.ToString(), data.DateModifiedGmt.ToDate());
                         EntityStatus orderStatus = EnsureStatus(order);
 
-                        MappedPayment obj = bucket.Payment = bucket.Payment.Set(tranData, data.Id.ToString(), data.DateModified.ToDate(), data.CalculateHash());
+                        MappedPayment obj = bucket.Payment = bucket.Payment.Set(tranData, data.Id.ToString(), data.DateModifiedGmt.ToDate(), data.CalculateHash());
                         EntityStatus status = EnsureStatus(obj, SyncDirection.Import);
                     }
                 }
@@ -174,7 +174,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                 MappedPayment obj = bucket.Payment = bucket.Payment.Set(data, new object[] { data.OrderId, data.Id }.KeyCombine(), data.DateCreatedUT.ToDate(), data.CalculateHash());
                 EntityStatus status = EnsureStatus(obj, SyncDirection.Import);
 
-                MappedOrder order = bucket.Order = bucket.Order.Set(orderData, orderData.Id?.ToString(), orderData.DateModified.ToDate());
+                MappedOrder order = bucket.Order = bucket.Order.Set(orderData, orderData.Id?.ToString(), orderData.DateModifiedGmt.ToDate());
                 EnsureStatus(order);
 
                 return status;
@@ -182,12 +182,12 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             else
             {
                 OrderData orderData = orderDataProvider.GetByID(syncstatus.ExternID);
-                if (!string.IsNullOrWhiteSpace(orderData.PaymentMethod) && helper.CreatePaymentfromOrder(orderData.PaymentMethod))
+                if (!string.IsNullOrWhiteSpace(orderData.PaymentMethod) /*&& helper.CreatePaymentfromOrder(orderData.PaymentMethod)*/)
                 {
                     OrdersTransactionData data = helper.CreateOrderTransactionData(orderData);
-                    MappedPayment obj = bucket.Payment = bucket.Payment.Set(data, data.Id.ToString(), orderData.DateModified.ToDate(), data.CalculateHash());
+                    MappedPayment obj = bucket.Payment = bucket.Payment.Set(data, data.Id.ToString(), orderData.DateModifiedGmt.ToDate(), data.CalculateHash());
                     EntityStatus status = EnsureStatus(obj, SyncDirection.Import);
-                    MappedOrder order = bucket.Order = bucket.Order.Set(orderData, orderData.Id?.ToString(), orderData.DateModified.ToDate());
+                    MappedOrder order = bucket.Order = bucket.Order.Set(orderData, orderData.Id?.ToString(), orderData.DateModifiedGmt.ToDate());
                     EnsureStatus(order);
                     return status;
                 }

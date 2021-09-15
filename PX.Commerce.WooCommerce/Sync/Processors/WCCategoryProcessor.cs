@@ -22,7 +22,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
         LocalTypes = new Type[] { typeof(BCItemSalesCategory) },
         AcumaticaPrimaryType = typeof(PX.Objects.IN.INCategory),
         AcumaticaPrimarySelect = typeof(PX.Objects.IN.INCategory.categoryID),
-        URL = "products/categories/{0}/edit"
+        URL = "term.php?taxonomy=product_cat&tag_ID={0}"
     )]
     public class WCCategoryProcessor : BCProcessorSingleBase<WCCategoryProcessor, WCCategoryEntityBucket, MappedCategory>, IProcessor
     {
@@ -199,7 +199,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
         #region Export
         public override void FetchBucketsForExport(DateTime? minDateTime, DateTime? maxDateTime, PXFilterRow[] filters)
         {
-            IEnumerable<BCItemSalesCategory> impls = cbapi.GetAll(new BCItemSalesCategory() { Path = new StringReturn() }, minDateTime, maxDateTime, filters, false);
+            IEnumerable<BCItemSalesCategory> impls = cbapi.GetAll(new BCItemSalesCategory() { Path = new StringReturn() }, minDateTime, maxDateTime, filters, supportPagination: false);
             var invIDs = new List<int>();
 
             foreach (BCItemSalesCategory impl in impls)

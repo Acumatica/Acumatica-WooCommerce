@@ -95,7 +95,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
         public bool? RemotePostSuccessful { get; set; }
 
         [JsonProperty("remote_post_response")]
-        public int RemotePostResponse { get; set; }
+        public string RemotePostResponse { get; set; }
 
         [JsonProperty("remote_get_successful")]
         public bool? RemoteGetSuccessful { get; set; }

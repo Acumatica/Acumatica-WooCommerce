@@ -27,7 +27,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.DataRepository
             return base.Get<OrdersShipmentData, List<OrdersShipmentData>>(filter);
         }
 
-        public List<OrdersShipmentData> GetAll()
+        public IEnumerable<OrdersShipmentData> GetAll()
         {
             throw new System.NotImplementedException();
         }

@@ -113,10 +113,33 @@ namespace PX.Commerce.WooCommerce
         {
             base._(e);
 
-            BCBindingExt row = e.Row as BCBindingExt;
+            BCBindingExt row = e.Row;
             if (row == null) return;
-            PXDefaultAttribute.SetPersistingCheck<BCBindingExt.refundAmountItemID>(e.Cache, row, PXPersistingCheck.Nothing);
-        }
+            //PXDefaultAttribute.SetPersistingCheck<BCBindingExt.refundAmountItemID>(e.Cache, row, PXPersistingCheck.Nothing);
 
+            PXStringListAttribute.SetList<BCBindingExt.availability>(e.Cache, row, new[] {
+                    BCItemAvailabilities.AvailableTrack,
+                    BCItemAvailabilities.AvailableSkip,
+                    BCItemAvailabilities.DoNotUpdate,
+                    BCItemAvailabilities.Disabled,
+                },
+                new[]
+                {
+                    BCCaptions.AvailableTrack,
+                    BCCaptions.AvailableSkip,
+                    BCCaptions.DoNotUpdate,
+                    BCCaptions.Disabled
+                });
+
+            PXStringListAttribute.SetList<BCBindingExt.notAvailMode>(e.Cache, row, new[] {
+                    BCItemNotAvailModes.DoNothing,
+                    BCItemNotAvailModes.DisableItem
+                },
+                new[]
+                {
+                    BCCaptions.DoNothing,
+                    BCCaptions.DisableItem
+                });
+        }
     }
 }

@@ -5,18 +5,19 @@ using System.ComponentModel;
 
 namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Product
 {
+    [JsonObject(Description = "Product->Dimensions")]
     public class DimentionData : BCAPIEntity
     {
         [JsonProperty("length")]
-        [Description(WCCaptions.Length)]
+        [CommerceDescription(WCCaptions.Length, FieldFilterStatus.Skipped, FieldMappingStatus.Export)]
         public string Length { get; set; }
 
         [JsonProperty("width")]
-        [Description(WCCaptions.Width)]
+        [CommerceDescription(WCCaptions.Width, FieldFilterStatus.Skipped, FieldMappingStatus.Export)]
         public string Width { get; set; }
 
         [JsonProperty("height")]
-        [Description(WCCaptions.Height)]
+        [CommerceDescription(WCCaptions.Height, FieldFilterStatus.Skipped, FieldMappingStatus.Export)]
         public string Height { get; set; }
     }
 }

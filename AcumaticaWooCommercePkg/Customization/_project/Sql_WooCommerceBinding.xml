@@ -6,7 +6,7 @@ BEGIN
   CREATE TABLE [dbo].[BCBindingWooCommerce](
 	[CompanyID] [int] NOT NULL,
 	[BindingID] [int] NOT NULL,
-	[StoreBaseUrl] [nvarchar](50) NULL,
+	[StoreBaseUrl] [nvarchar](150) NULL,
 	[StoreXAuthToken] [nvarchar](max) NULL,
 	[StoreXAuthClient] [nvarchar](max) NULL,
 	[StoreAdminUrl] [nvarchar](200) NULL,

@@ -1,12 +1,11 @@
 ﻿using Newtonsoft.Json;
 using PX.Commerce.Core;
-using PX.Commerce.WooCommerce.API.REST.Domain.Entities.Product;
 using PX.Commerce.WooCommerce.WC.Descriptor;
 using System;
 using System.Collections.Generic;
 using Meta = PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common;
 
-namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities
+namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Product
 {
     [JsonObject(Description = "Product")]
     [CommerceDescription(WCCaptions.Product)]
@@ -85,11 +84,11 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities
 
         [JsonProperty("download_limit")]
         [CommerceDescription(WCCaptions.DownloadLimit, FieldFilterStatus.Skipped, FieldMappingStatus.Export)]
-        public int DownloadLimit { get; set; }
+        public int? DownloadLimit { get; set; }
 
         [JsonProperty("download_expiry")]
         [CommerceDescription(WCCaptions.DownloadExpiry, FieldFilterStatus.Skipped, FieldMappingStatus.Export)]
-        public int DownloadExpiry { get; set; }
+        public int? DownloadExpiry { get; set; }
 
         [JsonProperty("external_url")]
         [CommerceDescription(WCCaptions.ExternalUrl, FieldFilterStatus.Skipped, FieldMappingStatus.Export)]
@@ -137,7 +136,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities
 
         [JsonProperty("parent_id")]
         [CommerceDescription(WCCaptions.ParentId, FieldFilterStatus.Skipped, FieldMappingStatus.Export)]
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
 
         [JsonProperty("purchase_note")]
         [CommerceDescription(WCCaptions.PurchaseNote, FieldFilterStatus.Skipped, FieldMappingStatus.Export)]
@@ -153,7 +152,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities
 
         [JsonProperty("images")]
         [CommerceDescription(WCCaptions.Images, FieldFilterStatus.Skipped, FieldMappingStatus.Export)]
-        public List<object> Images { get; set; }
+        public List<ProductImage> Images { get; set; }
 
         [JsonProperty("attributes")]
         [CommerceDescription(WCCaptions.Attribute, FieldFilterStatus.Skipped, FieldMappingStatus.Export)]
@@ -165,7 +164,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities
 
         [JsonProperty("menu_order")]
         [CommerceDescription(WCCaptions.MenuOrder, FieldFilterStatus.Skipped, FieldMappingStatus.Export)]
-        public int MenuOrder { get; set; }
+        public int? MenuOrder { get; set; }
 
         [JsonProperty("virtual")]
         [CommerceDescription(WCCaptions.Virtual, FieldFilterStatus.Skipped, FieldMappingStatus.Export)]
@@ -212,10 +211,10 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities
         public bool? Purchasable { get; set; }
 
         [JsonProperty("total_sales")]
-        public int TotalSales { get; set; }
+        public int? TotalSales { get; set; }
 
         [JsonProperty("stock_quantity")]
-        public object StockQuantity { get; set; }
+        public decimal? StockQuantity { get; set; }
 
         [JsonProperty("backorders")]
         public string Backorders { get; set; } //Options: no, notify and yes. Default is no.
@@ -233,13 +232,13 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities
         public bool? ShippingTaxable { get; set; }
 
         [JsonProperty("shipping_class_id")]
-        public int ShippingClassId { get; set; }
+        public int? ShippingClassId { get; set; }
 
         [JsonProperty("average_rating")]
         public string AverageRating { get; set; }
 
         [JsonProperty("rating_count")]
-        public int RatingCount { get; set; }
+        public int? RatingCount { get; set; }
 
         [JsonProperty("upsell_ids")]
         public List<int> UpsellIds { get; set; }

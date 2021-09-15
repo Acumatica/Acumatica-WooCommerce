@@ -1,6 +1,6 @@
 ﻿using PX.Commerce.Core;
 using PX.Commerce.WooCommerce.API.REST.Client.Common;
-using PX.Commerce.WooCommerce.API.REST.Domain.Entities;
+using PX.Commerce.WooCommerce.API.REST.Domain.Entities.Product;
 using PX.Commerce.WooCommerce.API.REST.Filters;
 using PX.Commerce.WooCommerce.API.REST.Interfaces;
 using PX.Commerce.WooCommerce.WC.Descriptor;

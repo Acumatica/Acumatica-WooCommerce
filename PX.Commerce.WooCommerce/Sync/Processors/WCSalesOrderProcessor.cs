@@ -3,12 +3,13 @@ using PX.Commerce.Core;
 using PX.Commerce.Core.API;
 using PX.Commerce.Objects;
 using PX.Commerce.WooCommerce.API.REST.Client.DataRepository;
-using PX.Commerce.WooCommerce.API.REST.Domain.Entities;
 using PX.Commerce.WooCommerce.API.REST.Domain.Entities.Customer;
 using PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order;
+using PX.Commerce.WooCommerce.API.REST.Domain.Entities.Product;
 using PX.Commerce.WooCommerce.API.REST.Domain.Enums;
 using PX.Commerce.WooCommerce.API.REST.Filters;
 using PX.Commerce.WooCommerce.Sync.Buckets;
+using PX.Commerce.WooCommerce.WC;
 using PX.Commerce.WooCommerce.WC.DAC;
 using PX.Commerce.WooCommerce.WC.Descriptor;
 using PX.Common;
@@ -23,7 +24,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using static PX.Commerce.WooCommerce.WC.Descriptor.Constants;
+using BillingAddressData = PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order.BillingAddressData;
 using Country = PX.Objects.CS.Country;
+using ShippingAddressData = PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order.ShippingAddressData;
 using State = PX.Objects.CS.State;
 
 namespace PX.Commerce.WooCommerce.Sync.Processors
@@ -45,7 +48,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             {
                 if (obj.IsNew && obj.Extern != null
                     && (obj.Extern.Status == OrderStatuses.Cancelled
-                        || obj.Extern.Status == OrderStatuses.Refunded
+                        //|| obj.Extern.Status == OrderStatuses.Refunded
                         || obj.Extern.Status == OrderStatuses.Failed
                         || obj.Extern.Status == OrderStatuses.Trash))
                 {
@@ -130,7 +133,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             OrderData data = orderDataProvider.GetByID(externID);
             if (data == null) return null;
 
-            MappedOrder obj = new MappedOrder(data, data.Id?.ToString(), data.DateModified.ToDate());
+            MappedOrder obj = new MappedOrder(data, data.Id?.ToString(), data.DateModifiedGmt.ToDate());
 
             return obj;
         }
@@ -180,7 +183,14 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
         {
             MappedOrder order = bucket.Order;
 
-            if ((shouldImport || Operation.SyncMethod == SyncMode.Force) && !order.IsNew && order?.ExternID != null && order?.LocalID != null && (order.Local?.Status?.Value == PX.Objects.SO.Messages.Completed || order.Local?.Status?.Value == PX.Objects.SO.Messages.Cancelled))
+            string primarySystem = this.GetEntity()?.PrimarySystem;
+
+
+            if ((shouldImport || Operation.SyncMethod == SyncMode.Force)
+                && !order.IsNew
+                && order?.ExternID != null
+                && order?.LocalID != null
+                && (order.Local?.Status?.Value == PX.Objects.SO.Messages.Completed || order.Local?.Status?.Value == PX.Objects.SO.Messages.Cancelled))
             {
                 if ((status.Status == BCSyncStatusAttribute.Synchronized) &&
                         order?.Extern?.Status == OrderStatuses.Completed)
@@ -192,7 +202,49 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                     UpdateStatus(order, status.LastOperation, status.LastErrorMessage);
                     shouldImport = false;// if order is canceled or completed in ERP and Fullfilled in External System then skip import and mark order as synchronized
                 }
+                else if (order?.Extern?.OrderRefunds.Count > 0)
+                {
+                    var orderTotal = order.Extern.TotalInDecimal;
+                    if (order.Extern.TaxLines?.Count > 0 && this.GetBindingExt<BCBindingExt>().TaxSynchronization == false)
+                        orderTotal -= order.Extern.TotalTaxInDecimal;
+                    var itemTotals = order.Extern.LineItems.Sum(s => s.Quantity);
+                    if (!string.IsNullOrEmpty(order?.Local.ExternalRefundRef?.Value))// to check if there were any refunds processed before order was completed
+                    {
+                        var refundsBeforeOrderCompleted = order.Local.ExternalRefundRef.Value?.Split(";".ToCharArray())?.ToList();
+                        if (refundsBeforeOrderCompleted != null)
+                        {
+                            var refunds = order.Extern.Refunds.SelectMany(x => x.LineItems).ToList();
+                            orderTotal -= refunds.Sum(x => x.TotalInDecimal.Abs());
+                            itemTotals -= refunds.Sum(x => x.Quantity.Abs());
+                        }
+                    }
+
+                    var refundItem = GetBindingExt<BCBindingExt>()?.RefundAmountItemID != null
+                        ? InventoryItem.PK.Find(this, GetBindingExt<BCBindingExt>()?.RefundAmountItemID)
+                        : throw new PXException(WCMessages.NoRefundItem);
+                    //We should prevent order from sync if it is updated by refunds
+                    if (orderTotal == order.Local.OrderTotal?.Value && itemTotals == (order.Local?.Details?.Where(x => x.InventoryID?.Value != refundItem?.InventoryCD?.Trim())?.Sum(x => x.OrderQty?.Value ?? 0) ?? 0))
+                    {
+                        DateTime? orderdate = order.Extern.DateModified.ToDate();
+                        DateTime? refundDate = order.Extern.Refunds.Max(x => x.DateCreatedUT).ToDate();
+
+                        if (orderdate != null && refundDate != null && Math.Abs((orderdate - refundDate).Value.TotalSeconds) < 10)
+                        {
+                            skipForce = true;
+                            skipSync = true;
+                            shouldImport = false;
+                            UpdateStatus(order, status.LastOperation, status.LastErrorMessage);
+                        }
+                    }
+                }
             }
+            if (shouldExport && !string.IsNullOrEmpty(order.Local?.ExternalRefundRef?.Value))
+            {
+                shouldExport = false; // prevent export if refunds were processed
+                UpdateStatus(order, status.LastOperation, status.LastErrorMessage);
+                skipSync = true;
+            }
+
         }
 
         public override Boolean ControlModification(IMappedEntity mapped, BCSyncStatus status, string operation)
@@ -227,7 +279,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             List<IMappedEntity> mappedList = new List<IMappedEntity>();
             foreach (OrderData data in datas)
             {
-                IMappedEntity obj = new MappedOrder(data, data.Id?.ToString(), data.DateModified.ToDate());
+                IMappedEntity obj = new MappedOrder(data, data.Id?.ToString(), data.DateModifiedGmt.ToDate());
 
                 mappedList.Add(obj);
                 countNum++;
@@ -247,8 +299,14 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             OrderData data = orderDataProvider.GetByID(syncstatus.ExternID);
             if (data == null || data.Status.Equals(OrderStatuses.Trash)) return EntityStatus.None;
 
+            if (data.OrderRefunds != null && data.OrderRefunds.Any())
+                data.Refunds = orderRefundsRestDataProvider.GetByParentId(data.Id.ToString());
+            else
+                data.Refunds = new List<RefundData>();
 
-            MappedOrder obj = bucket.Order = bucket.Order.Set(data, data.Id?.ToString(), data.DateModified.ToDate());
+
+
+            MappedOrder obj = bucket.Order = bucket.Order.Set(data, data.Id?.ToString(), data.DateModifiedGmt.ToDate());
             EntityStatus status = EnsureStatus(obj, SyncDirection.Import);
 
             if (status != EntityStatus.Pending && status != EntityStatus.Syncronized && Operation.SyncMethod != SyncMode.Force)
@@ -258,7 +316,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             {
                 CustomerData customer = customerDataProvider.GetCustomerById(data.CustomerId.Value);
                 MappedCustomer customerObj = bucket.Customer = bucket.Customer.Set(customer, data.CustomerId?.ToString(), customer.DateModified.ToDate());
-                EnsureStatus(customerObj);
+                EntityStatus customerStatus = EnsureStatus(customerObj);
             }
 
             if (GetEntity(BCEntitiesAttribute.Payment)?.IsActive == true
@@ -279,40 +337,13 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                 {
                     OrderPaymentEvent lastEvent = tranData.paymentEvent;
                     tranData.PaymentMethod = data.PaymentMethod;
-                    MappedPayment paymentObj = new MappedPayment(tranData,
-                                                                 new Object[] { data.Id, tranData.Id }.KeyCombine(),
-                                                                 tranData.DateCreatedUT.ToDate(),
-                                                                 tranData.CalculateHash()).With(_ => { _.ParentID = obj.SyncID; return _; });
+                    MappedPayment paymentObj = new MappedPayment(tranData, data.Id.ToString(), data.DateModifiedGmt.ToDate(), tranData.CalculateHash());
+
                     EntityStatus paymentStatus = EnsureStatus(paymentObj, SyncDirection.Import);
 
-                    //Used to determine transaction type in case of credit card
-                    //if (paymentStatus == EntityStatus.Pending)
-                    //{
-                    bucket.Payments.Add(paymentObj);
-                    //}
-                }
-                if (helper.CreatePaymentfromOrder(data.PaymentMethod))
-                {
-                    BCSyncStatus paymentSyncStatus = BCSyncStatus.ExternIDIndex.Find(this, Operation.ConnectorType, Operation.Binding, BCEntitiesAttribute.Payment, new Object[] { data.Id }.KeyCombine());
-                    if (paymentSyncStatus?.LocalID == null)
+                    if (paymentStatus == EntityStatus.Pending)
                     {
-                        OrdersTransactionData transdata = new OrdersTransactionData();
-
-                        transdata.Id = data.Id.Value;
-                        transdata.PaymentMethod = data.PaymentMethod;
-                        transdata.Currency = data.Currency;
-                        transdata.DateCreatedUT = data.DateCreatedUT;
-                        transdata.Total = data.Total;
-                        MappedPayment paymentObj = new MappedPayment(transdata,
-                                                                     data.Id.ToString(),
-                                                                     data.DateModified.ToDate(),
-                                                                     transdata.CalculateHash());
-                        EntityStatus paymentStatus = EnsureStatus(paymentObj, SyncDirection.Import);
-
-                        if (paymentStatus == EntityStatus.Pending)
-                        {
-                            bucket.Payments.Add(paymentObj);
-                        }
+                        bucket.Payments.Add(paymentObj);
                     }
                 }
             }
@@ -327,6 +358,14 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             OrderData data = obj.Extern;
             SalesOrder impl = obj.Local = new SalesOrder();
             SalesOrder presented = existing?.Local as SalesOrder;
+            decimal? refundedDiscount = 0m;
+            decimal exceededRefundAmount = 0;
+            decimal? totalFloatingRefundedAmount = 0;
+
+            //Set Refund Status
+            data.RefundStatus = GetRefundStatus(data);
+
+
             // we can update only open orders
             if (presented != null && presented.Status?.Value != PX.Objects.SO.Messages.Open && presented.Status?.Value != PX.Objects.SO.Messages.Hold
                 && presented.Status?.Value != BCObjectsMessages.RiskHold && presented.Status?.Value != PX.Objects.SO.Messages.CreditHold && presented.Status?.Value != PX.Objects.SO.Messages.PendingProcessing)
@@ -335,7 +374,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             }
             var description = PXMessages.LocalizeFormat(WCMessages.OrderDescription, currentBinding.BindingName, data.Id.ToString(), data.Status?.ToString());
             impl.Description = description.ValueField();
-            if (presented != null && data.Status == OrderStatuses.Refunded)
+            if (presented != null && data.RefundStatus == RefundStatus.Full)
             {
                 return;// if order is fully refunded cancel  the order
             }
@@ -459,12 +498,23 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             //Freight
             impl.Totals = new Totals();
             impl.Totals.OverrideFreightAmount = new BooleanValue() { Value = true };
-            var refundItems = data.Refunds ?? new List<OrderRefundData>();
+            var shippingRefundItems = data.Refunds.SelectMany(x => x.ShippingLines).ToList();
+            decimal shippingRefundAmount = shippingRefundItems.Sum(s => s.TotalInDecimal);
+            decimal freight = data.ShippingLines.Sum(s => s.TotalInDecimal);
+            impl.Totals.Freight = (freight + shippingRefundAmount).ValueField();
+            if (impl.Totals.Freight?.Value < 0)
+            {
+                exceededRefundAmount += impl.Totals.Freight.Value.Value; //throw new PXException(BCMessages.RefundShippingFeeInvalid, shippingRefundItems, freight); //Shipping and freight has been ignored
+                impl.Totals.Freight = 0m.ValueField();
+                totalFloatingRefundedAmount += freight.Abs();
 
+            }
+            else
+            {
+                totalFloatingRefundedAmount += Math.Abs(shippingRefundAmount);
+            }
 
-            impl.Totals.Freight = data.ShippingLines.Sum(s => s.TotalInDecimal).ValueField();
-            if (impl.Totals.Freight?.Value < 0) throw new PXException(BCMessages.RefundShippingFeeInvalid, 0, 0); //Shipping and freight has been ignored
-            if (data.Refunds?.Count() > 0)
+            if (data.Refunds.Any())
                 impl.ExternalRefundRef = string.Join(";", data.Refunds.Select(x => x.Id)).ValueField();
             State state;
             impl.OrderTotal = data.TotalInDecimal.ValueField();
@@ -548,8 +598,6 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                     impl.ShipToAddress.PostalCode = data.Shipping.PostalCode?.ToUpperInvariant()?.ValueField();
 
                     impl.ShipToContact = new DocContact();
-                    impl.ShipToContact.Phone1 = data.Shipping.Phone.ValueField();
-                    impl.ShipToContact.Email = data.Shipping.Email.ValueField();
                     var attentionShip = data.Shipping.FirstName.Trim();
                     if (data.Shipping.LastName.Trim().ToLower() != attentionShip.ToLower()) attentionShip += $" {data.Shipping.LastName.Trim()}";
                     impl.ShipToContact.Attention = attentionShip.ValueField();
@@ -651,6 +699,8 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             Dictionary<string, decimal?> totaldiscount = new Dictionary<string, decimal?>();
 
             impl.Details = new List<SalesOrderDetail>();
+
+            var refundLineItems = data.Refunds.SelectMany(s => s.LineItems);
             foreach (OrderLineItemData productData in data.LineItems)
             {
                 if (productData.ProductId <= 0) continue; //product that does not exists in big Commerce
@@ -662,25 +712,50 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                     BigCommerce.API.REST.OrdersProductsType.Physical, //TODO:product type need to retrive
                     out string uom);
 
-                var refundItem = refundItems.Where(r => r.Id == productData.Id);
+                var refundItem = refundLineItems.Where(r => r.Sku == productData.Sku).ToList();
                 SalesOrderDetail detail = new SalesOrderDetail();
                 detail.Branch = impl.FinancialSettings.Branch;
                 detail.InventoryID = inventoryCD?.TrimEnd().ValueField();
-                int refundQty = (int)refundItem?.Sum(x => x.TotalDecimal);
+                int refundQty = (int)refundItem?.Sum(x => x.Quantity);
                 if (refundQty > productData.Quantity) throw new PXException(BCMessages.RefundQuantityGreater);
-                detail.OrderQty = ((decimal?)(productData.Quantity - refundQty)).ValueField();
+                detail.OrderQty = ((decimal?)(productData.Quantity + refundQty)).ValueField();
                 detail.UOM = uom.ValueField();
                 detail.UnitPrice = productData.UnitPrice.ValueField();
                 detail.LineDescription = productData.Name.ValueField();
-                detail.ExtendedPrice = (refundQty > 0 ? detail.OrderQty.Value * detail.UnitPrice.Value : productData.SubTotalDecimal).ValueField();
-                detail.FreeItem = (productData.SubTotalDecimal == 0m && productData.PriceDecimal == 0m).ValueField();
+                detail.ExtendedPrice = (Math.Abs(refundQty) > 0 ? detail.OrderQty.Value * productData.UnitPrice : productData.SubTotalDecimal).ValueField();
+                detail.FreeItem = (productData.SubTotalTaxDecimal == 0m && productData.PriceDecimal == 0m).ValueField();
                 detail.ManualPrice = true.ValueField();
                 detail.ExternalRef = productData.Id.ToString().ValueField();
+                totalFloatingRefundedAmount += Math.Round(refundQty.Abs() * productData.DiscountedUnitPrice, 2);
+                //if (currentBindingExt.PostDiscounts == BCPostDiscountAttribute.LineDiscount)
+                //{
+                //    detail.DiscountAmount = productData.Discount.ValueField();
+                //    detail.ManualDiscount = true.ValueField();
+                //}
 
-                if (currentBindingExt.PostDiscounts == BCPostDiscountAttribute.LineDiscount)
+                var nonQuantityRefundAmount = refundItem.Where(s => s.Quantity.Abs() == 0 & s.TotalInDecimal.Abs() > 0).Sum(s => s.TotalInDecimal).Abs();
+                if (refundQty.Abs() > 0 && nonQuantityRefundAmount > 0)
                 {
-                    detail.DiscountAmount = productData.Discount.ValueField();
-                    detail.ManualDiscount = true.ValueField();
+                    detail.ExtendedPrice = (productData.SubTotalDecimal - nonQuantityRefundAmount).ValueField();
+                    totalFloatingRefundedAmount += nonQuantityRefundAmount;
+                }
+
+                if (productData.Discount > 0)
+                {
+                    if (refundItem?.Count() > 0)
+                    {
+
+                        var discountPerItem = productData.Discount / productData.Quantity;
+                        if (currentBindingExt.PostDiscounts == BCPostDiscountAttribute.LineDiscount)
+                            detail.DiscountAmount = (discountPerItem * detail.OrderQty.Value).ValueField();
+                        totaldiscount["Manual"] = productData.Discount;
+                        refundedDiscount += Math.Round(discountPerItem.Value * refundQty.Abs(), 2);
+                    }
+                    else if (currentBindingExt.PostDiscounts == BCPostDiscountAttribute.LineDiscount)
+                    {
+                        detail.DiscountAmount = productData.Discount.ValueField();
+                        detail.ManualDiscount = true.ValueField();
+                    }
                 }
                 else if (currentBindingExt.PostDiscounts == BCPostDiscountAttribute.DocumentDiscount)
                     detail.DiscountAmount = 0m.ValueField();
@@ -699,21 +774,10 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
 
                 impl.Details.Add(detail);
             }
+
+            //var x = data.Refunds.SelectMany(r=>r.LineItems.SelectMany(s=>s.a)
             #endregion
 
-            #region Add RefundItem Line
-            var totalOrderRefundAmout = data.Refunds?.Sum(s => s.TotalDecimal) ?? 0;
-            //Add orderAdjustments
-            if (totalOrderRefundAmout != 0)
-            {
-                var detail = InsertRefundAmountItem(-totalOrderRefundAmout, impl.FinancialSettings.Branch);
-                if (presented != null && presented.Details?.Count > 0)
-                {
-                    presented.Details.FirstOrDefault(x => x.InventoryID.Value == detail.InventoryID.Value).With(e => detail.Id = e.Id);
-                }
-                impl.Details.Add(detail);
-            }
-            #endregion
 
             #region Taxes
             //Insert Taxes if Importing Them
@@ -723,6 +787,9 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                 if (currentBindingExt.TaxSynchronization == true)
                 {
                     impl.IsTaxValid = true.ValueField();
+                    var taxRefundItems = data.Refunds.SelectMany(s => s.LineItems.SelectMany(x => x.Taxes)).ToList();
+                    taxRefundItems.AddRange(data.Refunds.SelectMany(s => s.ShippingLines.SelectMany(x => x.Taxes)).ToList());
+
                     foreach (TaxLineData tax in data.TaxLines)
                     {
                         //Third parameter set to tax name in order to simplify process (if tax names are equal and user don't want to fill lists)
@@ -730,11 +797,26 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                         mappedTaxName = helper.TrimAutomaticTaxNameForAvalara(mappedTaxName);
                         if (string.IsNullOrEmpty(mappedTaxName)) throw new PXException(BCObjectsMessages.TaxNameDoesntExist);
 
+
+                        var refundedTax = taxRefundItems.Where(y => y.Id == tax.RateCode).Sum(s => s.TotalInDecimal);
+
                         TaxDetail inserted = impl.TaxDetails.FirstOrDefault(i => i.TaxID.Value?.Equals(mappedTaxName, StringComparison.InvariantCultureIgnoreCase) == true);
 
-                        var taxAmount = tax.ShippingTaxTotalInDecimal + tax.TaxTotalInDecimal;
-                        var taxableAmount = tax.ShippingTaxTotalInDecimal > 0 ? data.TotalInDecimal - data.TotalTaxInDecimal
-                            : data.TotalInDecimal - data.TotalTaxInDecimal - data.ShippingTotalInDecimal;
+                        decimal? taxAmount = 0;
+
+                        if (tax.ShippingTaxTotalInDecimal + tax.TaxTotalInDecimal < refundedTax.Abs())
+                        {
+                            taxAmount = 0;
+                            totalFloatingRefundedAmount += (tax.ShippingTaxTotalInDecimal + tax.TaxTotalInDecimal).Abs();
+                        }
+                        else
+                        {
+                            taxAmount = tax.ShippingTaxTotalInDecimal + tax.TaxTotalInDecimal + refundedTax;
+                            totalFloatingRefundedAmount += refundedTax.Abs();
+                        }
+
+                        var taxableAmount = tax.ShippingTaxTotalInDecimal > 0 ? data.TotalInDecimal - data.TotalTaxInDecimal + data.OrderRefunds.Sum(s => s.TotalDecimal)
+                            : (data.TotalInDecimal - data.TotalTaxInDecimal - data.ShippingTotalInDecimal) + data.OrderRefunds.Sum(s => s.TotalDecimal);
 
                         if (inserted == null)
                         {
@@ -772,6 +854,21 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             }
             #endregion
 
+            #region Add RefundItem Line
+            var totalOrderRefundAmout = data.OrderRefunds?.Sum(s => s.TotalDecimal) ?? 0;
+            //Add orderAdjustments
+            if (totalOrderRefundAmout != 0 && Math.Abs(totalOrderRefundAmout) != totalFloatingRefundedAmount.Value.Abs())
+            {
+                var detail = InsertRefundAmountItem(totalOrderRefundAmout + totalFloatingRefundedAmount.Value, impl.FinancialSettings.Branch);
+                if (presented != null && presented.Details?.Count > 0)
+                {
+                    presented.Details.FirstOrDefault(x => x.InventoryID.Value == detail.InventoryID.Value).With(e => detail.Id = e.Id);
+                }
+                impl.Details.Add(detail);
+            }
+            #endregion
+
+
             #region Coupons
 
             //Coupons 
@@ -785,7 +882,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                 detail.Description = string.Format(BCMessages.DiscountCouponDesctiption, couponData.Code, couponData.Discount)?.ValueField();
                 if (currentBindingExt.PostDiscounts == BCPostDiscountAttribute.DocumentDiscount)
                 {
-                    detail.DiscountAmount = couponData.DiscountInDecimal.ValueField();
+                    detail.DiscountAmount = (couponData.DiscountInDecimal - refundedDiscount).ValueField();
                 }
                 else
                 {
@@ -799,8 +896,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
 
             if (existing == null
                 && GetEntity(BCEntitiesAttribute.Payment)?.IsActive == true
-                && !paymentProcessor.ImportMappings.Select().Any()
-                && data.Status != OrderStatuses.Refunded) //skip creation of payments if there are refunds as Applied to order amount will be greater than order total
+                && !paymentProcessor.ImportMappings.Select().Any()) //skip creation of payments if there are refunds as Applied to order amount will be greater than order total
             {
                 impl.Payments = new List<SalesOrderPayment>();
                 foreach (MappedPayment payment in bucket.Payments)
@@ -817,13 +913,13 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                     var appDate = dataPayment.DateCreatedUT.ToString()
                         .ToDate(PXTimeZoneInfo.FindSystemTimeZoneById(currentBindingExt.OrderTimeZone));
                     if (appDate.HasValue)
-                        implPament.ApplicationDate = (new DateTime(appDate.Value.Date.Ticks)).ValueField();
-                    implPament.PaymentAmount = ((decimal)dataPayment.Amount).ValueField();
+                        implPament.ApplicationDate = new DateTime(appDate.Value.Date.Ticks).ValueField();
+                    implPament.PaymentAmount = dataPayment.Amount.ValueField();
                     implPament.Hold = false.ValueField();
                     if (data.Status == OrderStatuses.Cancelled)
                         implPament.AppliedToOrder = 0m.ValueField();
                     else
-                        implPament.AppliedToOrder = ((decimal)dataPayment.Amount).ValueField();
+                        implPament.AppliedToOrder = dataPayment.Amount.ValueField();
 
                     BCPaymentMethods methodMapping = helper.GetPaymentMethodMapping(helper.GetPaymentMethodName(data.PaymentMethod), data.PaymentMethod, dataPayment.Currency, out string cashAcount);
                     if (methodMapping?.ReleasePayments ?? false) continue; //don't save payment with the order if the require release.
@@ -850,6 +946,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                         //Credit Card:
                         if (dataPayment.GatewayTransactionId != null && methodMapping?.ProcessingCenterID != null)
                         {
+                            //implPament.IsNewCard = true.ValueField();
                             implPament.SaveCard = (!String.IsNullOrWhiteSpace(dataPayment.PaymentInstrumentToken)).ValueField();
                             implPament.ProcessingCenterID = methodMapping?.ProcessingCenterID?.ValueField();
 
@@ -869,7 +966,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             {
                 foreach (var item in bucket.Payments)
                 {
-                    if (item.Extern.paymentEvent == OrderPaymentEvent.Capture)
+                    if (item.Extern.paymentEvent == OrderPaymentEvent.Capture)// && !string.IsNullOrWhiteSpace(item.Extern.PaymentInstrumentToken)
                     {
                         var payment = cbapi.GetByID<Payment>(item.LocalID);
                         if (payment.Status.Value == PX.Objects.AR.Messages.CCHold)
@@ -896,14 +993,19 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                 presented.Payments?.ForEach(e => obj.Local.Payments?.FirstOrDefault(n => n.PaymentRef.Value == e.PaymentRef.Value).With(n => n.Id = e.Id));
 
                 //delete unnecessary entities
-                obj.Local.Details?.AddRange(presented.Details == null ? Enumerable.Empty<SalesOrderDetail>()
-                    : presented.Details.Where(e => obj.Local.Details == null || !obj.Local.Details.Any(n => e.Id == n.Id)).Select(n => new SalesOrderDetail() { Id = n.Id, Delete = true, InventoryID = n.InventoryID }));
+                //obj.Local.Details?.AddRange(presented.Details == null ? Enumerable.Empty<SalesOrderDetail>()
+                //    : presented.Details.Where(e => obj.Local.Details == null || !obj.Local.Details.Any(n => e.Id == n.Id)).Select(n => new SalesOrderDetail() { Id = n.Id, Delete = true, InventoryID = n.InventoryID }));
                 obj.Local.DiscountDetails?.AddRange(presented.DiscountDetails == null ? Enumerable.Empty<SalesOrdersDiscountDetails>()
                     : presented.DiscountDetails.Where(e => obj.Local.DiscountDetails == null || !obj.Local.DiscountDetails.Any(n => e.Id == n.Id)).Select(n => new SalesOrdersDiscountDetails() { Id = n.Id, Delete = true }));
                 obj.Local.Payments?.AddRange(presented.Payments == null ? Enumerable.Empty<SalesOrderPayment>()
                     : presented.Payments.Where(e => obj.Local.Payments == null || !obj.Local.Payments.Any(n => e.Id == n.Id)).Select(n => new SalesOrderPayment() { Id = n.Id, Delete = true }));
             }
             #endregion
+        }
+
+        private static RefundStatus GetRefundStatus(OrderData data)
+        {
+            return !data.Refunds.Any() ? RefundStatus.None : data.Refunds.Sum(s => s.AmountDecimal) == data.TotalInDecimal ? RefundStatus.Full : RefundStatus.Partially;
         }
 
         protected bool CompareAddress(Address mappedAddress, PX.Objects.CR.Address address)
@@ -915,6 +1017,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                                             && Compare(mappedAddress.AddressLine2?.Value, address.AddressLine2)
                                             && Compare(mappedAddress.PostalCode?.Value, address.PostalCode);
         }
+
         protected bool CompareContact(DocContact mappedContact, PX.Objects.CR.Contact contact, PX.Objects.CR.Location location = null)
         {
             return (Compare(mappedContact.BusinessName?.Value, contact.FullName) || Compare(mappedContact.BusinessName?.Value, location?.Descr))
@@ -922,11 +1025,11 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                                         && Compare(mappedContact.Email?.Value, contact.EMail)
                                         && Compare(mappedContact.Phone1?.Value, contact.Phone1);
         }
+
         protected bool Compare(string value1, string value2)
         {
             return string.Equals(value1?.Trim() ?? string.Empty, value2?.Trim() ?? string.Empty, StringComparison.InvariantCultureIgnoreCase);
         }
-
 
         public override void SaveBucketImport(WCSalesOrderBucket bucket, IMappedEntity existing, string operation)
         {
@@ -945,7 +1048,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             else
             {
 
-                if (obj.Local.Details.Any(x => x.Delete) && obj.Local.Details.Any(x => !x.Delete))
+                if (obj.Local.Details != null && obj.Local.Details.Any(x => x.Delete) && obj.Local.Details.Any(x => !x.Delete))
                 {
                     List<SalesOrderDetail> updatedLines = obj.Local.Details.Where(x => x.Delete == false).ToList();
 
@@ -967,7 +1070,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                 #endregion
 
                 //If we need to cancel the order in Acumatica
-                if (obj.Extern?.Status == OrderStatuses.Cancelled || obj.Extern?.Status == OrderStatuses.Refunded)
+                if (obj.Extern?.Status == OrderStatuses.Cancelled || obj.Extern?.RefundStatus == RefundStatus.Full)
                 {
                     SalesOrder orderToCancel = impl == null ? null : new SalesOrder()
                     {
@@ -981,7 +1084,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
 
             // Save Details
             DetailInfo[] oldDetails = obj.Details.ToArray(); obj.ClearDetails();
-            CustomerAddressData shippingAddresses = obj.Extern.Shipping ?? new CustomerAddressData();
+            ShippingAddressData shippingAddresses = obj.Extern.Shipping ?? new ShippingAddressData();
             foreach (OrderLineItemData product in obj.Extern.LineItems) //Line ID detail
             {
                 if (product.Quantity == 0) continue;
@@ -1007,6 +1110,8 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             #region Payments
             if (existing == null && local.Payments != null && bucket.Payments != null)
             {
+                BCPaymentMethods methodMapping = helper.GetPaymentMethodMapping(helper.GetPaymentMethodName(obj.Extern.PaymentMethod), obj.Extern.PaymentMethod, obj.Extern.Currency, out string cashAcount);
+
                 for (int i = 0; i < local.Payments.Count; i++)
                 {
                     SalesOrderPayment sent = local.Payments[i];
@@ -1063,7 +1168,6 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                 impls = impls.Append(res.ToArray());
             }
 
-
             if (impls != null && impls.Count() > 0)
             {
                 int countNum = 0;
@@ -1081,6 +1185,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                 }
             }
         }
+
         public override EntityStatus GetBucketForExport(WCSalesOrderBucket bucket, BCSyncStatus syncstatus)
         {
             SalesOrder impl = cbapi.GetByID<SalesOrder>(syncstatus.LocalID, GetCustomFieldsForExport());
@@ -1168,7 +1273,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             if (obj.IsNew && impl.Date.Value != null) orderData.DateCreatedUT = impl.Date.Value.Value;//.TDToString(PXTimeZoneInfo.FindSystemTimeZoneById(GetBindingExt<BCBindingExt>()?.OrderTimeZone));
 
             string attentionB = impl.BillToContact.Attention?.Value ?? impl.BillToContact.BusinessName?.Value;
-            orderData.Billing = new CustomerAddressData();
+            orderData.Billing = new BillingAddressData();
             orderData.Billing.Address1 = impl.BillToAddress.AddressLine1?.Value;
             orderData.Billing.Email = impl.BillToContact.Email?.Value;
             orderData.Billing.Address2 = impl.BillToAddress.AddressLine2?.Value;
@@ -1197,7 +1302,6 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             orderData.Shipping.PostalCode = impl.ShipToAddress.PostalCode?.Value;
             orderData.Shipping.Country = GetSubstituteExternByLocal(BCSubstitute.GetValue(Operation.ConnectorType, BCSubstitute.Country), impl.ShipToAddress.Country?.Value, Country.PK.Find(this, impl.ShipToAddress.Country?.Value)?.Description);
             orderData.Shipping.Company = impl.ShipToContact.BusinessName?.Value;
-            orderData.Shipping.Phone = impl.ShipToContact.Phone1?.Value;
             orderData.Shipping.FirstName = attentionS.FieldsSplit(0, attentionS);
             orderData.Shipping.LastName = attentionS.FieldsSplit(1, attentionS);
             state = PXSelect<State, Where<State.stateID, Equal<Required<State.stateID>>>>.Select(this, impl.ShipToAddress.State?.Value);
@@ -1265,6 +1369,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                 }
             orderData.LineItems = productData;
         }
+
         public override void SaveBucketExport(WCSalesOrderBucket bucket, IMappedEntity existing, string operation)
         {
             List<PXDataFieldParam> fieldParams = new List<PXDataFieldParam>();
@@ -1319,7 +1424,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                                                       PXDbType.Bit,
                                                       true));
             }
-            obj.AddExtern(data, data.Id?.ToString(), data.DateModified.ToDate());
+            obj.AddExtern(data, data.Id?.ToString(), data.DateModifiedGmt.ToDate());
             UpdateStatus(obj, operation);
 
             #region Update ExternalRef

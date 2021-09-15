@@ -1,6 +1,5 @@
 ﻿using PX.Commerce.Core;
 using PX.Commerce.Core.API;
-using PX.Commerce.WooCommerce.API.REST.Domain.Entities;
 using PX.Commerce.WooCommerce.API.REST.Domain.Entities.Customer;
 using PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order;
 using PX.Commerce.WooCommerce.API.REST.Domain.Entities.Product;
@@ -66,7 +65,7 @@ namespace PX.Commerce.WooCommerce.Sync
     #endregion
 
     #region MappedContact
-    public class MappedContact : WCMappedEntity<CustomerAddressData, Contact>
+    public class MappedContact : WCMappedEntity<API.REST.Domain.Entities.Customer.ShippingAddressData, Contact>
     {
         public const string TYPE = BCEntitiesAttribute.Customer;
 
@@ -75,7 +74,7 @@ namespace PX.Commerce.WooCommerce.Sync
         { }
         public MappedContact(Contact entity, Guid? id, DateTime? timestamp)
             : base(TYPE, entity, id, timestamp) { }
-        public MappedContact(CustomerAddressData entity, string id, DateTime? timestamp)
+        public MappedContact(API.REST.Domain.Entities.Customer.ShippingAddressData entity, string id, DateTime? timestamp)
             : base(TYPE, entity, id, timestamp) { }
     }
     #endregion
@@ -143,6 +142,7 @@ namespace PX.Commerce.WooCommerce.Sync
             : base(TYPE, entity, id, timestamp) { }
     }
     #endregion
+
     #region MappedPayment
     public class MappedPayment : WCMappedEntity<OrdersTransactionData, Payment>
     {
@@ -157,6 +157,7 @@ namespace PX.Commerce.WooCommerce.Sync
             : base(TYPE, entity, id, timestamp) { ExternHash = hashcode; }
     }
     #endregion
+
     #region MappedShipment
     public class MappedShipment : WCMappedEntity<OrdersShipmentData, BCShipments>
     {
@@ -186,6 +187,7 @@ namespace PX.Commerce.WooCommerce.Sync
             : base(TYPE, entity, id, timestamp) { }
     }
     #endregion
+
     #region MappedTemplateItem
     public class MappedTemplateItem : WCMappedEntity<ProductData, TemplateItems>
     {
@@ -198,6 +200,29 @@ namespace PX.Commerce.WooCommerce.Sync
             : base(TYPE, entity, id, timestamp) { }
         public MappedTemplateItem(ProductData entity, String id, DateTime? timestamp)
             : base(TYPE, entity, id, timestamp) { }
+    }
+    #endregion
+
+    #region MappedAvailability
+    public class MappedAvailability : WCMappedEntity<AvailabilityData, StorageDetailsResult>
+    {
+        public const String TYPE = BCEntitiesAttribute.ProductAvailability;
+
+        public MappedAvailability()
+            : base(TYPE)
+        { }
+        public MappedAvailability(StorageDetailsResult entity, Guid? id, DateTime? timestamp, Int32? parent)
+            : base(TYPE, entity, id, timestamp)
+        {
+            ParentID = parent;
+            UpdateParentExternTS = true;
+        }
+        public MappedAvailability(AvailabilityData entity, String id, DateTime? timestamp, Int32? parent)
+            : base(TYPE, entity, id, timestamp)
+        {
+            ParentID = parent;
+            UpdateParentExternTS = true;
+        }
     }
     #endregion
 

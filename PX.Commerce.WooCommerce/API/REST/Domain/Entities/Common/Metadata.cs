@@ -13,6 +13,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common
         [JsonProperty("value")]
         public object ObjValue { get; set; }
 
+        [JsonIgnore]
         public string Value
         {
             get

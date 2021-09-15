@@ -49,7 +49,10 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string PaymentDescription = "{0} | Payment Method: {1} | Order: {2} | Payment ID: {3}";
         public const string PaymentDescriptionGC = "{0} | Payment Method: {1} ({4}) | Order: {2} | Payment ID: {3}";
         public const string ExternalOrderNotFound = "External order {0} is not found";
-
+        public const string ReasonCodeRequired = "A refund reason code is required for processing this record. Please provide the refund reason code on the Order Settings tab of the WooCommerce Stores (WC201000) form.";
+        public const string PaymentRefundDescription = "{0} | Order: {1} | Refund: {2} | Gateway: {3}";
+        public const string NoRefundItem = "The refund amount item could not be found. Please specify it on the Order Settings tab of the WooCommerce Stores (WC201000) form.";
+        public const string InvalidSKU = "Inventory ID \"{0}\" contains more than one spaces consecutively.";
     }
 
     [PXLocalizable]
@@ -72,6 +75,7 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string BaseTotal = "Base Total";
         public const string BaseWrappingCost = "Base Wrapping Cost";
         public const string BillingAddress = "Billing Address";
+        public const string ShippingAddress = "Shipping Address";
         public const string BinPickingNumber = "Bin Picking Number";
         public const string BrandId = "Brand ID";
         public const string CardIin = "Card IIN";
@@ -106,25 +110,34 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string CurrencyCode = "Currency Code";
         public const string CurrencyExchangeRate = "Currency Exchange Rate";
         public const string Customer = "Customer";
+        public const string CustomerNote = "Customer Note";
+        public const string DateCompleted = "Date Completed";
+        public const string CartHash = "Cart Hash";
+        public const string DateCompletedGMT = "Date Completed GMT";
         public const string Order = "Sales Order";
         public const string CustomerAddress = "Customer Address";
         public const string CustomerAddressData = "Customer Address Data";
         public const string CustomerGroup = "Customer Group";
         public const string CustomerGroupId = "Customer Group ID";
         public const string CustomerId = "Customer ID";
+        public const string CustomerIPAddress = "Customer IP Address";
+        public const string CustomerUserAgent = "Customer User Agent";
         public const string CustomerMessage = "Customer Message";
         public const string CustomFields = "Custom Fields";
         public const string CustomPayment = "Custom Payment";
         public const string CustomUrl = "Custom URL";
         public const string CvvResult = "CVV Result";
         public const string DateCreatedUT = "Date Created UT";
+        public const string DateCreatedGMT = "Date Created GMT";
         public const string DateModifiedUT = "Date Modified UT";
+        public const string DateModifiedGMT = "Date Modified GMT";
         public const string DateShipped = "Date Shipped";
         public const string DefaultProductSort = "Default Product Sort";
         public const string Depth = "Depth";
         public const string Length = "Length";
         public const string Discount = "Discount";
         public const string DiscountTax = "Discount Tax";
+        public const string DiscountTotal = "Discount Total";
         public const string DiscountAmount = "Discount Amount";
         public const string DiscountRule = "Discount Rule";
         public const string DisplayName = "Display Name";
@@ -158,6 +171,8 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string Compound = "Compound";
         public const string TaxTotal = "Tax Total";
         public const string ShippingTaxTotal = "Shipping Tax Total";
+        public const string CartTax = "Cart Tax";
+        public const string ShippingTotal = "Shipping Total";
         public const string MethodTitle = "Method Title";
         public const string MethodId = "Method Id";
         public const string Reason = "Reason";
@@ -252,6 +267,7 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string OnSale = "On Sale";
         public const string SearchKeywords = "Search Keywords";
         public const string ShipmentData = "Shipment Data";
+        public const string RefundData = "Refund Data";
         public const string ShipmentID = "Shipment ID";
         public const string ShipmentItems = "Shipment Items";
         public const string ShippingCostExcludingTax = "Shipping Cost Excluding Tax";
@@ -293,6 +309,7 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string SubtotalExcludingTax = "Subtotal Excluding Tax";
         public const string SubtotalIncludingTax = "Subtotal Including Tax";
         public const string SubtotalTax = "Subtotal Tax";
+        public const string Subtotal = "Subtotal";
         public const string TaxClassId = "Tax Class ID";
         public const string TaxLineAmount = "Tax Line Amount";
         public const string TaxLineItemType = "Tax Line Item Type";
@@ -311,6 +328,7 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string Type = "Type";
         public const string Options = "Options";
         public const string Variation = "Variation";
+        public const string VariationId = "Variation Id";
         public const string UPCCode = "UPC Code";
         public const string Value = "Value";
         public const string ViewCount = "View Count";
@@ -350,5 +368,15 @@ namespace PX.Commerce.WooCommerce.WC.Descriptor
         public const string DateOnSaleToGmt = "Date On Sale To Gmt";
         public const string Src = "Source Location";
         public const string Alt = "Alternative Content";
+        public const string TaxData = "Tax Item";
+        public const string CouponData = "Coupon";
+        public const string FeeItemData = "Fee";
+        public const string FeeItems = "Fee Items";
+        public const string LineItemData = "Line Item";
+        public const string CustomerBillingAddressData = "Customer Billing Address";
+        public const string CustomerShippingAddressData = "Customer Shipping Address";
+        public const string OrderBillingAddressData = "Order Billing Address";
+        public const string OrderShippingAddressData = "Order Shipping Address";
+
     }
 }

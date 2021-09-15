@@ -7,12 +7,52 @@ using System.ComponentModel;
 
 namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Customer
 {
-    [Description(WCCaptions.Customer)]
+    [JsonObject(Description = "Customer")]
+    [CommerceDescription(WCCaptions.Customer)]
     public class CustomerData : BCAPIEntity, IWooEntity
     {
         [JsonProperty("id")]
         [CommerceDescription(WCCaptions.ID, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public int? Id { get; set; }
+
+        [JsonProperty("email")]
+        [CommerceDescription(WCCaptions.Email, FieldFilterStatus.Filterable, FieldMappingStatus.Import)]
+        [ValidateRequired]
+        public string Email { get; set; }
+
+        [JsonProperty("first_name")]
+        [CommerceDescription(WCCaptions.FirstName, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
+        [ValidateRequired]
+        public string FirstName { get; set; }
+
+        [JsonProperty("last_name")]
+        [CommerceDescription(WCCaptions.LastName, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
+        [ValidateRequired()]
+        public string LastName { get; set; }
+
+        [JsonProperty("role")]
+        public string Role { get; set; }
+
+        [JsonProperty("username")]
+        [CommerceDescription(WCCaptions.UserName, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
+        public string Username { get; set; }
+
+        [JsonProperty("billing")]
+        [CommerceDescription(WCCaptions.BillingAddress, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
+        public BillingAddressData Billing { get; set; }
+
+        [JsonProperty("shipping")]
+        [CommerceDescription(WCCaptions.ShippingAddress, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
+        public ShippingAddressData Shipping { get; set; }
+
+        [JsonProperty("is_paying_customer")]
+        public bool? IsPayingCustomer { get; set; }
+
+        [JsonProperty("avatar_url")]
+        public string AvatarUrl { get; set; }
+
+        [JsonProperty("meta_data")]
+        public IEnumerable<object> MetaData { get; set; }
 
         [JsonProperty("date_created")]
         public DateTime? DateCreatedUT { get; set; }
@@ -39,45 +79,6 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Customer
                 return DateModified != null ? (DateTime)DateModified.ToDate() : default;
             }
         }
-
-        [JsonProperty("email")]
-        [CommerceDescription(WCCaptions.Email, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
-        [ValidateRequired]
-        public string Email { get; set; }
-
-        [JsonProperty("first_name")]
-        [CommerceDescription(WCCaptions.FirstName, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
-        [ValidateRequired]
-        public string FirstName { get; set; }
-
-        [JsonProperty("last_name")]
-        [CommerceDescription(WCCaptions.LastName, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
-        [ValidateRequired()]
-        public string LastName { get; set; }
-
-        [JsonProperty("role")]
-        [CommerceDescription(WCCaptions.Role, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
-        public string Role { get; set; }
-
-        [JsonProperty("username")]
-        [CommerceDescription(WCCaptions.UserName, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
-        public string Username { get; set; }
-
-        [JsonProperty("billing")]
-        public CustomerAddressData Billing { get; set; }
-
-        [JsonProperty("shipping")]
-        public CustomerAddressData Shipping { get; set; }
-
-        [JsonProperty("is_paying_customer")]
-        public bool? IsPayingCustomer { get; set; }
-
-        [JsonProperty("avatar_url")]
-        public string AvatarUrl { get; set; }
-
-        [JsonProperty("meta_data")]
-        public IEnumerable<object> MetaData { get; set; }
-
 
     }
 }

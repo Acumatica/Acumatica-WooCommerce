@@ -18,12 +18,13 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.DataRepository
 
         #region  IParentRestDataProvider  
 
-        public List<RefundData> Get(IFilter filter = null)
+        public List<RefundData> Get(IFilter filter = null, int? parentId = 0)
         {
-            return base.Get<RefundData, List<RefundData>>(filter);
+            var segments = MakeParentUrlSegments(parentId.ToString());
+            return base.Get<RefundData, List<RefundData>>(filter, segments);
         }
 
-        public List<RefundData> GetAll()
+        public IEnumerable<RefundData> GetAll()
         {
             throw new System.NotImplementedException();
         }

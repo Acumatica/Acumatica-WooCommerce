@@ -14,7 +14,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.DataRepository
         }
 
 
-        public List<Country> GetAll()
+        public IEnumerable<Country> GetAll()
         {
             const string resourceUrl = "/data/countries";
 

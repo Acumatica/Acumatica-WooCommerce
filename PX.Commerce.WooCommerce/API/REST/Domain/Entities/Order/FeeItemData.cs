@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
 {
-    [JsonObject(Description = "Sales Order->FeeLines")]
+    [JsonObject(Description = "Sales Order -> FeeLines")]
+    [CommerceDescription(WCCaptions.CouponData)]
     public class FeeItemData
     {
         [JsonProperty("id")]

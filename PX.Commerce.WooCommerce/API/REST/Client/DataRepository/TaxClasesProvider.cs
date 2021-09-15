@@ -18,7 +18,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.DataRepository
             throw new System.NotImplementedException();
         }
 
-        public List<TaxClass> GetAll()
+        public IEnumerable<TaxClass> GetAll()
         {
             const string resourceUrl = "/taxes/classes";
 

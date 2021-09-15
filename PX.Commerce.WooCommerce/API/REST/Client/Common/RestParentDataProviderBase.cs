@@ -1,8 +1,11 @@
-﻿using PX.Commerce.Core;
+﻿using PX.Commerce.BigCommerce.API.REST;
+using PX.Commerce.Core;
 using PX.Commerce.WooCommerce.API.REST.Domain.Entities;
 using PX.Commerce.WooCommerce.API.REST.Interfaces;
 using PX.Common;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using BigCom = PX.Commerce.BigCommerce.API.REST;
@@ -21,12 +24,13 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.Common
 
         protected abstract string GetListUrl { get; }
         protected abstract string GetSingleUrl { get; }
+        protected virtual string GetBatchUrl { get; }
 
         public RestDataProviderBase()
         {
         }
 
-        public virtual T Create<T>(T entity, BigCom.UrlSegments urlSegments = null)
+        public virtual T Create<T>(T entity, UrlSegments urlSegments = null)
             where T : class, IWooEntity, new()
         {
             _restClient.Logger?.ForContext("Scope", new BCLogTypeScope(GetType()))
@@ -42,11 +46,11 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.Common
                     request.Method = RestSharp.Method.POST;
 
 
-                    T result = _restClient.Post<T>(request, entity);
+                    T result = _restClient.Post(request, entity);
 
                     return result;
                 }
-                catch (BigCom.RestException ex)
+                catch (RestException ex)
                 {
                     if (ex?.ResponceStatusCode == default(HttpStatusCode).ToString() && retryCount < commerceRetryCount)
                     {
@@ -62,9 +66,9 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.Common
             }
         }
 
-        public virtual TE Create<T, TE>(List<T> entities, BigCom.UrlSegments urlSegments = null)
+        public virtual BatchData<T> Create<T,TE>(TE entities, UrlSegments urlSegments = null)
             where T : class, IWooEntity, new()
-            where TE : IList<T>, new()
+            where TE : class, IWooEntity, new()
         {
             _restClient.Logger?.ForContext("Scope", new BCLogTypeScope(GetType()))
                 .ForContext("Object", entities)
@@ -77,11 +81,11 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.Common
                 {
                     var request = _restClient.MakeRequest(GetListUrl, urlSegments?.GetUrlSegments());
 
-                    TE result = _restClient.Post<T, TE>(request, entities);
+                    BatchData<T> result = _restClient.Post<T, TE>(request, entities);
 
                     return result;
                 }
-                catch (BigCom.RestException ex)
+                catch (RestException ex)
                 {
                     if (ex?.ResponceStatusCode == default(HttpStatusCode).ToString() && retryCount < commerceRetryCount)
                     {
@@ -97,7 +101,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.Common
             }
         }
 
-        public virtual T Update<T>(T entity, BigCom.UrlSegments urlSegments)
+        public virtual T Update<T>(T entity, UrlSegments urlSegments)
             where T : class, new()
         {
             _restClient.Logger?.ForContext("Scope", new BCLogTypeScope(GetType()))
@@ -111,11 +115,11 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.Common
                 {
                     var request = _restClient.MakeRequest(GetSingleUrl, urlSegments?.GetUrlSegments());
 
-                    T result = _restClient.Put<T>(request, entity);
+                    T result = _restClient.Put(request, entity);
 
                     return result;
                 }
-                catch (BigCom.RestException ex)
+                catch (RestException ex)
                 {
                     if (ex?.ResponceStatusCode == default(HttpStatusCode).ToString() && retryCount < commerceRetryCount)
                     {
@@ -131,7 +135,41 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.Common
             }
         }
 
-        public virtual bool Delete(BigCom.UrlSegments urlSegments)
+        public virtual BatchData<T> BatchUpdate<T,TE>(TE entities, UrlSegments urlSegments = null)
+            where T : class,IWooEntity, new() where TE : class,IWooEntity, new()
+        {
+            _restClient.Logger?.ForContext("Scope", new BCLogTypeScope(GetType()))
+                .ForContext("Object", entities)
+                .Verbose("{CommerceCaption}: WooCommerce REST API - Updating {EntityType} entity with parameters {UrlSegments}", BCCaptions.CommerceLogCaption, typeof(T).ToString(), urlSegments?.ToString() ?? "none");
+
+            int retryCount = 0;
+            while (true)
+            {
+                try
+                {
+                    var request = _restClient.MakeRequest(GetBatchUrl, urlSegments?.GetUrlSegments());
+
+                    BatchData<T> result = _restClient.Post<T,TE>(request, entities);
+
+                    return result;
+                }
+                catch (RestException ex)
+                {
+                    if (ex?.ResponceStatusCode == default(HttpStatusCode).ToString() && retryCount < commerceRetryCount)
+                    {
+                        _restClient.Logger?.ForContext("Scope", new BCLogTypeScope(GetType()))
+                            .Error("{CommerceCaption}: Operation failed, RetryCount {RetryCount}, Exception {ExceptionMessage}",
+                            BCCaptions.CommerceLogCaption, retryCount, ex?.ToString());
+
+                        retryCount++;
+                        Thread.Sleep(1000 * retryCount);
+                    }
+                    else throw;
+                }
+            }
+        }
+
+        public virtual bool Delete(UrlSegments urlSegments)
         {
             _restClient.Logger?.ForContext("Scope", new BCLogTypeScope(GetType()))
                 .Verbose("{CommerceCaption}: WooCommerce REST API - Deleting {EntityType} entry with parameters {UrlSegments}", BCCaptions.CommerceLogCaption, GetType().ToString(), urlSegments?.ToString() ?? "none");
@@ -147,7 +185,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.Common
 
                     return result;
                 }
-                catch (BigCom.RestException ex)
+                catch (RestException ex)
                 {
                     if (ex?.ResponceStatusCode == default(HttpStatusCode).ToString() && retryCount < commerceRetryCount)
                     {
@@ -163,32 +201,32 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.Common
             }
         }
 
-        protected static BigCom.UrlSegments MakeUrlSegments(string id)
+        protected static UrlSegments MakeUrlSegments(string id)
         {
-            var segments = new BigCom.UrlSegments();
+            var segments = new UrlSegments();
             segments.Add(ID_STRING, id);
             return segments;
         }
 
-        protected static BigCom.UrlSegments MakeParentUrlSegments(string parentId)
+        protected static UrlSegments MakeParentUrlSegments(string parentId)
         {
-            var segments = new BigCom.UrlSegments();
+            var segments = new UrlSegments();
             segments.Add(PARENT_ID_STRING, parentId);
 
             return segments;
         }
 
 
-        protected static BigCom.UrlSegments MakeUrlSegments(string id, string parentId)
+        protected static UrlSegments MakeUrlSegments(string id, string parentId)
         {
-            var segments = new BigCom.UrlSegments();
+            var segments = new UrlSegments();
             segments.Add(PARENT_ID_STRING, parentId);
             segments.Add(ID_STRING, id);
             return segments;
         }
-        protected static BigCom.UrlSegments MakeUrlSegments(string id, string parentId, string param)
+        protected static UrlSegments MakeUrlSegments(string id, string parentId, string param)
         {
-            var segments = new BigCom.UrlSegments();
+            var segments = new UrlSegments();
             segments.Add(PARENT_ID_STRING, parentId);
             segments.Add(ID_STRING, id);
             segments.Add(OTHER_PARAM, param);

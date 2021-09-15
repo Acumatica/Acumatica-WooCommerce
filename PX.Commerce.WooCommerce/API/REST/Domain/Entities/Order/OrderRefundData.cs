@@ -4,7 +4,8 @@ using PX.Commerce.WooCommerce.WC.Descriptor;
 
 namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
 {
-    [JsonObject(Description = "Sales Order->Refunds")]
+    [JsonObject(Description = "Sales Order -> Refunds")]
+    [CommerceDescription(WCCaptions.RefundData)]
     public class OrderRefundData
     {
         private decimal? totalDecimal;

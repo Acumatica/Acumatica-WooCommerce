@@ -5,9 +5,12 @@ using System.Collections.Generic;
 
 namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
 {
+    [JsonObject(Description = "Sales Order -> ShippingLines")]
+    [CommerceDescription(WCCaptions.ShipmentData)]
     public class ShippingLineData
     {
         [JsonProperty("id")]
+        [CommerceDescription(WCCaptions.ID, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public int? Id { get; set; }
 
         [JsonProperty("method_title")]
@@ -22,9 +25,10 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         public string InstanceId { get; set; }
 
         [JsonProperty("total")]
+        [CommerceDescription(WCCaptions.Total, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public string Total { get; set; }
 
-        public decimal? TotalInDecimal
+        public decimal TotalInDecimal
         {
             get
             {
@@ -34,6 +38,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         }
 
         [JsonProperty("total_tax")]
+        [CommerceDescription(WCCaptions.TotalTax, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public string TotalTax { get; set; }
 
         public decimal? TotalTaxinDecimal

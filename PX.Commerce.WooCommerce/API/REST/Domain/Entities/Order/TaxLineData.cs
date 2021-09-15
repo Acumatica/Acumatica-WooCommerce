@@ -5,9 +5,12 @@ using System.Collections.Generic;
 
 namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
 {
+    [JsonObject(Description = "Sales Order -> TaxLines")]
+    [CommerceDescription(WCCaptions.TaxData)]
     public class TaxLineData
     {
         [JsonProperty("id")]
+        [CommerceDescription(WCCaptions.ID, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public string Id { get; set; }
 
         [JsonProperty("rate_code")]

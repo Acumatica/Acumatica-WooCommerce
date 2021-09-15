@@ -10,6 +10,7 @@ using Meta = PX.Commerce.WooCommerce.API.REST.Domain.Entities.Common;
 
 namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
 {
+    [JsonObject(Description = "Order Transaction")]
     public class OrdersTransactionData : BCAPIEntity, IWooEntity
     {
         [JsonProperty("date_created")]
@@ -38,6 +39,7 @@ namespace PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order
         public string Currency { get; set; }
 
         [JsonProperty("payment_method")]
+        [CommerceDescription(WCCaptions.PaymentMethod, FieldFilterStatus.Skipped, FieldMappingStatus.Import)]
         public string PaymentMethod { get; set; }
 
         public decimal Amount

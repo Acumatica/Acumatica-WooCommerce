@@ -4,7 +4,6 @@ using PX.Commerce.Core.API;
 using PX.Commerce.Objects;
 using PX.Commerce.WooCommerce.API.REST.Client;
 using PX.Commerce.WooCommerce.API.REST.Client.DataRepository;
-using PX.Commerce.WooCommerce.API.REST.Domain.Entities;
 using PX.Commerce.WooCommerce.API.REST.Domain.Entities.Product;
 using PX.Commerce.WooCommerce.API.REST.Domain.Entities.Sores;
 using PX.Commerce.WooCommerce.API.REST.Filters;
@@ -17,10 +16,48 @@ using PX.Objects.IN.RelatedItems;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using static PX.Commerce.WooCommerce.WC.Descriptor.Constants;
 
 namespace PX.Commerce.WooCommerce.Sync.Processors
 {
+    public class WCStockItemRestrictor : BCBaseRestrictor, IRestrictor
+    {
+        public virtual FilterResult RestrictExport(IProcessor processor, IMappedEntity mapped)
+        {
+            #region StockItems
+            return base.Restrict<MappedStockItem>(mapped, delegate (MappedStockItem obj)
+            {
+                if (obj.Local != null && obj.Local.TemplateItemID?.Value != null)
+                {
+                    return new FilterResult(FilterStatus.Invalid,
+                        PXMessages.LocalizeFormatNoPrefixNLA(BCMessages.LogStockSkippedVariant, obj.Local.InventoryID?.Value ?? obj.Local.SyncID.ToString()));
+                }
+
+                if (obj.Local != null && (obj.Local.Categories == null || obj.Local.Categories.Count <= 0) && processor.GetBindingExt<BCBindingExt>().StockSalesCategoriesIDs == null)
+                {
+                    return new FilterResult(FilterStatus.Invalid,
+                        PXMessages.LocalizeFormatNoPrefixNLA(BCMessages.LogItemSkippedNoCategories, obj.Local.InventoryID?.Value ?? obj.Local.SyncID.ToString()));
+                }
+
+                if (obj.Local != null && obj.Local.ExportToExternal?.Value == false)
+                {
+                    return new FilterResult(FilterStatus.Invalid,
+                        PXMessages.LocalizeFormatNoPrefixNLA(BCMessages.LogItemNoExport, obj.Local.InventoryID?.Value ?? obj.Local.SyncID.ToString()));
+                }
+
+                return null;
+            });
+            #endregion
+        }
+
+        public virtual FilterResult RestrictImport(IProcessor processor, IMappedEntity mapped)
+        {
+            return null;
+        }
+    }
+
+
     [BCProcessor(typeof(WCConnector), BCEntitiesAttribute.StockItem, BCCaptions.StockItem,
         IsInternal = false,
         Direction = SyncDirection.Export,
@@ -40,6 +77,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
         protected WooRestClient client;
         protected ProductRestDataProvider productDataProvider;
         protected TaxClasesProvider taxDataProvider;
+        protected const string InvalidSKUPattern = "[a-zA-Z1-9\\s\\S]*[ ]{2,}[a-zA-Z1-9\\s\\S]*";
 
         protected List<TaxClass> taxClasses;
 
@@ -50,7 +88,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             productDataProvider = new ProductRestDataProvider(client);
             taxDataProvider = new TaxClasesProvider(client);
 
-            taxClasses = taxDataProvider.GetAll();
+            taxClasses = taxDataProvider.GetAll().ToList();
         }
 
         #region Import
@@ -187,41 +225,26 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                 Categories = new List<CategoryStockItem>() { new CategoryStockItem() { CategoryID = new IntReturn() } },
                 ExportToExternal = new BooleanReturn()
             };
-            IEnumerable<StockItem> impls = cbapi.GetAll(item, minDateTime, maxDateTime, filters);
+            IEnumerable<StockItem> impls = cbapi.GetAll<StockItem>(item, minDateTime, maxDateTime, filters);
 
-            if (impls != null && impls.Count() > 0)
+            if (impls != null)
             {
                 int countNum = 0;
                 List<IMappedEntity> mappedList = new List<IMappedEntity>();
-                string[] allowedRels = null;//GetBindingExt<BCBindingExt>().RelatedItems?.Split(',');
-                Dictionary<string, int> stats = new Dictionary<string, int>();
-                foreach (string impl in impls.Select(i => i.InventoryID.Value))
-                    stats.Add(impl, 0);
-                if (allowedRels != null && allowedRels.Count() > 0 && !string.IsNullOrWhiteSpace(allowedRels[0]))
-                {
-                    PXResultset<PX.Objects.IN.InventoryItem, INRelatedInventory> relationsFetched = PXSelectJoin<PX.Objects.IN.InventoryItem,
-                        InnerJoin<INRelatedInventory, On<INRelatedInventory.inventoryID, Equal<PX.Objects.IN.InventoryItem.inventoryID>>>>
-                            .Select<PXResultset<PX.Objects.IN.InventoryItem, INRelatedInventory>>(this);
-                    foreach (PXResult<PX.Objects.IN.InventoryItem, INRelatedInventory> relation in relationsFetched)
-                        if (stats.ContainsKey(relation.GetItem<PX.Objects.IN.InventoryItem>().InventoryCD.TrimEnd())
-                            && allowedRels.Contains(relation.GetItem<INRelatedInventory>().Relation) &&
-                            (relation.GetItem<INRelatedInventory>().ExpirationDate == null
-                            || relation.GetItem<INRelatedInventory>().ExpirationDate > DateTime.Now))
-                            stats[relation.GetItem<PX.Objects.IN.InventoryItem>().InventoryCD.TrimEnd()] += 1;
-                }
-                foreach (string key in stats.OrderBy(i => i.Value).Select(i => i.Key))
-                {
-                    StockItem impl = impls.First(i => i.InventoryID.Value.Equals(key));
-                    IMappedEntity obj = new MappedStockItem(impl, impl.SyncID, impl.SyncTime);
-                    if (entity.EntityType != obj.EntityType)
-                        entity = GetEntity(obj.EntityType);
 
+                foreach (StockItem impl in impls)
+                {
+                    IMappedEntity obj = new MappedStockItem(impl, impl.SyncID, impl.SyncTime);
                     mappedList.Add(obj);
                     countNum++;
-                    if (countNum % BatchFetchCount == 0 || countNum == impls.Count())
+                    if (countNum % BatchFetchCount == 0)
                     {
                         ProcessMappedListForExport(ref mappedList);
                     }
+                }
+                if (mappedList.Any())
+                {
+                    ProcessMappedListForExport(ref mappedList);
                 }
             }
         }
@@ -233,15 +256,22 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             MappedStockItem obj = bucket.Product;
             StockItem impl = obj.Local;
             ProductData data = obj.Extern = new ProductData();
+            //Existing item and store Availability Policies
             string storeAvailability = BCItemAvailabilities.Convert(GetBindingExt<BCBindingExt>().Availability);
+            var regEx = new Regex(InvalidSKUPattern);
+            if (regEx.IsMatch(impl.InventoryID.Value))
+            {
+                throw new PXException(WCMessages.InvalidSKU, regEx.Match(impl.InventoryID.Value), impl.InventoryID.Value);
+            }
 
             data.Name = impl.Description?.Value;
             data.Description = ClearHTMLContent(impl.Content?.Value);
             data.ShortDescription = impl.MetaDescription?.Value;
-            data.RegularPrice = impl.DefaultPrice?.Value.ToString(); //TODO:Need to check localisation
+            data.RegularPrice = impl.DefaultPrice?.Value.ToString();
             data.Weight = impl.DimensionWeight?.Value.ToString();
             data.Sku = impl.InventoryID?.Value;
-            data.StockQuantity = impl.WarehouseDetails == null ? 0 : impl.WarehouseDetails?.Sum(s => s.QtyOnHand.Value);
+            data.Tags = impl.MetaKeywords?.Value?.Split(',').Select(s => new TagData { Name = s }).ToList();
+
             data.TaxClass = taxClasses?.Find(i => i.Name.Equals(GetSubstituteLocalByExtern(
                 GetBindingExt<BCBindingExt>().TaxCategorySubstitutionListID, impl.TaxCategory?.Value, string.Empty)))?.Name;
             if (impl.Attributes?.Count() > 0)
@@ -254,7 +284,8 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             }
 
             string visibility = impl?.Visibility?.Value;
-            if (visibility == null || visibility == BCCaptions.StoreDefault) visibility = BCItemVisibility.Convert(GetBindingExt<BCBindingExt>().Visibility);
+            if (visibility == null || visibility == BCCaptions.StoreDefault) 
+                visibility = BCItemVisibility.Convert(GetBindingExt<BCBindingExt>().Visibility);
             data.Featured = false;
 
             switch (visibility)
@@ -301,6 +332,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
 
                 }
             }
+
             data.Categories = new List<CategoryData>();
             foreach (PXResult<PX.Objects.IN.INCategory, PX.Objects.IN.INItemCategory, PX.Objects.IN.InventoryItem, BCSyncStatus> result in PXSelectJoin<PX.Objects.IN.INCategory,
                 InnerJoin<PX.Objects.IN.INItemCategory, On<PX.Objects.IN.INItemCategory.categoryID, Equal<PX.Objects.IN.INCategory.categoryID>>,
@@ -400,12 +432,6 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             {
 
                 datas = productDataProvider.GetAll(new FilterProducts() { Sku = inventoryId })?.ToList();
-            }
-            if (datas == null || datas.Count == 0)
-            {
-
-                uniqueField = description;
-                datas = productDataProvider.GetAll(new FilterProducts() { Search = description })?.ToList();
             }
 
             if (datas == null) return null;

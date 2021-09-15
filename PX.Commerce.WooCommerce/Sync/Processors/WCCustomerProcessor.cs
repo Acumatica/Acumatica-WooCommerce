@@ -37,7 +37,8 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
 
         protected List<Country> countries;
         public CommerceHelper helper = PXGraph.CreateInstance<CommerceHelper>();
-
+        public PXSelectJoin<PX.Objects.AR.Customer, LeftJoin<PX.Objects.CR.Contact, On<PX.Objects.AR.Customer.primaryContactID, Equal<PX.Objects.CR.Contact.contactID>>>,
+                        Where<PX.Objects.CR.Contact.eMail, Equal<Required<PX.Objects.CR.Contact.eMail>>>> CustomerPrimaryByEmail;
 
         #region Constructor
         public override void Initialise(IConnector iconnector, ConnectorOperation operation)
@@ -49,20 +50,54 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
         #endregion
 
         #region Import
+        public override void FetchBucketsForImport(DateTime? minDateTime, DateTime? maxDateTime, PXFilterRow[] filters)
+        {
+            FilterProductCategories filter = new FilterProductCategories();
+            if (minDateTime != null)
+                filter.CreatedAfter = minDateTime;
+            if (maxDateTime != null)
+                filter.CreatedAfter = maxDateTime;
+
+            IEnumerable<CustomerData> customers = customerDataProvider.GetAll(filter);
+
+            foreach (CustomerData data in customers)
+            {
+                WCCustomerEntityBucket bucket = CreateBucket();
+
+                MappedCustomer mapped = bucket.Customer = bucket.Customer.Set(data, data.Id.ToString(), data.DateModified.ToDate());
+                EnsureStatus(mapped, SyncDirection.Import);
+            }
+        }
+
+        public override EntityStatus GetBucketForImport(WCCustomerEntityBucket bucket, BCSyncStatus syncstatus)
+        {
+            CustomerData data = client.Get<CustomerData>(
+                string.Format("/customers/{0}", syncstatus.ExternID));
+
+            MappedCustomer obj = bucket.Customer = bucket.Customer.Set(data, data.Id.ToString(), data.DateModified.ToDate());
+            EntityStatus status = EnsureStatus(obj, SyncDirection.Import);
+
+            return status;
+        }
+
         public override void MapBucketImport(WCCustomerEntityBucket bucket, IMappedEntity existing)
         {
             MappedCustomer customerObj = bucket.Customer;
+            CustomerData data = customerObj.Extern;
 
             Core.API.Customer customerImpl = customerObj.Local = new Core.API.Customer();
             customerImpl.Custom = GetCustomFieldsForImport();
 
-            customerImpl.CustomerName = GetBillingCustomerName(customerObj.Extern).ValueField();
-            customerImpl.AccountRef = APIHelper.ReferenceMake(customerObj.Extern.Id, GetBinding().BindingName).ValueField();
+            customerImpl.CustomerName = GetBillingCustomerName(data).ValueField();
+            customerImpl.AccountRef = APIHelper.ReferenceMake(data.Id, GetBinding().BindingName).ValueField();
             customerImpl.CustomerClass = customerObj.LocalID == null || existing?.Local == null ?
                 GetBindingExt<BCBindingExt>().CustomerClassID?.ValueField() : null;
 
             //Primary Contact
-            customerImpl.PrimaryContact = GetPrimaryContact(customerObj.Extern);
+            customerImpl.PrimaryContact = GetPrimaryContact(data);
+
+            if (string.IsNullOrWhiteSpace(data.Billing.Email))
+                data.Billing.Email = data.Email;
 
             customerImpl.MainContact = SetBillingContact(customerObj.Extern);
 
@@ -73,7 +108,8 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             BCBindingExt bindingExt = GetBindingExt<BCBindingExt>();
             if (bindingExt.CustomerClassID != null)
             {
-                CustomerClass customerClass = PXSelect<CustomerClass, Where<CustomerClass.customerClassID, Equal<Required<CustomerClass.customerClassID>>>>.Select(this, bindingExt.CustomerClassID);
+                CustomerClass customerClass = PXSelect<CustomerClass, Where<CustomerClass.customerClassID,
+                    Equal<Required<CustomerClass.customerClassID>>>>.Select(this, bindingExt.CustomerClassID);
                 if (customerClass != null)
                 {
                     customerClass.ShipVia.ValueField();
@@ -140,7 +176,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
                 : $"{data.Shipping?.FirstName} {data.Shipping?.LastName}";
         }
 
-        public virtual Address MapAddress(CustomerAddressData addressObj)
+        public virtual Address MapAddress(ShippingAddressData addressObj)
         {
             var address = new Address();
             address.AddressLine1 = addressObj.Address1.ValueField();
@@ -165,7 +201,7 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
 
         public override IEnumerable<MappedCustomer> PullSimilar(IExternEntity entity, out string uniqueField)
         {
-            uniqueField = string.IsNullOrWhiteSpace(((CustomerData)entity)?.Billing.Email) ? ((CustomerData)entity)?.Email : ((CustomerData)entity)?.Billing.Email;
+            uniqueField = string.IsNullOrWhiteSpace(((CustomerData)entity)?.Email) ? ((CustomerData)entity)?.Billing?.Email : ((CustomerData)entity)?.Email;
             if (uniqueField == null) return null;
 
             List<MappedCustomer> result = new List<MappedCustomer>();
@@ -173,6 +209,12 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
             {
                 Core.API.Customer data = new Core.API.Customer() { SyncID = item.NoteID, SyncTime = item.LastModifiedDateTime };
                 result.Add(new MappedCustomer(data, data.SyncID, data.SyncTime));
+            }
+            foreach (PX.Objects.AR.Customer item in CustomerPrimaryByEmail.Select(uniqueField))
+            {
+                Core.API.Customer data = new Core.API.Customer() { SyncID = item.NoteID, SyncTime = item.LastModifiedDateTime };
+                if (!result.Any(a => a.Local.NoteID == data.NoteID))
+                    result.Add(new MappedCustomer(data, data.SyncID, data.SyncTime));
             }
 
             if (result == null || result?.Count == 0) return null;
@@ -203,6 +245,21 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
         #endregion
 
         #region Export
+        public override void FetchBucketsForExport(DateTime? minDateTime, DateTime? maxDateTime, PXFilterRow[] filters)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override EntityStatus GetBucketForExport(WCCustomerEntityBucket bucket, BCSyncStatus bcstatus)
+        {
+            Core.API.Customer impl = cbapi.GetByID<Core.API.Customer>(bcstatus.LocalID, GetCustomFieldsForExport());
+            if (impl == null) return EntityStatus.None;
+
+            bucket.Customer = bucket.Customer.Set(impl, impl.SyncID, impl.SyncTime);
+            EntityStatus status = EnsureStatus(bucket.Customer, SyncDirection.Export);
+
+            return status;
+        }
 
         public override void MapBucketExport(WCCustomerEntityBucket bucket, IMappedEntity existing)
         {
@@ -221,52 +278,6 @@ namespace PX.Commerce.WooCommerce.Sync.Processors
         public override MappedCustomer PullEntity(string externID, string externalInfo)
         {
             throw new NotImplementedException();
-        }
-
-        public override void FetchBucketsForImport(DateTime? minDateTime, DateTime? maxDateTime, PXFilterRow[] filters)
-        {
-            FilterProductCategories filter = new FilterProductCategories();
-            if (minDateTime != null)
-                filter.CreatedAfter = minDateTime;
-            if (maxDateTime != null)
-                filter.CreatedAfter = maxDateTime;
-
-            IEnumerable<CustomerData> customers = customerDataProvider.GetAll(filter);
-
-            foreach (CustomerData data in customers)
-            {
-                WCCustomerEntityBucket bucket = CreateBucket();
-
-                MappedCustomer mapped = bucket.Customer = bucket.Customer.Set(data, data.Id.ToString(), data.DateModified.ToDate());
-                EnsureStatus(mapped, SyncDirection.Import);
-            }
-        }
-
-        public override void FetchBucketsForExport(DateTime? minDateTime, DateTime? maxDateTime, PXFilterRow[] filters)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override EntityStatus GetBucketForImport(WCCustomerEntityBucket bucket, BCSyncStatus syncstatus)
-        {
-            CustomerData data = client.Get<CustomerData>(
-                string.Format("/customers/{0}", syncstatus.ExternID));
-
-            MappedCustomer obj = bucket.Customer = bucket.Customer.Set(data, data.Id.ToString(), data.DateModified.ToDate());
-            EntityStatus status = EnsureStatus(obj, SyncDirection.Import);
-
-            return status;
-        }
-
-        public override EntityStatus GetBucketForExport(WCCustomerEntityBucket bucket, BCSyncStatus bcstatus)
-        {
-            Core.API.Customer impl = cbapi.GetByID<Core.API.Customer>(bcstatus.LocalID, GetCustomFieldsForExport());
-            if (impl == null) return EntityStatus.None;
-
-            bucket.Customer = bucket.Customer.Set(impl, impl.SyncID, impl.SyncTime);
-            EntityStatus status = EnsureStatus(bucket.Customer, SyncDirection.Export);
-
-            return status;
         }
         #endregion
     }

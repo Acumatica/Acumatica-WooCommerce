@@ -29,6 +29,17 @@ namespace PX.Commerce.WooCommerce.API.REST.Client.DataRepository
             return GetAll<OrderData, List<OrderData>>(localFilter);
         }
 
+
+        public IEnumerable<OrderData> GetAllToDate(IFilter filter = null, int maxDays = 0)
+        {
+            var localFilter = filter ?? new Filter();
+            localFilter.OrderBy = "modified";
+            if(maxDays == 0)
+                return GetAll<OrderData, List<OrderData>>(localFilter);
+
+            return GetAllUptoDate<OrderData, List<OrderData>>(localFilter, null, maxDays);
+        }
+
         public List<OrderData> Get(IFilter filter = null)
         {
             var localFilter = filter ?? new Filter();

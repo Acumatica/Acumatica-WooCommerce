@@ -27,43 +27,43 @@
 
   <ItemGroup>
     <Reference Include="CommonServiceLocator">
-      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\CommonServiceLocator.dll</HintPath>
+      <HintPath>..\..\..\..\..\AcumaticaInstances\AcumaticaDB21R1U9_2\Bin\CommonServiceLocator.dll</HintPath>
     </Reference>
     <Reference Include="PX.Api.ContractBased">
-      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Api.ContractBased.dll</HintPath>
+      <HintPath>..\..\..\..\..\AcumaticaInstances\AcumaticaDB21R1U9_2\Bin\PX.Api.ContractBased.dll</HintPath>
     </Reference>
     <Reference Include="PX.Commerce.BigCommerce">
-      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Commerce.BigCommerce.dll</HintPath>
+      <HintPath>..\..\..\..\..\AcumaticaInstances\AcumaticaDB21R1U9_2\Bin\PX.Commerce.BigCommerce.dll</HintPath>
     </Reference>
     <Reference Include="PX.Commerce.Core">
-      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Commerce.Core.dll</HintPath>
+      <HintPath>..\..\..\..\..\AcumaticaInstances\AcumaticaDB21R1U9_2\Bin\PX.Commerce.Core.dll</HintPath>
     </Reference>
     <Reference Include="PX.Commerce.Objects">
-      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Commerce.Objects.dll</HintPath>
+      <HintPath>..\..\..\..\..\AcumaticaInstances\AcumaticaDB21R1U9_2\Bin\PX.Commerce.Objects.dll</HintPath>
     </Reference>
     <Reference Include="PX.Common">
-      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\AcumaticaInstances\AcumaticaDB21R1U9_2\Bin\PX.Common.dll</HintPath>
     </Reference>
     <Reference Include="PX.Common.Std">
-      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Common.Std.dll</HintPath>
+      <HintPath>..\..\..\..\..\AcumaticaInstances\AcumaticaDB21R1U9_2\Bin\PX.Common.Std.dll</HintPath>
     </Reference>
     <Reference Include="PX.CS.Contracts">
-      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.CS.Contracts.dll</HintPath>
+      <HintPath>..\..\..\..\..\AcumaticaInstances\AcumaticaDB21R1U9_2\Bin\PX.CS.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="PX.Data">
-      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Data.dll</HintPath>
+      <HintPath>..\..\..\..\..\AcumaticaInstances\AcumaticaDB21R1U9_2\Bin\PX.Data.dll</HintPath>
     </Reference>
     <Reference Include="PX.Data.BQL.Fluent">
-      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Data.BQL.Fluent.dll</HintPath>
+      <HintPath>..\..\..\..\..\AcumaticaInstances\AcumaticaDB21R1U9_2\Bin\PX.Data.BQL.Fluent.dll</HintPath>
     </Reference>
     <Reference Include="PX.Objects">
-      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Objects.dll</HintPath>
+      <HintPath>..\..\..\..\..\AcumaticaInstances\AcumaticaDB21R1U9_2\Bin\PX.Objects.dll</HintPath>
     </Reference>
     <Reference Include="PX.Web.Customization">
-      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\PX.Web.Customization.dll</HintPath>
+      <HintPath>..\..\..\..\..\AcumaticaInstances\AcumaticaDB21R1U9_2\Bin\PX.Web.Customization.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
-      <HintPath>..\..\..\..\..\Source\New Source\WebSites\Pure\Site\Bin\RestSharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\AcumaticaInstances\AcumaticaDB21R1GA\Bin\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System.Configuration">
       <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Configuration.dll</HintPath>

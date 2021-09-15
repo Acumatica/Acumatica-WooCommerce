@@ -3,8 +3,10 @@ using PX.Commerce.BigCommerce;
 using PX.Commerce.Core;
 using PX.Commerce.Core.API;
 using PX.Commerce.Objects;
+using PX.Commerce.Objects.Availability;
 using PX.Commerce.WooCommerce.API.REST.Domain.Entities.Order;
 using PX.Commerce.WooCommerce.API.REST.Domain.Enums;
+using PX.Data;
 using PX.Objects.AR;
 using System;
 using System.Collections.Generic;
@@ -111,5 +113,23 @@ namespace PX.Commerce.WooCommerce.WC
             }
 
         }
+
+        #region Inventory
+        public virtual string GetInventoryCDByExternID(string productId, string sku, out string uom)
+        {
+            PX.Objects.IN.InventoryItem item = PXSelect<PX.Objects.IN.InventoryItem,
+                            Where<InventoryItem.inventoryCD, Equal<Required<InventoryItem.inventoryCD>>>>
+                            .Select(this, sku);
+
+            if (item == null)
+                throw new PXException(BCMessages.InvenotryNotFound, sku, productId);
+            if (item.ItemStatus == PX.Objects.IN.INItemStatus.Inactive)
+                throw new PXException(BCMessages.InvenotryInactive, item.InventoryCD);
+           
+            uom = item?.BaseUnit?.Trim();
+            return item?.InventoryCD?.Trim();
+        }
+        #endregion
+
     }
 }
