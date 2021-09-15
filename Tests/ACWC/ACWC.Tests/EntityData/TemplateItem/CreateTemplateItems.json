@@ -1,10 +1,10 @@
 {
-  "InventoryCD": "ACU-SHIRT",
-  "Description": "Acumatica Polo Shirt with Buttons",
+  "InventoryCD": "ACU-SHIRT5",
+  "Description": "Acumatica Polo Shirt with Buttons5",
   "GeneralSettings": {
     "Body": "Stay cool when things heat up", 
     "ItemStatus": "Active",
-    "ItemClass": "SHIRTS",
+    "ItemClass": "SHIRTS4",
     "ItemType": "Finished Good",
     "ValMethod": "Average",
     "TaxCategory": "TAXABLE",
@@ -23,41 +23,41 @@
     }
   ],
   "AttributeConfig": {
-    "DefaultColumnMatrixAttribute": "MCOLOR",
-    "DefaultRowMatrixAttribute": "SIZE",
+    "DefaultColumnMatrixAttribute": "MCOLOR1",
+    "DefaultRowMatrixAttribute": "SIZE1",
     "InventoryIDSegmentSettings": [
       {
         "SegmentType": "Template ID",
-        "NumberOfCharacters": 9
-      },
-      {
-        "SegmentType": "Attribute Value",
-        "AttributeID": "MCOLOR",
-        "NumberOfCharacters": 5
-      },
-      {
-        "SegmentType": "Attribute Value",
-        "AttributeID": "SIZE",
-        "NumberOfCharacters": 3
-      },
-      {
-        "SegmentType": "Attribute Value",
-        "AttributeID": "MATERIAL",
         "NumberOfCharacters": 10
+      },
+      {
+        "SegmentType": "Attribute Value",
+        "AttributeID": "MCOLOR1",
+        "NumberOfCharacters": 2
+      },
+      {
+        "SegmentType": "Attribute Value",
+        "AttributeID": "SIZE1",
+        "NumberOfCharacters": 2
+      },
+      {
+        "SegmentType": "Attribute Value",
+        "AttributeID": "MATERIAL2",
+        "NumberOfCharacters": 2
       }
     ]
   },
   "CreateMatrixItemsTab": {
-    "ColAttributeID": "MCOLOR",
-    "RowAttributeID": "SIZE",
+    "ColAttributeID": "MCOLOR1",
+    "RowAttributeID": "SIZE1",
     "AdditionalAttributes": [
       {
-        "ColumnName": "T-Shirt Material",
-        "AttributeValue": "100% Cotton Shirt"
+        "ColumnName": "Material",
+        "AttributeValue": "Cotton"
       },
       {
-        "ColumnName": "T-Shirt Material",
-        "AttributeValue": "Cotton-Polyester Shirt"
+        "ColumnName": "Material",
+        "AttributeValue": "Polyester"
       }
     ],
     "Matrices": {

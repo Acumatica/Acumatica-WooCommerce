@@ -1,0 +1,98 @@
+[
+  {
+    "description": "Advertising"
+    //"ProductType": "NSTOCK1",
+    //"Tags": "Search",
+    //"Variants": [
+    //  {
+    //    "Sku": "ADVERT",
+    //    "Price": 100.00,
+    //    "OriginalPrice": 50.00
+    //  }
+    //]
+  },
+  {
+    "description": "Incoming call"
+    //"ProductType": "NSTOCK1",
+    //"Tags": "Search",
+    //"Variants": [
+    //  {
+    //    "Sku": "CALLIN",
+    //    "Price": 100.00,
+    //    "OriginalPrice": 50.00
+    //  }
+    //]
+  },
+  {
+    "description": "Outgoing call"
+    //"ProductType": "NSTOCK1",
+    //"Tags": "Search",
+    //"Variants": [
+    //  {
+    //    "Sku": "CALLOUT",
+    //    "Price": 100.00,
+    //    "OriginalPrice": 50.00
+    //  }
+    //]
+  },
+  {
+    "description": "Consulting service"
+    //"ProductType": "NSTOCK1",
+    //"Tags": "Search",
+    //"Variants": [
+    //  {
+    //    "Sku": "CONSULT",
+    //    "Price": 100.00,
+    //    "OriginalPrice": 50.00
+    //  }
+    //]
+  },
+  {
+    "description": "Junior Consultant"
+    //"ProductType": "NSTOCK1",
+    //"Tags": "Search",
+    //"Variants": [
+    //  {
+    //    "Sku": "CONSULTJR",
+    //    "Price": 100.00,
+    //    "OriginalPrice": 50.00
+    //  }
+    //]
+  },
+  {
+    "description": "Customization service"
+    //"ProductType": "NSTOCK1",
+    //"Tags": "Search",
+    //"Variants": [
+    //  {
+    //    "Sku": "CSTMZATION",
+    //    "Price": 100.00,
+    //    "OriginalPrice": 50.00
+    //  }
+    //]
+  },
+  {
+    "description": "Print and Copy Services"
+    //"ProductType": "NSTOCK1",
+    //"Tags": "Search",
+    //"Variants": [
+    //  {
+    //    "Sku": "PRINTCOPY",
+    //    "Price": 100.00,
+    //    "OriginalPrice": 50.00
+    //  }
+    //]
+  },
+  {
+    "description": "Support service"
+    //"ProductType": "NSTOCK1",
+    //"Tags": "Search",
+    //"Variants": [
+    //  {
+    //    "Sku": "SUPPHOURS",
+    //    "Price": 100.00,
+    //    "OriginalPrice": 50.00
+    //  }
+    //]
+  }
+]

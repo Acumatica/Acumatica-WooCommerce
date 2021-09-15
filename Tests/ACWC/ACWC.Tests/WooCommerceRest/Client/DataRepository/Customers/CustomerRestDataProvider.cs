@@ -8,7 +8,7 @@ using ACSC.Tests.ShopifyRest.Interfaces;
 using Newtonsoft.Json;
 using RestSharp.Extensions;
 
-namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Customers
+namespace ACWC.Tests.WooCommerceRest.Client.DataRepository.Customers
 {
     public class CustomerRestDataProvider : RestDataProviderBase, IParentRestDataProvider<CustomerData>
     {
@@ -27,7 +27,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Customers
 
         public CustomerRestDataProvider(IWooCommerceRestClient restClient) : base()
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restClient;
         }
 
         public CustomerData Create(CustomerData entity)

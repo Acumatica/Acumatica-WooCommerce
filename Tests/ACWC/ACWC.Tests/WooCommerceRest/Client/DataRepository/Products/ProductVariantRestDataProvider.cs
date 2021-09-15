@@ -16,7 +16,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Products
 
         public ProductVariantRestDataProvider(IWooCommerceRestClient restClient) : base()
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restClient;
         }
 
         public ProductVariantData Create(ProductVariantData entity, string productId)
@@ -64,7 +64,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Products
         public List<ProductVariantData> GetAllWithoutParent(IFilter filter = null)
         {
             var request = BuildRequest(GetAllUrl, nameof(GetAllWithoutParent), null, filter);
-            return ShopifyRestClient.GetAll<ProductVariantData, ProductVariantsResponse>(request);
+            return WooCommerceRestClient.GetAll<ProductVariantData, ProductVariantsResponse>(request);
         }
     }
 }

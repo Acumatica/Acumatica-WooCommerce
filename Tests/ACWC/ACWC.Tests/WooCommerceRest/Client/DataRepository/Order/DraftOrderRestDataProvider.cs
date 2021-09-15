@@ -15,9 +15,9 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Order
         protected override string GetSearchUrl => throw new NotImplementedException();
         private string CompleteUrl { get; } = "draft_orders/{id}/complete";
 
-        public DraftOrderRestDataProvider(IWooCommerceRestClient restClient) : base()
+        public DraftOrderRestDataProvider(IWooCommerceRestClient restclient) : base()
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restclient;
         }
 
         public DraftOrderData Create(DraftOrderData entity)
@@ -66,7 +66,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Order
         {
             var request = BuildRequest(CompleteUrl, nameof(Complete), MakeUrlSegments(id), null);
             request.AddParameter("payment_pending", true);
-            return ShopifyRestClient.Put<DraftOrderData, DraftOrderResponse>(request, null, false);
+            return WooCommerceRestClient.Put<DraftOrderData, DraftOrderResponse>(request, null, false);
         }
     }
 }

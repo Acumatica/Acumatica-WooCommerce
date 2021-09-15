@@ -15,7 +15,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository
 
         public MetafieldRestDataProvider(IWooCommerceRestClient restClient) : base()
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restClient;
         }
 
         #region IParentDataRestClient
@@ -70,13 +70,13 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository
         public MetafieldData GetMetafieldBySpecifiedUrl(string url, string id)
         {
             var request = BuildRequest(url, nameof(GetMetafieldBySpecifiedUrl), MakeUrlSegments(id), null);
-            return ShopifyRestClient.Get<MetafieldData, MetafieldResponse>(request).Data;
+            return WooCommerceRestClient.Get<MetafieldData, MetafieldResponse>(request).Data;
         }
 
         public List<MetafieldData> GetMetafieldsBySpecifiedUrl(string url, string id)
         {
             var request = BuildRequest(url, nameof(GetMetafieldBySpecifiedUrl), MakeUrlSegments(id), null);
-            return ShopifyRestClient.GetAll<MetafieldData, MetafieldsResponse>(request);
+            return WooCommerceRestClient.GetAll<MetafieldData, MetafieldsResponse>(request);
         }
 
         #endregion IParentDataRestClient

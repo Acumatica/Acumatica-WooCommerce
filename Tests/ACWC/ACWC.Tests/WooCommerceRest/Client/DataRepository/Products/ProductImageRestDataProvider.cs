@@ -17,7 +17,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Products
 
         public ProductImageRestDataProvider(IWooCommerceRestClient restClient) : base()
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restClient;
         }
 
         public ProductImageData Create(ProductImageData entity, string productId)
@@ -82,7 +82,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Products
         public List<MetafieldData> GetMetafieldsByImageId(string imageId)
         {
             var request = BuildRequest(string.Format(GetMetafieldsUrl, imageId), nameof(GetMetafieldsByImageId), null, null);
-            return ShopifyRestClient.GetAll<MetafieldData, MetafieldsResponse>(request);
+            return WooCommerceRestClient.GetAll<MetafieldData, MetafieldsResponse>(request);
         }
     }
 }

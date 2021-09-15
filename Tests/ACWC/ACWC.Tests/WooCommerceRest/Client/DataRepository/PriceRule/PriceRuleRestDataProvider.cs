@@ -23,7 +23,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.PriceRule
 
         public PriceRuleRestDataProvider(IWooCommerceRestClient restClient) : base()
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restClient;
         }
 
         public PriceRuleData Create(PriceRuleData entity)

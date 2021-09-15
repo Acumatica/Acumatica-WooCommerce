@@ -45,6 +45,13 @@
       "BasePrice": 15
     }
   }
+  //{
+  //      "inventoryCD": "HEADSET",
+  //      "description": "Headset",
+  //      "itemType": "Finished Good",
+  //      "itemClass": "STOCKITEM",
+  //      "itemStatus": "Active"
+  //}
 ]
   //  {
   //    "inventoryCD": "HEADSET",

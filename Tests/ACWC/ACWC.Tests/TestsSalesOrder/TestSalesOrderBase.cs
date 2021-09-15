@@ -43,6 +43,9 @@ using static ACSC.Tests.Helpers.ValidatorHelper;
 using OrderData = ACSC.Tests.ShopifyRest.Domain.Entities.Order.OrderData;
 using OrderTransaction = ACSC.Tests.ShopifyRest.Domain.Entities.Order.OrderTransaction;
 using WooCommerce.Tests.TestData;
+using ACSC.Tests.ShopifyRest.Domain.Entities.Order;
+using ACSC.Tests.ShopifyRest.Client.DataRepository.Refund;
+using ACSC.Tests.ShopifyRest.Client.Common;
 
 namespace ACSC.Tests.TestsSalesOrder
 {
@@ -73,6 +76,8 @@ namespace ACSC.Tests.TestsSalesOrder
         protected WooCommerceApiService service = WooCommerceApiService.Instance;
         protected OrderRestDataProvider orderRestDataProvider;
 
+        protected RefundRestDataProvider refundRestDataProvider;
+
         protected static CreatePurchaseOrders CreatePurchaseOrdersPage => new CreatePurchaseOrders();
         protected static OrderPo PurchaseOrdersPage => new OrderPo();
         protected static ReceiptPo PurchaseOrdersReceiptPage => new ReceiptPo();
@@ -99,6 +104,8 @@ namespace ACSC.Tests.TestsSalesOrder
         protected OrderData orderData;
         protected CustomerData newCustomer;
         protected CustomerData customerData;
+        protected OrderRefund refundData;
+        protected OrderRefund newRefund;
 
         protected TestSalesOrderBase()
         {
@@ -106,6 +113,7 @@ namespace ACSC.Tests.TestsSalesOrder
             visitor = VisitorsManager.GetSingle<IStockItemVisitor>(typeof(StockItemVisitor));
             orderRestDataProvider = service.OrderRestDataProvider;
             salesOrder = new SalesOrderEntity();
+            refundRestDataProvider = service.RefundRestDataProvider;
         }
 
         protected virtual void Clearing(Type type)
@@ -140,10 +148,20 @@ namespace ACSC.Tests.TestsSalesOrder
         protected OrderData CreateOrder(OrderData order)
         {
             string orderId = orderRestDataProvider.Create(order)?.Id.ToString();
+            
             if (string.IsNullOrEmpty(orderId)) throw new Exception(Messages.OrderWasntCreatedException);
 
             //orderRestDataProvider.PostPaymentToCapture(tranToCapture, orderId);
             return orderRestDataProvider.GetByID(orderId);
+        }
+
+        protected OrderRefund CreateRefunds(OrderRefund refund, int soOrderEx)
+        {
+            var segment = new UrlSegments();
+            segment.Add("id", soOrderEx.ToString());
+            string refundId = refundRestDataProvider.CreateRefund(refund, segment)?.Id.ToString();
+            if (string.IsNullOrEmpty(refundId)) throw new Exception(Messages.RefundWasntCreatedException);
+            return refundRestDataProvider.GetByID(refundId);
         }
 
         protected PaymentEntity GetPaymentValidationObj(string CustomerName, decimal paymentAmt, bool isCreditCard = false)

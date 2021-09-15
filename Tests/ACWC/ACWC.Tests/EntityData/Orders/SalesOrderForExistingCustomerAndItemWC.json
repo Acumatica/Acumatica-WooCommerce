@@ -1,6 +1,6 @@
 ﻿{
-  "payment_method": "bacs",
-  "payment_method_title": "Direct Bank Transfer",
+  "payment_method": "COD",
+  "payment_method_title": "Cash on Delivery",
   "set_paid": true,
   "billing": {
     "first_name": "John",
@@ -26,7 +26,7 @@
   },
   "line_items": [
     {
-      "product_id": 352,
+      "product_id": 566,
       "quantity": 1
     }
   ]

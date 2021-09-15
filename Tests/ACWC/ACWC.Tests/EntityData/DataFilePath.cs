@@ -21,6 +21,7 @@
         public const string ExportNonStockItemsToSPItemClass1 = "EntityData\\ItemClass\\ExportNonStockItemsToSP1.json";
         public const string ExportNonStockItemsToSPItemClass2 = "EntityData\\ItemClass\\ExportNonStockItemsToSP2.json";
         public const string ExportNonStockItemsToSPValidationObj1 = "EntityData\\NonStockItems\\ExportNonStockItemsToSPValidationObj1.json";
+        public const string ExportNonStockItemsToSPValidationObjWC = "EntityData\\NonStockItems\\ExportNonStockItemsToSPValidationObjWC.json";
         public const string ExportNonStockItemsToSPValidationObj2 = "EntityData\\NonStockItems\\ExportNonStockItemsToSPValidationObj2.json";
         public const string ExportTheProductImagesToSP = "EntityData\\ItemClass\\ExportTheProductImagesToSP.json";
         public const string ExportProductAvailabilityToSPItemClass = "EntityData\\ItemClass\\ExportProductAvailabilityToSP.json";
@@ -33,10 +34,10 @@
         public const string ExportProductAvailabilityToSPEntity = "EntityData\\StockItems\\ExportProductAvailabilityToSPEntity.json";
         public const string ExportProductAvailabilityToSPResult = "EntityData\\StockItems\\ExportProductAvailabilityToSPResult.json";
 
-        public const string SalesOrderForExistingCustomerAndItemShopify = "EntityData\\Orders\\SalesOrderForExistingCustomerAndItemShopify.json";
+        public const string SalesOrderForExistingCustomerAndItemWC = "EntityData\\Orders\\SalesOrderForExistingCustomerAndItemWC.json";
         public const string DropShipmentSalesOrderWithFullShipmentShopify = "EntityData\\Orders\\DropShipmentSalesOrderWithFullShipmentShopify.json";
         public const string ImportSalesOrderLineLevelDiscountsOnMultipleItemsShopify = "EntityData\\Orders\\ImportSalesOrderLineLevelDiscountsOnMultipleItemsShopify.json";
-        public const string ImportSalesOrderMultipleItemsTaxesForCanadianCustomerWooCom = "EntityData\\Orders\\ImportSalesOrderMultipleItemsTaxesForCanadianCustomerShopify.json";
+        public const string ImportSalesOrderMultipleItemsTaxesForCanadianCustomerWooCom = "EntityData\\Orders\\ImportSalesOrderMultipleItemsTaxesForCanadianCustomerWooCommerce.json";
         public const string ImportSalesOrderUSStockItemsToCanadianCustomerPaidCCShopify = "EntityData\\Orders\\ImportSalesOrderUSStockItemsToCanadianCustomerPaidCCShopify.json";
         public const string ImportSalesOrderWithCCPaymentShopify = "EntityData\\Orders\\ImportSalesOrderWithCCPaymentShopify.json";
         public const string ImportSalesOrderWithCouponShopify = "EntityData\\Orders\\ImportSalesOrderWithCouponShopify.json";
@@ -91,7 +92,7 @@
 
         //Stock Items
         public const string ExportStockItemToSPCreateItems = "EntityData\\StockItems\\ExportStockItemToSPCreateItems.json";
-        public const string ExportStockItemToWCGI = "EntityData\\StockItems\\ExportStockItemToSPGI.json";
+        public const string ExportStockItemToWCGI = "EntityData\\StockItems\\ExportStockItemToWCGI.json";
         public const string ExportStockItemToWCProductData = "EntityData\\StockItems\\ExportStockItemToSPProductData.json";
 
         public const string ExportStockItemToSPUpdateItem = "EntityData\\StockItems\\ExportStockItemToSPUpdateItem.json";
@@ -133,6 +134,9 @@
         public const string SOImportMappingTab = "EntityData\\Orders\\SOImportMappingTab\\ItemsToCreate.json";
         public const string ImportSalesOrderWithCouponDiscountFromWC = "EntityData\\Orders\\ImportSalesOrderWithCouponDiscountFromWC.json";
         public const string ImportSalesOrderMultipleItemsTaxesForCanadianCustomerWC = "EntityData\\Orders\\ImportSalesOrderMultipleItemsTaxesForCanadianCustomerWC.json";
+
+        //Refund
+        public const string ImportSalesOrderRefundFromWC = "EntityData\\SORefunds\\CreateSalesOrderRefundInWC.json";
 
         //Connector mapping
         public const string StockItemExportMapping = "EntityData\\ConnectorEntity\\StockItemExportMapping.json";

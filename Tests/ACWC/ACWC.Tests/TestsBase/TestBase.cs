@@ -203,7 +203,7 @@ namespace ACSC.Tests.TestsBase
         protected void ConfigurePaymentsMapping()
         {
             WooCommerceStore.OpenScreen();
-            WooCommerceStore.PaymentMethods.Columns.StorePaymentMethod.Equals("manual");
+            WooCommerceStore.PaymentMethods.Columns.StorePaymentMethod.Equals("COD");
             WooCommerceStore.PaymentMethods.SelectRow(1);
             WooCommerceStore.PaymentMethods.Row.PaymentMethodID.Select("CASH");
            // WooCommerceStore.PaymentMethods.Row.CashAccountID.Select("10300WH");
@@ -310,9 +310,11 @@ namespace ACSC.Tests.TestsBase
             ItemClassPage.GeneralSettings.StkItem.Set(itemClass.GeneralSettings.StkItem);
             ItemClassPage.GeneralSettings.ItemType.Select(itemClass.GeneralSettings.ItemType);
             ItemClassPage.GeneralSettings.TaxCategoryID.Select(itemClass.GeneralSettings.TaxCategory);
-            //ItemClassPage.GeneralSettings.PostClassID.Select(itemClass.GeneralSettings.PostingClass);
-            //ItemClassPage.GeneralSettings.PostClassID.Select("AOL");
+            ItemClassPage.GeneralSettings.PostClassID.Select(itemClass.GeneralSettings.PostingClass);
+            ItemClassPage.GeneralSettings.PostClassID.Select("AOL");
             ItemClassPage.GeneralSettings.LotSerClassID.Select(itemClass.GeneralSettings.LotSerClass);
+        //    ItemClassPage.GeneralSettings.LotSerClassID.Select("SRENTER");
+
             ItemClassPage.GeneralSettings.DfltSiteID.Select(itemClass.GeneralSettings.DefWarehouse);
             ItemClassPage.GeneralSettings.AvailabilitySchemeID.Select(itemClass.GeneralSettings.AvailabilityCalcRule);
             ItemClassPage.GeneralSettings.UndershipThreshold.Type(100);
@@ -325,6 +327,8 @@ namespace ACSC.Tests.TestsBase
             ItemClassPage.GeneralSettings.DecimalPurchaseUnit.Set(itemClass.GeneralSettings.DecimalPurchaseUnit);
             ItemClassPage.GeneralSettings.MinGrossProfitPct.Type(itemClass.GeneralSettings.MinMarkup);
             ItemClassPage.GeneralSettings.MarkupPct.Type(itemClass.GeneralSettings.Markup);
+            // ItemClassPage.Attributes.New();
+            // ItemClassPage.AttributeTest.New();
 
             foreach (var attribute in itemClass.Attributes)
             {

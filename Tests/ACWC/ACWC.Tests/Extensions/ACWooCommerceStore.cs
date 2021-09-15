@@ -2,7 +2,6 @@
 
 namespace ACSC.Tests.Extensions
 {
-    //public class ACWooCommerceStore : BC201010_BCShopifyStoreMaint
         public class ACWooCommerceStore : WC201000_WCStoreMaint
         {
         public c_entities_cstpxgrid42 EntitySettings => base.Entities_CstPXGrid42;

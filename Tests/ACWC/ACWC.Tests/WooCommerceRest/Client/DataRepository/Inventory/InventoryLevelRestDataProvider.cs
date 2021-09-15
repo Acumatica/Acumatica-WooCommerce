@@ -20,7 +20,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Inventory
 
         public InventoryLevelRestDataProvider(IWooCommerceRestClient restClient) : base()
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restClient;
         }
 
         public InventoryLevelData Create(InventoryLevelData entity) => throw new NotImplementedException();
@@ -36,7 +36,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Inventory
         public bool Delete(string inventoryItemId, string inventoryLocationId)
         {
             var request = BuildRequest(string.Format(GetDeleteUrl, inventoryItemId, inventoryLocationId), nameof(Delete), null, null);
-            return ShopifyRestClient.Delete(request);
+            return WooCommerceRestClient.Delete(request);
         }
 
         public List<InventoryLevelData> GetCurrentList(out string previousList, out string nextList, IFilter filter = null)
@@ -59,23 +59,23 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Inventory
 
         public InventoryLevelData AdjustInventory(InventoryLevelData entity)
         {
-            ShopifyRestClient.Logger?.Debug($"AdjustInventory: adjusting {entity.GetType()} entry");
+            WooCommerceRestClient.Logger?.Debug($"AdjustInventory: adjusting {entity.GetType()} entry");
             var request = BuildRequest(GetPostAdjustUrl, nameof(AdjustInventory), null, null);
-            return ShopifyRestClient.Post<InventoryLevelData, InventoryLevelResponse>(request, entity, false);
+            return WooCommerceRestClient.Post<InventoryLevelData, InventoryLevelResponse>(request, entity, false);
         }
 
         public InventoryLevelData SetInventory(InventoryLevelData entity)
         {
-            ShopifyRestClient.Logger?.Debug($"SetInventory: setting {entity.GetType()} entry");
+            WooCommerceRestClient.Logger?.Debug($"SetInventory: setting {entity.GetType()} entry");
             var request = BuildRequest(GetPostSetUrl, nameof(SetInventory), null, null);
-            return ShopifyRestClient.Post<InventoryLevelData, InventoryLevelResponse>(request, entity, false);
+            return WooCommerceRestClient.Post<InventoryLevelData, InventoryLevelResponse>(request, entity, false);
         }
 
         public InventoryLevelData ConnectInventory(InventoryLevelData entity)
         {
-            ShopifyRestClient.Logger?.Debug($"ConnectInventory: connecting {entity.GetType()} entry");
+            WooCommerceRestClient.Logger?.Debug($"ConnectInventory: connecting {entity.GetType()} entry");
             var request = BuildRequest(GetPostConnectUrl, nameof(ConnectInventory), null, null);
-            return ShopifyRestClient.Post<InventoryLevelData, InventoryLevelResponse>(request, entity, false);
+            return WooCommerceRestClient.Post<InventoryLevelData, InventoryLevelResponse>(request, entity, false);
         }
     }
 }

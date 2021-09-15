@@ -1,17 +1,17 @@
 [
-  //{
-  //  "inventoryCD": "HEADSET",
-  //  "description": "Headset",
-  //  "itemStatus": "Active",
-  //  "itemDetails": {
-  //    "BasePrice": 150.00,
-  //    "ItemClass": "STOCKITEM",
-  //    "PostingClass": "ELE",
-  //    "ItemType": "Finished Good",
-  //    "Weight": 0.2,
-  //    "WeightUOM": "KG"
-  //  }
-  //},
+  {
+    "inventoryCD": "HEADSET",
+    "description": "Headset",
+    "itemStatus": "Active",
+    "itemDetails": {
+      "BasePrice": 150.00,
+      "ItemClass": "STOCKITEM",
+      "PostingClass": "ELE",
+      "ItemType": "Finished Good",
+      "Weight": 0.2,
+      "WeightUOM": "KG"
+    }
+  },
   {
     "inventoryCD": "KEYBOARD",
     "description": "Computer keyboard",

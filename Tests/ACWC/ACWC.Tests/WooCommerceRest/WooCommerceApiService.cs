@@ -8,9 +8,11 @@ using ACSC.Tests.ShopifyRest.Client.DataRepository.Order;
 using ACSC.Tests.ShopifyRest.Client.DataRepository.PriceRule;
 using ACSC.Tests.ShopifyRest.Client.DataRepository.Products;
 using ACSC.Tests.ShopifyRest.Client.DataRepository.Shipping;
+using ACSC.Tests.ShopifyRest.Client.DataRepository.Refund;
 using ACSC.Tests.ShopifyRest.Configuration;
 using ACSC.Tests.ShopifyRest.Interfaces;
 using ACSC.Tests.ShopifyRest.Logger;
+using ACWC.Tests.WooCommerceRest.Client.DataRepository.Customers;
 using Newtonsoft.Json;
 using System;
 
@@ -53,8 +55,12 @@ namespace ACSC.Tests.ShopifyRest
         public ProductVariantRestDataProvider ProductVariantRestDataProvider => Get<ProductVariantRestDataProvider>();
         #endregion
 
+        #region Refunds
+        public RefundRestDataProvider RefundRestDataProvider => Get<RefundRestDataProvider>();
+        #endregion
+
         #region Discount
-        
+
         public DiscountRestDataProvider DiscountRestDataProvider => Get<DiscountRestDataProvider>();
         public PriceRuleRestDataProvider PriceRuleRestDataProvider => Get<PriceRuleRestDataProvider>();
 

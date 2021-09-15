@@ -1,6 +1,6 @@
 ﻿{
-  "payment_method": "bacs",
-  "payment_method_title": "Direct Bank Transfer",
+  "payment_method": "COD",
+  "payment_method_title": "Cash on Delivery",
   "set_paid": true,
   "billing": {
     "first_name": "Tharindu",
@@ -26,7 +26,7 @@
   },
   "line_items": [
     {
-      "product_id": 593,
+      "product_id": 561,
       "quantity": 1
     }
   ],

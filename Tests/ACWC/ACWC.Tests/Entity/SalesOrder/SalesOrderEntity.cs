@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ACSC.Tests.Entity.SalesOrder
 {
@@ -24,5 +25,10 @@ namespace ACSC.Tests.Entity.SalesOrder
         public List<SalesOrderEntityShipment> Shipments { get; set; }
         public List<SalesOrderEntityPayments> Payments { get; set; }
         public SalesOrderEntityTotals Totals { get; set; }
+
+        //public static implicit operator object(SalesOrderEntity v)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

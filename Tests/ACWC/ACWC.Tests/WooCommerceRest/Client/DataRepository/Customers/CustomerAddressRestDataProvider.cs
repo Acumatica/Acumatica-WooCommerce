@@ -15,7 +15,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Customers
 
         public CustomerAddressRestDataProvider(IWooCommerceRestClient restClient) : base()
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restClient;
         }
 
         public CustomerAddressData Create(CustomerAddressData entity, string customerId)

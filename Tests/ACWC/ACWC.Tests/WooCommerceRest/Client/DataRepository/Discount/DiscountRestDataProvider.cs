@@ -17,7 +17,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Discount
 
         public DiscountRestDataProvider(IWooCommerceRestClient restClient) : base()
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restClient;
         }
 
         public DiscountData Create(DiscountData entity, string price_rule_id)

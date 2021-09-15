@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestsSalesOrder\ImportSalesOrderRefundFromWC.cs" />
+    <Compile Include="TestsProduct\ExportTemplateItemsToWC.cs" />
+    <Compile Include="TestsProduct\ExportProductAvailabilityToWC.cs" />
+    <Compile Include="TestsProduct\ExportNonStockItemsToWC.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\Order\IShopifyRestClient.cs" />
+    <Compile Include="WooCommerceRest\Client\DataRepository\Refund\RefundRestDataProvider.cs" />
     <Compile Include="Wrappers\WC201000_WCStoreMaint.cs" />
     <PackageReference Include="Bogus">
       <Version>33.0.2</Version>
@@ -907,6 +913,9 @@
     <None Include="EntityData\Metafields\ExportNonStockItemsToSP.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="EntityData\NonStockItems\ExportNonStockItemsToSPValidationObjWC.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="EntityData\NonStockItems\ExportNonStockItemsToSPValidationObj2.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -941,7 +950,7 @@
     <None Include="EntityData\Orders\ImportSalesOrderLineLevelDiscountsOnMultipleItems\ImportSalesOrderLineLevelDiscountsOnMultipleItemsGI.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="EntityData\Orders\ImportSalesOrderMultipleItemsTaxesForCanadianCustomerShopify.json">
+    <None Include="EntityData\Orders\ImportSalesOrderMultipleItemsTaxesForCanadianCustomerWooCommerce.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="EntityData\Orders\ImportSalesOrderUSStockItemsToCanadianCustomerPaidCCShopify.json">
@@ -998,7 +1007,7 @@
     <None Include="EntityData\Orders\SalesOrderForExistingCustomerAndItem.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="EntityData\Orders\SalesOrderForExistingCustomerAndItemShopify.json">
+    <None Include="EntityData\Orders\SalesOrderForExistingCustomerAndItemWC.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="EntityData\Orders\SalesOrderLineLevelDiscountsOnMultipleItems\ItemsToCreate.json">
@@ -1037,6 +1046,12 @@
     <None Include="EntityData\Orders\SOWithShippingAndTaxExemptItem\ItemsToCreate.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="EntityData\SORefunds\CreateSalesOrderForRefundInWC.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="EntityData\SORefunds\CreateSalesOrderRefundInWC.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="EntityData\StockItems\ExportProductAvailabilityToSP.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -1070,7 +1085,7 @@
     <None Include="EntityData\StockItems\ExportStockItemToSPProductData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="EntityData\StockItems\ExportStockItemToSPGI.json">
+    <None Include="EntityData\StockItems\ExportStockItemToWCGI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="EntityData\StockItems\ExportStockItemToSPUpdateItem.json">

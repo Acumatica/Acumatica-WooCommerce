@@ -1180,5 +1180,8 @@
         // Token: 0x04000139 RID: 499
         public const string InstanceID = "instance_id";
 
+        // Token: 0x04000139 RID: 500
+        public const string APIRefund = "api_refund";
+
     }
 }

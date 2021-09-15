@@ -10,11 +10,11 @@ using ACSC.Tests.EntityData;
 using ACSC.Tests.EntityDataService;
 
 namespace ACSC.Tests.TestsSalesOrder
-{   
-    public class ImportSalesOrderForExistingCustomerAndItemWC : TestSalesOrderBase
+{
+    public class ImportSalesOrderRefundFromWC : TestSalesOrderBase
     {
         public long? orderID { get; private set; }
-
+        
         public override void Execute()
         {
             using (TestExecution.CreateTestCaseGroup("Import a Sales Order for an existing Customer and Item"))
@@ -54,7 +54,18 @@ namespace ACSC.Tests.TestsSalesOrder
                     VerifyACSalesOrder(localOrderNbr, soOrderEx);
                 }
 
-                using (TestExecution.CreateTestStepGroup("Step 6 - Save ID"))
+                using (TestExecution.CreateTestStepGroup("Step 6 - Create a Refund"))
+                {
+                    var refundData = GetRefundDataObj();
+                    int wcOrderID = (int)newOrder.Id;
+                    CreateRefunds(refundData,wcOrderID);
+                }
+                using (TestExecution.CreateTestStepGroup("Step 7 - Import Refund into AC"))
+                {
+                    FetchDataPage.FetchDataByEntityUsingFetchModeWithSyncMode(store, FetchMode.Incremental, SyncMode.PendingAndFailed, Entities.Refund, newOrder.Id.ToString());
+                }
+
+                using (TestExecution.CreateTestStepGroup("Step 8 - Save ID"))
                 {
                     SaveID(this.GetType());
                 }
@@ -101,6 +112,13 @@ namespace ACSC.Tests.TestsSalesOrder
             long.TryParse(extCustID, out long customerId);
             orderData = DataService.GetOrderData(DataFilePath.SalesOrderForExistingCustomerAndItemWC);
             return orderData;
+        }
+
+        private OrderRefund GetRefundDataObj()
+        {
+            refundData = DataService.GetOrderRefund(DataFilePath.ImportSalesOrderRefundFromWC);
+            return refundData;
+
         }
 
         private SalesOrderEntity GetOrderValidationObj()

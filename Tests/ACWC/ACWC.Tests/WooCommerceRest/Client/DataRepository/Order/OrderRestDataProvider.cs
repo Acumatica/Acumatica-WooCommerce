@@ -14,6 +14,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Order
         protected override string GetListUrl { get; } = "orders";
         protected override string GetSingleUrl { get; } = "orders/{id}";
         protected override string GetCountUrl { get; } = "orders/count";
+       
         protected override string GetSearchUrl => throw new NotImplementedException();
         private string GetMetafieldsUrl { get; } = "orders/{id}/metafields";
         private string GetCloseOrderUrl { get; } = "orders/{id}/close";
@@ -28,8 +29,8 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Order
 
         public OrderRestDataProvider(IWooCommerceRestClient restClient) : base()
         {
-            ShopifyRestClient = restClient;
-            draftOrderRestDataProvider = new DraftOrderRestDataProvider(restClient);
+            WooCommerceRestClient = restClient;
+           // draftOrderRestDataProvider = new DraftOrderRestDataProvider(restClient);
         }
 
         //public OrderData Create(OrderData entity)
@@ -100,25 +101,25 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Order
         public List<MetafieldData> GetMetafieldsById(string id)
         {
             var request = BuildRequest(GetMetafieldsUrl, nameof(GetMetafieldsById), MakeUrlSegments(id), null);
-            return ShopifyRestClient.GetAll<MetafieldData, MetafieldsResponse>(request);
+            return WooCommerceRestClient.GetAll<MetafieldData, MetafieldsResponse>(request);
         }
 
         public OrderData CloseOrder(string orderId)
         {
             var request = BuildRequest(GetCloseOrderUrl, nameof(CloseOrder), MakeUrlSegments(orderId), null);
-            return ShopifyRestClient.Post<OrderData, OrderResponse>(request, null, false);
+            return WooCommerceRestClient.Post<OrderData, OrderResponse>(request, null, false);
         }
 
         public OrderData ReopenOrder(string orderId)
         {
             var request = BuildRequest(GetReOpenOrderUrl, nameof(ReopenOrder), MakeUrlSegments(orderId), null);
-            return ShopifyRestClient.Post<OrderData, OrderResponse>(request, null, false);
+            return WooCommerceRestClient.Post<OrderData, OrderResponse>(request, null, false);
         }
 
         public OrderData CancelOrder(string orderId)
         {
             var request = BuildRequest(GetCancelOrderUrl, nameof(CancelOrder), MakeUrlSegments(orderId), null);
-            return ShopifyRestClient.Post<OrderData, OrderResponse>(request, null, false);
+            return WooCommerceRestClient.Post<OrderData, OrderResponse>(request, null, false);
         }
 
         //public List<OrderTransaction> GetOrderTransactions(string orderId)
@@ -136,19 +137,19 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Order
         public CustomerData GetOrderCustomer(string orderId)
         {
             var request = BuildRequest(GetCustomerUrl, nameof(GetOrderCustomer), MakeUrlSegments(orderId), null);
-            return ShopifyRestClient.Get<CustomerData, CustomerResponse>(request).Data;
+            return WooCommerceRestClient.Get<CustomerData, CustomerResponse>(request).Data;
         }
 
         public List<OrderRisk> GetOrderRisks(string orderId)
         {
             var request = BuildRequest(GetMetafieldsUrl, nameof(GetOrderRisks), MakeUrlSegments(orderId), null);
-            return ShopifyRestClient.GetAll<OrderRisk, OrderRisksResponse>(request);
+            return WooCommerceRestClient.GetAll<OrderRisk, OrderRisksResponse>(request);
         }
 
         public OrderTransaction PostPaymentToCapture(OrderTransaction entity, string orderId)
         {
             var request = BuildRequest(GetTransactionsUrl, nameof(PostPaymentToCapture), MakeUrlSegments(orderId), null);
-            return ShopifyRestClient.Post<OrderTransaction, OrderTransactionResponse>(request, entity);
+            return WooCommerceRestClient.Post<OrderTransaction, OrderTransactionResponse>(request, entity);
         }
 
         //private DraftOrderData CreateDraftOrder(OrderData entity)

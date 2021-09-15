@@ -4,7 +4,6 @@ using ACSC.Tests.PageVisitors.StockItem;
 using GeneratedWrappers.Acumatica;
 using Controls.Editors.DropDown;
 using Controls.Editors.Selector;
-using GeneratedWrappers.Acumatica;
 
 namespace ACSC.Tests.Extensions.StockItem
 {

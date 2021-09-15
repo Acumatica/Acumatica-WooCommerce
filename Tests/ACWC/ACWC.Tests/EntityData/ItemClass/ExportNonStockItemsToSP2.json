@@ -1,12 +1,12 @@
 {
-  "ClassID": "NSTOCK2",
+  "ClassID": "NSTOCK3",
   "Description": "Non-Stock Item test Item Class",
   "GeneralSettings": {
     "StkItem": "false",
     "ItemType": "Non-Stock Item",
     "TaxCategory": "TAXABLE",
     "DefWarehouse": "WHOLESALE",
-    "PostingClass": "SNO",
+    "PostingClass": "NSS",
     "BaseUnit": "HOUR",
     "SalesUnit": "HOUR",
     "PurchaseUnit": "HOUR",

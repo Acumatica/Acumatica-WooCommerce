@@ -5,6 +5,7 @@ using ACSC.Tests.ShopifyRest.Domain.Entities.Products;
 using ACSC.Tests.ShopifyRest.Interfaces;
 using RestSharp;
 using RestSharp.Extensions;
+using ACSC.Tests.ShopifyRest.Client.DataRepository.Refund;
 
 namespace ACSC.Tests.ShopifyRest.Client.Common
 {
@@ -14,7 +15,8 @@ namespace ACSC.Tests.ShopifyRest.Client.Common
         protected const string PARENT_ID_STRING = "parent_id";
         //protected const string ApiPrefix = "api";
 
-        protected IWooCommerceRestClient ShopifyRestClient;
+        protected IWooCommerceRestClient WooCommerceRestClient;
+       // private RefundRestDataProvider refundRestDataProvider;
 
         //Default WooCommerce API version, if you want to use different API version, please overwrite in your detail DataProvider
         protected string ApiVersion { get => "v3"; }
@@ -24,16 +26,25 @@ namespace ACSC.Tests.ShopifyRest.Client.Common
         protected abstract string GetCountUrl { get; }
         protected abstract string GetSearchUrl { get; }
 
-        public RestDataProviderBase()
-        {
-        }
+        //public RestDataProviderBase(IWooCommerceRestClient restClient)
+        //{
+        //    WooCommerceRestClient = restClient;
+        //    refundRestDataProvider = new RefundRestDataProvider(restClient);
+        //}
 
         public T Create<T>(T entity, UrlSegments urlSegments = null) where T : class, new()
         {
             var request = BuildRequest(GetListUrl, nameof(this.Create), urlSegments, null);
-            ShopifyRestClient.Logger?.Debug($"Create: {entity.GetType()}");
+            WooCommerceRestClient.Logger?.Debug($"Create: {entity.GetType()}");
             HandleRequesetHeader<T>(request);
-            return ShopifyRestClient.Post<T>(request, entity);
+            return WooCommerceRestClient.Post<T>(request, entity);
+        }
+        public T CreateRefund<T>(T entity, UrlSegments urlSegments = null) where T : class, new()
+        {
+            var request = BuildRequest(GetSingleUrl, nameof(this.CreateRefund), urlSegments, null);
+            WooCommerceRestClient.Logger?.Debug($"CreateRefund: {entity.GetType()}");
+            HandleRequesetHeader<T>(request);
+            return WooCommerceRestClient.Post<T>(request, entity);
         }
 
         public T Create<T, TR>(T entity, UrlSegments urlSegments = null) where T : class, new() where TR :class, IEntityResponse<T>, new()
@@ -44,15 +55,15 @@ namespace ACSC.Tests.ShopifyRest.Client.Common
         public virtual T Update<T, TR>(T entity, UrlSegments urlSegments) where T : class, new() where TR : class, IEntityResponse<T>, new()
         {
             var request = BuildRequest(GetSingleUrl, nameof(this.Update), urlSegments, null);
-            ShopifyRestClient.Logger?.Debug($"Update: {entity.GetType()}");
+            WooCommerceRestClient.Logger?.Debug($"Update: {entity.GetType()}");
             HandleRequesetHeader<T>(request);
-            return ShopifyRestClient.Put<T, TR>(request, entity);
+            return WooCommerceRestClient.Put<T, TR>(request, entity);
         }
 
         public virtual bool Delete(UrlSegments urlSegments)
         {
             var request = BuildRequest(GetSingleUrl, nameof(this.Delete), urlSegments, null);
-            return ShopifyRestClient.Delete(request);
+            return WooCommerceRestClient.Delete(request);
         }
 
         public virtual ItemCount GetCount(UrlSegments urlSegments = null) => GetCount(null, urlSegments);
@@ -60,28 +71,28 @@ namespace ACSC.Tests.ShopifyRest.Client.Common
         public virtual ItemCount GetCount(IFilter filter, UrlSegments urlSegments = null)
         {
             var request = BuildRequest(GetCountUrl, nameof(this.GetCount), urlSegments, filter);
-            var count = ShopifyRestClient.GetCount<ItemCount>(request);
+            var count = WooCommerceRestClient.GetCount<ItemCount>(request);
             return count;
         }
 
         public virtual T GetByID<T, TR>(UrlSegments urlSegments) where T : class, new() where TR : class, IEntityResponse<T>, new()
         {
             var request = BuildRequest(GetSingleUrl, nameof(this.GetByID), urlSegments, null);
-            var entity = ShopifyRestClient.Get<T, TR>(request);
+            var entity = WooCommerceRestClient.Get<T, TR>(request);
             return entity.Data;
         }
 
         public virtual List<T> GetCurrentList<T, TR>(out string previousList, out string nextList, IFilter filter = null, UrlSegments urlSegments = null) where T : class, new() where TR : class, IEntitiesResponse<T>, new()
         {
             var request = BuildRequest(GetListUrl, nameof(this.GetCurrentList), urlSegments, filter);
-            var entities = ShopifyRestClient.GetCurrentList<T, TR>(request, out previousList, out nextList);
+            var entities = WooCommerceRestClient.GetCurrentList<T, TR>(request, out previousList, out nextList);
             return entities;
         }
 
         public virtual List<T> GetAll<T, TR>(IFilter filter = null, UrlSegments urlSegments = null) where T : class, new() where TR : class, IEntitiesResponse<T>, new()
         {
             var request = BuildRequest(GetListUrl, nameof(this.GetAll), urlSegments, filter);
-            var entities = ShopifyRestClient.GetAll<T, TR>(request);
+            var entities = WooCommerceRestClient.GetAll<T, TR>(request);
             return entities;
         }
 
@@ -143,7 +154,7 @@ namespace ACSC.Tests.ShopifyRest.Client.Common
         {
             var builtUrl = BuildUrl(url);
             ValidationUrl(builtUrl, methodName);
-            var request = ShopifyRestClient.MakeRequest(builtUrl, urlSegments?.GetUrlSegments());
+            var request = WooCommerceRestClient.MakeRequest(builtUrl, urlSegments?.GetUrlSegments());
             if (filter != null)
                 filter?.AddFilter(request);
             return request;

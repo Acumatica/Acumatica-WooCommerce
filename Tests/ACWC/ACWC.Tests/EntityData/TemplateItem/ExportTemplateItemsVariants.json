@@ -1,9 +1,9 @@
 [
   {
-    "InventoryCD": "ACU-SHIRT-BLUE -L -COTTON",
-    "Description": "ACU-SHIRT-Blue -L -Cotton",
+    "InventoryCD": "ACU-SHIRT5-BL-L-CO",
+    "Description": "ACU-SHIRT5-Bl-L-Co",
     "DfltSiteID": "MAIN",
-    "option1": "100% Cotton Shirt",
+    "option1": "Cotton",
     "option2": "Blue Shirt",
     "option3": "Large",
     "TaxCategory": "TAXABLE",
@@ -11,10 +11,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-BLUE -L -POLYESTER",
-    "Description": "ACU-SHIRT-Blue -L -Polyester",
+    "InventoryCD": "ACU-SHIRT5-Bl-L-Co",
+    "Description": "ACU-SHIRT5-Bl-L-Co",
     "DfltSiteID": "MAIN",
-    "option1": "Cotton-Polyester Shirt",
+    "option1": "Cotton",
     "option2": "Blue Shirt",
     "option3": "Large",
     "TaxCategory": "TAXABLE",
@@ -22,10 +22,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-BLUE -M -COTTON",
-    "Description": "ACU-SHIRT-Blue -M -Cotton",
+    "InventoryCD": "ACU-SHIRT5-BL-M-CO",
+    "Description": "ACU-SHIRT5-Bl-M-Co",
     "DfltSiteID": "MAIN",
-    "option1": "100% Cotton Shirt",
+    "option1": "Cotton",
     "option2": "Blue Shirt",
     "option3": "Medium",
     "TaxCategory": "TAXABLE",
@@ -33,10 +33,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-BLUE -M -POLYESTER",
-    "Description": "ACU-SHIRT-Blue -M -Polyester",
+    "InventoryCD": "ACU-SHIRT5-BL-M-PO",
+    "Description": "ACU-SHIRT5-Bl-M-Po",
     "DfltSiteID": "MAIN",
-    "option1": "Cotton-Polyester Shirt",
+    "option1": "Polyester",
     "option2": "Blue Shirt",
     "option3": "Medium",
     "TaxCategory": "TAXABLE",
@@ -44,10 +44,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-BLUE -S -COTTON",
-    "Description": "ACU-SHIRT-Blue -S -Cotton",
+    "InventoryCD": "ACU-SHIRT5-BL-S-CO",
+    "Description": "ACU-SHIRT5-Bl-S-Co",
     "DfltSiteID": "MAIN",
-    "option1": "100% Cotton Shirt",
+    "option1": "Cotton",
     "option2": "Blue Shirt",
     "option3": "Small",
     "TaxCategory": "TAXABLE",
@@ -55,10 +55,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-BLUE -S -POLYESTER",
-    "Description": "ACU-SHIRT-Blue -S -Polyester",
+    "InventoryCD": "ACU-SHIRT5-BL-S-PO",
+    "Description": "ACU-SHIRT5-Bl-S-Po",
     "DfltSiteID": "MAIN",
-    "option1": "Cotton-Polyester Shirt",
+    "option1": "Polyester",
     "option2": "Blue Shirt",
     "option3": "Small",
     "TaxCategory": "TAXABLE",
@@ -66,10 +66,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-BLUE -XL -COTTON",
-    "Description": "ACU-SHIRT-Blue -XL -Cotton",
+    "InventoryCD": "ACU-SHIRT5-BL-XL-CO",
+    "Description": "ACU-SHIRT5-Bl-XL-Co",
     "DfltSiteID": "MAIN",
-    "option1": "100% Cotton Shirt",
+    "option1": "Cotton",
     "option2": "Blue Shirt",
     "option3": "Extra-Large",
     "TaxCategory": "TAXABLE",
@@ -77,10 +77,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-BLUE -XL -POLYESTER",
-    "Description": "ACU-SHIRT-Blue -XL -Polyester",
+    "InventoryCD": "ACU-SHIRT5-BL-XL-PO",
+    "Description": "ACU-SHIRT5-Bl-XL-Po",
     "DfltSiteID": "MAIN",
-    "option1": "Cotton-Polyester Shirt",
+    "option1": "Polyester",
     "option2": "Blue Shirt",
     "option3": "Extra-Large",
     "TaxCategory": "TAXABLE",
@@ -88,10 +88,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-BLUE -XXL-COTTON",
-    "Description": "ACU-SHIRT-Blue -XXL-Cotton",
+    "InventoryCD": "ACU-SHIRT5-BL-XX-CO",
+    "Description": "ACU-SHIRT5-Bl-XX-Co",
     "DfltSiteID": "MAIN",
-    "option1": "100% Cotton Shirt",
+    "option1": "Cotton",
     "option2": "Blue Shirt",
     "option3": "Double Extra-Large",
     "TaxCategory": "TAXABLE",
@@ -99,10 +99,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-BLUE -XXL-POLYESTER",
-    "Description": "ACU-SHIRT-Blue -XXL-Polyester",
+    "InventoryCD": "ACU-SHIRT5-BL-XX-PO",
+    "Description": "ACU-SHIRT5-Bl-XX-Po",
     "DfltSiteID": "MAIN",
-    "option1": "Cotton-Polyester Shirt",
+    "option1": "Polyester",
     "option2": "Blue Shirt",
     "option3": "Double Extra-Large",
     "TaxCategory": "TAXABLE",
@@ -110,10 +110,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-WHITE-L -COTTON",
-    "Description": "ACU-SHIRT-White-L -Cotton",
+    "InventoryCD": "ACU-SHIRT5-WH-L-CO",
+    "Description": "ACU-SHIRT5-Wh-L-Co",
     "DfltSiteID": "MAIN",
-    "option1": "100% Cotton Shirt",
+    "option1": "Cotton",
     "option2": "White Shirt",
     "option3": "Large",
     "TaxCategory": "TAXABLE",
@@ -121,10 +121,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-WHITE-L -POLYESTER",
-    "Description": "ACU-SHIRT-White-L -Polyester",
+    "InventoryCD": "ACU-SHIRT5-WH-L-PO",
+    "Description": "ACU-SHIRT5-Wh-L-Po",
     "DfltSiteID": "MAIN",
-    "option1": "Cotton-Polyester Shirt",
+    "option1": "Polyester",
     "option2": "White Shirt",
     "option3": "Large",
     "TaxCategory": "TAXABLE",
@@ -132,10 +132,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-WHITE-M -COTTON",
-    "Description": "ACU-SHIRT-White-M -Cotton",
+    "InventoryCD": "ACU-SHIRT5-WH-M-CO",
+    "Description": "ACU-SHIRT5-Wh-M-Co",
     "DfltSiteID": "MAIN",
-    "option1": "100% Cotton Shirt",
+    "option1": "Cotton",
     "option2": "White Shirt",
     "option3": "Medium",
     "TaxCategory": "TAXABLE",
@@ -145,10 +145,10 @@
 
 
   {
-    "InventoryCD": "ACU-SHIRT-WHITE-M -POLYESTER",
-    "Description": "ACU-SHIRT-White-M -Polyester",
+    "InventoryCD": "ACU-SHIRT5-WH-M-PO",
+    "Description": "ACU-SHIRT5-Wh-M-Po",
     "DfltSiteID": "MAIN",
-    "option1": "Cotton-Polyester Shirt",
+    "option1": "Polyester",
     "option2": "White Shirt",
     "option3": "Medium",
     "TaxCategory": "TAXABLE",
@@ -156,10 +156,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-WHITE-S -COTTON",
-    "Description": "ACU-SHIRT-White-S -Cotton",
+    "InventoryCD": "ACU-SHIRT5-WH-S-CO",
+    "Description": "ACU-SHIRT5-Wh-S-Co",
     "DfltSiteID": "MAIN",
-    "option1": "100% Cotton Shirt",
+    "option1": "Cotton",
     "option2": "White Shirt",
     "option3": "Small",
     "TaxCategory": "TAXABLE",
@@ -167,10 +167,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-WHITE-S -POLYESTER",
-    "Description": "ACU-SHIRT-White-S -Polyester",
+    "InventoryCD": "ACU-SHIRT5-WH-S-PO",
+    "Description": "ACU-SHIRT5-Wh-S-Po",
     "DfltSiteID": "MAIN",
-    "option1": "Cotton-Polyester Shirt",
+    "option1": "Polyester",
     "option2": "White Shirt",
     "option3": "Small",
     "TaxCategory": "TAXABLE",
@@ -178,10 +178,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-WHITE-XL -COTTON",
-    "Description": "ACU-SHIRT-White-XL -Cotton",
+    "InventoryCD": "ACU-SHIRT5-WH-XL-CO",
+    "Description": "ACU-SHIRT5-Wh-XL-Co",
     "DfltSiteID": "MAIN",
-    "option1": "100% Cotton Shirt",
+    "option1": "Cotton",
     "option2": "White Shirt",
     "option3": "Extra-Large",
     "TaxCategory": "TAXABLE",
@@ -189,10 +189,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-WHITE-XL -POLYESTER",
-    "Description": "ACU-SHIRT-White-XL -Polyester",
+    "InventoryCD": "ACU-SHIRT5-WH-XL-PO",
+    "Description": "ACU-SHIRT5-Wh-XL-Po",
     "DfltSiteID": "MAIN",
-    "option1": "Cotton-Polyester Shirt",
+    "option1": "Polyester",
     "option2": "White Shirt",
     "option3": "Extra-Large",
     "TaxCategory": "TAXABLE",
@@ -200,10 +200,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-WHITE-XXL-COTTON",
-    "Description": "ACU-SHIRT-White-XXL-Cotton",
+    "InventoryCD": "ACU-SHIRT5-WH-XX-CO",
+    "Description": "ACU-SHIRT5-Wh-XX-Co",
     "DfltSiteID": "MAIN",
-    "option1": "100% Cotton Shirt",
+    "option1": "Cotton",
     "option2": "White Shirt",
     "option3": "Double Extra-Large",
     "TaxCategory": "TAXABLE",
@@ -211,10 +211,10 @@
     "StockItem": "true"
   },
   {
-    "InventoryCD": "ACU-SHIRT-WHITE-XXL-POLYESTER",
-    "Description": "ACU-SHIRT-White-XXL-Polyester",
+    "InventoryCD": "ACU-SHIRT5-WH-XX-PO",
+    "Description": "ACU-SHIRT5-Wh-XX-Po",
     "DfltSiteID": "MAIN",
-    "option1": "Cotton-Polyester Shirt",
+    "option1": "Polyester",
     "option2": "White Shirt",
     "option3": "Double Extra-Large",
     "TaxCategory": "TAXABLE",

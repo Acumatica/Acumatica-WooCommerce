@@ -37,6 +37,14 @@ namespace ACSC.Tests.ShopifyRest.Domain.Entities.Order
         [Description(ShopifyCaptions.OrderId)]
         public long? Id { get; set; }
 
+        [JsonProperty("amount", NullValueHandling = NullValueHandling.Ignore)]
+        [Description(ShopifyCaptions.Amount)]
+        public String Amount { get; set; }
+
+        [JsonProperty("api_refund", NullValueHandling = NullValueHandling.Ignore)]
+        [Description(ShopifyCaptions.APIRefund)]
+        public String ApiRefund { get; set; }
+
         /// <summary>
         /// An optional note attached to a refund.
         /// </summary>
@@ -64,7 +72,7 @@ namespace ACSC.Tests.ShopifyRest.Domain.Entities.Order
         /// <summary>
         /// A list of refunded line items.
         /// </summary>
-        [JsonProperty("refund_line_items", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("line_items", NullValueHandling = NullValueHandling.Ignore)]
         [Description(ShopifyCaptions.RefundItem)]
         [ShouldNotSerialize]
         public List<RefundLineItem> RefundLineItems { get; set; }

@@ -15,6 +15,7 @@ namespace ACSC.Tests.Extensions.Shipment
         public c_currentdocument_formf ShippingInformation => CurrentDocument_formF;
         public c_packages_gridpackages Packages => base.Packages_gridPackages;
         public c_packagedetailsplit_gridpackagedetailsplit PackageContents => base.PackageDetailSplit_gridPackageDetailSplit;
+        public c_addresslookupfilter_addresslookuppanelformaddress AddressLookup => AddressLookupFilter_AddressLookupPanelformAddress;
         public ShipmentEntity Get()
         {
             var visitor = VisitorsManager.GetSingle<IShipmentVisitor>(typeof(ShipmentVisitor));
@@ -63,6 +64,7 @@ namespace ACSC.Tests.Extensions.Shipment
             }
 
             Packages.Columns.BoxID.Equals("LARGE");
+            
 
             if (Packages.RowsCount() == 0)
             {
@@ -70,6 +72,10 @@ namespace ACSC.Tests.Extensions.Shipment
                 Packages.Row.BoxID.Select("LARGE");
             }
 
+            Packages.Row.TrackNumber.Type("Shipment 123");
+
+           // AddressLookup.AddressLine1.Type("Main Street");
+          //  AddressLookup.AddressLine2.Type("New York");
             Packages.Row.Confirmed.SetTrue();
             Save();
 
@@ -78,11 +84,11 @@ namespace ACSC.Tests.Extensions.Shipment
             Packages.Columns.BoxID.ClearFilter();
             Packages.SelectRow(1);
 
-            foreach (string line in inventories)
-            {
-                PackageContents.ClickAndAddNewRow();
-                PackageContents.Row.ShipmentSplitLineNbr.Select(line);
-            }
+            //foreach (string line in inventories)
+            //{
+            //    PackageContents.ClickAndAddNewRow();
+            //    PackageContents.Row.ShipmentSplitLineNbr.Select(line);
+            //}
 
             Save();
         }

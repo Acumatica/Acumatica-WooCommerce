@@ -125,6 +125,10 @@ namespace ACSC.Tests.EntityDataService
         {
             return FileReader<JsonFileReader>().Construct(fileName).Get<OrderData>();
         }
+        public static OrderRefund GetOrderRefund(string fileName)
+        {
+            return FileReader<JsonFileReader>().Construct(fileName).Get<OrderRefund>();
+        }
 
         public static PriceRuleData GetPriceRuleData(string fileName)
         {

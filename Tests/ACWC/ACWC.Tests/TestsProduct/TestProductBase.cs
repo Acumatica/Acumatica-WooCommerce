@@ -91,8 +91,8 @@ namespace ACSC.Tests.TestsProduct
             externalIds = new Dictionary<string, string>(0);
             productRestDataProvider = WooCommerceApiService.Instance.ProductRestDataProvider;
             productImageRestDataProvider = WooCommerceApiService.Instance.ProductImageRestDataProvider;
-            bcPoductRestDataProvider = BigCommerceApiService.Instance.ProductRestDataProvider;
-            bcProductImageRestDataProvider = BigCommerceApiService.Instance.ProductImageRestDataProvider;
+          //  bcPoductRestDataProvider = BigCommerceApiService.Instance.ProductRestDataProvider;
+          //  bcProductImageRestDataProvider = BigCommerceApiService.Instance.ProductImageRestDataProvider;
         }
         public override void AfterExecute()
         {

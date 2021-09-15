@@ -1387,6 +1387,10 @@ namespace GeneratedWrappers.Acumatica
             public Label TaxSubstitutionListIDLabel { get; }
             public Selector TaxCategorySubstitutionListID { get; }
             public Label TaxCategorySubstitutionListIDLabel { get; }
+            public Selector RefundAmountItemID { get; }
+            public Label RefundAmountItemIDLabel { get; }
+            public DropDown ReasonCode { get; }
+            public Label ReasonCodeLabel { get; }
 
             public c_currentstore_tab(string locator, string name) :
                     base(locator, name)

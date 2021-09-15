@@ -43,8 +43,9 @@ namespace ACSC.Tests.ShopifyRest.Domain.Entities.Order
         /// <summary>
         /// The unique identifier of the location where the items will be restocked. Required when restock_type has the value return or cancel.
         /// </summary>
-        [JsonProperty("location_id", NullValueHandling = NullValueHandling.Ignore)]
-        public long? LocationId { get; set; }
+        [JsonProperty("refund_total", NullValueHandling = NullValueHandling.Ignore)]
+        [Description(ShopifyCaptions.RefundAmount)]
+        public long? RefundAmount { get; set; }
 
         /// <summary>
         /// How this refund line item affects inventory levels.

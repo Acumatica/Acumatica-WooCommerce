@@ -17,7 +17,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Inventory
 
         public InventoryLocationRestDataProvider(IWooCommerceRestClient restClient) : base()
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restClient;
         }
 
         public InventoryLocationData Create(InventoryLocationData entity) => throw new NotImplementedException();
@@ -60,7 +60,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Inventory
         public List<InventoryLevelData> GetInventoryLevelsByLocation(string locationId)
         {
             var request = BuildRequest(GetLevelsUrl, nameof(GetInventoryLevelsByLocation), MakeUrlSegments(locationId), null);
-            return ShopifyRestClient.GetAll<InventoryLevelData, InventoryLevelsResponse>(request);
+            return WooCommerceRestClient.GetAll<InventoryLevelData, InventoryLevelsResponse>(request);
         }
     }
 }

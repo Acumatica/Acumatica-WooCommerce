@@ -24,7 +24,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Products
 
         public ProductRestDataProvider(IWooCommerceRestClient restClient) : base()
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restClient;
         }
 
         public ProductData Create(ProductData entity)

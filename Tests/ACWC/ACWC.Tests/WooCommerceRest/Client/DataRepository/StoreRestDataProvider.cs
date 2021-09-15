@@ -12,7 +12,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository
 	{
         public StoreRestDataProvider(IWooCommerceRestClient restClient)
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restClient;
 		}
 		protected override string GetListUrl => throw new NotImplementedException();
 
@@ -26,7 +26,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository
 		public StoreData Get()
         {
 			var request = BuildRequest(GetSingleUrl, nameof(this.Get));
-			StoreData data = ShopifyRestClient.Get<StoreData,StoreResponse>(request, out var headers).Data;
+			StoreData data = WooCommerceRestClient.Get<StoreData,StoreResponse>(request, out var headers).Data;
 			var responseTime = headers.FirstOrDefault(x => x.Name.Equals("Date", StringComparison.OrdinalIgnoreCase));
 			if (responseTime != null && responseTime.Value != null && DateTime.TryParse(responseTime.Value.ToString(), out var serverTime))
 			{
@@ -55,7 +55,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository
 		public List<ShippingZoneData> GetShippingZones()
 		{
 			var request = BuildRequest(GetShippingZoneUrl, nameof(GetShippingZones));
-			return ShopifyRestClient.GetAll<ShippingZoneData, ShippingZonesResponse>(request);
+			return WooCommerceRestClient.GetAll<ShippingZoneData, ShippingZonesResponse>(request);
 		}
 
 	}

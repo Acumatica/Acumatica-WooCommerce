@@ -19,7 +19,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Shipping
 
         public FulfillmentRestDataProvider(IWooCommerceRestClient restClient) : base()
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restClient;
         }
 
         public FulfillmentData Create(FulfillmentData entity, string orderId)
@@ -72,25 +72,25 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Shipping
         public FulfillmentData CompleteFulfillment(string orderId, string fulfillmentId)
         {
             var request = BuildRequest(GetCompleteUrl, nameof(CompleteFulfillment), MakeUrlSegments(fulfillmentId, orderId), null);
-            return ShopifyRestClient.Post<FulfillmentData, FulfillmentResponse>(request, null, false);
+            return WooCommerceRestClient.Post<FulfillmentData, FulfillmentResponse>(request, null, false);
         }
 
         public FulfillmentData UpdateFulfillmentTracking(FulfillmentData entity, string orderId, string fulfillmentId)
         {
             var request = BuildRequest(GetUpdateTrackingUrl, nameof(UpdateFulfillmentTracking), MakeUrlSegments(fulfillmentId, orderId), null);
-            return ShopifyRestClient.Post<FulfillmentData, FulfillmentResponse>(request, entity);
+            return WooCommerceRestClient.Post<FulfillmentData, FulfillmentResponse>(request, entity);
         }
 
         public FulfillmentData OpenFulfillment(string orderId, string fulfillmentId)
         {
             var request = BuildRequest(GetOpenUrl, nameof(OpenFulfillment), MakeUrlSegments(fulfillmentId, orderId), null);
-            return ShopifyRestClient.Post<FulfillmentData, FulfillmentResponse>(request, null, false);
+            return WooCommerceRestClient.Post<FulfillmentData, FulfillmentResponse>(request, null, false);
         }
 
         public FulfillmentData CancelFulfillment(string orderId, string fulfillmentId)
         {
             var request = BuildRequest(GetCancelUrl, nameof(CancelFulfillment), MakeUrlSegments(fulfillmentId, orderId), null);
-            return ShopifyRestClient.Post<FulfillmentData, FulfillmentResponse>(request, null, false);
+            return WooCommerceRestClient.Post<FulfillmentData, FulfillmentResponse>(request, null, false);
         }
     }
 }

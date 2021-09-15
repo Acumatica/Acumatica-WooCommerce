@@ -16,6 +16,7 @@
         public const string CustomerPriceClass = "Customer Price Class";
         public const string PriceList = "Price List";
         public const string BaseSalesPrice = "Base Sales Price";
+        public const string Refund = "Refund";
     }
 
     public static class Statuses
@@ -25,9 +26,12 @@
         public const string Synchronized = "Processed";
         public const string Skipped = "Skipped";
         public const string Deleted = "Deleted";
-        public const string All = "All";
+        public const string All = "All Warehouses";
         public const string Pending = "Pending";
         public const string Filtered = "Filtered";
+        public const string DefaultAvailability = "Set as Available (Track Qty)";
+        public const string AvailabilityDontTrack = "Set as Available (Don't Track Qty)";
+        public const string WhenQtyUnavailable = "Do Nothing";
     }
 
     public static class FetchMode

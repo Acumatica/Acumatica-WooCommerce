@@ -25,8 +25,8 @@ namespace ACSC.Tests.TestsSalesOrder
                 {
                     FetchDataPage.FetchData(store, FetchMode.Incremental, Entities.Customer, Entities.StockItem);
                     ManualSyncByLocalId(Entities.Customer, customer.AcctCD);
-                    ManualSyncByLocalId(Entities.StockItem, "Laptop 14");
-                    SaveCustomerID(GetCustomerTypeName(this.GetType()), "Jacques Plante");
+                    ManualSyncByLocalId(Entities.StockItem, "WC Coffee Mug");
+                    SaveCustomerID(GetCustomerTypeName(this.GetType()), "eCommerce Guest Customer");
                 }
 
                 using (TestExecution.CreateTestStepGroup("Step 2 - Create a Sales Order in WooCommerce"))
@@ -59,10 +59,11 @@ namespace ACSC.Tests.TestsSalesOrder
                     var paymentNbr = salesOrder.Payments.FirstOrDefault()?.ReferenceNbr;
                     PaymentPage.Summary.DocType.Select(paymentType);
                     PaymentPage.Summary.RefNbr.Select(paymentNbr);
+                    //PaymentPage.Release();
                     var payment = PaymentPage.Get();
                     payment.Summary.CustomerID = payment.Summary.CustomerID.Split('-')[1].Trim();
 
-                    var paymentEx = GetPaymentValidationObj("Jacques Plante", 706.75m);
+                    var paymentEx = GetPaymentValidationObj("Acumatica", 706.75m);
                     EntityComparer.Instance.Validate(paymentEx, payment)
                         .Trace("Acumatica Payment: Validate Payment")
                         .IsValid
@@ -70,7 +71,7 @@ namespace ACSC.Tests.TestsSalesOrder
                 }
 
                 //1 Shipment
-                using (TestExecution.CreateTestStepGroup("Step 5 - Create Shipment in Acumatica"))
+                using (TestExecution.CreateTestStepGroup("Step 6 - Create Shipment in Acumatica"))
                 {
                     SalesOrderPage.OpenScreen();
                     SalesOrderPage.Summary.OrderType.Select(localOrderNbr?.Split(',')[0]);
@@ -79,19 +80,19 @@ namespace ACSC.Tests.TestsSalesOrder
                     SalesOrderPage.AddShipment(warehouse.WarehouseID);
                 }
 
-                using (TestExecution.CreateTestStepGroup("Step 6 - Confirm Shipment in Acumatica"))
+                using (TestExecution.CreateTestStepGroup("Step 7 - Confirm Shipment in Acumatica"))
                 {
                     localShipmentNbr = ShipmentPage.Summary.ShipmentNbr.GetValue();
-                    ShipmentPage.ConfirmShipment(5);
+                    ShipmentPage.ConfirmShipment(1);
                 }
 
-                using (TestExecution.CreateTestStepGroup("Step 7 - Export Shipments to SP"))
+                using (TestExecution.CreateTestStepGroup("Step 8 - Export Shipments to WC"))
                 {
                     FetchDataPage.FetchData(store, FetchMode.Incremental, Entities.Shipment);
                     ManualSyncByLocalId(Entities.Shipment, localShipmentNbr);
                 }
 
-                using (TestExecution.CreateTestStepGroup("Step 8 - Verify Export Process Success in Acumatica"))
+                using (TestExecution.CreateTestStepGroup("Step 9 - Verify Export Process Success in Acumatica"))
                 {
                     VerifySyncSuccessInAcumatica(localShipmentNbr, true, Entities.Shipment);
 
@@ -108,60 +109,14 @@ namespace ACSC.Tests.TestsSalesOrder
                         .VerifyEquals(true);
                 }
 
-                using (TestExecution.CreateTestStepGroup("Step 9 - Verify Shopify"))
-                {
-                    var orderDataProvider = WooCommerceApiService.Instance.OrderRestDataProvider;
-                    var orderData = orderDataProvider.GetByID(externalOrderID);
-                    orderData.FulfillmentStatus.ToString().VerifyEquals(OrderFulfillmentStatus.Partial.ToString());
-                }
-
-                //2 Shipment
-                using (TestExecution.CreateTestStepGroup("Step 10 - Create Shipment in Acumatica"))
-                {
-                    SalesOrderPage.OpenScreen();
-                    SalesOrderPage.Summary.OrderType.Select(localOrderNbr?.Split(',')[0]);
-                    SalesOrderPage.Summary.OrderNbr.Select(localOrderNbr?.Split(',')[1].Trim());
-
-                    SalesOrderPage.AddShipment(warehouse.WarehouseID);
-                }
-
-                using (TestExecution.CreateTestStepGroup("Step 11 - Confirm Shipment in Acumatica"))
-                {
-                    localShipmentNbr = ShipmentPage.Summary.ShipmentNbr.GetValue();
-                    ShipmentPage.ConfirmShipment();
-                }
-
-                using (TestExecution.CreateTestStepGroup("Step 12 - Export Shipments to SP"))
-                {
-                    FetchDataPage.FetchData(store, FetchMode.Incremental, Entities.Shipment);
-                    ManualSyncByLocalId(Entities.Shipment, localShipmentNbr);
-                }
-
-                using (TestExecution.CreateTestStepGroup("Step 13 - Verify Export Process Success in Acumatica"))
-                {
-                    VerifySyncSuccessInAcumatica(localShipmentNbr, true, Entities.Shipment);
-
-                    //Validate Shipment on Shipment screen
-                    ShipmentPage.OpenScreen();
-                    ShipmentPage.Summary.ShipmentNbr.Type(localShipmentNbr);
-                    var shipment = ShipmentPage.Get();
-                    shipment.Summary.CustomerID = shipment.Summary.CustomerID.Split('-')[1].Trim();
-                    var shipmentEx = GetShipmentValidationObj_Full(localOrderNbr?.Split(',')[1].Trim());
-
-                    EntityComparer.Instance.Validate(shipmentEx, shipment)
-                        .Trace("Acumatica Payment: Validate Shipment")
-                        .IsValid
-                        .VerifyEquals(true);
-                }
-
-                using (TestExecution.CreateTestStepGroup("Step 14 - Verify Shopify"))
+                using (TestExecution.CreateTestStepGroup("Step 10 - Verify WooCommerce"))
                 {
                     var orderDataProvider = WooCommerceApiService.Instance.OrderRestDataProvider;
                     var orderData = orderDataProvider.GetByID(externalOrderID);
                     orderData.FulfillmentStatus.ToString().VerifyEquals(OrderFulfillmentStatus.Fulfilled.ToString());
                 }
 
-                using (TestExecution.CreateTestStepGroup("Step 15 - Save ID"))
+                using (TestExecution.CreateTestStepGroup("Step 11 - Save ID"))
                 {
                     SaveID(this.GetType());
                 }
@@ -174,14 +129,14 @@ namespace ACSC.Tests.TestsSalesOrder
             {
                 Summary =
                 {
-                    CustomerID = "Jacques Plante",
+                    CustomerID = "Acumatica",
                     ShipmentQty = 1.00m
                 },
             };
 
             shipmentEx.DocumentDetails.Add(new ShipmentEntityDetails()
             {
-                InventoryID = "LAPTOP14",
+                InventoryID = "SH-MUG",
                 OrderNbr = orderNbr
             });
 
@@ -194,14 +149,14 @@ namespace ACSC.Tests.TestsSalesOrder
             {
                 Summary =
                 {
-                    CustomerID = "Jacques Plante",
+                    CustomerID = "Acumatica",
                     ShipmentQty = 10.00m
                 },
             };
 
             shipmentEx.DocumentDetails.Add(new ShipmentEntityDetails()
             {
-                InventoryID = "LAPTOP14",
+                InventoryID = "SH-MUG",
                 OrderNbr = orderNbr
             });
 
@@ -218,14 +173,14 @@ namespace ACSC.Tests.TestsSalesOrder
         {
             var orderEx = new SalesOrderEntity
             {
-                Summary = GetOrderSummary("Jacques Plante")
+                Summary = GetOrderSummary("Acumatica")
             };
 
             orderEx.DocumentDetails.Add(new SalesOrderEntityDetails
             {
-                InventoryID = "LAPTOP14",
+                InventoryID = "SH-MUG",
                 OrderQty = 1.00m,
-                UnitPrice = 650.00m,
+                UnitPrice = 17.00m,
                 CuryDiscAmt = null,
                 SiteID = "WHOLESALE"
             });
@@ -252,17 +207,15 @@ namespace ACSC.Tests.TestsSalesOrder
             orderEx.Totals = new SalesOrderEntityTotals
             {
                 OrderQty = 1.00m,
-                CuryTaxTotal = 64.25m,
-                CuryOrderTotal = 716.75m,
+                CuryTaxTotal = 0.95m,
+                CuryOrderTotal = 20.45m,
                 CuryDiscTot = null,
-                CuryPaymentTotal = 0.00m,
+                CuryPaymentTotal = 20.45m,
                 FreightPrice = null
             };
 
             return orderEx;
         }
-
-       
 
         private OrderData GetOrderDataObj()
         {

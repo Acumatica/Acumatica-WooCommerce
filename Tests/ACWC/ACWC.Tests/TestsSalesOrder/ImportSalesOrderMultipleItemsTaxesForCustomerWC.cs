@@ -166,7 +166,7 @@ namespace ACSC.Tests.TestsSalesOrder
                 CuryTaxTotal = 9.25m,
                 CuryOrderTotal = 101.75m,
                 CuryDiscTot = null,
-                CuryPaymentTotal = 0.00m,
+                CuryPaymentTotal = 101.75m,
                 SubTotal = 0.00m,
                 OrderQty = 1.00m,
                 FreightPrice = null

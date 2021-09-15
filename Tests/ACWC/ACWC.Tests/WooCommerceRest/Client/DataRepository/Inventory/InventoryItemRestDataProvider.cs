@@ -16,7 +16,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository.Inventory
 
         public InventoryItemRestDataProvider(IWooCommerceRestClient restClient) : base()
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restClient;
         }
 
         public InventoryItemData Create(InventoryItemData entity) => throw new NotImplementedException();

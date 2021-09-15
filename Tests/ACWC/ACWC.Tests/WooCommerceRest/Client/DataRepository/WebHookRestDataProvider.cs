@@ -16,7 +16,7 @@ namespace ACSC.Tests.ShopifyRest.Client.DataRepository
 
         public WebHookRestDataProvider(IWooCommerceRestClient restClient) : base()
         {
-            ShopifyRestClient = restClient;
+            WooCommerceRestClient = restClient;
         }
 
         #region IParentDataRestClient

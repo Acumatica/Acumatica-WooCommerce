@@ -27,7 +27,7 @@ namespace ACSC.Tests.TestsSalesOrder
                 {
                     FetchDataPage.FetchData(store, FetchMode.Incremental, Entities.StockItem, Entities.StockItem);
                     ManualSyncByLocalId(Entities.Customer, customer.AcctCD);
-                    ManualSyncByLocalId(Entities.StockItem, "Headset");
+                    ManualSyncByLocalId(Entities.StockItem, "Acer Laptop Computer");
 
                 }
 
@@ -63,7 +63,7 @@ namespace ACSC.Tests.TestsSalesOrder
                     var payment = PaymentPage.Get();
                     payment.Summary.CustomerID = payment.Summary.CustomerID.Split('-')[1].Trim();
 
-                    var paymentEx = GetPaymentValidationObj("eCommerce Guest Customer", 142.50m);
+                    var paymentEx = GetPaymentValidationObj("eCommerce Guest Customer", 492.50m);
                     EntityComparer.Instance.Validate(paymentEx, payment)
                         .Trace("Acumatica Payment: Validate Payment")
                         .IsValid
@@ -87,10 +87,10 @@ namespace ACSC.Tests.TestsSalesOrder
                 extCustID = GetCustomerExtId();
             }
             //get synchronized products id's from sync screen
-            SyncStatus.SetVerifyFilter(Entities.StockItem, Statuses.Synchronized, "Headset", store: store);
+            SyncStatus.SetVerifyFilter(Entities.StockItem, Statuses.Synchronized, "Acer Laptop Computer", store: store);
             var syncStatus = SyncStatus.Get();
 
-            var HEADSET = syncStatus?.DetailsView?.FirstOrDefault(l => l.LocalID == "Headset")?.ExternalID;
+            var HEADSET = syncStatus?.DetailsView?.FirstOrDefault(l => l.LocalID == "Acer Laptop Computer")?.ExternalID;
 
             var productDataProvider = WooCommerceApiService.Instance.ProductRestDataProvider;
             //var productId = productDataProvider.GetByID(HEADSET).Variants[0].Id;
@@ -113,7 +113,7 @@ namespace ACSC.Tests.TestsSalesOrder
                 Totals = new SalesOrderEntityTotals()
                 {
                     OrderQty = 1.00m,
-                    CuryOrderTotal = 142.50m,
+                    CuryOrderTotal = 492.50m,
                     FreightPrice = null
                 }
             };
@@ -121,9 +121,9 @@ namespace ACSC.Tests.TestsSalesOrder
             orderEx.Summary.NoteText = "Discount Order";
             orderEx.DocumentDetails.Add(new SalesOrderEntityDetails
             {
-                InventoryID = "HEADSET",
+                InventoryID = "AACOMPUT01",
                 OrderQty = 1.00m,
-                UnitPrice = 150.00m
+                UnitPrice = 500.00m
             });
 
             orderEx.DiscountDetails.Add(new SalesOrderEntityDiscountDetails

@@ -1,5 +1,5 @@
 {
-  "ClassID": "SHIRTS",
+  "ClassID": "SHIRTS4",
   "Description": "Shirts",
   "GeneralSettings": {
     "StkItem": "true",
@@ -21,15 +21,15 @@
   },
   "Attributes": [
     {
-      "AttributeID": "MCOLOR",
+      "AttributeID": "MCOLOR1",
       "Category": "Variant"
     },
     {
-      "AttributeID": "MATERIAL",
+      "AttributeID": "MATERIAL2",
       "Category": "Variant"
     },
     {
-      "AttributeID": "SIZE",
+      "AttributeID": "SIZE1",
       "Category": "Variant"
     }
   ] 

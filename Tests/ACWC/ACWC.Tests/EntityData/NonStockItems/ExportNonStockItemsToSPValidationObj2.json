@@ -1,6 +1,6 @@
 [
   {
-    "Title": "Advertising changed.",
+    "description": "Advertising changed.",
     "ProductType": "NSTOCK1",
     "Tags": "Item, Non, Stock",
     "Variants": [
@@ -12,7 +12,7 @@
     ]
   },
   {
-    "Title": "Incoming call changed.",
+    "description": "Incoming call changed.",
     "ProductType": "NSTOCK1",
     "Tags": "Item, Non, Stock",
     "Variants": [
@@ -24,7 +24,7 @@
     ]
   },
   {
-    "Title": "Outgoing call changed.",
+    "description": "Outgoing call changed.",
     "ProductType": "NSTOCK1",
     "Tags": "Item, Non, Stock",
     "Variants": [
@@ -36,7 +36,7 @@
     ]
   },
   {
-    "Title": "Consulting service changed.",
+    "description": "Consulting service changed.",
     "ProductType": "NSTOCK1",
     "Tags": "Item, Non, Stock",
     "Variants": [
@@ -48,7 +48,7 @@
     ]
   },
   {
-    "Title": "Junior Consultant changed.",
+    "description": "Junior Consultant changed.",
     "ProductType": "NSTOCK1",
     "Tags": "Item, Non, Stock",
     "Variants": [
@@ -60,7 +60,7 @@
     ]
   },
   {
-    "Title": "Customization service changed.",
+    "description": "Customization service changed.",
     "ProductType": "NSTOCK1",
     "Tags": "Item, Non, Stock",
     "Variants": [
@@ -72,7 +72,7 @@
     ]
   },
   {
-    "Title": "Print and Copy Services changed.",
+    "description": "Print and Copy Services changed.",
     "ProductType": "NSTOCK1",
     "Tags": "Item, Non, Stock",
     "Variants": [
@@ -84,7 +84,7 @@
     ]
   },
   {
-    "Title": "Support service changed.",
+    "description": "Support service changed.",
     "ProductType": "NSTOCK1",
     "Tags": "Item, Non, Stock",
     "Variants": [

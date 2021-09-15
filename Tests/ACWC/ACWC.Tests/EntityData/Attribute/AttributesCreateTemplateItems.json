@@ -1,6 +1,6 @@
 [
   {
-    "AttributeID": "MCOLOR",
+    "AttributeID": "MCOLOR1",
     "Description": "Shirt Color",
     "ControlType": "Combo",
     "Details": [
@@ -15,22 +15,22 @@
     ]
   },
   {
-    "AttributeID": "MATERIAL",
-    "Description": "T-Shirt Material",
+    "AttributeID": "MATERIAL2",
+    "Description": "Material",
     "ControlType": "Combo",
     "Details": [
       {
         "ValueID": "Cotton",
-        "Description": "100% Cotton Shirt"
+        "Description": "Cotton"
       },
       {
         "ValueID": "Polyester",
-        "Description": "Cotton-Polyester Shirt"
+        "Description": "Polyester"
       }
     ]
   },
   {
-    "AttributeID": "SIZE",
+    "AttributeID": "SIZE1",
     "Description": "Size of T-Shirt",
     "ControlType": "Combo",
     "Details": [
