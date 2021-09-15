@@ -1597,7 +1597,7 @@
 <h2>Sales Order Status</h2>
 <p><u>WooCommerce Sales Order Status diagram (Reference Purpose Only)</u></p>
 
-![Screenshot](/Mappings/Mapping%20Images/SO1.png)
+![Screenshot](/Documentation/Mappings/Mapping%20Images/SO1.png)
 
 <p>An order s<span>tatus&nbsp;</span>starting with &ldquo;Pending payment&rdquo; and ending with &ldquo;Completed.&rdquo; The following order statuses are used:</p>
 <ul>
@@ -1611,12 +1611,12 @@
 <li><span>Authentication required</span>&nbsp;&mdash; Awaiting action by the customer to authenticate the transaction and/or complete SCA requirements.<br /><br /></li></ul>
 <p><u>Acumatica Sales Order Flow&nbsp;(Reference Purpose Only)</u></p>
 
-![Screenshot](/Mappings/Mapping%20Images/SO2.png)
+![Screenshot](/Documentation/Mappings/Mapping%20Images/SO2.png)
 
 <p><strong>Sales Order Import - Order Status</strong></p>
 <p>The following status will be applied to the Sales Order when importing WC Sales Orders into AC,</p>
 
-![Screenshot](/Mappings/Mapping%20Images/SO3.png)
+![Screenshot](/Documentation/Mappings/Mapping%20Images/SO3.png)
 
 <p><u><strong>When Sales Order is Trashed by WC Admin</strong></u></p>
 <p>If WC admin makes a Sales Order trashed, that sales order should not be sync to AC. However, if the admin trash a sales order which already synced to the AC, since this is a special scenario initiated by WC admin, it is recommended to manually handle this scenario. Therefore, other than syncing the order to the Deleted tab in the Sync History page, nothing should be handled from the AC side when synchronising the order.</p>
