@@ -25,7 +25,7 @@
 <p>&nbsp;</p>
 <p><strong>WooCommerce Stores&gt; Customer Settings</strong></p>
 
-![Screenshot](/Specifications/Spec%20Images/Customer1.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Customer1.png)
 
 <h3><strong>Customer Class&nbsp;</strong></h3>
 <p><span style="color: rgb(0,0,0);">The customer class that is assigned to new customers imported to Acumatica ERP from the WooCommerce store and thus used to provide their default settings.</span></p>
