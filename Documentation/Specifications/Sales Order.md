@@ -24,7 +24,7 @@
 <h2>WooCommerce Store Screen Settings</h2>
 <p><span style="color: rgb(0,0,0);">Below settings used to define the default settings for the import of sales orders. And also map shipping zones and shipping rules between Acumatica ERP and the WooCommerce store, and specify if taxes should be synchronized between the two systems.</span></p>
 
-![Screenshot](/Specifications/Spec%20Images/SO1.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/SO1.png)
 
 <p>&nbsp;</p>
 <h2 class="wikiH2 separator">General Section</h2>
@@ -93,8 +93,8 @@
 <p>Gift Certificate handling is an extension in WC, therefore, it was not considered in the mapping.</p></td></tr></tbody></table>
 <p>&nbsp;</p></div>
 
-<a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Discount%20Management.md"> Discounts/ Coupon Setup in WooCommerce</a>
+<a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R104/Documentation/Specifications/Discount%20Management.md"> Discounts/ Coupon Setup in WooCommerce</a>
 
-<a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Tax%20Management.md"> Tax Management </a>
+<a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R104/Documentation/Specifications/Tax%20Management.md"> Tax Management </a>
 
-<a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Freight%20Management.md"> Freight Management</a>
+<a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R104/Documentation/Specifications/Freight%20Management.md"> Freight Management</a>
