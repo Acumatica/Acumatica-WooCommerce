@@ -24,7 +24,7 @@
 <h2>Freight Management</h2>
 <h3>Shipping Basic Data Concepts in WC &amp; AC</h3>
 
-![Screenshot](/Specifications/Spec%20Images/Freight1.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Freight1.png)
 
 <p>&nbsp;</p>
 <p><strong>WC Shipping Basic Data/ Settings</strong></p>
@@ -37,7 +37,7 @@
 <p>To calculate the <span style="color: rgb(0,128,0);">Freight Price</span>, the system uses either default Shipping Term inherited from the Customers (AR303000)&nbsp;or shipping terms that user specify manually on the sales order. Freight price may include insurance, handling fees, or line handling fees.</p>
 <h3>Shipping Settings in WooCommerce Stores Screen</h3>
 
-![Screenshot](/Specifications/Spec%20Images/Freight2.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Freight2.png)
 
 <p><span style="color: rgb(0,0,0);">In this table, users should be able to define the mapping of each shipping option (which is a <strong>combination of a shipping zone and shipping method</strong>) defined in WooCommerce to the ship via code, and <strong>optionally</strong>, shipping zone and shipping terms defined in Acumatica ERP.&nbsp;</span></p>
 <p>The&nbsp;<strong>Store Shipping Zone</strong>&nbsp;and&nbsp;<strong>Store Shipping Method</strong>&nbsp;columns of the table are populated with the settings from WooCommerce when the correct API credentials are entered and saved on the&nbsp;<strong>Connection Settings</strong>&nbsp;tab. The list of mappings can be updated in the following ways:<a class="wikilink anchorlink"></a></p>
@@ -78,15 +78,15 @@
 <p><a href="https://docs.woocommerce.com/document/product-shipping-classes/?_ga=2.96408027.675806824.1615771092-1800054059.1612315574&amp;_gac=1.219325163.1612316890.CjwKCAiAjeSABhAPEiwAqfxURTR6woao1hOSwmWhGC9spVJApMU3k33p6wp4iMUywdYyI5lYdDDwvRoC22gQAvD_BwE">Shipping classes</a>&nbsp;can be used to&nbsp;group products of similar type&nbsp;and used by some shipping methods, such as Flat Rate Shipping, to provide different rates to different classes of product.</p>
 <p>To add shipping classes, go to Settings&gt; Shipping tab&gt; Shipping Classes option</p>
 
-![Screenshot](/Specifications/Spec%20Images/Freight3.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Freight3.png)
 
 <p>Once the shipping class is added, and if the &quot;Flat Rate&quot; shipping method is used, the &quot;Edit&quot; option will be available in the related Shipping zones.</p>
 
-![Screenshot](/Specifications/Spec%20Images/Freight4.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Freight4.png)
 
 <p>Click on the &quot;Edit&quot; button to define shipping cost at the shipping class level.</p>
 
-![Screenshot](/Specifications/Spec%20Images/Freight5.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Freight5.png)
 
 <p><strong>Complex Shipping Rules</strong></p>
 <p>Complex shipping rules are handled through the &quot;<a href="https://docs.woocommerce.com/document/table-rate-shipping/">Table Rate Shipping</a>&quot; extension. It was not considered in the development.</p>
