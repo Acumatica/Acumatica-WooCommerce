@@ -3,7 +3,7 @@
 <h1>Prerequisites</h1>
 <p>1. Please create some sample data mentioned below.</p>
 <p>2. Visual Studio 16.8.6 or a latest version is installed to your machine</p>
-<p>3. Acumatica ERP Configuration Wizard v21.109.0018 (Update 9) is installed to your machine</p>
+<p>3. Acumatica ERP Configuration Wizard v21.104.0018 (Update 4) is installed to your machine</p>
 <p>4.&nbsp; Customization package (V43) is downloaded and ready to add as a customization project</p>
 <p>5. TestSDK is downloaded from Acumatica Portal</p>
 <h1>Steps to Start</h1>
