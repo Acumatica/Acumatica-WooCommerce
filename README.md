@@ -24,6 +24,13 @@ Enable Commerce Integration in Enable/Disable Features (CS100000) Screen.
 
 ![Screenshot](/Images/EnableDisable.png)
 
+### Installation
+
+Install customization deployment package,
+
+2021R1 Update 4 from [here](https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R104). (This only includes Milestone 1 deliverable entities {Customer, Stock Items, Sales Category, Sales Orders,Payments and Shipments} )
+
+2021R1 Update 9 from [here](https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109). (This includes the MVP release)
 
 ## Copyright and License
 
