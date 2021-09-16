@@ -11,20 +11,20 @@
     		<td><b>Import Entities</b></td>
 		<td><b>Export Entities</b></td>
 	<tr>
-		<td> <a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Customer.md">Customers</a></td>
-		<td> <a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Stock%20Items.md">Stock items</a></td>
+		<td> <a href="https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109/Documentation/Specifications/Customer.md">Customers</a></td>
+		<td> <a href="https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109/Documentation/Specifications/Stock%20Items.md">Stock items</a></td>
 	<tr>
     	<tr>
-		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Sales%20Order.md">Sales orders </a></td>
-		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Sales%20Category.md">Sales categories</a></td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109/Documentation/Specifications/Sales%20Order.md">Sales orders </a></td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109/Documentation/Specifications/Sales%20Category.md">Sales categories</a></td>
 	<tr>
     	<tr>
-		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Payments.md">Payment details</a></td>
-		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Mappings/Shipments%20Export.md">Shipment details</a> </td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109/Documentation/Specifications/Payments.md">Payment details</a></td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109/Documentation/Specifications/Shipments%20Export.md">Shipment details</a> </td>
 	<tr>
 	<tr>
-		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Refunds%20Solution.md">Refunds</a></td>
-		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Product%20Availability.md">Product Availability</a> </td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109/Documentation/Specifications/Refunds%20Solution.md">Refunds</a></td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109/Documentation/Specifications/Product%20Availability.md">Product Availability</a> </td>
 	<tr>
 	<tr>
 		<td>
