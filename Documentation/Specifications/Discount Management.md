@@ -8,25 +8,25 @@
 <li>If there are no Usage Restrictions, Percentage discounts will be added to each item line.</li></ul>
 <p style="margin-left: 30.0px;">e.g: When there are two Product Lines and Cart Discount (Coupon) Amount is 10%, each line will have a discount based on the percentage.</p>
 
-![Screenshot](/Specifications/Spec%20Images/Discounts1.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Discounts1.png)
 
 <ul>
 <li>If there are Usage Restrictions, Percentage discounts will be added to each item line based on the restrictions.<br />e.g: When a Percentage discount (10%) is only allowed for a particular product, the discount is applied for that product only.</li></ul>
 
-![Screenshot](/Specifications/Spec%20Images/Discounts2.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Discounts2.png)
 
 <p>&nbsp;</p>
 <h2>Fixed Cart Discounts</h2>
 <p>Apply a fixed amount discount to the entire cart.</p>
 <p>Even if the cart has more than one product line. The total discount applied to the entire cart will be allocated to the available number of lines. And this cannot be applied only to one line.</p>
 
-![Screenshot](/Specifications/Spec%20Images/Discounts3.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Discounts3.png)
 
 <h2>Fixed Product Discounts</h2>
 <p>Apply a fixed amount discount to <strong>selected products only</strong>. The <strong>discount is calculated per item</strong> and<strong> not for the whole cart.</strong></p>
 <p>The amount of discount is applied only to the specified product item only.</p>
 
-![Screenshot](/Specifications//Spec%20Images/Discounts4.png)
+![Screenshot](/Documentation/Specifications//Spec%20Images/Discounts4.png)
 
 <p>&nbsp;</p>
 <h2>Solution - Discount Data Fetching to Acumatica Sales Order</h2>
@@ -37,7 +37,7 @@
 <p>&nbsp;</p>
 <p><strong>&ldquo;subtotal&rdquo; &ndash; &ldquo;total&rdquo; = &ldquo;discount&rdquo;</strong></p>
 
-![Screenshot](/Specifications/Spec%20Images/Discounts5.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Discounts5.png)
 
 <p>&nbsp;</p>
 <ul>
@@ -45,7 +45,7 @@
 <p>Discount Amount will be fetched to <em>Discount Details&gt; Discount Amt.</em></p>
 <p>For this &ldquo;Coupon Lines&rdquo; can be used.</p>
 
-![Screenshot](/Specifications/Spec%20Images/Discounts6.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Discounts6.png)
 
 <p>&nbsp;</p>
 <p><strong>&nbsp;</strong></p>
