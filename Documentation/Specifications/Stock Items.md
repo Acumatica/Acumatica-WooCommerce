@@ -14,7 +14,7 @@
 <h2>WooCommerce configuration settings for Stock Items</h2>
 <p>Under Inventory configuration page, following settings should be defined when exporting Stock Items and values which are defined in here will be used as default values when syncing.<strong><em> <u>These are the default setting that need for Milestone 1</u>.</em></strong></p>
 
-![Screenshot](/Specifications/Spec%20Images/Stock1.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Stock1.png)
 
 <h3>Default Stock Categories</h3>
 <p>When exporting Stock items, can define default sales category in here and that value will be picked as the product category when creating a product in WooCommerce.&nbsp;Same field is available in stock item and if any value mentioned in there, Propriety will be given to that value. (B<span style="color: rgb(0,0,0);">efore stock items can be synchronized, sales categories assigned to the item must be synchronized</span>)</p>
@@ -26,7 +26,7 @@
 <p>Default availability option can be defined here and when exporting stock items, this value will be used as the default Availability of the product.&nbsp;Same field is available in stock item under &quot;Ecommerce&quot; tab and if any value mentioned in there, Propriety will be given to that value.</p>
 <p>&nbsp;</p>
 
-![Screenshot](/Specifications/Spec%20Images/Stock2.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Stock2.png)
 
 <h3>When Qty Unavailable</h3>
 <p>Default value should appear when select &quot;Set as Available (Don't Track Qty)&quot; in Default Availability field.</p>
@@ -268,7 +268,7 @@
 <td>Value Description</td>
 <td>Value(s)</td></tr></tbody></table>
 
-![Screenshot](/Specifications/Spec%20Images/Stock3.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Stock3.png)
 
 <p>&nbsp;</p>
 <p>Note : Inventory ID(s) which contains more than one spaces consecutively will not be synced due to the limitation in WooCommerce Products API.</>
