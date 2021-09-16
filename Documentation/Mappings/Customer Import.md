@@ -401,8 +401,8 @@
 <th>Billing</th>
 <th>Shipping</th></tr>
 <tr>
-<td colspan="1"><img src="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Mappings/Mapping%20Images/Customer1.png" /></td>
-<td colspan="1"><img src="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Mappings/Mapping%20Images/Customer2.png" /></td></tr></tbody></table>
+<td colspan="1"><img src="https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109/Documentation/Mappings/Mapping%20Images/Customer1.png" /></td>
+<td colspan="1"><img src="https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109/Documentation/Mappings/Mapping%20Images/Customer2.png" /></td></tr></tbody></table>
 <p>&nbsp;</p>
 <p><strong><span style="color: rgb(0,0,0);">Option 01: Develop Address comparing method when exporting and importing customers. So the Billing and Shipping Address are compared before the import or export.</span></strong></p>
 
@@ -419,31 +419,31 @@
 <li><span style="color: rgb(0,0,0);">When WC Customer has Billing Address different to Shipping Address (empty Shipping Address or different address)</span><span 
 style="color: rgb(0,0,0);"><strong><br />
   
-![Screenshot](/Mappings/Mapping%20Images/Customer3.png)<br /></strong></span></li></ol></td>
+![Screenshot](/Documentation/Mappings/Mapping%20Images/Customer3.png)<br /></strong></span></li></ol></td>
   
 <td>
 <ol>
 <li><span style="color: rgb(0,0,0);">When Acumatica Customer has the same address for Billing and Shipping in AC, export them separately even the same address.</span><span style="color: rgb(0,0,0);"><strong><br />
   
- ![Screenshot](/Mappings/Mapping%20Images/Customer4.png)<br /></strong></span></li></ol></td>
+ ![Screenshot](/Documentation/Mappings/Mapping%20Images/Customer4.png)<br /></strong></span></li></ol></td>
   
 <td colspan="1">
 <p>1.When Billing Override is enabled on AC, WC Billing address should update directly to AC Billing Address
   
-![Screenshot](/Mappings/Mapping%20Images/Customer5.png)</p></td></tr>
+![Screenshot](/Documentation/Mappings/Mapping%20Images/Customer5.png)</p></td></tr>
   
 <tr>
 <td colspan="1">
 <p>2. When WC Customer has the same address for both Billing &amp; Shipping Addresses</p>
   
 
-![Screenshot](/Mappings/Mapping%20Images/Customer6.png)
+![Screenshot](/Documentation/Mappings/Mapping%20Images/Customer6.png)
   
 <td colspan="1">
 <p>2. When AC Customer`s billing address is overridden or different to each, export both addresses to WC</span></p>
   
 
- ![Screenshot](/Mappings/Mapping%20Images/Customer7.png)
+ ![Screenshot](/Documentation/Mappings/Mapping%20Images/Customer7.png)
   
 <td colspan="1">&nbsp;</td></tr></tbody></table>
 <p><span style="color: rgb(255,0,0);">Limitation</span>: When comparing addresses, minor spelling changes are identified as a separate address. And WC shipping and billing addresses content are different from each other.</p>
@@ -460,7 +460,7 @@ style="color: rgb(0,0,0);"><strong><br />
 <li><span style="color: rgb(0,0,0);">Even shipping address from WooCommerce is empty or contain values, it will be overridden and mapped to AC`s Shipping address.</span></li>
   </ol>
   
- ![Screenshot](/Mappings/Mapping%20Images/Customer8.png)<br />
+ ![Screenshot](/Documentation/Mappings/Mapping%20Images/Customer8.png)<br />
   
 <p><span style="color: rgb(0,0,0);"><br /></span></p>
 <p><span style="color: rgb(0,0,0);">&nbsp;</span></p></td>
@@ -468,14 +468,14 @@ style="color: rgb(0,0,0);"><strong><br />
 <p>&nbsp;</p>
   
 
- ![Screenshot](/Mappings/Mapping%20Images/Customer9.png)
+ ![Screenshot](/Documentation/Mappings/Mapping%20Images/Customer9.png)
  
  </td>
 <td colspan="1">
 <ol>
 <li>When Billing Override is enabled on AC, WC Billing address should update directly to AC Billing Address</li></ol>
   
-![Screenshot](/Mappings/Mapping%20Images/Customer10.png)
+![Screenshot](/Documentation/Mappings/Mapping%20Images/Customer10.png)
 
  </p></td></tr></tbody></table>
 <p><strong><br /></strong></p>
