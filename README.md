@@ -10,16 +10,16 @@
     		<td><b>Import Entities</b></td>
 		<td><b>Export Entities</b></td>
 	<tr>
-		<td> <a href="https://github.com/BuddhikaAcu/WooConnector/blob/main/Specifications/Customer.md">Customers</a></td>
-		<td> <a href="https://github.com/BuddhikaAcu/WooConnector/blob/main/Specifications/Stock%20Items.md">Stock items</a></td>
+		<td> <a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R104/Documentation/Specifications/Customer.md">Customers</a></td>
+		<td> <a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R104/Documentation/Specifications/Stock%20Items.md">Stock items</a></td>
 	<tr>
     	<tr>
-		<td><a href="https://github.com/BuddhikaAcu/WooConnector/blob/main/Specifications/Sales%20Order.md">Sales orders </a></td>
-		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Sales%20Category.md">Sales categories</a></td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R104/Documentation/Specifications/Sales%20Order.md">Sales orders </a></td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R104/Documentation/Specifications/Sales%20Category.md">Sales categories</a></td>
 	<tr>
     	<tr>
-		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Specifications/Payments.md">Payment details</a></td>
-		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/main/Mappings/Shipments%20Export.md">Shipment details</a> </td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R104/Documentation/Specifications/Payments.md">Payment details</a></td>
+		<td><a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R104/Documentation/Mappings/Shipments%20Export.md">Shipment details</a> </td>
 </table>
 
 ## Prerequisites | Supported Versions
