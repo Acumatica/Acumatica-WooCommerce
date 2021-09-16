@@ -401,8 +401,8 @@
 <th>Billing</th>
 <th>Shipping</th></tr>
 <tr>
-<td colspan="1"><img src="https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109/Documentation/Mappings/Mapping%20Images/Customer1.png" /></td>
-<td colspan="1"><img src="https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109/Documentation/Mappings/Mapping%20Images/Customer2.png" /></td></tr></tbody></table>
+<td colspan="1"><img src="https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R109/Documentation/Mappings/Mapping%20Images/Customer1.png" /></td>
+<td colspan="1"><img src="https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R109/Documentation/Mappings/Mapping%20Images/Customer2.png" /></td></tr></tbody></table>
 <p>&nbsp;</p>
 <p><strong><span style="color: rgb(0,0,0);">Option 01: Develop Address comparing method when exporting and importing customers. So the Billing and Shipping Address are compared before the import or export.</span></strong></p>
 
