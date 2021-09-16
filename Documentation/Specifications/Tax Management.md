@@ -25,11 +25,11 @@
 <td colspan="1">Completed</td></tr></tbody></table>
 <h2>Relationship between AC and WC Tax Concepts</h2>
 
-![Screenshot](/Specifications/Spec%20Images/Tax1.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Tax1.png)
 
 <h2>WooCommerce Stores Taxes Configuration</h2>
 
-![Screenshot](/Specifications/Spec%20Images/Tax2.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Tax2.png)
 
 <h2 class="wikiH2 separator">Taxes Section</h2>
 <div class="section sH2" style="margin-left: 2.0em;">
