@@ -24,9 +24,9 @@
 <p>When creating variants in WooCommerce, values to the dropdowns (Attribute values) should select by mapping the attributes in WooCommerce with the Attributes in Acumatica and pick the value for that mapped attribute.</p>
 <p>This mapping can be access through Matrix Items in Template item.</p>
 
-![Screenshot](/Specifications/Spec%20Images/Template1.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Template1.png)
 
-![Screenshot](/Specifications/Spec%20Images/Template2.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Template2.png)
 
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
 <p>Note : Inventory ID(s) which contains more than one spaces consecutively will not be synced due to the limitation in WooCommerce Products API.</p>
