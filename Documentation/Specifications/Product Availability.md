@@ -15,40 +15,40 @@
 
 <p>Under Inventory configuration page, following settings should be defined when exporting stock Availability and values which are defined in here will be used as default values when syncing.</p>
 
-![Screenshot](/Specifications/Spec%20Images/Availability1.png) 
-![Screenshot](/Specifications/Spec%20Images/Availability2.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Availability1.png) 
+![Screenshot](/Documentation/Specifications/Spec%20Images/Availability2.png)
 
 <h2>Availability Mode</h2>
 
 <li>Available - In the Inventory setup when &quot;Available&quot; is selected, system calculates total quantity in &quot;Available&quot; column in&nbsp;<strong>Inventory Summary (IN401000) </strong> Screen
   
-  ![Screenshot](/Specifications/Spec%20Images/Availability3.png)
+  ![Screenshot](/Documentation/Specifications/Spec%20Images/Availability3.png)
   
 <li>Available for shipping - In the Inventory setup when &quot;Available for shipping&quot; is selected, system&nbsp;calculates total quantity in &quot;Available for Shipment&quot; column in&nbsp;<strong>Inventory Summary (IN401000) </strong> Screen 
   
-![Screenshot](/Specifications/Spec%20Images/Availability4.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Availability4.png)
   
 <li>On Hand -&nbsp;In the Inventory setup when &quot;On Hand&quot; is selected, system&nbsp;calculates total quantity in &quot;On Hand&quot; column in&nbsp;<strong>Inventory Summary (IN401000) </strong> Screen 
   
- ![Screenshot](/Specifications/Spec%20Images/Availability5.png)
+ ![Screenshot](/Documentation/Specifications/Spec%20Images/Availability5.png)
   
 <h2>Warehouse Mode</h2>
 <p>&nbsp;</p>
 <ol>
 <li>All Warehouses -&nbsp;In the Inventory setup &quot;All Warehouses&quot; is selected,&nbsp;when picking the value according to the Availability mode, system should show all the warehouse in&nbsp;<strong>Inventory Summary (IN401000)&nbsp;</strong>screen.
   
-  ![Screenshot](/Specifications/Spec%20Images/Availability6.png)
+  ![Screenshot](/Documentation/Specifications/Spec%20Images/Availability6.png)
   
 <li>Specific Warehouses - In the Inventory setup &quot;Specific Warehouses&quot; is selected, when picking the value according to the Availability mode, system should take the values according to the warehouses filled in Inventory settings<br /><br />
   
-  ![Screenshot](/Specifications/Spec%20Images/Availability7.png)
-  ![Screenshot](/Specifications/Spec%20Images/Availability8.png)
+  ![Screenshot](/Documentation/Specifications/Spec%20Images/Availability7.png)
+  ![Screenshot](/Documentation/Specifications/Spec%20Images/Availability8.png)
   
 <p><em><strong>Value pick from any of the above-mentioned fields should be updated in WooCommerce Products API &ldquo;stock_quantity&rdquo; field. In Order to do that WooCommerce &ldquo;manage_stock&rdquo; Boolean should be = true. This is applicable for WooCommerce products variations also.</strong></em></p>
 
-  ![Screenshot](/Specifications/Spec%20Images/Availability9.png)
+  ![Screenshot](/Documentation/Specifications/Spec%20Images/Availability9.png)
   
-  ![Screenshot](/Specifications/Spec%20Images/Availability10.png)
+  ![Screenshot](/Documentation/Specifications/Spec%20Images/Availability10.png)
   
 <h1><br /><br />Available Qty Calculation</h1>
 <p>Available Qty Value Calculation will depend on,</p>
