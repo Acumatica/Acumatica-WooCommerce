@@ -4,7 +4,7 @@
 <h4>Note</h4>
 <p>The CC related transaction cannot be partially refunded until it is settled in the payment gateway (Authrized.net).</p>
 
-![Screenshot](/Specifications/Spec%20Images/Refund1.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Refund1.png)
 
 <p>&nbsp;</p>
 <p>This process is where the Admin creates the refund through a series of steps in the Refund Process.</p>
@@ -26,7 +26,7 @@
 <ul>
 <li>Without Quantity</li></ul>
 
-![Screenshot](/Specifications/Spec%20Images/Refund2.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Refund2.png)
 
 <p style="margin-left: 30.0px;">Data appeared on Refunds API - without quantity</p>
 
@@ -38,11 +38,11 @@
 <tr style="margin-left: 30.0px;">
 <td colspan="1" style="margin-left: 30.0px;">
   
-![Screenshot](/Specifications/Spec%20Images/Refund3.png) </td>
+![Screenshot](/Documentation/Specifications/Spec%20Images/Refund3.png) </td>
   
 <td colspan="1" style="margin-left: 30.0px;">
  
-![Screenshot](/Specifications/Spec%20Images/Refund4.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Refund4.png)
  
   </td></tr></tbody></table>
 <p>&nbsp;</p>
@@ -50,7 +50,7 @@
 <li>With Quantity</li></ul>
 <p>
 
-![Screenshot](/Specifications/Spec%20Images/Refund5.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Refund5.png)
 
 </p>
 <p style="margin-left: 30.0px;">Data appeared on Refunds API - with quantity</p>
@@ -62,17 +62,17 @@
 <tr>
 <td colspan="1">
  
- ![Screenshot](/Specifications/Spec%20Images/Refund6.png)
+ ![Screenshot](/Documentation/Specifications/Spec%20Images/Refund6.png)
   
  </td>
 <td colspan="1"><ac:image ac:height="250">
   
-![Screenshot](/Specifications/Spec%20Images/Refund7.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Refund7.png)
   
   </td></tr></tbody></table>
 <p style="margin-left: 30.0px;"><strong>2. Shipping Charge Return</strong></p>
 
- ![Screenshot](/Specifications/Spec%20Images/Refund8.png)
+ ![Screenshot](/Documentation/Specifications/Spec%20Images/Refund8.png)
 
 <p style="margin-left: 30.0px;">Data appeared on Refunds API - with shipping charge and shipping tax</p>
 <table>
@@ -83,12 +83,12 @@
 <tr>
 <td>
   
-![Screenshot](/Specifications/Spec%20Images/Refund9.png) 
+![Screenshot](/Documentation/Specifications/Spec%20Images/Refund9.png) 
   
  </td>
 <td>
   
-![Screenshot](/Specifications/Spec%20Images/Refund10.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Refund10.png)
   
   </td></tr></tbody></table>
 <p style="margin-left: 30.0px;"><strong>3. Discounts Return</strong></p>
@@ -96,7 +96,7 @@
 
 <p>
   
-![Screenshot](/Specifications/Spec%20Images/Refund11.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Refund11.png)
 
 </p>
 <p>&nbsp;</p>
@@ -108,13 +108,13 @@
 <tr>
 <td colspan="1">
   
-![Screenshot](/Specifications/Spec%20Images/Refund12.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Refund12.png)
   
 </td></tr></tbody></table>
 <h3><strong>Solution - Import Process in Acumatica</strong></h3>
 <p>
   
-![Screenshot](/Specifications/Spec%20Images/Refund13.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Refund13.png)
   
 </p>
 <p>Once a Refund is processed in WooCommerce, the following actions happen to transfer the Refund into Acumatica:</p>
