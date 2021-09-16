@@ -30,7 +30,7 @@ Install customization deployment package,
 
 2021R1 Update 4 from [here](https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R104). (This only includes Milestone 1 deliverable entities {Customer, Stock Items, Sales Category, Sales Orders,Payments and Shipments} )
 
-2021R1 Update 9 from [here](https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109). (This includes the MVP release)
+2021R1 Update 9 from [here](https://github.com/Acumatica/Acumatica-WooCommerce/tree/2021R109). (This includes the MVP release - Template Items, Non-Stock Items, Product Avaiability and Sales Order Refunds)
 
 ## Copyright and License
 
