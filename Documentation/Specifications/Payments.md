@@ -27,7 +27,7 @@
 <h2>WooCommerce Store Screen Settings</h2>
 <p><span style="color: rgb(0,0,0);">Below settings used to define the settings for the import of payments.&nbsp;</span></p>
 
-![Screenshot](/Specifications/Spec%20Images/Payments1.png)
+![Screenshot](/Documentation/Specifications/Spec%20Images/Payments1.png)
 
 <p><span style="color: rgb(0,0,0);">&nbsp;</span></p>
 <h2 class="wikiH1 separator">Payment Settings Section</h2>
