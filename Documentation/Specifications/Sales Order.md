@@ -99,8 +99,8 @@ When retrieving the data, it will get 50 chunks of sales orders at a time. In th
 <p>Gift Certificate handling is an extension in WC, therefore, it was not considered in the mapping.</p></td></tr></tbody></table>
 <p>&nbsp;</p></div>
 
-<a href="hhttps://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R109/Documentation/Specifications/Discount%20Management.md"> Discounts/ Coupon Setup in WooCommerce</a>
+<a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R109/Documentation/Specifications/Discount%20Management.md"> Discounts/ Coupon Setup in WooCommerce</a>
 
 <a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R109/Documentation/Specifications/Tax%20Management.md"> Tax Management </a>
 
-<a href="hhttps://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R109/Documentation/Specifications/Freight%20Management.md"> Freight Management</a>
+<a href="https://github.com/Acumatica/Acumatica-WooCommerce/blob/2021R109/Documentation/Specifications/Freight%20Management.md"> Freight Management</a>
