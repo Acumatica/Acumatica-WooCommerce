@@ -117,7 +117,7 @@ namespace ACSC.Tests.TestsProduct
             ConnectorEntity.RemoveImportExportMappingFiltering(store, Entities.StockItem);
             if (itemsToCreate.Count != 0)
             {
-                itemClass = DataService.GetItemClassEntity(DataFilePath.ExportStockItemToSPCreateItemClass);
+                itemClass = DataService.GetItemClassEntity(DataFilePath.ExportStockItemToWCCreateItemClass);
                 warehouse = DataService.GetWarehouseEntity(DataFilePath.WarehouseCreateItem);
                 calcRule = DataService.GetAvailCalcRule(DataFilePath.AvailCalcRuleCreateItem);
                 ConfigureInventoryAutoNumbering();
@@ -125,7 +125,7 @@ namespace ACSC.Tests.TestsProduct
                 CreateWarehouse(warehouse);
                 CreateItemClass(itemClass);
 
-                var itemsEx = DataService.GetStockItemsEntity(DataFilePath.ExportStockItemToSPCreateItems);
+                var itemsEx = DataService.GetStockItemsEntity(DataFilePath.ExportStockItemToWCCreateItems);
                 visitor = VisitorsManager.GetSingle<IStockItemVisitor>(typeof(StockItemVisitor));
                 var stockItems = itemsEx.Where(x => itemsToCreate.Contains(x.InventoryCD)).ToList();
                 StockItemPage.OpenScreen();

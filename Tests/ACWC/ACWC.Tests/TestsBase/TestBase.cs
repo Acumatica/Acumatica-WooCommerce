@@ -301,7 +301,6 @@ namespace ACSC.Tests.TestsBase
             {
                 isItemClassExists = ValidateSelection(itemClass.ClassID, ItemClassPage.Summary.ItemClassCDLabel.GetValue(), e.Message);
             }
-
             if (isItemClassExists) return;
 
             ItemClassPage.Insert();
@@ -311,9 +310,9 @@ namespace ACSC.Tests.TestsBase
             ItemClassPage.GeneralSettings.ItemType.Select(itemClass.GeneralSettings.ItemType);
             ItemClassPage.GeneralSettings.TaxCategoryID.Select(itemClass.GeneralSettings.TaxCategory);
             ItemClassPage.GeneralSettings.PostClassID.Select(itemClass.GeneralSettings.PostingClass);
-            ItemClassPage.GeneralSettings.PostClassID.Select("AOL");
-            ItemClassPage.GeneralSettings.LotSerClassID.Select(itemClass.GeneralSettings.LotSerClass);
-        //    ItemClassPage.GeneralSettings.LotSerClassID.Select("SRENTER");
+            ItemClassPage.GeneralSettings.PostClassID.Select("");
+            //ItemClassPage.GeneralSettings.LotSerClassID.Select(itemClass.GeneralSettings.LotSerClass);
+            ItemClassPage.GeneralSettings.LotSerClassID.Select("NOTTRACKED");
 
             ItemClassPage.GeneralSettings.DfltSiteID.Select(itemClass.GeneralSettings.DefWarehouse);
             ItemClassPage.GeneralSettings.AvailabilitySchemeID.Select(itemClass.GeneralSettings.AvailabilityCalcRule);

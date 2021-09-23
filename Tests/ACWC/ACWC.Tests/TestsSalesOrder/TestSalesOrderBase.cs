@@ -208,7 +208,7 @@ namespace ACSC.Tests.TestsSalesOrder
             WooCommerceStore.SetEntitySettings(Entities.Customer, "Import", "External System");
             WooCommerceStore.Save();
             CustomerGI.OpenScreen();
-            customerData = DataService.GetCustomerData(DataFilePath.CreateSHCustomer_CAAddress_ImportToACData);
+            customerData = DataService.GetCustomerData(DataFilePath.CreateCustomer_CAAddress_ImportToACData);
             customerData.Email = GenerateRandomEmail();
             customerData.Username = GenerateRandomUserName();
             string customerExt = customerData.Username;
@@ -367,7 +367,7 @@ namespace ACSC.Tests.TestsSalesOrder
         protected void CreateStockItems(string dataFilePath)
         {
             stockItems = DataService.GetStockItemsEntity(dataFilePath);
-            itemClass = DataService.GetItemClassEntity(DataFilePath.ExportStockItemToSPCreateItemClass);
+            itemClass = DataService.GetItemClassEntity(DataFilePath.ExportStockItemToWCCreateItemClass);
             warehouse = DataService.GetWarehouseEntity(DataFilePath.WarehouseCreateItem);
             calcRule = DataService.GetAvailCalcRule(DataFilePath.AvailCalcRuleCreateItem);
             var itemsToCreate = new List<StockItemEntity>();
@@ -447,6 +447,39 @@ namespace ACSC.Tests.TestsSalesOrder
 
             storeID = syncStatus.Store;
             if (entity == Entities.SalesOrder)
+            {
+                localOrderNbr = syncStatus.DetailsView.FirstOrDefault()?.LocalID;
+                externalOrderID = syncStatus.DetailsView.FirstOrDefault()?.ExternalID;
+            }
+            else if (entity == Entities.Payment)
+            {
+                externalPayID = syncStatus.DetailsView.FirstOrDefault()?.ExternalID;
+            }
+        }
+        protected void VerifyRefundSyncSuccessInAcumatica(string id, bool local, string entity = Entities.Refund)
+        {
+            SyncStatus.OpenScreen();
+            SyncStatus syncStatusToCompare = GetSyncStatus();
+
+            if (local)
+            {
+                SyncStatus.SetVerifyFilter(entity, Statuses.Synchronized, localID: id, store: store);
+            }
+            else
+            {
+                SyncStatus.SetVerifyFilter(entity, Statuses.Synchronized, externalID: id, store: store);
+            }
+
+            syncStatus = SyncStatus.Get();
+
+            //Validate Sales Order
+            EntityComparer.Instance.Validate(syncStatusToCompare, syncStatus)
+                .Trace(Messages.ValidateSyncStatusFor(entity, id))
+                .IsValid
+                .VerifyEquals(true);
+
+            storeID = syncStatus.Store;
+            if (entity == Entities.Refund)
             {
                 localOrderNbr = syncStatus.DetailsView.FirstOrDefault()?.LocalID;
                 externalOrderID = syncStatus.DetailsView.FirstOrDefault()?.ExternalID;

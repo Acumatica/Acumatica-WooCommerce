@@ -47,7 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestsSalesOrder\ImportSalesOrderRefundFromWC.cs" />
+    <Compile Include="TestsCustomer\CreateWooComCustomer_Address_ImportToWC.cs" />
+    <Compile Include="TestsSalesOrder\ImportSalesOrderAmountRefundFromWC - Copy.cs" />
+    <Compile Include="TestsSalesOrder\ImportSalesOrderQTYRefundFromWC.cs" />
     <Compile Include="TestsProduct\ExportTemplateItemsToWC.cs" />
     <Compile Include="TestsProduct\ExportProductAvailabilityToWC.cs" />
     <Compile Include="TestsProduct\ExportNonStockItemsToWC.cs" />
@@ -370,7 +372,7 @@
     <Compile Include="CommerceTests\TestsCustomer\Customer_Deleted_BigCommerce_AfterInitialSync.cs" />
     <Compile Include="WooCommerceRest\Domain\Entities\PriceRule\PrerequisiteSubtotalRange.cs" />
     <Compile Include="WooCommerceRest\Domain\Entities\PriceRule\PriceRuleData.cs" />
-    <Compile Include="TestsCustomer\CreateWCCustomer_CAAddress_ImportToAC.cs" />
+    <Compile Include="TestsCustomer\CreateWCCustomer_Address_ImportToAC.cs" />
     <Compile Include="WooCommerceRest\Domain\Entities\Order\DraftOrderData.cs" />
     <Compile Include="TestsSalesOrder\ProcessSalesOrderWithMultipleShipmentsToUSAddressWC.cs" />
     <Compile Include="TestsSalesOrder\SalesOrderImportMappingTab.cs" />
@@ -892,7 +894,7 @@
     <None Include="EntityData\ItemClass\CreateTemplateItemInAcumaticaExportToSP.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="EntityData\ItemClass\ExportStockItemToSPCreateItemClass.json">
+    <None Include="EntityData\ItemClass\ExportStockItemToWCCreateItemClass.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="EntityData\Customer\LocationsMultipleUSAddressesExportToSP.json">
@@ -932,6 +934,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="EntityData\Orders\ImportSalesOrderMultipleItemsTaxesForCanadianCustomerWC.json" />
+    <None Include="EntityData\Orders\SalesOrderForExistingCustomerAndItemWCRefund.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="EntityData\Orders\SOForExistingCustomerAndItem\ItemsToCreate.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -1049,6 +1054,9 @@
     <None Include="EntityData\SORefunds\CreateSalesOrderForRefundInWC.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="EntityData\SORefunds\CreateSalesOrderAmountRefundInWC.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="EntityData\SORefunds\CreateSalesOrderRefundInWC.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -1070,7 +1078,7 @@
     <None Include="EntityData\StockItems\ExportProductAvailabilityToSPResult.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="EntityData\StockItems\ExportStockItemToSPCreateItems.json">
+    <None Include="EntityData\StockItems\ExportStockItemToWCCreateItems.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="EntityData\StockItems\ExportStockItemToSPFilteringGI.json">

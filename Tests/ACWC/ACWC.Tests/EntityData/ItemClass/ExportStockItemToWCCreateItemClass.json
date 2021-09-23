@@ -9,7 +9,7 @@
     "DefWarehouse": "MAIN",
     "AvailabilityCalcRule": "STOCKITEM",
     "PostingClass": "AOL",
-    "LotSerClass": "ALTFRT",
+    "LotSerClass": "NOTTRACKED",
     "BaseUnit": "EA",
     "SalesUnit": "EA",
     "PurchaseUnit": "EA",

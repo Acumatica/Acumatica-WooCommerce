@@ -9,8 +9,8 @@
         public const string CustomerMultipleUSAddressesExportToSP = "EntityData\\Customer\\CustomerMultipleUSAddressesExportToSP.json";
         public const string ExportACCustomersFilteringToSP = "EntityData\\Customer\\ExportACCustomers_Filtering_ToSP.json";
 
-        public const string CreateSHCustomer_CAAddress_ImportToACData = "EntityData\\Customer\\CreateSHCustomer_CAAddress_ImportToAC\\CreateSHCustomer_CAAddress_ImportToACData.json";
-        public const string CreateSHCustomer_USAddress_ImportToACData = "EntityData\\Customer\\CreateSHCustomer_USAddress_ImportToACData.json";
+        public const string CreateCustomer_CAAddress_ImportToACData = "EntityData\\Customer\\CreateSHCustomer_USAddress_ImportToACData.json";
+        public const string CreateCustomer_USAddress_ImportToACData = "EntityData\\Customer\\CreateSHCustomer_USAddress_ImportToACData.json";
 
 
         public const string LocationsMultipleUSAddressesExportToSP = "EntityData\\Customer\\LocationsMultipleUSAddressesExportToSP.json";
@@ -35,6 +35,8 @@
         public const string ExportProductAvailabilityToSPResult = "EntityData\\StockItems\\ExportProductAvailabilityToSPResult.json";
 
         public const string SalesOrderForExistingCustomerAndItemWC = "EntityData\\Orders\\SalesOrderForExistingCustomerAndItemWC.json";
+        public const string SalesOrderForExistingCustomerAndItemWCRefund = "EntityData\\Orders\\SalesOrderForExistingCustomerAndItemWCRefund.json";
+        public const string CreateSalesOrderForRefundInWC = "EntityData\\SORefunds\\CreateSalesOrderForRefundInWC.json";
         public const string DropShipmentSalesOrderWithFullShipmentShopify = "EntityData\\Orders\\DropShipmentSalesOrderWithFullShipmentShopify.json";
         public const string ImportSalesOrderLineLevelDiscountsOnMultipleItemsShopify = "EntityData\\Orders\\ImportSalesOrderLineLevelDiscountsOnMultipleItemsShopify.json";
         public const string ImportSalesOrderMultipleItemsTaxesForCanadianCustomerWooCom = "EntityData\\Orders\\ImportSalesOrderMultipleItemsTaxesForCanadianCustomerWooCommerce.json";
@@ -81,7 +83,7 @@
 
         //Item Class
         public const string CreateTemplateItemInAcumaticaExportToSP = "EntityData\\ItemClass\\CreateTemplateItemInAcumaticaExportToSP.json";
-        public const string ExportStockItemToSPCreateItemClass = "EntityData\\ItemClass\\ExportStockItemToSPCreateItemClass.json";
+        public const string ExportStockItemToWCCreateItemClass = "EntityData\\ItemClass\\ExportStockItemToWCCreateItemClass.json";
         public const string AvailCalcRuleCreateItem = "EntityData\\ItemClass\\AvailCalcRuleCreateTemplateItem.json";
         public const string AttributesCreateTemplateItems = "EntityData\\Attribute\\AttributesCreateTemplateItems.json";
         public const string WarehouseCreateItem = "EntityData\\Warehouse\\WarehouseCreateTemplateItem.json";
@@ -91,7 +93,7 @@
 
 
         //Stock Items
-        public const string ExportStockItemToSPCreateItems = "EntityData\\StockItems\\ExportStockItemToSPCreateItems.json";
+        public const string ExportStockItemToWCCreateItems = "EntityData\\StockItems\\ExportStockItemToWCCreateItems.json";
         public const string ExportStockItemToWCGI = "EntityData\\StockItems\\ExportStockItemToWCGI.json";
         public const string ExportStockItemToWCProductData = "EntityData\\StockItems\\ExportStockItemToSPProductData.json";
 
@@ -137,6 +139,7 @@
 
         //Refund
         public const string ImportSalesOrderRefundFromWC = "EntityData\\SORefunds\\CreateSalesOrderRefundInWC.json";
+        public const string ImportSalesOrderAmountRefundFromWC = "EntityData\\SORefunds\\CreateSalesOrderAmountRefundInWC.json";
 
         //Connector mapping
         public const string StockItemExportMapping = "EntityData\\ConnectorEntity\\StockItemExportMapping.json";

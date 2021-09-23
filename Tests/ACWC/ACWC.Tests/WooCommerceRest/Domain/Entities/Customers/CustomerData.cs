@@ -159,83 +159,87 @@ namespace ACSC.Tests.ShopifyRest.Domain.Entities.Customers
                 [Description(ShopifyCaptions.BillingAddress)]
                 public CustomerAddressData Billingaddress { get; set; }
 
-                [JsonProperty("shipping", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("shipping", NullValueHandling = NullValueHandling.Ignore)]
                 [Description(ShopifyCaptions.ShippingAddress)]
                 public CustomerAddressData Shippingaddress { get; set; }
 
-                ///// <summary>
-                ///// Tags that the shop owner has attached to the customer, formatted as a string of comma-separated values. A customer can have up to 250 tags. Each tag can have up to 255 characters.
-                ///// </summary>
-                //[JsonProperty("tags", NullValueHandling = NullValueHandling.Ignore)]
-                //[Description(ShopifyCaptions.Tags)]
-                //public virtual string Tags { get; set; }
+        //[JsonProperty("billing", NullValueHandling = NullValueHandling.Ignore)]
+        //[Description(ShopifyCaptions.CustomerAddress)]
+        //public IList<CustomerAddressData> BillingAddress { get; set; }
 
-                ///// <summary>
-                ///// The name of the customer's last order. This is directly related to the name field on the Order resource.
-                ///// </summary>
-                //[JsonProperty("last_order_name")]
-                //[ShouldNotSerialize]
-                //public string LastOrderName { get; private set; }
+        ///// <summary>
+        ///// Tags that the shop owner has attached to the customer, formatted as a string of comma-separated values. A customer can have up to 250 tags. Each tag can have up to 255 characters.
+        ///// </summary>
+        //[JsonProperty("tags", NullValueHandling = NullValueHandling.Ignore)]
+        //[Description(ShopifyCaptions.Tags)]
+        //public virtual string Tags { get; set; }
 
-                ///// <summary>
-                ///// The three-letter code (ISO 4217 format) for the currency that the customer used when they paid for their last order. Defaults to the shop currency. Returns the shop currency for test orders.
-                ///// </summary>
-                //[JsonProperty("currency")]
-                //[Description(ShopifyCaptions.Currency)]
-                //[ShouldNotSerialize]
-                //public string Currency { get; private set; }
+        ///// <summary>
+        ///// The name of the customer's last order. This is directly related to the name field on the Order resource.
+        ///// </summary>
+        //[JsonProperty("last_order_name")]
+        //[ShouldNotSerialize]
+        //public string LastOrderName { get; private set; }
 
-                /// <summary>
-                /// Whether the customer is exempt from paying specific taxes on their order. Canadian taxes only. Valid values:
-                /// EXEMPT_ALL: This customer is exempt from all Canadian taxes.
-                ///CA_STATUS_CARD_EXEMPTION: This customer is exempt from specific taxes for holding a valid STATUS_CARD_EXEMPTION in Canada.
-                ///CA_DIPLOMAT_EXEMPTION: This customer is exempt from specific taxes for holding a valid DIPLOMAT_EXEMPTION in Canada.
-                ///CA_BC_RESELLER_EXEMPTION: This customer is exempt from specific taxes for holding a valid RESELLER_EXEMPTION in British Columbia.
-                ///CA_MB_RESELLER_EXEMPTION: This customer is exempt from specific taxes for holding a valid RESELLER_EXEMPTION in Manitoba.
-                ///CA_SK_RESELLER_EXEMPTION: This customer is exempt from specific taxes for holding a valid RESELLER_EXEMPTION in Saskatchewan.
-                ///CA_BC_COMMERCIAL_FISHERY_EXEMPTION: This customer is exempt from specific taxes for holding a valid COMMERCIAL_FISHERY_EXEMPTION in British Columbia.
-                ///CA_MB_COMMERCIAL_FISHERY_EXEMPTION: This customer is exempt from specific taxes for holding a valid COMMERCIAL_FISHERY_EXEMPTION in Manitoba.
-                ///CA_NS_COMMERCIAL_FISHERY_EXEMPTION: This customer is exempt from specific taxes for holding a valid COMMERCIAL_FISHERY_EXEMPTION in Nova Scotia.
-                ///CA_PE_COMMERCIAL_FISHERY_EXEMPTION: This customer is exempt from specific taxes for holding a valid COMMERCIAL_FISHERY_EXEMPTION in Prince Edward Island.
-                ///CA_SK_COMMERCIAL_FISHERY_EXEMPTION: This customer is exempt from specific taxes for holding a valid COMMERCIAL_FISHERY_EXEMPTION in Saskatchewan.
-                ///CA_BC_PRODUCTION_AND_MACHINERY_EXEMPTION: This customer is exempt from specific taxes for holding a valid PRODUCTION_AND_MACHINERY_EXEMPTION in British Columbia.
-                ///CA_SK_PRODUCTION_AND_MACHINERY_EXEMPTION: This customer is exempt from specific taxes for holding a valid PRODUCTION_AND_MACHINERY_EXEMPTION in Saskatchewan.
-                ///CA_BC_SUB_CONTRACTOR_EXEMPTION: This customer is exempt from specific taxes for holding a valid SUB_CONTRACTOR_EXEMPTION in British Columbia.
-                ///CA_SK_SUB_CONTRACTOR_EXEMPTION: This customer is exempt from specific taxes for holding a valid SUB_CONTRACTOR_EXEMPTION in Saskatchewan.
-                ///CA_BC_CONTRACTOR_EXEMPTION: This customer is exempt from specific taxes for holding a valid CONTRACTOR_EXEMPTION in British Columbia.
-                ///CA_SK_CONTRACTOR_EXEMPTION: This customer is exempt from specific taxes for holding a valid CONTRACTOR_EXEMPTION in Saskatchewan.
-                ///CA_ON_PURCHASE_EXEMPTION: This customer is exempt from specific taxes for holding a valid PURCHASE_EXEMPTION in Ontario.
-                ///CA_MB_FARMER_EXEMPTION: This customer is exempt from specific taxes for holding a valid FARMER_EXEMPTION in Manitoba.
-                ///CA_NS_FARMER_EXEMPTION: This customer is exempt from specific taxes for holding a valid FARMER_EXEMPTION in Nova Scotia.
-                ///CA_SK_FARMER_EXEMPTION: This customer is exempt from specific taxes for holding a valid FARMER_EXEMPTION in Saskatchewan.
-                /// </summary>
-                //[JsonProperty("tax_exemptions", NullValueHandling = NullValueHandling.Ignore)]
-                ////[Description(ShopifyCaptions.TaxExemptions)]
-                //public string[] TaxExemptions { get; set; }
+        ///// <summary>
+        ///// The three-letter code (ISO 4217 format) for the currency that the customer used when they paid for their last order. Defaults to the shop currency. Returns the shop currency for test orders.
+        ///// </summary>
+        //[JsonProperty("currency")]
+        //[Description(ShopifyCaptions.Currency)]
+        //[ShouldNotSerialize]
+        //public string Currency { get; private set; }
+
+        /// <summary>
+        /// Whether the customer is exempt from paying specific taxes on their order. Canadian taxes only. Valid values:
+        /// EXEMPT_ALL: This customer is exempt from all Canadian taxes.
+        ///CA_STATUS_CARD_EXEMPTION: This customer is exempt from specific taxes for holding a valid STATUS_CARD_EXEMPTION in Canada.
+        ///CA_DIPLOMAT_EXEMPTION: This customer is exempt from specific taxes for holding a valid DIPLOMAT_EXEMPTION in Canada.
+        ///CA_BC_RESELLER_EXEMPTION: This customer is exempt from specific taxes for holding a valid RESELLER_EXEMPTION in British Columbia.
+        ///CA_MB_RESELLER_EXEMPTION: This customer is exempt from specific taxes for holding a valid RESELLER_EXEMPTION in Manitoba.
+        ///CA_SK_RESELLER_EXEMPTION: This customer is exempt from specific taxes for holding a valid RESELLER_EXEMPTION in Saskatchewan.
+        ///CA_BC_COMMERCIAL_FISHERY_EXEMPTION: This customer is exempt from specific taxes for holding a valid COMMERCIAL_FISHERY_EXEMPTION in British Columbia.
+        ///CA_MB_COMMERCIAL_FISHERY_EXEMPTION: This customer is exempt from specific taxes for holding a valid COMMERCIAL_FISHERY_EXEMPTION in Manitoba.
+        ///CA_NS_COMMERCIAL_FISHERY_EXEMPTION: This customer is exempt from specific taxes for holding a valid COMMERCIAL_FISHERY_EXEMPTION in Nova Scotia.
+        ///CA_PE_COMMERCIAL_FISHERY_EXEMPTION: This customer is exempt from specific taxes for holding a valid COMMERCIAL_FISHERY_EXEMPTION in Prince Edward Island.
+        ///CA_SK_COMMERCIAL_FISHERY_EXEMPTION: This customer is exempt from specific taxes for holding a valid COMMERCIAL_FISHERY_EXEMPTION in Saskatchewan.
+        ///CA_BC_PRODUCTION_AND_MACHINERY_EXEMPTION: This customer is exempt from specific taxes for holding a valid PRODUCTION_AND_MACHINERY_EXEMPTION in British Columbia.
+        ///CA_SK_PRODUCTION_AND_MACHINERY_EXEMPTION: This customer is exempt from specific taxes for holding a valid PRODUCTION_AND_MACHINERY_EXEMPTION in Saskatchewan.
+        ///CA_BC_SUB_CONTRACTOR_EXEMPTION: This customer is exempt from specific taxes for holding a valid SUB_CONTRACTOR_EXEMPTION in British Columbia.
+        ///CA_SK_SUB_CONTRACTOR_EXEMPTION: This customer is exempt from specific taxes for holding a valid SUB_CONTRACTOR_EXEMPTION in Saskatchewan.
+        ///CA_BC_CONTRACTOR_EXEMPTION: This customer is exempt from specific taxes for holding a valid CONTRACTOR_EXEMPTION in British Columbia.
+        ///CA_SK_CONTRACTOR_EXEMPTION: This customer is exempt from specific taxes for holding a valid CONTRACTOR_EXEMPTION in Saskatchewan.
+        ///CA_ON_PURCHASE_EXEMPTION: This customer is exempt from specific taxes for holding a valid PURCHASE_EXEMPTION in Ontario.
+        ///CA_MB_FARMER_EXEMPTION: This customer is exempt from specific taxes for holding a valid FARMER_EXEMPTION in Manitoba.
+        ///CA_NS_FARMER_EXEMPTION: This customer is exempt from specific taxes for holding a valid FARMER_EXEMPTION in Nova Scotia.
+        ///CA_SK_FARMER_EXEMPTION: This customer is exempt from specific taxes for holding a valid FARMER_EXEMPTION in Saskatchewan.
+        /// </summary>
+        //[JsonProperty("tax_exemptions", NullValueHandling = NullValueHandling.Ignore)]
+        ////[Description(ShopifyCaptions.TaxExemptions)]
+        //public string[] TaxExemptions { get; set; }
 
 
 
-                ///// <summary>
-                ///// The default address for the customer.
-                ///// </summary>
-                //[JsonProperty("default_address")]
-                //[ShouldNotSerialize]
-                //public CustomerAddressData DefaultAddress { get; private set; }
+        ///// <summary>
+        ///// The default address for the customer.
+        ///// </summary>
+        //[JsonProperty("default_address")]
+        //[ShouldNotSerialize]
+        //public CustomerAddressData DefaultAddress { get; private set; }
 
-                /// <summary>
-                /// Attaches additional metadata to a shop's resources:
-                ///key(required) : An identifier for the metafield(maximum of 30 characters).
-                ///namespace(required): A container for a set of metadata(maximum of 20 characters). Namespaces help distinguish between metadata that you created and metadata created by another individual with a similar namespace.
-                ///value (required): Information to be stored as metadata.
-                ///value_type(required): The value type.Valid values: string and integer.
-                ///description(optional): Additional information about the metafield.
-                ///
-                ///// </summary>
-                // [JsonProperty("metafields", NullValueHandling = NullValueHandling.Ignore)]
-                // public List<MetafieldData> Metafields { get; set; }
+        /// <summary>
+        /// Attaches additional metadata to a shop's resources:
+        ///key(required) : An identifier for the metafield(maximum of 30 characters).
+        ///namespace(required): A container for a set of metadata(maximum of 20 characters). Namespaces help distinguish between metadata that you created and metadata created by another individual with a similar namespace.
+        ///value (required): Information to be stored as metadata.
+        ///value_type(required): The value type.Valid values: string and integer.
+        ///description(optional): Additional information about the metafield.
+        ///
+        ///// </summary>
+        // [JsonProperty("metafields", NullValueHandling = NullValueHandling.Ignore)]
+        // public List<MetafieldData> Metafields { get; set; }
 
-                //Conditional Serialization
-                public bool ShouldSerializeId()
+        //Conditional Serialization
+        public bool ShouldSerializeId()
                 {
                     return Id.HasValue && Id > 0;
                 }

@@ -14,7 +14,7 @@ using WooCommerce.Tests.TestData;
 
 namespace ACSC.Tests.TestsCustomer
 {
-    public class CreateWCCustomer_CAAddress_ImportToAC : TestCustomerBase
+    public class CreateWCCustomer_Address_ImportToAC : TestCustomerBase
     {
         public string NewTestUser { get; private set; }
 
@@ -50,11 +50,6 @@ namespace ACSC.Tests.TestsCustomer
                     SyncStatus.SetVerifyFilter(Entities.Customer, Statuses.Synchronized, externalID: newCustomer.Id.ToString(), store:store);
                     syncStatus = SyncStatus.Get();
                     var syncStatusExt = GetSyncStatusExt(newCustomer.Id.ToString());
-                    //Validate Customer & Customer Locations
-                    EntityComparer.Instance.Validate(syncStatusExt, syncStatus)
-                                           .Trace($"SyncStatus: Validate Customer synced ({newCustomer.Id})");
-                    externalID = newCustomer.Id.ToString();
-                    customerLocalId = syncStatus.DetailsView.FirstOrDefault()?.LocalID?.Split(',')[0].Trim();
 
                 }
 

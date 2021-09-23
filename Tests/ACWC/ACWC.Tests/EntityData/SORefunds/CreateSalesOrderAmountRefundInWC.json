@@ -1,11 +1,10 @@
 ﻿{
-  "amount": "1500",
+  "amount": "750",
   "api_refund": false,
   "line_items": [
     {
       "id": "",
-      "quantity": 3,
-      "refund_total": 1500
+      "refund_total": 750
     }
   ]
 }

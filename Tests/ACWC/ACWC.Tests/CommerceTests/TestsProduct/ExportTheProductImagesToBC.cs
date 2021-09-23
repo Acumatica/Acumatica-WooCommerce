@@ -111,7 +111,7 @@ namespace ACSC.Tests.TestsProduct
 
             calcRule = DataService.GetAvailCalcRule(DataFilePath.AvailCalcRuleCreateItem);
             warehouse = DataService.GetWarehouseEntity(DataFilePath.WarehouseCreateItem);
-            itemClass = DataService.GetItemClassEntity(DataFilePath.ExportStockItemToSPCreateItemClass);
+            itemClass = DataService.GetItemClassEntity(DataFilePath.ExportStockItemToWCCreateItemClass);
             CreateAvailCalcRule(calcRule);
             CreateWarehouse(warehouse);
             CreateItemClass(itemClass);

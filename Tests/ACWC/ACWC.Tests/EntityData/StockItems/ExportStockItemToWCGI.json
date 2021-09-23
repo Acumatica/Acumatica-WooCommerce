@@ -14,7 +14,7 @@
     "itemStatus": "Active"
   },
   {
-    "inventoryCD": "AAMACHINE1",
+    "inventoryCD": "AAMACHINE",
     "description": "Injection molding machine",
     "itemType": "Finished Good",
     "itemClass": "STOCKITEM",
@@ -28,7 +28,7 @@
     "itemStatus": "Active"
   },
   {
-    "inventoryCD": "CONTABLE1",
+    "inventoryCD": "CONTABLE",
     "description": "Folding Picnic Table 6 Foot",
     "itemType": "Finished Good",
     "itemClass": "STOCKITEM",

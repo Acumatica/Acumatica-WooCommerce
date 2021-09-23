@@ -11,7 +11,7 @@ using ACSC.Tests.EntityDataService;
 
 namespace ACSC.Tests.TestsSalesOrder
 {
-    public class ImportSalesOrderRefundFromWC : TestSalesOrderBase
+    public class ImportSalesOrderQTYRefundFromWC : TestSalesOrderBase
     {
         public long? orderID { get; private set; }
         
@@ -38,7 +38,7 @@ namespace ACSC.Tests.TestsSalesOrder
                     newOrder = CreateOrder(orderData);
                 }
 
-                using (TestExecution.CreateTestStepGroup("Step 3 - Import Sales Orders into AC"))
+                using (TestExecution.CreateTestStepGroup("Step 3 - Import Sales Orders into WC"))
                 {
                     FetchDataPage.FetchDataByEntityUsingFetchModeWithSyncMode(store, FetchMode.Incremental, SyncMode.PendingAndFailed, Entities.SalesOrder, newOrder.Id.ToString());
                 }
@@ -64,8 +64,12 @@ namespace ACSC.Tests.TestsSalesOrder
                 {
                     FetchDataPage.FetchDataByEntityUsingFetchModeWithSyncMode(store, FetchMode.Incremental, SyncMode.PendingAndFailed, Entities.Refund, newOrder.Id.ToString());
                 }
+                using (TestExecution.CreateTestStepGroup("Step 8 - Verify Import Process Success in Acumatica."))
+                {
+                    VerifySyncSuccessInAcumatica(newOrder.Id.ToString(), false, Entities.SalesOrder);
+                }
 
-                using (TestExecution.CreateTestStepGroup("Step 8 - Save ID"))
+                using (TestExecution.CreateTestStepGroup("Step 9 - Save ID"))
                 {
                     SaveID(this.GetType());
                 }
@@ -104,19 +108,29 @@ namespace ACSC.Tests.TestsSalesOrder
             SyncStatus.SetVerifyFilter(Entities.StockItem, Statuses.Synchronized, "Acer Laptop Computer", store: store);
             productStatus = SyncStatus.Get();
 
-            var AALEGO500 = productStatus?.DetailsView?.FirstOrDefault(l => l.LocalID == "Acer Laptop Computer")?.ExternalID;
+            var AACOMPUT01 = productStatus?.DetailsView?.FirstOrDefault(l => l.LocalID == "Acer Laptop Computer")?.ExternalID;
 
             var orderDataProvider = WooCommerceApiService.Instance.ProductRestDataProvider;
             //var variantId1 = orderDataProvider.GetByID(AALEGO500).Variants?.FirstOrDefault()?.Id;
-            var variantId1 = orderDataProvider.GetByID(AALEGO500).Id;
+            var variantId1 = orderDataProvider.GetByID(AACOMPUT01).Id;
             long.TryParse(extCustID, out long customerId);
-            orderData = DataService.GetOrderData(DataFilePath.SalesOrderForExistingCustomerAndItemWC);
+            orderData = DataService.GetOrderData(DataFilePath.SalesOrderForExistingCustomerAndItemWCRefund);
             return orderData;
         }
 
         private OrderRefund GetRefundDataObj()
         {
             refundData = DataService.GetOrderRefund(DataFilePath.ImportSalesOrderRefundFromWC);
+            var lineItems = newOrder.LineItems;
+            var getLineItems = lineItems.ToArray();
+            var tempLineItem = getLineItems[0];
+
+            var tstItem = refundData.RefundLineItems.FirstOrDefault();
+            if (tstItem != null)
+            {
+                tstItem.Id = tempLineItem.Id;
+            }
+
             return refundData;
 
         }
@@ -130,7 +144,7 @@ namespace ACSC.Tests.TestsSalesOrder
             orderEx.DocumentDetails.Add(new SalesOrderEntityDetails
             {
                 InventoryID = "AACOMPUT01",
-                OrderQty = 1.00m,
+                OrderQty = 4.00m,
                 UnitPrice = 500.00m,
                 CuryDiscAmt = null
             });
@@ -140,9 +154,9 @@ namespace ACSC.Tests.TestsSalesOrder
                 CuryPaymentTotal = null,
                 SubTotal = null,
                 CuryTaxTotal = null,
-                CuryOrderTotal = 500.00m,
+                CuryOrderTotal = 2000.00m,
                 CuryDiscTot = null,
-                OrderQty = 1.00m,
+                OrderQty = 4.00m,
                 FreightPrice = 0.00m
             };
 

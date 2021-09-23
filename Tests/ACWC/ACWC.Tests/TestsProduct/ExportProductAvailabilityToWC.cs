@@ -370,7 +370,7 @@ namespace ACSC.Tests.TestsProduct
                 ConfigureInventoryAutoNumbering();
                 warehouse = DataService.GetWarehouseEntity(DataFilePath.WarehouseCreateItem);
                 calcRule = DataService.GetAvailCalcRule(DataFilePath.AvailCalcRuleCreateItem);
-                itemClass = DataService.GetItemClassEntity(DataFilePath.ExportStockItemToSPCreateItemClass);
+                itemClass = DataService.GetItemClassEntity(DataFilePath.ExportStockItemToWCCreateItemClass);
                 CreateAvailCalcRule(calcRule);
                 CreateWarehouse(warehouse);
                 CreateItemClass(itemClass);
